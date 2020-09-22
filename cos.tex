@@ -1,0 +1,186 @@
+\documentclass{report}[12pt, A4paper]
+
+%Set physical page size
+\pdfpagewidth=\paperwidth\pdfpageheight=\paperheight
+
+%syntax only ---------
+%comment out to build:
+%\usepackage{syntonly}
+
+%load packages
+%\usepackage[utf8]{inputenc}
+%\usepackage[
+%    language=english,
+%    title={A L\"auchli and Leonard style result for complete linear orders},
+%    author={Jean-Pierre de Villiers},
+%    supervisor={Dr.\ Ruaan Kellerman},
+%    examiner={},
+%    type={Magister Scientiae},
+%    institute={University of Pretoria},
+%    course={MSc Mathematics},
+%    startdate={2019--02--01},
+%    enddate={2020--08--30}
+%]{scientific-thesis-cover}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{bm}
+\usepackage{faktor}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[sectionbib]{chapterbib}
+\usepackage[xindy,nopostdot,symbols,nomain,nonumberlist]{glossaries}
+\usepackage{stmaryrd}
+
+%double spacing for easy annotation
+%\usepackage[doublespacing]{setspace}
+
+%packages that generally MUST be loaded last
+%\usepackage{hyperref}
+
+%packages that must be loaded after hyperref
+%\usepackage[ symbols,nomain]{glossaries}
+
+%add definition theorem environments
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}[chapter]
+\newtheorem{exm}[dfn]{Example}
+
+%add plain theorem environments
+\theoremstyle{plain}
+\newtheorem{thm}[dfn]{Theorem}
+\newtheorem{lem}[dfn]{Lemma}
+\newtheorem{cor}[dfn]{Corollary}
+\newtheorem{prp}[dfn]{Proposition}
+
+\newcounter{nclaim}[dfn]
+%add remark theorem environments
+\theoremstyle{remark}
+\newtheorem{rem}[dfn]{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem{claim}[nclaim]{Claim}
+
+%common sets of numbers
+\newcommand{\nats}{\mathbb{N}}
+\newcommand{\posnats}{\mathbb{N}^{+}}
+\newcommand{\ints}{\mathbb{Z}}
+\newcommand{\rats}{\mathbb{Q}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\irrats}{\mathbb{I}}
+
+%finite ordinals
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\n}{\mathbf{n}}
+
+%special classes of listrnear orders
+\newcommand{\VD}{\mathcal{VD}}
+\newcommand{\Mzero}{\mathcal{M}_0}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\linear}{\mathcal{L}}
+\newcommand{\scattered}{\mathcal{S}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\dense}{\mathcal{D}}
+\newcommand{\Dense}{\mathcal{D}^\ast}
+\newcommand{\continuous}{\mathcal{L}_\lambda}
+\newcommand{\ordinals}{\mathcal{O}\mathrm{rd}}
+
+%important sentences
+\newcommand{\axmlin}{\sigma_{\mathrm{L}}}
+\newcommand{\axmden}{\sigma_{\mathrm{D}}}
+
+%notation commands
+\newcommand{\define}{\coloneqq}
+\newcommand{\eqsymb}{\approx}
+\newcommand{\setbuild}[2]{\{ #1\colon #2 \}}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\dual}[1]{{#1}^\ast}
+\newcommand{\up}[1]{\left\uparrow#1\right.}
+\newcommand{\down}[1]{\left\downarrow#1\right.}
+\newcommand{\powerset}[1]{\mathcal{P}(#1)}
+\newcommand{\family}[2]{(#1)_{#2}}
+\newcommand{\domain}[1]{\partial^{#1}}
+\newcommand{\card}[1]{\left\lvert#1\right\rvert}
+\newcommand{\subsets}[2]{\left[#2\right]^{#1}}
+\newcommand{\nequiv}[1]{\equiv^n}
+\newcommand{\eq}[1]{{#1}^{\mathrm{eq}}}
+\newcommand{\embed}{\preceq}
+\newcommand{\elmsub}{\preccurlyeq}
+\newcommand{\tto}{\twoheadrightarrow}
+\newcommand{\dcl}[1]{{#1}^\mathrm{D}}
+\newcommand{\forward}{\noindent$\Rightarrow$:\quad}
+\newcommand{\backward}{\noindent$\Leftarrow$:\quad}
+\newcommand{\cha}[2]{\llbracket#1\rrbracket^{#2}}
+\newcommand{\godel}[1]{\lfloor #1\rfloor}
+\newcommand{\pto}{\to}
+
+%condensation maps
+\newcommand{\fsplit}{\pi_F}
+
+%roman font operators
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\cf}{cf}
+\DeclareMathOperator{\range}{ran}
+\DeclareMathOperator{\con}{Con}
+\DeclareMathOperator{\defcon}{Con_d}
+\DeclareMathOperator{\trclos}{Tr}
+\DeclareMathOperator{\Th}{Th}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\admis}{Admis}
+\DeclareMathOperator{\kernel}{ker}
+
+%itaclic font operators
+\newcommand{\rank}{\mathit{rank}}
+\newcommand{\vdrank}{\mathit{rank}_\mathcal{VD}}
+\newcommand{\qrank}{\mathit{qr}}
+
+%calligraphic operators
+\newcommand{\comp}{\mathcal{C}}
+
+%define glossary entries
+\loadglsentries{symbols}
+\makeglossaries
+
+%Bibliography style
+\bibliographystyle{alpha}
+
+
+%glossary entries
+\glsadd{domain}
+\glsadd{cofinality}
+\glsadd{ksubsets}
+\glsadd{positive integers}
+\glsadd{reals}
+\glsadd{rationals}
+\glsadd{naturals}
+\glsadd{initial ordinals}
+\glsadd{range}
+
+
+%build only the specified chapters
+%\includeonly{prelim/pre, scattered/scatter}
+
+\begin{document}
+    %\maketitle
+
+    %frontmatter
+	\include{introduction/intro}
+	\include{prelim/pre}
+	\include{ramtheory/ramsey}
+	\include{scattered/scatter}
+	\include{complete/comp}
+	%\include{mono/mono}
+	\include{cont/cont}
+
+	%backmatter
+	\appendix
+	\include{computability/comp}
+
+	%print all glossaries
+	\setglossarystyle{longheaderborder}
+	\printglossaries
+
+  %print bibliography
+	\bibliography{references}
+
+
+\end{document}

@@ -1,0 +1,271 @@
+\chapter{Scattered linear orders}
+
+
+\section{Condensation maps and congruence lattices}
+
+\begin{lem}[Congruence construction]\label{lem:IndCong}
+        Suppose $\alpha$ is a linear order and $R$ is a transitive binary relation on $\alpha$.  Now define a another binary relation $\sim$ on $\alpha$ such that, for $a,b\in\alpha$, we have $a\sim b$ whenever one of the following is satisfied:
+        \begin{enumerate}
+            \item   $a=b$,
+            \item   $a<b$ and $aRb$,
+            \item   $b<a$ and $bRa$.
+        \end{enumerate}
+        Under these assumptions, $\sim$ is a congruence on $\alpha$.
+\end{lem}
+
+\begin{dfn}[Induced congruence]
+        The congruence $\sim$ in lemma (\ref{lem:IndCong}) is referred to as the \textbf{congruence induced by $R$}.
+\end{dfn}
+
+\begin{dfn}[Factor maps]
+        If $\alpha,\beta$ are linear orders then a \textbf{factor map} is a surjective homomorphism $\pi\colon\alpha\rightarrow\beta$.
+\end{dfn}
+
+\begin{dfn}[Splittings and Condensations]
+        If $\sim$ is a congruence of the linear order $\alpha$ and $\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is the (unique) factor map such that, for every $a,b\in\alpha$, it holds that:
+        \begin{equation}
+            a\sim b\iff \pi(a)=\pi(b),
+        \end{equation}
+        then we call $\pi$ the \textbf{splitting} of $\alpha$ \textit{induced by} $\sim$, refer to the quotient $\faktor{\alpha}{\sim}$ as a \textbf{condensation} of $\alpha$ and write $\pi\colon\alpha\tto\faktor{\alpha}{\sim}$.
+\end{dfn}
+
+
+\begin{dfn}[Finite splitting]
+        Suppose $\alpha$ is a linear order and $\sim$ is the congruence on $\alpha$ induced by the relation $R$ defined by:
+        \begin{equation}
+            aRb\quad\iff\quad a<b\text{ and }[a,b]\text{ is finite}.
+        \end{equation}
+        For any linear order $\alpha$ we let $\fsplit$ denote the map $\fsplit\colon a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer to $\fsplit$ as the $\textbf{finite splitting}$.
+\end{dfn}
+
+
+
+\begin{prp}[Congruence lattices]
+        Let $\con \alpha\subseteq\domain{2}\alpha$ be the set of all congruences on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
+        \begin{align}
+            \bigwedge X &\coloneqq\bigcap X,\\
+            \bigvee X   &\coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq a,\forall x\in X}.
+        \end{align}
+        It then follows that $(\con\alpha,\vee,\wedge)$ is a complete lattic.  Furthermore, it holds what $\bigvee X=\trclos(\bigcup X)$ --- the latter being the \textit{transitive closure} of the (reflexive and symmetric) binary relation $\bigcup X$.
+\end{prp}
+\begin{proof}
+	Let $X$ be an arbitrary (non-empty) subset of $\con\alpha$.  We now proceed to argue that $(\con\alpha,\vee,\wedge)$ is a complete lattice under the defined operations.  To achieve this, we are first required to show that (as defined above) the sets $\bigvee X$ and $\bigwedge X$ are in fact congruences.
+
+	We first make the case for $\bigwedge X$.  Let $I$ denote the identity relation on $\domain{}\alpha$ then, since the members of $X$ are all reflexive, we must have $I\subseteq x$ for each $x\in X$ and thus $I\subseteq\bigcap X=\bigwedge X$.  Therefore $\bigwedge X$ is in fact a reflexive (binary) relation.  Also, since the members of $X$ are all symmetric it immediately follows that $\bigwedge X$ is also, since if $(a,b)\bigcap X$ then $(a,b)\in x$ for every $x\in X$ after which the symmetry of the members of $x$ yield the corresponding $(b,a)\in\bigcap X$.  In a somewhat similar fashion, an arbitrary intersection of transitive (binary) relations will again yield a transitive relation, all via first principles.
+
+	Next we consider the case for $\bigvee X$.  Note that $I\subseteq \bigvee X$ since $X$ is non-empty and $I\subseteq x$ for each $x\in X$.  Therefore $\bigvee X$ is reflexive.  Note now that $\bigvee X$ is an intersection of symmetric (binary) relations and thus must itself also be symmetric.  In a similar fashion, since $\bigvee X$ is an intersection of transtive relations it must itself also be transitive.
+
+	All that remains is to show that $\bigvee X=\trclos(\bigcup X)$.  Clearly we already have $\trclos(\bigcup X)\subseteq\bigvee X$, since $\bigvee X$ is transitive,  so we need only show that the reverse inclusion also holds.  Not that, by definition, we must have $x\subseteq\bigcup X$ for each $x\in X$.  Also, by definition of transitive closure, we also have $\bigcup X\subseteq \trclos(\bigcup X)$ and thus $x\subseteq\trclos(\bigcup X)$ for each $x\in X$, as required.
+\end{proof}
+
+\begin{prp}
+         Suppose $f\colon\alpha\tto\beta$ is a factor map then there exists an unique congruence relation $\sim$ on $\alpha$ such that, if $\pi\colon\alpha\tto\faktor{\alpha}{\sim}$ is the splitting induced by $\sim$, there exists an unique isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ making the diagram
+        \begin{equation}
+            \begin{tikzcd}
+		\alpha \arrow[rr, "\pi",rightarrow]&&   \faktor{\alpha}{\sim}\\
+		\\
+		 &&   \beta \arrow[from=uu,"\iota", dashrightarrow] \arrow[from=uull,"f"']
+            \end{tikzcd}
+        \end{equation}
+        commute.
+\end{prp}
+\begin{proof}
+	The desired congruence relations is obtained in a manner familiar from algebra:  identify elements in $\alpha$ whenever they have the same image under $f$.  Borrowing a definition from universal algebra and lattice theory, we let $\sim$ be a binary relation whose underlying set of pairs is:
+	\begin{equation}
+		\kernel f=\setbuild{(a,b)\in\domain{2}\alpha}{f(a)=f(b)}.
+	\end{equation}
+	The required isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ is then given by $\iota\colon[a]\mapsto f(a)$, for each $a\in\alpha$.  That $\iota$ is well-defined follows simply from the definition of ${\sim}=\kernel f$.
+
+	We are now required to establish the uniquness of $\sim$ and $\iota$ in their respective roles.  By way of contradiction then, suppose $\sim_0$ is a congruence of $\alpha$ so that there exists an unique isomorphism $\iota_0$ that makes
+        \begin{equation}
+            \begin{tikzcd}
+		\alpha \arrow[rr, "\pi_0",rightarrow]&&   \faktor{\alpha}{\sim_0}\\
+		\\
+		 &&   \beta \arrow[from=uu,"\iota_0", dashrightarrow] \arrow[from=uull,"f"']
+            \end{tikzcd}
+        \end{equation}
+	commute.  This then clearly implies that ${\sim_0}=\ker f={\sim}$ and thus also $\iota_0=\iota$.
+\end{proof}
+
+\section{Hausdorff's characterisation of the countable scattered linear orders}
+
+
+\begin{prp}[Operations on $\scattered$]\label{prp:OpScattered}
+        The following properties hold:
+        \begin{enumerate}
+            \item   If $I\in\scattered$ and $\alpha_i\in\scattered$ for each $i\in I$ then $\sum_{i\in I}\alpha_i\in\scattered$,
+            \item   If $\alpha,\beta\in\scattered$ then $\alpha+\beta,\alpha\cdot\beta\in\scattered$.
+        \end{enumerate}
+\end{prp}
+
+\begin{proof}
+        (1):  Suppose, by way of contradiction, that $\delta\subseteq\sum_{i\in I}\alpha_i$ is dense and define $\delta_i=\delta\cap\alpha_i$, for each $i\in I$.  Note that, since $\delta$ is dense, we cannot have $1<\card{\delta_i}<\aleph_0$ for any $i\in I$.  Therefore, each $\delta_i$ is either infinite or has at most one element.  If $\delta_i$ is finite for each $i\in I$ then $\delta\preceq I$, contradicting the definition of $I$.  Consequently, the must exists some $j\in I$ such that $\delta_j$ is infinite.  However, since $\delta_j\subseteq\alpha_j$, this implies that $\alpha_j$ has a dense subset --- the desired contradiction.
+
+        (2):  Choosing $I=\two$, $\alpha_0=\alpha$ and $\alpha_1=\beta$ in (1) yields $\alpha+\beta\in\scattered$.  In stead, choosing $I=\beta$ and $\alpha_i=\alpha$ for each $i\in\beta$ we get $\alpha\cdot\beta\in\scattered$, as required.
+\end{proof}
+
+\begin{dfn}[The class $\VD$]
+        By way of transfinite recursion, define for each ordinal $\gamma<\omega_1$ the class of linear orders $\VD_{\gamma}\subseteq\linear$ to be the smallest class which is \textit{closed under isomorphisms} while also satisfying:
+        \begin{enumerate}
+            \item   $\zero,\one\in\VD_0$,
+            \item   if $\alpha_i\in\bigcup_{\beta<\gamma}\VD_{\beta}$, for each $i\in \zeta$, then $\sum_{i\in\zeta}\alpha_i\in\VD$.
+        \end{enumerate}
+        The class $\VD=\bigcup_{\gamma<\omega_1}\VD_\gamma$ called the class of $\textbf{(countable) very discrete}$ linear orders.
+\end{dfn}
+
+\begin{dfn}[$\VD$-rank]
+        If $\alpha$ is a very discrete linear order then its $\bm{\mathcal{VD}}$\textbf{-rank} $\vdrank(\alpha)$ is the least ordinal $\beta$ such that $\alpha\in\VD_{\beta}$.
+\end{dfn}
+
+\begin{lem}\label{prp:vdsct}
+	Every very discrete linear order is scattered.  That is to say that $\VD\subseteq\scattered$.
+\end{lem}
+\begin{proof}
+	We argue by transfinite induction on $\gamma$ that $\VD_\gamma\subseteq\scattered$.  Finite linear orders are (trivially) scattered and thus $\zero,\one\in\scattered$.
+
+	Assume now that for all ordinals $\gamma<\delta<\omega_1$ that $\VD_\gamma\subseteq\scattered$.  By definition, if $\vdrank(\alpha)=\delta$ then there exists for each $i\in\zeta$ an $\alpha_i\in\VD_{\gamma_i}$, for some ordinal $\gamma_i<\delta$, such that
+	\begin{equation}
+		\alpha=\sum_{i\in\zeta}\alpha_i.
+	\end{equation}
+	It now follows from proposition (\ref{prp:OpScattered}) and the inductive hypothesis that $\alpha$ is a scattered sum of scattered linear orders and therefore we must have $\alpha\in\scattered$.
+\end{proof}
+
+\iffalse\begin{lem}
+        If $\alpha\in\VD$ and $\beta\subseteq\alpha$ is convex in $\alpha$ then $\beta\in\VD$.
+\end{lem}
+
+\begin{proof}
+	 We argue by induction on  $\vdrank(\alpha)$.  The case $\vdrank(\alpha)=0$ is trivial so suppose that $\beta\subseteq\alpha$ and $\beta$ convex in $\alpha$ imply $\beta\in\VD$ whenever $\vdrank(\alpha)<\gamma<\omega_1$.  Suppose now that $\vdrank(\alpha)=\gamma$ and $\beta\subseteq\alpha$ is convex in $\alpha$.  By definition, for each $i\in\zeta$ there must exist $\alpha_i\in\VD_{\gamma_i}$, for some $\gamma_i<\gamma$, such that
+	\begin{equation}
+	    \alpha=\sum_{i\in\zeta}\alpha_i.
+	\end{equation}
+	Now define $\beta_i=\beta\cap\alpha_i$ for each $i\in I$.  For each $i\in\zeta$, since $\beta_i$ is convex in $\alpha_i$ and $\vdrank(\alpha_i)<\gamma$, it follows that $\beta_i\in\VD$.  However, note that
+	\begin{equation}
+	    \beta=\sum_{i\in\zeta}\beta_i.
+	\end{equation}
+	Therefore, by definition of $\VD$ it follows that $\beta\in\VD$.
+\end{proof}\fi
+
+    \begin{lem}\label{prp:sctvd}
+        If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is very discrete.
+    \end{lem}
+
+\begin{proof}
+    Suppose $\alpha\in\scattered$ is countable and define a relation $R$ on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$ whenever $a\leq b$ and $[a,b]$ is very discrete.  Note that $R$ is transitive and thus, by lemma (\ref{lem:IndCong}), it induces a congruence relation $\sim$ on $\domain\alpha$.
+
+        Define the condensation $\beta=\faktor{\alpha}{\sim}$.  If $\card{\beta}=1$ then there is nothing to prove so we may assume $\card{\beta}>1$.  By definition of $\VD$, it now suffices to show that $\beta\embed\zeta$ since every $\alpha\in\beta$ is very discrete simply by definition of $\sim$.  We will suppose to the contrary that $\beta\not\embed\zeta$.  Consequently, $\beta$ must be infinite.
+\end{proof}
+
+    	\iffalse\begin{prp}\label{prp:splitfix}
+		Suppose $\Lambda$ is the lattice of condensations of the linear order $\alpha$.  Define $S$ to be the functor that takes each factor map $f\colon\alpha\to\beta$ to the splitting $S(f)\colon\alpha\to\faktor{\alpha}{\sim_\beta}$, for some congruence $\sim_\beta$ on $\alpha$, such that the unique isomorphism $\iota_\beta\colon\faktor{\alpha}{\sim_\beta}\to\beta$ makes the diagram
+		\begin{equation}
+			\begin{tikzcd}
+				\alpha\arrow[rr,"S(f)"]&&\faktor{\alpha}{\sim_\beta}\arrow[dd,"\iota_\beta",dashrightarrow]\\
+				\\
+						       &&\beta\arrow[from=lluu,"f"]
+			\end{tikzcd}
+		\end{equation}
+		commute.  If $\beta\in\Lambda$ is a minimal fixed point of $S^\prime=S\fsplit[-]$, and $\beta$ is not trivially dense then $\beta\in\Dense$.
+		\begin{enumerate}
+			.
+		\end{enumerate}
+	\end{prp}\fi
+
+\begin{thm}[Hausdorff's Theorem]
+	A linear order $\alpha$ is countable and  scattered iff it is very discrete.
+\end{thm}
+\begin{proof}
+
+	\forward\	This is lemma (\ref{prp:sctvd}).
+
+	\backward\	This is proposition (\ref{prp:vdsct}).
+\end{proof}
+
+
+\section{The first-order theory of linear orders}
+
+
+\begin{prp}[Condensations and scatteredness]
+        A linear order $\alpha$ is scattered iff there exists no condensation $\beta$ of $\alpha$ such that $\beta$ is dense.
+    \end{prp}
+
+    \begin{dfn}[Definably scattered]
+	    A linear order $\alpha$ is \textbf{definably scattered} whenever, for every $n\in\nats$, there exists no $\bar{a}\in\domain{n}\alpha$ and no congruence formula $\varphi(x,y,\bar{z})$ of $\alpha$ such that, if $\sim$ is the congruence defined by $\varphi(x,y,\bar{a})$, then $\faktor{\alpha}{\sim}$ is a dense linear order.
+    \end{dfn}
+
+\begin{prp}
+        If $\alpha$ is some linear order then the following are equivalent:
+        \begin{enumerate}
+            \item   $\alpha$ is definably scattered,
+	    \item   there exists no dense linear order $\delta$ and no $n\in\nats$ such that, for some $\bar{b}\in\domain{n}\delta$ and $\bar{a}\in\domain{n}\alpha$, $(\delta,\bar{b})$ is interpretable in $(\alpha,\bar{a})$,
+            \item   the lattice $\defcon\alpha$ is atomic.
+        \end{enumerate}
+\end{prp}
+    	\begin{proof}
+
+	\end{proof}
+
+\begin{prp}\label{prp:dcform}
+	For each formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ possibly empty, define the formula $\epsilon_\varphi(\bar{z})$ to be the conjunction of the following formulas:
+	\begin{enumerate}
+		\item	$\forall x\varphi(x,x,\bar{z})$,\hfill(reflexivity)
+		\item	$\forall x\forall y(\varphi(x,y,\bar{z})\rightarrow\varphi(y,x,\bar{z}))$,\hfill (symmetry)
+		\item 	$\forall x\forall y\forall w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})\rightarrow\varphi(x,w,\bar{z}))$.\hfill (transitivity)
+		\item 	$\forall x_0\forall x_1\forall y_0\forall y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})\wedge\varphi(x_0,y_0,\bar{z})\wedge\varphi(x_1,y_1,\bar{z})\rightarrow y_0<y_1)$.\phantom{}\hfill(compatibility)
+	\end{enumerate}
+	For every finite tuple $\bar{a}$ of $\alpha$ (of the same length as $\bar{z}$), it holds that $\alpha\models\epsilon_\varphi(\bar{a})$ iff $\varphi(x,y,\bar{a})$ defines a congruence of $\alpha$.
+\end{prp}
+
+\begin{prp}
+	For each formula $\varphi(x,y,\bar{z})$ define $\theta_\varphi(\bar{z})$ to be the formula
+	\begin{equation}
+		\neg\forall x\forall y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\rightarrow\exists w(x<w<y\wedge\neg\varphi(x,w,\bar{z})\wedge\neg\varphi(w,y,\bar{z}))\big)
+	\end{equation}
+	which formalises the statement: ``the condensation which is induced by the congruence, defined by the formula $\varphi$, is not dense'' and let each $\epsilon_\varphi(\bar{z})$ be defined as in proposition \ref{prp:dcform}.  It then holds that:
+	\begin{enumerate}
+		\item the theory $\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$ axiomatises $\Th(\scattered)$, i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
+
+		\item $\Sigma$ is recursively enumerable.
+	\end{enumerate}
+	\begin{proof}
+		\begin{enumerate}[nosep]
+			\item	$\alpha\models\Sigma$ iff $\alpha$ is definably scattered iff $\alpha\models\Th(\scattered)$.
+			\item	Since our signature is finite it follows that the set of formulas in our language can be enumerated (via a G\"odel numbering $\godel{-}\colon L\to\nats$).  We can then enumerate $\Sigma$ by declaring a map acting on $\Sigma$ such that $\axmlin\mapsto 0$ and
+			\begin{equation}
+				\forall z(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z})))\mapsto 2^{\godel{\epsilon_\varphi}}\cdot3^{\godel{\theta_\varphi}}.
+			\end{equation}
+		\end{enumerate}
+	\end{proof}
+\end{prp}
+
+\begin{dfn}[The class $\Mzero$]
+	The class $\Mzero$ is the smallest class of linear orders which satisfies the following:
+	\begin{enumerate}
+		\item	$\zero,\one\in\Mzero$,
+		\item	if $\alpha,\beta\in\Mzero$ then $\alpha+\beta\in\Mzero$,
+		\item	if $\alpha\in\Mzero$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\Mzero$,
+	\end{enumerate}
+\end{dfn}
+
+\begin{thm}[L\"auchli and Leonard]
+	For every countable $\alpha\in\scattered$ and every $n\in\nats$ there exists a $\beta_n\in\Mzero$ such that $\alpha\nequiv{n}\beta_n$.
+\end{thm}
+\begin{proof}
+	Let $\alpha\in\scattered$ be countable and fix some $n\in\nats$.  Define $\tau=\bigvee_{\beta\in\M}\cha{\beta}{n}$ and let $\varphi=\varphi(x,y)$ bet the formula given by:
+	\begin{equation}
+		x=y\vee(x<y\wedge\tau^{(x,y)})\vee(y<x\wedge\tau^{(y,x)}).
+	\end{equation}
+	Note then that $\varphi(x,y)$ defines a reflexive, symmetric binary relation.  To see that the binary relation defined by $\varphi$ is also transitive, and therefore defines a congruence $\sim$, one need only note that the class $\Mzero$ is closed under (finite) sums and that $\one\in\Mzero$.
+
+	We will now proceed to construct a suitable $\beta_n$ by employing Ramsey's theorem.  First, choose $\family{a_i}{i<\omega}$ to be a cofinal sequence in $\alpha$.  Now define a colouring $h$ of $\alpha$ such that $h(a_i,a_j)=\alpha_{k(i,j)}\in\Mzero$ is countable and $\alpha_{k(i,j)}\models\varphi(a_i,a_j)$ whenever $i<j<\omega$.  Recalling that our language is finite, we can choose the $\alpha_{k(i,j)}$ such that there are only finitely many, say $\alpha_0,\dotsc,\alpha_{m-1}$, and we can choose $m$ such that $\bigvee_{0\leq k<m}\cha{\alpha_k}{n}$ is logically equivalent to $\tau$.  From Ramsey's theorem there must then exist an homogeneous sequence $\family{a^\prime_i}{i<\omega}\subseteq\family{a_i}{i<\omega}$ for $h$.  Without loss of generality, however, we may assume that $h(a^\prime_i,a^\prime_j)=\alpha_0$ whever $i<j<\omega$.  We can similarly find a homogenous subsequence $\family{b^\prime_i}{i\in\dual{\omega}}$ of a coinitial sequence $\family{b_i}{i\in\dual{\omega}}$ in $\alpha$ for $h$.  We can then (in a similar fashion) assume that $h(b^\prime_j,b^\prime_i)=\gamma_0$ for some relabelling $\gamma_0,\dotsc,\gamma_{m-1}$ of the linear orders $\alpha_0,\dotsc,\alpha_{m-1}$.  Since $n$-equivalence is preserved under sums it follows that
+	\begin{equation}
+		\alpha\nequiv{n}(\one+\gamma_0)\cdot\dual{\omega}+\one+(\alpha_0+\one)\cdot\omega
+	\end{equation}
+	the latter of which belongs to $\Mzero$ by definition.
+\end{proof}
+
+\begin{thm}
+	The theory $\Th(\scattered)$ is decidable.
+\end{thm}
+\begin{proof}
+\end{proof}

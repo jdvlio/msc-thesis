@@ -1,0 +1,99 @@
+\chapter{Preliminaries}
+
+\section{Model theory and logic}
+
+\begin{dfn}[Finitary languages]
+	A first order language $L$ is called \textbf{finitary} if $L$ is a language over a \text{finite} signature.
+\end{dfn}
+
+\begin{prp}
+	Suppose we fix any $n\in\nats$ and $L$ is a finitary first order language. If $v_0,\dotsc,v_{k-1}$ are distinct variables then, up to logical equivalence, there are only finitely many formulas $\varphi=\varphi(v_1,\dotsc,v_{k-1})$ such that $\qrank(\varphi)\leq n$.
+\end{prp}
+
+\begin{dfn}[Characteristic formulas]
+	If $L$ is some finitary language, $\mathfrak{M}$ is some $L$-structure and $\bar{a}\in\domain{k}{\mathfrak{M}}$ then we define the \textbf{$\mathbf{n}$-characterstic formula} $\cha{\bar{a}}{n}$ of $\bar{a}$ relative to $\mathfrak{M}$, recursively, as follows:
+	\begin{enumerate}
+		\item $\cha{\bar{a}}{0}=\bigwedge\setbuild{\varphi(\bar{x})\in L_k}{\mathfrak{M}\models\varphi(\bar{a})}$;
+		\item $\cha{\bar{a}}{n+1}=\bigwedge_{b\in\domain{}\mathfrak{M}}\exists v_n \cha{\bar{a}b}{n}\wedge\forall v_n\bigvee_{b\in\domain{}\mathfrak{M}}\cha{\bar{a}b}{n}$.
+	\end{enumerate}
+	If $\bar{a}$ is the empty tuple, and $n\in\nats$, then we write $\cha{\mathfrak{M}}{n}$ for $\cha{\bar{a}}{n}$ and call $\cha{\mathfrak{M}}{n}$ the \textit{$\mathit{n}$-characteristic sentence} of the structure $\mathfrak{M}$.
+\end{dfn}
+
+\begin{prp}
+	The $n$-characterstic sentences,$n\in\nats$, of the structure $\mathfrak{M}$ are presicely the sentences, of quantifier rank $n$, that are pairwise inequivalent modulo the complete theory $T=\Th(\mathfrak{M})$.
+\end{prp}
+
+
+\section{Linear orders and coloured expansions}
+
+\begin{dfn}[Dense linear order] A linear order $\alpha$ is called \textbf{dense} whenever, for every $a,b\in\alpha$, there exists $a\in\alpha$ such that $a<c<b$.  Additionally, $\alpha$ is said to be \textit{trivially dense} if the order type of alpha is either $\zero$ or $\one$.
+\end{dfn}
+
+
+\section{Basic operations on linear orders}
+
+\begin{lem}\label{lem:fvsum}
+	Suppose $\family{\alpha_i}{i\in I}$ and $\family{\beta}{i\in I}$ are families of (possibly coloured) linear orders, indexed by a linearly ordered set $I\neq\emptyset$.  Now fix some $n\in\nats$ and assume $\alpha_i\nequiv{n}\beta_i$, for each $i\in J$, then it follows that
+	\begin{equation}
+		\sum_{i\in I}\alpha_i\nequiv{n}\sum_{i\in I}\beta_i.
+	\end{equation}
+\end{lem}
+
+
+\section{Lattices}
+
+\begin{thm}[Knaster-Tarski Theorem]
+	Suppose $\Lambda$ is a complete lattices.  If $h$ is some endomorphism on $\Lambda$ then there must exist a (least) $x_0\in \Lambda$ such that $x_0$ is a fix0ed point of $h$, i.e.\ $h(x_0)=x_0$.
+\end{thm}
+\begin{proof}
+	We start by exhibiting a fixed point of $h$.  Since $\Lambda$ is nonempty there exists a top $1\in\Lambda$, since by completeness, taking the join of $\Lambda$ we get an element $1=\bigvee\Lambda$.  Since $h$ is isotone we may conclude that $h(1)=1$.
+
+	We are now obligated to find a least fixed point of $h$ so define
+	\begin{equation}
+		S=\setbuild{x\in\Lambda}{h(x)=x}
+	\end{equation}  then clearly $S\neq\emptyset$ since $1\in S$.  Define $x_0=\bigwedge S$ and note that, since $x_0\leq x$ for each $x\in S$, by definition of isotonicity it follows that $h(x_0)\leq x$, for $x\in S$. Therefore $h(x_0)\leq\bigwedge S=x_0$.  Consequently, since $h(x_0)$ is a lower bound of $S$.  Since $x_0$ is the infimum of $S$ we cannot have $h(x_0)<x_0$.  Thus the only remaining possibility is $h(x_0)=x_0$, implying that $x\in S$.
+\end{proof}
+
+
+\section{Categories and functors}
+
+\section{Galois connections}
+
+
+
+\section{Decidability}
+
+	\begin{prp}
+		If $\Sigma$ is a set of $L$-sentences then $\Sigma$ is decidable set of sentences iff $\Sigma$ and $L_0\setminus\Sigma$, each, are recursively enumerable.
+	\end{prp}
+
+	\begin{prp}\label{prp:sdth}
+		Suppose $\mathcal{A}$ is a class of structures.  If $\Sigma$ is a recursively enumerable set of sentences and its deductive closure $\dcl{\Sigma}$ satisfies
+		\begin{equation}
+			\dcl{\Sigma}=\Th(\mathcal{A}),
+		\end{equation}
+		then $\Th(\mathcal{A})$ is recursively enumerable.
+	\end{prp}
+
+	\begin{dfn}[Encoding]
+		An \textbf{encoding} $p$ of a countable set $X$ is an injective recursive partial function $p\colon X\pto\nats$.  If $X$ is a first order language then $p$ is in stead referred to as a \textit{G\"odel numbering}.
+	\end{dfn}
+
+	\begin{dfn}[Proof sequences]
+		Suppose $X$ is a countable set of countable coloured linear orders and let $p\colon X\pto\nats$ be an encoding of $X$.  A \textbf{proof sequence} is then a finite sequence
+		\begin{equation}
+			(\alpha_0,\sigma_0),\dotsc,(\alpha_{n-1},\sigma_{n-1})\in X\times L_0
+		\end{equation}
+		and finite expansions $\alpha^\prime_0,\dotsc,\alpha^\prime_{n-1}$ of the (respective) linear orders $\alpha_0,\dotsc,\alpha_{n-1}$ so that, for each $i=1,\dotsc,n-1$, there exists an interpretation $\Gamma_i$ of $\alpha_{i-1}$ in $\alpha^\prime_i$.  Additionally, when $0\leq i<n$, we require that one of the following holds:
+		\begin{enumerate}
+			\item	$\sigma_i$ is a logical axiom,
+			\item	$\sigma_i$ follows via an inference rule from $\sigma_0,\dotsc,\sigma_{i-1}$,
+			\item	$\sigma_i\in\admis(\Gamma_i)$ or
+			\item	$\sigma_i=\Gamma_i\Gamma_{i-1}\dotsb\Gamma_j\sigma_j$, for some natural $j<i$.
+		\end{enumerate}
+	\end{dfn}
+\vfill
+	\begin{verbatim}
+		-------------------------------------------------------------------------
+	\end{verbatim}
+\noindent[\textbf{Alles in hierdie hoofstuk is tentatief.  Byvoegings en (veral) verwyderings sal gemaak word soos ek deur die tesis vorder}]
