@@ -29,6 +29,25 @@
 In light of the previous proposition, when $L$ is a finitary first-order language and $n\in\nats$, for a class $\mathcal{S}$ of $L$-structures we will identify the $L_{\omega_1\omega}$-sentences $\bigvee_{\alpha\in\mathcal{S}}\cha{\alpha}{n}$ and $\bigwedge_{\alpha\in\mathcal{S}}\cha{\alpha}{n}$ with any of their respective first-order equivalents.
 
 
+\section{Games between structures}
+
+In what follows we will describe, for some arbitrary ordinal $\gamma$, the \textbf{Ehrenfeucht-Fra\"iss\'e game} $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ of length $\gamma$ on $L$-structures $\mathfrak{A}$ and $\mathfrak{B}$.  In this game there are two players $\Left$ and $\Right$ (respectively pronounced ``Left'' and ``Right'').  This first move of the game is always made by $\Left$ and consists of some choice of element from either one of the structures $\mathfrak{A}$ or $\mathfrak{B}$.  The players alternate turns and on each of  $\Right$'s turns he is obliged to choose an element from the opposing structure i.e.\ from $\mathfrak{B}$ if $\Left$'s last move was an element in $\mathfrak{A}$ or vice-versa.
+
+\begin{dfn}[Play of a game]
+	A pair $(\bar{a},\bar{b})$, consisting of transfinite sequences $\bar{a}=\family{a_i}{i<\gamma}$ and $\bar{b}=\family{b_i}{i<\gamma}$, is called a \textbf{play} of the aforementioned game whenever, for each $i<\gamma$, $a_i\in\domain{}\mathfrak{A}$ and $b_i\in\domain{}\mathfrak{B}$ are the elements played during the $i$-th round of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$.
+\end{dfn}
+
+\begin{dfn}[Winning play]
+	A play $(\bar{a},\bar{b})$ of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ is said to be \textbf{a winning play for} $\bm{\mathcal{R}}$ iff there exists an isomorphism $f\colon\gen{\bar{a}}{\mathfrak{A}}\to\gen{\bar{b}}{\mathfrak{B}}$ such that $f[\bar{a}]=f[\bar{b}]$.
+\end{dfn}
+
+\begin{dfn}[Back-and-forth equivalence]
+	We define $\mathfrak{A}\sim_\gamma\mathfrak{B}$ for an ordinal $\gamma$ if there exists a winning strategy for $\Right$ in the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$.  For the special case $\gamma=\omega$: if $\mathfrak{A}\sim_\omega\mathfrak{B}$ then it is said that $\mathfrak{A}$ and $\mathfrak{B}$ are \textbf{back-and-forth equivalent}.
+\end{dfn}
+
+
+
+
 \section{Linear orders and coloured expansions}
 
 \begin{assn}

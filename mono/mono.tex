@@ -124,3 +124,25 @@
 
 
 \section{Model-theoretic aspects of the class \text{$\dense$}}
+
+\begin{dfn}[Prime model]
+	Suppose $T$ is an $L$-theory and $\mathfrak{M}$ is a model of the theory $T$. It is then said to $\mathfrak{M}$ is a \textbf{prime model} of $T$ whenever, for every $\mathfrak{N}\in\Mod(T)$, there exists an elementary embedding $f\colon\mathfrak{M}\to\mathfrak{N}$.
+\end{dfn}
+
+\begin{thm}[Cantor's Theorem]
+	If $\alpha\in\dense$ is countable then there exists an isomorphism $f\colon\eta\to\alpha$.
+\end{thm}
+\begin{proof}
+	Let $\family{a_i}{i<\omega}$ and $\family{b_i}{i<\omega}$, respectively, be enumerations of $\eta$ and $\alpha$.  Define, for each $n\in\nats$, the set $A_n=\set{a_0,\dotsc,a_n}$.  Choose $A_0=\set{a_0}$, $B_0=\set{b_0}$ and let $h_0$ be the unique map $h\colon A_0\to B_0$.  Now suppose $h_{n-1}\colon A_{n-1}\to B_{n-1}$ has been defined for some $n\in\nats$ and choose any $b_n\in\domain{}\alpha\setminus B_{n-1}$.  Define $B_n=B_{n-1}\cup\set{b_n}$ and choose each $h_n\colon A_n\to B_n$ such that $h_n\restriction A_{n-1}=h_{n-1}$, where $A_n=\set{a_0,\dotsc,a_n}$ and the following holds:
+	\begin{enumerate}
+		\item
+	\end{enumerate}
+\end{proof}
+
+\begin{dfn}[Quantifier elimination]
+	An $L$-theory $T$ is said to \textbf{admit quantifier elimination} (or \textit{has} quantifier elimination) if for every $k\in\nats$ and every $\varphi\in L_k$ there exists a quantifier-free formula $\psi\in L_k$ such that $\varphi$ is $T$-equivalent (or equivalent modulo $T$) to $\psi$ i.e.\ $T\models\forall\bar{x}(\varphi(\bar{x})\leftrightarrow\psi(\bar{x}))$.
+\end{dfn}
+
+\begin{dfn}[Model-completeness]
+	An $L$-theory $T$ is said to be \textbf{model-complete} if every embedding $f\colon\mathfrak{M}\to\mathfrak{N}$, between models $\mathfrak{M}$ and $\mathfrak{N}$ of $T$, is elementary.
+\end{dfn}
