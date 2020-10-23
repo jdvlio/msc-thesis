@@ -29,7 +29,6 @@
         then we call $\pi$ the \textbf{splitting} of $\alpha$ \textit{induced by} $\sim$, refer to the quotient $\faktor{\alpha}{\sim}$ as a \textbf{condensation} of $\alpha$ and write $\pi\colon\alpha\tto\faktor{\alpha}{\sim}$.
 \end{dfn}
 
-
 \begin{dfn}[Finite splitting]
         Suppose $\alpha$ is a linear order and $\sim$ is the congruence on $\alpha$ induced by the relation $R$ defined by:
         \begin{equation}
@@ -182,7 +181,7 @@
 \end{proof}
 
 
-\section{The first-order theory of linear orders}
+\section{The first-order theory of scattered linear orders}
 
 
 \begin{prp}[Condensations and scatteredness]
@@ -216,14 +215,54 @@
 	For every finite tuple $\bar{a}$ of $\alpha$ (of the same length as $\bar{z}$), it holds that $\alpha\models\epsilon_\varphi(\bar{a})$ iff $\varphi(x,y,\bar{a})$ defines a congruence of $\alpha$.
 \end{prp}
 
+\begin{thm}
+	For every countable, definably scattered linear order $\alpha$ and every  $n\in\nats$ there exists a $\beta_n\in\scattered$ such that $\alpha\nequiv{n}\beta_n$.
+\end{thm}
+\begin{proof}
+	Suppose $\alpha\models\Th(\scattered)$ is countable and fix any $n\in\nats$.  Now define a binary relation $R$ on $\domain{}\alpha$ such that $aRb$ iff there exists a $\beta\in\scattered$ such that $(a,b)\nequiv{n}\beta$ in the language of $k$-coloured linear orders (for some $k\in\nats$).  Since $R$ is clearly transitive, it induces a cogruence $\sim$ on $\alpha$.  Moreover, $\sim$ is defined by the $L_{\omega_1\omega}$ formula $\varphi(x,y)$ given by:
+	\begin{equation}
+		x=;y\vee(x<y\wedge\bigvee_{\beta\in\scattered}(\cha{\beta}{n})^{(x,y)})\vee(y<x\wedge\bigvee_{\beta\in\scattered}(\cha{\beta}{n})^{(y,x)}).
+	\end{equation}
+	Note that, since our language is finitary, we need only choose finitely many characterstics $\alpha_i\in\scattered$ such that $\alpha_0,\dotsc,\alpha_{m-1}$ is a traversal of the $n$-equivalence classes of $\scattered$. Thus we may identify $\varphi$ with its first-order equivalent which, has finite length.
+
+	\begin{claim}\label{clm:LL1}
+		Each $\gamma\in\faktor{\alpha}{\sim}$ has a scattered $n$-equivalent.
+	\end{claim}
+	\begin{proof}
+		Choose any $\gamma\in\faktor{\alpha}{\sim}$.  If there exists a least element $a_0\in\gamma$ then, since $\alpha$ and thus $\gamma$ is countable, there exists a cofinal sequence $\family{a_i}{i<\omega}$.  By Ramsey's Theorem, there then exists a homogeneous subsequence $\family{a^\prime_i}{i<\omega}\subseteq\family{a^\prime_i}{i<\omega}$ for the colouring $h$ that sends intervals $(a_i,a_j)$, with $i<j$, to a characteristic among $\alpha_0,\dotsc,\alpha_{m-1}$.  Consequently, $\gamma$ is an $\omega$-sum
+		\begin{equation}
+			\gamma=\sum_{i<\omega}[a^\prime_i,a^\prime_{i+1})
+		\end{equation}
+		where all of the summands are $n$-equivlent to the same $\one+\alpha_{i_0}$ for some $i_0\in\set{0,\dotsc,m-1}$ so that, since summation preserves $n$-equivalence, it follows that $\gamma$ is $n$-equivalent to the scattered linear order:
+		\begin{equation}
+			\gamma^\prime=(\one+\alpha_{i_0})\cdot\omega.
+		\end{equation}
+		Since $\gamma^{<a^\prime_0}=[a_0,a^\prime_0))$, by defintion of $\sim$, has an $n$-equivalent (($\gamma^\prime_0$ say) it follows that $\beta_n=\gamma_0+\gamma^\prime$ is the desired scatterred $n$-equivalent of $\gamma$.
+
+		A similar argument can be obtained for when $\gamma$ has a greatest element by dualising the argument above (i.e. respectively swap around $<$ and $>$ as well as $\leq$ and $\geq$.  In te case where $\gamma$ has neither a largest nor a smallest element choose some fixed $a\in\gamma$ and apply a similar argument in the respective suborderings $\gamma^{\geq a}$ and $\gamma^{<a}$.  The sum of their $n$-equivalents will then yield a scattered $n$-equivalent of the equivalence class $\gamma$, as required.\noqed
+	\end{proof}
+
+	\begin{claim}
+		The equivalence classes are dense under the induced order.
+	\end{claim}
+	\begin{proof}
+		Suppose $\epsilon_0,\epsilon_1\in\faktor{\alpha}{\sim}$ satisfy the property $\epsilon_0<\epsilon_1$ and and then assume, by way of contradiction, that for no $c\in\alpha$ does it hold that:
+		\begin{equation}
+			\epsilon_0<c<\epsilon_1.
+		\end{equation}
+		However, since $n$-equivalence is preserved under sums it follows that $\epsilon_0+\epsilon_1$ is $n$-equivalent to some scattered linear order which implies tha by choosing an $a_0\in\epsilon_1$ and an $a_1\in\epsilon_1$ that $(a_0,a_1)$ posess a scattered $n$-equivalent.  This is the desired contradiction as then, by defition, it would have to hold that $a_0\sim a_1$: a contradiction.\noqed
+	\end{proof}
+	Since $\faktor{\alpha}{\sim}$ is dense and $\alpha$ is definably scattered, the only possible conclusion is that $\faktor{\alpha}{\sim}\cong\one$.  From claim \ref{clm:LL1} the result then follows.
+\end{proof}
+
 \begin{prp}
 	For each formula $\varphi(x,y,\bar{z})$ define $\theta_\varphi(\bar{z})$ to be the formula
 	\begin{equation}
-		\neg\forall x\forall y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\rightarrow\exists w(x<w<y\wedge\neg\varphi(x,w,\bar{z})\wedge\neg\varphi(w,y,\bar{z}))\big)
+		\forall x\forall y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\rightarrow\exists w(x<w<y\wedge\neg\varphi(x,w,\bar{z})\wedge\neg\varphi(w,y,\bar{z}))\big)
 	\end{equation}
-	which formalises the statement: ``the condensation which is induced by the congruence, defined by the formula $\varphi$, is not dense'' and let each $\epsilon_\varphi(\bar{z})$ be defined as in proposition \ref{prp:dcform}.  It then holds that:
+	which formalises the statement: ``the condensation which is induced by the congruence, defined by the formula $\varphi$, is dense'' and let each $\epsilon_\varphi(\bar{z})$ be defined as in proposition \ref{prp:dcform}.  It then holds that:
 	\begin{enumerate}
-		\item the theory $\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$ axiomatises $\Th(\scattered)$, i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
+		\item the theory $\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\neg\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$ axiomatises $\Th(\scattered)$, i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
 
 		\item $\Sigma$ is recursively enumerable.
 	\end{enumerate}
@@ -232,11 +271,14 @@
 			\item	$\alpha\models\Sigma$ iff $\alpha$ is definably scattered iff $\alpha\models\Th(\scattered)$.
 			\item	Since our signature is finite it follows that the set of formulas in our language can be enumerated (via a G\"odel numbering $\godel{-}\colon L\to\nats$).  We can then enumerate $\Sigma$ by declaring a map acting on $\Sigma$ such that $\axmlin\mapsto 0$ and
 			\begin{equation}
-				\forall z(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z})))\mapsto 2^{\godel{\epsilon_\varphi}}\cdot3^{\godel{\theta_\varphi}}.
+				\forall z(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z})))\mapsto 2^{\godel{\varphi(x,y,\bar{z}}}.
 			\end{equation}
 		\end{enumerate}
 	\end{proof}
 \end{prp}
+
+
+\section{Theorems of L\"auchli and Leonard}
 
 \begin{dfn}[The class $\Mzero$]
 	The class $\Mzero$ is the smallest class of linear orders which satisfies the following:
@@ -247,21 +289,54 @@
 	\end{enumerate}
 \end{dfn}
 
+\begin{prp}\label{prp:M0sum}
+	Let $n\in\nats$ and suppose for each $i<\omega$ it holds that $\alpha_i\in\Mzero$ then there exists a $\beta\in\Mzero$ such that
+	\begin{equation}
+		\sum_{i<\omega}\alpha_i\nequiv{n}\beta.
+	\end{equation}
+\end{prp}
+\begin{proof}
+	For each $i,j<\omega$, if $i<j$ then define $\alpha_{ij}=\alpha_{i+1}+\alpha_{i+2}+\dotsb+\alpha_j$ and note that $\alpha_{ij}\in\Mzero$ since $\Mzero$ is closed under finite sums.  Choose $S=\set{\beta_0,\dotsc,\beta_{k-1}}\subseteq\Mzero$ to be an $n$-spectrum for $\Mzero$.  Consequently, there exists a colouring $h$ of $\omega$ whose codomain is $\set{0,\dotsc,k-1}$ such that $h(i,j)=\ell$ iff $\alpha_{ij}\nequiv{n}\beta_\ell$.
+
+	It now follows from Ramsey's theorem that there exists a homogeneous sequence $\family{i_j}{j<\omega}$ for $h$.  By definition, there exists a natural $m$ such that $0\leq m<k$ and $\alpha_{i_ji_{j+1}}\nequiv{n}\beta_m$, for every $j<\omega$.  Note, from lemma \ref{lem:fvsum}, it follows that
+	\begin{align}
+		\sum_{i<\omega}\alpha_i&\cong\alpha_0+\alpha_1+\dotsb+\alpha_{i_0}+\sum_{j<\omega}\alpha_{i_ji_{j+1}}\\
+		&\nequiv{n}\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega,
+	\end{align}
+	Since $\Mzero$ is closed under finite sums, we may thus conclude that if $\beta=\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega$ then $\sum_{i<\omega}\alpha_i\nequiv{n}\beta$, as required.
+\end{proof}
+
+\begin{prp}\label{prp:M0sumop}
+	Let $n\in\nats$ and suppose for each $i\in\dual{\omega}$ it holds that $\alpha_i\in\Mzero$ then there exists a $\beta\in\Mzero$ such that
+	\begin{equation}
+		\sum_{i\in\dual{\omega}}\alpha_i\nequiv{n}\beta.
+	\end{equation}
+\end{prp}
+\begin{proof}
+	Dualise the argument in the proof of proposition \ref{prp:M0sum}.
+\end{proof}
+
+\begin{prp}\label{prp:M0sumint}
+	Let $n\in\nats$ and suppose for each $i\in\ints$ it holds that $\alpha_i\in\Mzero$ then there exists a $\beta\in\Mzero$ such that
+	\begin{equation}
+		\sum_{i\in\zeta}\alpha_i\nequiv{n}\beta.
+	\end{equation}
+\end{prp}
+\begin{proof}
+	Choose any fixed $a_0\in\alpha_0$ and define $\alpha=\sum_{i\in\zeta}\alpha_i$ apply propositions \ref{prp:M0sum} and \ref{prp:M0sum} respectively to $\alpha^{>a_0}$ and $\alpha^{<a_0}$ to obtain their (respective $n$-equivelants $\beta^+\in\Mzero$ and $\beta^-\in\Mzero$.  It then follows, since $\Mzero$ is closed under finite sums, that if $\beta=\beta^-+\one+\beta^+$ then $\alpha\nequiv{n}\beta$, as required.
+\end{proof}
+
 \begin{thm}[L\"auchli and Leonard]
-	For every countable $\alpha\in\scattered$ and every $n\in\nats$ there exists a $\beta_n\in\Mzero$ such that $\alpha\nequiv{n}\beta_n$.
+	For every countable $\alpha\in\scattered$, and each $n\in\nats$, there exists a $\beta_n\in\Mzero$ such that $\alpha\nequiv{n}\beta_n$.
 \end{thm}
 \begin{proof}
-	Let $\alpha\in\scattered$ be countable and fix some $n\in\nats$.  Define $\tau=\bigvee_{\beta\in\M}\cha{\beta}{n}$ and let $\varphi=\varphi(x,y)$ bet the formula given by:
-	\begin{equation}
-		x=y\vee(x<y\wedge\tau^{(x,y)})\vee(y<x\wedge\tau^{(y,x)}).
-	\end{equation}
-	Note then that $\varphi(x,y)$ defines a reflexive, symmetric binary relation.  To see that the binary relation defined by $\varphi$ is also transitive, and therefore defines a congruence $\sim$, one need only note that the class $\Mzero$ is closed under (finite) sums and that $\one\in\Mzero$.
+	Suppose $\alpha\in\scattered$ is countable.  From Hausdorff's theorem it follows that $\alpha$ is very discrete so we may argue by induction on the $\VD$-rank of $\alpha$. Since $\zero,\one\in\Mzero$, the result holds when $\vdrank(\alpha)=0$.
 
-	We will now proceed to construct a suitable $\beta_n$ by employing Ramsey's theorem.  First, choose $\family{a_i}{i<\omega}$ to be a cofinal sequence in $\alpha$.  Now define a colouring $h$ of $\alpha$ such that $h(a_i,a_j)=\alpha_{k(i,j)}\in\Mzero$ is countable and $\alpha_{k(i,j)}\models\varphi(a_i,a_j)$ whenever $i<j<\omega$.  Recalling that our language is finite, we can choose the $\alpha_{k(i,j)}$ such that there are only finitely many, say $\alpha_0,\dotsc,\alpha_{m-1}$, and we can choose $m$ such that $\bigvee_{0\leq k<m}\cha{\alpha_k}{n}$ is logically equivalent to $\tau$.  From Ramsey's theorem there must then exist an homogeneous sequence $\family{a^\prime_i}{i<\omega}\subseteq\family{a_i}{i<\omega}$ for $h$.  Without loss of generality, however, we may assume that $h(a^\prime_i,a^\prime_j)=\alpha_0$ whever $i<j<\omega$.  We can similarly find a homogenous subsequence $\family{b^\prime_i}{i\in\dual{\omega}}$ of a coinitial sequence $\family{b_i}{i\in\dual{\omega}}$ in $\alpha$ for $h$.  We can then (in a similar fashion) assume that $h(b^\prime_j,b^\prime_i)=\gamma_0$ for some relabelling $\gamma_0,\dotsc,\gamma_{m-1}$ of the linear orders $\alpha_0,\dotsc,\alpha_{m-1}$.  Since $n$-equivalence is preserved under sums it follows that
+	Assume now there exists an ordinal $\gamma<\omega_1$ such that if $\vdrank(\alpha)<\gamma$ then, for every $n\in\nats$, there exists a $\beta_n\in\Mzero$ such that $\alpha\nequiv{n}\beta_n$.  Now fix any $n\in\nats$ and  suppose $\vdrank(\alpha)=\gamma$ then, by definition of $\VD$, there exists an $\alpha_i\in\VD$ such that $\vdrank(\alpha_i)<\gamma$, for each $i\in\ints$, such that
 	\begin{equation}
-		\alpha\nequiv{n}(\one+\gamma_0)\cdot\dual{\omega}+\one+(\alpha_0+\one)\cdot\omega
+		\alpha=\sum_{i\in\zeta}\alpha_i.
 	\end{equation}
-	the latter of which belongs to $\Mzero$ by definition.
+	By the induction hypothesis there exists, for each $i\in\ints$, some $\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.  It now follows from lemma \ref{lem:fvsum}, if we choose $\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that $\alpha\nequiv{n}\alpha^\prime$.  According to proposition \ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that $\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as required.
 \end{proof}
 
 \begin{thm}

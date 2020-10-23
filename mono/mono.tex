@@ -1,29 +1,126 @@
-\chapter{The theorems of La\"uchli and Leonard}
+\chapter{Dense linear orders}
 
 
-\section{The result for scattered linear orders}
+\section{The shuffle operation}
+
+\begin{prp}\label{prp:ratpart}
+	Suppose $n\in\nats$ and $n\geq 2$ and let $P$ bet a set of $n-1$ primes $p\in\nats$.  Choose
+	\begin{equation}
+		D_p=\setbuild{q=\faktor{a}{p^k}}{a\in\ints\text{ and }k\in\ints\setminus\set{0}},\quad\text{for each }p\in P.
+	\end{equation}
+	If $P=\set{p_0,\dotsc,p_{n-2}}$ and $Q_i=\setbuild{D_p}{p\in P}$ when $i<n$ and $Q_n=\rats\setminus\bigcup_{i<n}Q_i$ then $\setbuild{Q_i}{0\leq i<n}$ is a partition of $\rats$ such that $Q_i$ is dense in $\eta$, for each $i=0,\dotsc,n-1$.
+\end{prp}
+
+\begin{dfn}[Canonical partition]
+	The partition defined in proposition \ref{prp:ratpart} will be referred to as the \textbf{canonical partion} of the rationals into dense subsets.
+\end{dfn}
+
+\begin{cor}
+	For every natural $n\geq 2$ there exists a partition $\mathcal{R}=\set{R_0,\dotsc,R_{n-1}}$ of $\reals$ such that:
+	\begin{enumerate}
+		\item $R_{n-1}=\irrats$,
+		\item $R_k$ is a countable dense subset of $\lambda$, for each natural $k<n-1$.
+	\end{enumerate}
+\end{cor}
+
+\begin{dfn}[The shuffle operation]
+	Suppose $n\in\nats$ and let $F=\set{\alpha_0,\dotsc,\alpha_{n-1}}$ be an arbitrary set of $n$ linear orders.  Now suppose the following:
+	\begin{enumerate}
+		\item $\set{Q_0,\dotsc,Q_{n-1}}$ is the canonical partition of $\rats$,
+		\item $h\colon\rats\to F$ is a colouring of $\eta$ such that $\inv{h}[\alpha_i]=Q_i$, for each natural $i<n$.
+	\end{enumerate}
+	We then define the \textbf{shuffle} $\sigma(F)$ of the set $F$ to be the linear order
+	\begin{equation}
+		\sigma(\set{\alpha_0,\dotsc,\alpha_{n-1}})=\sum_{q\in\eta}h(q),
+	\end{equation}
+	and we refer to the resulting (class) map $\sigma$ as the \textbf{shuffle operation} induced by the aforementioned partition.
+\end{dfn}
 
 
-    \begin{dfn}[The class $\mathcal{M}_0$]
-        The class $\mathcal{M}_0\subseteq\mathcal{L}$ is the smallest class of linear orders such that:
-        \begin{enumerate}
-            \item $\mathbf{0},\mathbf{1}\in\mathcal{M}_0$,
-            \item if $\alpha,\beta\in\mathcal{M}_0$ then $\alpha+\beta\in\mathcal{M}_0$,
-            \item if $\alpha\in\mathcal{M}_0$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\mathcal{M}_0$
-        \end{enumerate}
-    \end{dfn}
+\section{The L\"auchli and Leonard result for the class of linear orders}
 
-    \begin{rem}
-        Take note of the following:
-        \begin{enumerate}
-            \item Every $\alpha\in\mathcal{M}_0$ is a scattered linear order,
-            \item The class $\mathcal{M}_0$ is actually a (countable) set.  Furthermore, $\mathcal{M}_0$ is recursively enumerable.
-        \end{enumerate}
-    \end{rem}
+\begin{dfn}[The class $\M$]
+	The class $\M$ is the smallest class of linear orders such that the following holds:
+	\begin{enumerate}
+		\item	$\zero,\one\in\M$,
+		\item	if $\alpha,\beta\in\M$ then $\alpha+\beta\in\M$,
+		\item	if $\alpha\in\M$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\M$,
+		\item	for every finite $F\subseteq\M$, it holds that $\sigma(F)\in\M$.
+	\end{enumerate}
+\end{dfn}
 
-    \begin{thm}[La\"uchli and Leonard]
-        For every scattered linear order $\alpha$ and every $n\in\nats$ there exists a $\beta_n\in\mathcal{M}_0$ such that $\alpha\nequiv{n}\beta_n$.
-    \end{thm}
+\begin{prp}\label{prp:Msumint}
+	If $\alpha_i\in\M$ for each $i\in\ints$ then there exists a $\beta\in\M$ such that\
+	\begin{equation}
+		\sum_{i\in\zeta}\alpha_i\nequiv{n}\beta.
+	\end{equation}
+\end{prp}
+\begin{proof}
+	Since $\M$ is closed under finite sums as well as right multiplication by $\omega$ and $\dual{\omega}$, results analagous to propositions \ref{prp:M0sum} and \ref{prp:M0sumop} can be proven in the context of $\M$.  An argument similar to that which appears in the proof of proposition \ref{prp:M0sumint} then yields the desired result.
+\end{proof}
+
+\begin{thm}[L\"auchli and Leonard]
+	For every countable linear order $\alpha$, and every $n\in\nats$, there exists some $\beta_n\in\M$ such that $\alpha\nequiv{n}\beta_n$.
+\end{thm}
+\begin{proof}
+	Define a binary relation $R$ on $\alpha$ such that, for every $x,y\in\alpha$, $xRy$ iff $x\leq y$ and there exists a $\beta\in\M$ such that $[x,y]\nequiv{n}\beta$.  Since $R$ is clearly transitive (simply note $\M$ is closed under finite sums), it induces a congruence $\sim$ on $\alpha$.    We now claim the following:
+	\begin{claim}
+		For every $\gamma\in\faktor{\alpha}{\sim}$, there exists a $\beta\in\M$ such that $\gamma\nequiv{n}\beta$.
+	\end{claim}
+	\begin{proof}
+		Fix any $\gamma\in\faktor{\alpha}{\sim}$ and note that $\M$ contains all finite ordinals so we may assume, without loss of generality, that $\gamma$ is infinite.  Consequently, at least one of $\omega$ and $\dual{\omega}$ is embeddable in $\gamma$.  There must then exist a family $\family{\gamma_i}{i\in\zeta}$ of (possibly empty) linear orders such that
+		\begin{equation}
+			\gamma\cong\sum_{i\in\zeta}\gamma_i.
+		\end{equation}
+		By definition of $\sim$ it now follows that there exists a $\gamma_i^\prime\in\M$, for each $i\in\ints$, such that $\gamma_i\nequiv{n}\gamma_i^\prime$.  Proposition \ref{prp:Msumint} then implies that there exists a $\gamma^\prime\in\M$ such that
+		\begin{equation}
+			\gamma^\prime\nequiv{n}\sum_{i\in\zeta}\gamma_i^\prime.
+		\end{equation}
+		From lemma \ref{lem:fvsum} we may conclude that
+		\begin{equation}
+			\gamma\nequiv{n}\sum_{i\in\zeta}\gamma_i^\prime\nequiv{n}\gamma^\prime,
+		\end{equation}
+		establishing the claim.
+	\end{proof}
+
+	Note that if $\card{\faktor{\alpha}{\sim}}=1$ then our task is complete so suppose, by way of contradiction, that $\card{\faktor{\alpha}{\sim}}>1$.
+	\begin{claim}
+		$\faktor{\alpha}{\sim}$ is dense.
+	\end{claim}
+	\begin{proof}
+		With our goal being a contradiction, suppose that $\faktor{\alpha}{\sim}$ is not dense.  Therefore, there exists $a,b\in\alpha$ such that $a<b$, $a\not\sim b$ and for every $c\in(a,b)$ either $c\sim a$ or $c\sim b$ but not both.  Note that, since $a\not\sim b$, the interval $(a,b)$ cannot be finite.  Therefore, $(a,b)\cong\sum_{i\in\zeta}\gamma_i$ where $\gamma_i$ is $n$-equivalent to some member $\gamma_i^\prime$ of $\M$, for each $i\in\ints$.  Thus, by proposition \ref{prp:Msumint}, $(a,b)\nequiv{n}\gamma$ for some $\gamma\in\M$.  Since $\one+\gamma+\one\nequiv{n}[a,b]$ by lemma \ref{lem:fvsum} and $\one+\gamma+\one$ is a member of $\M$, it follows by definition that $a\sim b$ --- a contradiction.
+	\end{proof}
+
+	Now choose $K=\set{\chi_0,\dotsc,\chi_{m-1}}$, for some $m\in\posnats$, to be an $n$-spectrum for the class $\setbuild{\chi\in\M}{\chi\nequiv{n}\gamma,\text{ for some }\gamma\in\faktor{\alpha}{\sim}}$.
+	\begin{claim}
+		There exists a maximal $F\subseteq K$ and a nonempty interval $I=(A,B)$ of $\faktor{\alpha}{\sim}$ such that, for every $\chi\in F$, the set $D_\chi(I)=\setbuild{\gamma\in I}{\gamma\nequiv{n}\chi}$ is dense in $I$.
+	\end{claim}
+	\begin{proof}
+		Argue by induction on $m$.  If $m=1$ then, since $\faktor{\alpha}{\sim}$ is dense we can choose any $A,B\in\faktor{\alpha}{\sim}$ such that $A<B$ and it will immediately follow that if $I=(A,B)$ then $D_{\chi_0}(I)$ is dense in $I$, since every member of $\faktor{\alpha}{\sim}$ is $n$-equivalent to $\chi_0$.
+
+		Assume now that the claim holds for each $m<m^\prime\in\posnats$.  Let $m=m^\prime$ and suppose to the contrary that for every $F^\prime\subseteq K$ and every (nonempty) open interval $J\subseteq\faktor{\alpha}{\sim}$ there exists some $\chi_k\in F^\prime$ such that $0\leq k<m$ and $D_{\chi_k}(J)$ is not dense in $J$.  Note that, by assumption, there must exist a $\chi\in K$ such that $D_{\chi}(\faktor{\alpha}{\sim})$ is not dense in $\faktor{\alpha}{\sim}$.  Without loss of generality we may assume that $\chi=\chi_{m-1}$ and consequently there exists a (nonempty) open subset $J$ of $\faktor{\alpha}{\sim}$ such that $D_{\chi_{m-1}}(J)$ is not dense in $J$.  Note in particular that we can choose $J$ such that $\chi_{m-1}$ has no $n$-equivalent in $J$.
+
+		By definition, there exists an $F^\prime\subseteq\set{\chi_0,\dotsc,\chi_{m-2}}$ which is an $n$-spectrum for the class $\setbuild{\chi^\prime\in\M}{\chi\nequiv{n}\gamma\text{ for some }\gamma\in J}$.  It then follows from the inductive hypothesis that there exists a maximal $F\subseteq F^\prime$ and some open interval $I=(A,B)\subseteq J$, where $A<B$, such that $D_{\chi}(I)$ is dense in $I$, for each $\chi\in F$.  Since $\chi_{m-1}\notin J\supseteq I$, it follows that $\chi_{m-1}$ is not dense in $I$ and, consequently, $F\subseteq K$ is maximal, as required.  This is the sought-after contradiction, thus establishing the claim.
+	\end{proof}
+	Note that $F$ is now an $n$-spectrum for the class
+	\begin{equation}
+		\setbuild{\chi\in\M}{\chi\nequiv{n}\gamma\text{ for some }\gamma\in I}.
+	\end{equation}
+	Consequently, since $D_{\chi}(I)$ is dense in $I$ for each $\chi\in F$, it follows that
+	\begin{equation}
+		\sigma(F)\nequiv{n}\sum I=\sum_{\gamma\in I}\gamma.
+	\end{equation}
+	Therefore, since $\sigma(F)\in\M$, it follows that $I$ has exactly one element.  This then contradicts the fact that $I$ is an open interval.  Hence, we may now conclude that $\faktor{\alpha}{\sim}$ has only one element, yielding the result.
+
+\end{proof}
+
+\begin{lem}
+	The set $\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}$ is recursively enumerable.  Assume, by way of contradiction, that for some natural $k<m^\prime$ it holds that $D_{\chi_k}$ is not dense in $I$.
+\end{lem}
+
+\begin{thm}
+	The theory of linear orders is decidable.
+\end{thm}
 
 
-\section{The result for arbitrary linear orders}
+\section{Model-theoretic aspects of the class \text{$\dense$}}

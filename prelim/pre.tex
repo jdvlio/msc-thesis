@@ -3,10 +3,10 @@
 \section{Model theory and logic}
 
 \begin{dfn}[Finitary languages]
-	A first order language $L$ is called \textbf{finitary} if $L$ is a language over a \text{finite} signature.
+	A language $L$ is called \textbf{finitary} if $L$ is a language over a \text{finite} signature.
 \end{dfn}
 
-\begin{prp}
+\begin{prp}\label{prp:finequiv}
 	Suppose we fix any $n\in\nats$ and $L$ is a finitary first order language. If $v_0,\dotsc,v_{k-1}$ are distinct variables then, up to logical equivalence, there are only finitely many formulas $\varphi=\varphi(v_1,\dotsc,v_{k-1})$ such that $\qrank(\varphi)\leq n$.
 \end{prp}
 
@@ -14,19 +14,37 @@
 	If $L$ is some finitary language, $\mathfrak{M}$ is some $L$-structure and $\bar{a}\in\domain{k}{\mathfrak{M}}$ then we define the \textbf{$\mathbf{n}$-characterstic formula} $\cha{\bar{a}}{n}$ of $\bar{a}$ relative to $\mathfrak{M}$, recursively, as follows:
 	\begin{enumerate}
 		\item $\cha{\bar{a}}{0}=\bigwedge\setbuild{\varphi(\bar{x})\in L_k}{\mathfrak{M}\models\varphi(\bar{a})}$;
-		\item $\cha{\bar{a}}{n+1}=\bigwedge_{b\in\domain{}\mathfrak{M}}\exists v_n \cha{\bar{a}b}{n}\wedge\forall v_n\bigvee_{b\in\domain{}\mathfrak{M}}\cha{\bar{a}b}{n}$.
+		\item $\cha{\bar{a}}{n+1}=\bigwedge_{b\in\domain{}\mathfrak{M}}\exists v_n \cha{\bar{a}b}{n}\wedge\forall v_n\bigvee_{b\in\domain{}\mathfrak{M}}\cha{\bar{a}b}{n}$, for each $n\in\nats$.
 	\end{enumerate}
 	If $\bar{a}$ is the empty tuple, and $n\in\nats$, then we write $\cha{\mathfrak{M}}{n}$ for $\cha{\bar{a}}{n}$ and call $\cha{\mathfrak{M}}{n}$ the \textit{$\mathit{n}$-characteristic sentence} of the structure $\mathfrak{M}$.
 \end{dfn}
 
 \begin{prp}
-	The $n$-characterstic sentences,$n\in\nats$, of the structure $\mathfrak{M}$ are presicely the sentences, of quantifier rank $n$, that are pairwise inequivalent modulo the complete theory $T=\Th(\mathfrak{M})$.
+	If $L_{\omega\omega}$ is a finitary language, $\mathfrak{M}$ is an $L$-structure and $n\in\nats$ then the $L_{\omega_1\omega}$-sentence $\cha{\mathfrak{M}}{n}$ is logically equivalent to an $L_{\omega\omega}$-sentence $\sigma$.
 \end{prp}
+\begin{proof}
+	From proposition \ref{prp:finequiv} it follows that there exists sentences $\sigma_0,\dotsc,\sigma_{k-1}$, of quantifier rank at most $n$, such that for every sentence $\sigma\in\Th(\mathfrak{M})$ it holds that $\qrank(\sigma)\leq n$ implies that $\sigma$ is logically equivalent to exactly one of $\sigma_0,\dotsc,\sigma_{k-1}$.  Without loss of generality we may assume that $\mathfrak{M}\models\sigma_i$ for $i=0,\dotsc,k-1$ as we could otherwise simply discard sentences false in $\mathfrak{M}$. By definition of a characteristic sentence, it then follows that $\cha{\mathfrak{M}}{n}$ is logically equivalent to $\sigma=\bigwedge_{0\leq i<k_0}\sigma_i$, which is the required sentence.
+\end{proof}
+
+In light of the previous proposition, when $L$ is a finitary first-order language and $n\in\nats$, for a class $\mathcal{S}$ of $L$-structures we will identify the $L_{\omega_1\omega}$-sentences $\bigvee_{\alpha\in\mathcal{S}}\cha{\alpha}{n}$ and $\bigwedge_{\alpha\in\mathcal{S}}\cha{\alpha}{n}$ with any of their respective first-order equivalents.
 
 
 \section{Linear orders and coloured expansions}
 
-\begin{dfn}[Dense linear order] A linear order $\alpha$ is called \textbf{dense} whenever, for every $a,b\in\alpha$, there exists $a\in\alpha$ such that $a<c<b$.  Additionally, $\alpha$ is said to be \textit{trivially dense} if the order type of alpha is either $\zero$ or $\one$.
+\begin{assn}
+	From this section onwards all languages $L$ will be assumed to be first-order unless explicitly stated otherwise.
+\end{assn}
+
+\begin{dfn}[Dense linear order]
+	A linear order $\alpha$ is called \textbf{dense} whenever, for every $a,b\in\alpha$, there exists $a\in\alpha$ such that $a<c<b$.  Additionally, $\alpha$ is said to be \textit{trivially dense} if the order type of alpha is either $\zero$ or $\one$.
+\end{dfn}
+
+\begin{dfn}[Coloured linear order]
+	If $\alpha$ is a linear order and $\bar{r}$ is a (finite) tuple $(r_0,\dotsc,r_{k-1})$ of unary relations on $\alpha$ then the expansion $(\alpha,\bar{r})$ is said to be a $\mathbf{k}$\textbf{-coloured linear order}.
+\end{dfn}
+
+\begin{dfn}[Spectrum]
+	Suppose $\mathcal{A}$ is a class of $k$-coloured linear orders.  We call $F$ an $\mathbf{n}$\textbf{-spectrum} for the class $\mathcal{A}$ when $F$ is a minimal set of linear orders with the property that for every $\alpha\in\mathcal{A}$ there exists a $\chi\in F$ such that $\alpha\nequiv{n}\chi$.
 \end{dfn}
 
 
@@ -57,6 +75,7 @@
 
 \section{Categories and functors}
 
+
 \section{Galois connections}
 
 
@@ -77,6 +96,15 @@
 
 	\begin{dfn}[Encoding]
 		An \textbf{encoding} $p$ of a countable set $X$ is an injective recursive partial function $p\colon X\pto\nats$.  If $X$ is a first order language then $p$ is in stead referred to as a \textit{G\"odel numbering}.
+	\end{dfn}
+
+	\begin{dfn}[Frameworks]
+		Suppose for some $A\subseteq X$, where $X$ is of (coloured) linear orders, there exists a family $\family{\Gamma_{alpha,\beta}}{(\alpha,\beta)\in A\times X}$
+		\begin{enumerate}
+			\item	$p\colon X\to\nats$ is an encoding of the (countable) set of coloured linear orders,
+			\item 	the binary relation $\preceq$ is a well-founded preorder defined on $X$,
+			\item	the map $\rho\colon X\to\nats$ is the rank function associated with $(X,\preceq)$.  If, for each $x,y\in X$, it holds that
+		\end{enumerate}
 	\end{dfn}
 
 	\begin{dfn}[Proof sequences]

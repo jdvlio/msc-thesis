@@ -1,15 +1,15 @@
 \documentclass{report}[12pt, A4paper]
 
-%Set physical page size
+% Set physical page size
 \pdfpagewidth=\paperwidth\pdfpageheight=\paperheight
 
-%syntax only ---------
-%comment out to build:
-%\usepackage{syntonly}
+% syntax only ---------
+% comment out to build:
+% \usepackage{syntonly}
 
-%load packages
-%\usepackage[utf8]{inputenc}
-%\usepackage[
+% load packages
+% \usepackage[utf8]{inputenc}
+% \usepackage[
 %    language=english,
 %    title={A L\"auchli and Leonard style result for complete linear orders},
 %    author={Jean-Pierre de Villiers},
@@ -20,8 +20,8 @@
 %    course={MSc Mathematics},
 %    startdate={2019--02--01},
 %    enddate={2020--08--30}
-%]{scientific-thesis-cover}
-\usepackage{mathtools, amssymb, amsthm}
+% ]{scientific-thesis-cover}
+\usepackage{mathtools, amssymb, amsfonts, amsthm}
 \usepackage{bm}
 \usepackage{faktor}
 \usepackage{enumitem}
@@ -30,21 +30,23 @@
 \usepackage[xindy,nopostdot,symbols,nomain,nonumberlist]{glossaries}
 \usepackage{stmaryrd}
 
-%double spacing for easy annotation
-%\usepackage[doublespacing]{setspace}
+% double spacing for easy annotation
+% \usepackage[doublespacing]{setspace}
 
-%packages that generally MUST be loaded last
-%\usepackage{hyperref}
+% packages that generally MUST be loaded last
+% \usepackage{hyperref}
 
-%packages that must be loaded after hyperref
-%\usepackage[ symbols,nomain]{glossaries}
+% packages that must be loaded after hyperref
+% \usepackage[ symbols,nomain]{glossaries}
 
-%add definition theorem environments
+% add definition theorem environments
 \theoremstyle{definition}
 \newtheorem{dfn}{Definition}[chapter]
 \newtheorem{exm}[dfn]{Example}
+\newtheorem{conv}[dfn]{Convention}
+\newtheorem{assn}[dfn]{Assumption}
 
-%add plain theorem environments
+% add plain theorem environments
 \theoremstyle{plain}
 \newtheorem{thm}[dfn]{Theorem}
 \newtheorem{lem}[dfn]{Lemma}
@@ -52,13 +54,13 @@
 \newtheorem{prp}[dfn]{Proposition}
 
 \newcounter{nclaim}[dfn]
-%add remark theorem environments
+% add remark theorem environments
 \theoremstyle{remark}
 \newtheorem{rem}[dfn]{Remark}
 \newtheorem*{notation}{Notation}
 \newtheorem{claim}[nclaim]{Claim}
 
-%common sets of numbers
+% common sets of numbers
 \newcommand{\nats}{\mathbb{N}}
 \newcommand{\posnats}{\mathbb{N}^{+}}
 \newcommand{\ints}{\mathbb{Z}}
@@ -66,13 +68,13 @@
 \newcommand{\reals}{\mathbb{R}}
 \newcommand{\irrats}{\mathbb{I}}
 
-%finite ordinals
+% finite ordinals
 \newcommand{\zero}{\mathbf{0}}
 \newcommand{\one}{\mathbf{1}}
 \newcommand{\two}{\mathbf{2}}
 \newcommand{\n}{\mathbf{n}}
 
-%special classes of listrnear orders
+% special classes of listrnear orders
 \newcommand{\VD}{\mathcal{VD}}
 \newcommand{\Mzero}{\mathcal{M}_0}
 \newcommand{\M}{\mathcal{M}}
@@ -84,15 +86,15 @@
 \newcommand{\continuous}{\mathcal{L}_\lambda}
 \newcommand{\ordinals}{\mathcal{O}\mathrm{rd}}
 
-%important sentences
+% important sentences
 \newcommand{\axmlin}{\sigma_{\mathrm{L}}}
 \newcommand{\axmden}{\sigma_{\mathrm{D}}}
 
-%notation commands
+% notation commands
 \newcommand{\define}{\coloneqq}
 \newcommand{\eqsymb}{\approx}
-\newcommand{\setbuild}[2]{\{ #1\colon #2 \}}
-\newcommand{\set}[1]{\{#1\}}
+\newcommand{\setbuild}[2]{\lbrace #1\colon #2 \rbrace}
+\newcommand{\set}[1]{\lbrace #1\rbrace}
 \newcommand{\dual}[1]{{#1}^\ast}
 \newcommand{\up}[1]{\left\uparrow#1\right.}
 \newcommand{\down}[1]{\left\downarrow#1\right.}
@@ -112,11 +114,12 @@
 \newcommand{\cha}[2]{\llbracket#1\rrbracket^{#2}}
 \newcommand{\godel}[1]{\lfloor #1\rfloor}
 \newcommand{\pto}{\to}
+\newcommand{\inv}[1]{{#1}^{-1}}
 
-%condensation maps
+% condensation maps
 \newcommand{\fsplit}{\pi_F}
 
-%roman font operators
+% roman font operators
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\cf}{cf}
 \DeclareMathOperator{\range}{ran}
@@ -128,23 +131,26 @@
 \DeclareMathOperator{\admis}{Admis}
 \DeclareMathOperator{\kernel}{ker}
 
-%itaclic font operators
+% italic font operators
 \newcommand{\rank}{\mathit{rank}}
 \newcommand{\vdrank}{\mathit{rank}_\mathcal{VD}}
 \newcommand{\qrank}{\mathit{qr}}
 
-%calligraphic operators
+% calligraphic operators
 \newcommand{\comp}{\mathcal{C}}
 
-%define glossary entries
+% AMS-Latex customisation
+\newcommand{\noqed}{\renewcommand{\qedhere}{\phantom{}}}
+
+% define glossary entries
 \loadglsentries{symbols}
 \makeglossaries
 
-%Bibliography style
+% Bibliography style
 \bibliographystyle{alpha}
 
 
-%glossary entries
+% glossary entries
 \glsadd{domain}
 \glsadd{cofinality}
 \glsadd{ksubsets}
@@ -156,31 +162,30 @@
 \glsadd{range}
 
 
-%build only the specified chapters
-%\includeonly{prelim/pre, scattered/scatter}
+% build only the specified chapters
+\includeonly{prelim/pre, scattered/scatter, mono/mono}
 
 \begin{document}
-    %\maketitle
+   % \maketitle
 
-    %frontmatter
+   % frontmatter
 	\include{introduction/intro}
 	\include{prelim/pre}
 	\include{ramtheory/ramsey}
 	\include{scattered/scatter}
+	\include{mono/mono}
 	\include{complete/comp}
-	%\include{mono/mono}
 	\include{cont/cont}
 
-	%backmatter
+	% backmatter
 	\appendix
 	\include{computability/comp}
 
-	%print all glossaries
+	% print all glossaries
 	\setglossarystyle{longheaderborder}
 	\printglossaries
 
-  %print bibliography
+  % print bibliography
 	\bibliography{references}
-
 
 \end{document}
