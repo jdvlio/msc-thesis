@@ -33,19 +33,34 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 
 In what follows we will describe, for some arbitrary ordinal $\gamma$, the \textbf{Ehrenfeucht-Fra\"iss\'e game} $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ of length $\gamma$ on $L$-structures $\mathfrak{A}$ and $\mathfrak{B}$.  In this game there are two players $\Left$ and $\Right$ (respectively pronounced ``Left'' and ``Right'').  This first move of the game is always made by $\Left$ and consists of some choice of element from either one of the structures $\mathfrak{A}$ or $\mathfrak{B}$.  The players alternate turns and on each of  $\Right$'s turns he is obliged to choose an element from the opposing structure i.e.\ from $\mathfrak{B}$ if $\Left$'s last move was an element in $\mathfrak{A}$ or vice-versa.
 
-\begin{dfn}[Play of a game]
-	A pair $(\bar{a},\bar{b})$, consisting of transfinite sequences $\bar{a}=\family{a_i}{i<\gamma}$ and $\bar{b}=\family{b_i}{i<\gamma}$, is called a \textbf{play} of the aforementioned game whenever, for each $i<\gamma$, $a_i\in\domain{}\mathfrak{A}$ and $b_i\in\domain{}\mathfrak{B}$ are the elements played during the $i$-th round of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$.
+\begin{dfn}[Position]
+	A pair $(\bar{a},\bar{b})$, consisting of transfinite sequences $\bar{a}=\family{a_i}{i<\gamma}$ and $\bar{b}=\family{b_i}{i<\gamma}$, is called a \textbf{position} of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ whenever, for each $i<\gamma$, $a_i\in\domain{}\mathfrak{A}$ and $b_i\in\domain{}\mathfrak{B}$ are the elements played during the $i$-th round of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$.  We refer to $\gamma$ as the \textit{length} of the position.
+\end{dfn}
+
+\begin{dfn}[Play]
+	A \textbf{play} in the game $\EF_\gamma{\mathfrak{A},\mathfrak{A}}$ is any maximal position in the game.
 \end{dfn}
 
 \begin{dfn}[Winning play]
-	A play $(\bar{a},\bar{b})$ of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ is said to be \textbf{a winning play for} $\bm{\mathcal{R}}$ iff there exists an isomorphism $f\colon\gen{\bar{a}}{\mathfrak{A}}\to\gen{\bar{b}}{\mathfrak{B}}$ such that $f[\bar{a}]=f[\bar{b}]$.
+	A position $(\bar{a},\bar{b})$ of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ is said to be \textbf{a winning play for} $\bm{\mathcal{R}}$ iff there exists some isomorphism $f\colon\gen{\bar{a}}{\mathfrak{A}}\to\gen{\bar{b}}{\mathfrak{B}}$ such that $f[\bar{a}]=f[\bar{b}]$.
 \end{dfn}
 
 \begin{dfn}[Back-and-forth equivalence]
 	We define $\mathfrak{A}\sim_\gamma\mathfrak{B}$ for an ordinal $\gamma$ if there exists a winning strategy for $\Right$ in the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$.  For the special case $\gamma=\omega$: if $\mathfrak{A}\sim_\omega\mathfrak{B}$ then it is said that $\mathfrak{A}$ and $\mathfrak{B}$ are \textbf{back-and-forth equivalent}.
 \end{dfn}
 
+\begin{dfn}[Winning position]
+	In the back-and-forth game $\EF_\omega(\mathfrak{A},\mathfrak{B})$ a position $(\bar{c},\bar{d})$ of length $n\in\nats$ is called a $\textbf{winning position}$ for a particular player if whenever that player can win the $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ when starting from position $(\bar{c},\bar{d})$.
+\end{dfn}
 
+\begin{prp}
+	Suppose $\mathfrak{A}$ and $\mathfrak{B}$ are countable $L$-structures, for some language $L$, and let $(\bar{c},\bar{d})$ be a winning position for $\Right$ in $\EF_\omega(\mathfrak{A},\mathfrak{B})$.  If $\mathfrak{A}\sim_\omega\mathfrak{B}$ then there exists an isomorphism $f\colon\mathfrak{A}\to\mathfrak{B}$ such that $f[\bar{c}]=f[\bar{d}]$ i.e.\ an isomorphism $f\colon(\mathfrak{A},\bar{c})\to(\mathfrak{B},\bar{d})$.
+\end{prp}
+\begin{proof}
+	Let $\bar{a}=\family{a_i}{i<\omega}$ and $\bar{a}=\family{a_i}{i<\omega}$, respectively, be enumerations of the structures $\mathfrak{A}$ and $\mathfrak{B}$.  In what follows we describe the remainder of the game $\EF_\omega(\mathfrak{A},\mathfrak{B}$.  On every odd round $\Left$ plays the first element occuring in $\bar{a}$ which he has not played at any previous position of the game and does not occur in $\bar{c}$.  Similarly, on every even round $\Left$ plays the first element occuring in $\bar{b}$ which he has not played at a previous position of the game and does not occur in $\bar{d}$.  Naturally, $\Right$ simply responds using his winning strategy on every round.
+
+	Note, given any element from either one of the two structures, that $\Left$ will play that element after finitely many rounds.  Hence all the elements from both $\mathfrak{A}$ and $\mathfrak{B}$ make an appearance at some point in the game.  By definition of a winning play, there then exists an isomorphism $f\colon\gen{\bar{c}\string^\bar{a}}{\mathfrak{A}}\to\gen{\bar{d}\string^\bar{b}}{\mathfrak{B}}$ such that $f[\bar{c}\string^\bar{a}]=f[\bar{d}\string^\bar{b}]$ and hence $f[\bar{c}]=f[\bar{d}]$.  Since $\gen{\bar{a}}{\mathfrak{A}}=\mathfrak{A}$ and $\gen{\bar{b}}{\mathfrak{B}}=\mathfrak{B}$, the result follows as intended.
+\end{proof}
 
 
 \section{Linear orders and coloured expansions}
