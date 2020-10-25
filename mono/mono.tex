@@ -129,14 +129,29 @@
 	Suppose $T$ is an $L$-theory and $\mathfrak{M}$ is a model of the theory $T$. It is then said to $\mathfrak{M}$ is a \textbf{prime model} of $T$ whenever, for every $\mathfrak{N}\in\Mod(T)$, there exists an elementary embedding $f\colon\mathfrak{M}\to\mathfrak{N}$.
 \end{dfn}
 
-\begin{thm}[Cantor's Theorem]
-	If $\alpha\in\dense$ is countable then there exists an isomorphism $f\colon\eta\to\alpha$.
+\begin{thm}[Cantor's Theorem]\label{thm:cantor}
+	If $\alpha\in\dense$ is countable then there exists an isomorphism $f\colon\alpha\to\eta$.
 \end{thm}
 \begin{proof}
-	Let $\family{a_i}{i<\omega}$ and $\family{b_i}{i<\omega}$, respectively, be enumerations of $\eta$ and $\alpha$.  Define, for each $n\in\nats$, the set $A_n=\set{a_0,\dotsc,a_n}$.  Choose $A_0=\set{a_0}$, $B_0=\set{b_0}$ and let $h_0$ be the unique map $h\colon A_0\to B_0$.  Now suppose $h_{n-1}\colon A_{n-1}\to B_{n-1}$ has been defined for some $n\in\nats$ and choose any $b_n\in\domain{}\alpha\setminus B_{n-1}$.  Define $B_n=B_{n-1}\cup\set{b_n}$ and choose each $h_n\colon A_n\to B_n$ such that $h_n\restriction A_{n-1}=h_{n-1}$, where $A_n=\set{a_0,\dotsc,a_n}$ and the following holds:
-	\begin{enumerate}
-		\item
-	\end{enumerate}
+	We will construct the required isomorphism by means of the game $\EF_\omega(\alpha,\eta)$. It is reasonable to assume that $\Left$ never plays an element more than once in the game $\EF_\omega(\alpha,\eta)$ as $\Right$ could then simply respond by copying his previous countermove to that element.
+
+	Regardless of what initial move  $\Left$ makes, $e_0$ say, we let $\Right$ respond with $a_0$ if $e_0\in\rats$ and with $b_0$ if $e_0\in\alpha$.  Suppose now that we are on round $n$ and $\Left$ has just played the element $e_{n-1}$.  Label the elements in $\alpha$ that have already been played as $\nu_0,\dotsc,\nu_{n-2}$ and the elements that have been played in $\eta$ as $\xi_0,\dotsc,\xi_{n-2}$.  Without loss of generality we may assume $\nu_0<\dotsb<\nu_{n-2}$ and $\xi_0<\dotsb<\xi_{n-2}$.  We consider only the case $e_{n-1}\in\rats$ as the case $e_{n-1}\in\alpha$ is argued similarly.  Since $\alpha$ has no least or greatest element, if $e_{n-1}>\xi_{n-2}$ then $\Right$ plays the first entry in $\bar{a}$ that has yet to be played and is greater than $\nu_{n-2}$ and if $e_{n-1}<\xi_0$ then $\Right$ plays the first entry in $\bar{a}$ which is less than $\nu_0$ but has yet to be played.  Otherwise, there exists some $i_0<n-1$ such that $\nu_{i_0}<e_{n-1}<\nu_{i_0+1}$.  In this latter scenario we let $\Right$ play the first entry in $\bar{a}$ that has not yet been played and is a member of the interval $(\xi_{i_0},\xi_{i_0+1})$.
+
+	Suppose the resulting play of the game is now $(\bar{c},\bar{d})$.  Since $\Left$ never played an element twice, we can define a function $f\colon\eta\to\alpha$ such that $f(c_i)=f(d_i)$, for each $i<\omega$.  Let $f_n$ denote the restriction $f_n=f\restriction\set{c_0,\dotsc,c_{n-1}}$, for each $n\in\nats$.  We aim now to show that $f$ is the desired isomorphism via the following claim:
+	\begin{claim}
+		For each $n\in\nats$, the map $f_n\colon\set{c_0,\dotsc,c_{n-1}}\to\set{d_0,\dotsc,d_{n-1}}$ is an isomorpshim.
+	\end{claim}
+	\begin{proof}
+		The case $n=0$ is immediate from the definition.  Suppose now that $f_{n-1}$ is an isomorphism for some $n\in\nats$ and fix any $i<n-1$.  If $c_i<c_{n-1}$ then, by definition, $d_i=f(c_i)<d_{n-1}=f(c_{n-1})$. Similarly, if $c_{n-1}<c_i$ then $d_{n-1}=f(c_{n-1})<d_i=f(c_i)$.  It then follows necessarily from the inductive hypothesis that $f_n$ is a homomorphism.  From these observations one may also conclude that $f_n$ is bijective and thus in fact an isomorphism.
+	\end{proof}
+	It now remains but a simple exercise to show that, since each $f_n$ for $n\in\nats$ is an isomorphism, that $f$ itself is also an isomorphism.
+\end{proof}
+
+\begin{thm}
+	The linear order $\eta$ is a prime model of the theory $\Th(\dense)$.
+\end{thm}
+\begin{proof}
+	Suppose $\alpha\models\Th(\dense)$ then $\alpha$ must be infinite and thus, from the downward L\"owenheim-Skolem Theorem, there exists a countable $\alpha_0\preccurlyeq\alpha$.  From Cantor's theorem it follows that $\alpha_0\cong\eta$ and, therefore, there must exist an elementary embedding of $\eta$ into $\alpha$.
 \end{proof}
 
 \begin{dfn}[Quantifier elimination]
