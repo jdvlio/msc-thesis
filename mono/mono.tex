@@ -153,3 +153,19 @@
 \begin{proof}
 	Suppose $\alpha\models\Th(\dense)$ then $\alpha$ must be infinite and thus, from the downward L\"owenheim-Skolem Theorem, there exists a countable $\alpha_0\preccurlyeq\alpha$.  From Cantor's theorem it follows that $\alpha_0\cong\eta$ and, therefore, there must exist an elementary embedding of $\eta$ into $\alpha$.
 \end{proof}
+
+\begin{thm}
+	The theory $T=\Th(\dense)$ has quantifier elimination.
+\end{thm}
+\begin{proof}
+	By Lemma \ref{lem:qelim}, it is enough to show that $T$ is substructure complete.  Suppose that $\alpha\models T$ and choose any $\alpha_0\subseteq\alpha$.  Define $A=\domain{}\alpha_0$ and suppose that $\mathfrak{M},\mathfrak{N}\models T\cup\diag{\alpha_0}$ are $L(A)$-structures.  Note that we may assume, without loss of generality, that $A\subseteq M,N$ such that $\mathfrak{M}=(\beta,A)$ and $\mathfrak{N}=(\gamma,A)$ for linear orders $\beta,\gamma\models T$.  We are now required to show that
+	\begin{equation}
+		\mathfrak{M}\equiv\mathfrak{N}.
+	\end{equation}
+	However, it is enough to simply prove that
+	\begin{equation}
+		(\beta,B)\equiv(\gamma,B),\quad\text{for every finite }B\subseteq A.
+	\end{equation}
+
+	Suppose that $B\subseteq A$ is finite then by the downwards L\"owenheim-Skolem Theorem there exists countable $\beta_0\elmsub\beta$ and $\gamma_0\elmsub\gamma$ such that $B\subseteq\beta_0,\gamma_0$.  We may assume that the elements of $B$, for some $n\in\nats$, are precisely $b_0<b_1<\dotsb<b_{n-1}$.  It now follows from Cantor's Theorem that each of the intervals $(b_0,b_1)_{\beta_0},\dotsc,(b_{n-2},b_{n-1})_{\beta_0}$ as well as $\beta_0^{<b_0}$ and $\beta_0^{>b_{n-1}}$ are isomorphic to $\eta$.  The same is true of the corresponding intervals in $\gamma$.  This then gives rise to isomorphisms $f_0,\dotsc,f_n$ (whose domains we will choose to be subsets of $\domain{}\beta_0$) between the corresponding open intervals of $\beta_0$ and $\gamma_0$ such that each member of the range of $f_i$ is less (in $\gamma_0$) than every member member of the range of $f_j$ whenever $i<j\leq n$.  One can then define (in an obvious manner) an isomorphism $f\colon\beta_0\to\gamma_0$ which is an extension of $f_i$ to all of $\beta_0$, for each $i\leq n$, such that $f(b_j)=b_j$ whenever $j<n$.  Therefore $(\beta_0,B)\cong(\gamma_0,B)$ and thus $(\beta_0,B)\equiv(\gamma_0,B)$.  The proof is then concluded by recalling that $\beta_0\elmsub\beta$ and $\gamma_0\elmsub\gamma$.
+\end{proof}
