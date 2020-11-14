@@ -2,6 +2,18 @@
 
 \section{Model theory and logic}
 
+Our primitive (logical) symbols are $\bot$, $\rightarrow$, $\wedge$ and $\exists$ with their usual semantics.  We will also make use of the following symbols to abbreviate certain formulas in the way one would normally expect in (classical) first-order logic: $\top$, $\neg$, $\vee$ and $\forall$.  Since there is more than one way to do this
+
+On occasion we might encounter infinite conjunctions and disjuctions by employing the (respective) symbols $\bigwedge$ and $\bigvee$, with or without subscripts.  These do not occur in the language of first-order logic as such but rather in its infinitary extensions $L_{\kappa\omega}$ with $\kappa$ an initial ordinal and $L$ ranging over all possible signatures.  For a fixed signature $L$ the notation $L_{\infty\omega}$ is also encountered in the literature to denote the (smallest) language containg $L_{\kappa\omega}$, for each initial ordinal $\kappa$.  An example of a minimalistic but infinitary extension of a first-order language would be the language $L_{\omega_1\omega}$ which also allows formulas to have denumerable conjunctions and disjunctions such as in $\bigvee_{i<\omega}\bigwedge_{j<\omega}\varphi_{ij}$.
+
+\begin{conv}[Signatures and languages]
+	We will make a habit of identifying the language $L_{\omega\omega}$ (the first-order language over the signature $L$) with its underlying signature as these uniquely determine each other.
+\end{conv}
+
+\begin{conv}
+	We indentify any language $L_{\kappa\omega}$ with its corresponding set of formulas, allowing us to make assertions such as ``$\varphi\in L$'' in the case $L=L_{\omega\omega}$.
+\end{conv}
+
 \begin{dfn}[Finitary languages]
 	A language $L$ is called \textbf{finitary} if $L$ is a language over a \text{finite} signature.
 \end{dfn}
@@ -28,8 +40,174 @@
 
 In light of the previous proposition, when $L$ is a finitary first-order language and $n\in\nats$, for a class $\mathcal{S}$ of $L$-structures we will identify the $L_{\omega_1\omega}$-sentences $\bigvee_{\alpha\in\mathcal{S}}\cha{\alpha}{n}$ and $\bigwedge_{\alpha\in\mathcal{S}}\cha{\alpha}{n}$ with any of their respective first-order equivalents.
 
+\begin{lem}\label{lem:diagH}
+	Suppose $\mathfrak{A}$ and $\mathfrak{B}$ are $L$-structures.  If $\bar{c}$ is a (possibly infinite) tuple of constant symbols and $\bar{a}\in A^{\ell(\bar{c})}$ and $\bar{b}\in B^{\ell(\bar{c})}$ then
+	\begin{enumerate}
+		\item 	for every atomic $\sigma\in L_0(\bar{c})$, if $(\mathfrak{A},\bar{a})\models\sigma$ then $(\mathfrak{B},\bar{b})\models\sigma$,
+		\item  there exists a homomorphism $h\colon\gen{\bar{a}}{\mathfrak{A}}\to\mathfrak{B}$ such that $f[\bar{a}]=f[\bar{b}]$.
+	\end{enumerate}
+	Additionally, if $h$ exists then it is unique and, furthermore, $h$ is an embedding iff $(\mathfrak{A},\bar{a})\nequiv{0}(\mathfrak{B},\bar{b})$.
+\end{lem}
 
-\section{Games between structures}
+\begin{lem}[Positive Diagram Lemma]\label{lem:diagp}
+	Suppose $\mathfrak{A}$ and $\mathfrak{B}$ are $L$-structures.  If $f$ is a map $f\colon A\to B$ then the following are equivalent:
+	\begin{enumerate}
+		\item	$h$ is a homomorphism $h\colon\mathfrak{A}\to\mathfrak{B}$,
+		\item	for each $n\in\nats$ and every atomic formula $\varphi\in L_n$ it holds that, whenever $\bar{a}\in A^n$,
+			\begin{equation}
+				\mathfrak{A}\models\varphi(\bar{a}) \quad\implies\quad \mathfrak{B}\models\varphi(h[\bar{a}])
+			\end{equation}
+		\item	it holds that $(\mathfrak{B},h[A])\models\diagp\mathfrak{A}$.
+	\end{enumerate}
+\end{lem}
+
+\begin{lem}[Diagram Lemma]\label{lem:diag}
+	Suppose $\mathfrak{A}$ and $\mathfrak{B}$ are $L$-structures.  If $f$ is a map $f\colon A\to B$ then the following are equivalent:
+	\begin{enumerate}
+		\item	$h$ is an embedding $h\colon\mathfrak{A}\hookrightarrow\mathfrak{B}$,
+		\item	for each $n\in\nats$ and every quantifier-free formula $\varphi\in L_n$ it holds that, whenever $\bar{a}\in A^n$,
+			\begin{equation}
+				\mathfrak{A}\models\varphi(\bar{a}) \quad\iff\quad \mathfrak{B}\models\varphi(h[\bar{a}])
+			\end{equation}
+		\item	it holds that that $(\mathfrak{B},h[A])\models\diag\mathfrak{A}$.
+	\end{enumerate}
+\end{lem}
+
+\begin{dfn}[Quantifier elimination]
+	An $L$-theory $T$ is said to \textbf{admit quantifier elimination} (or \textit{has} quantifier elimination) if for every $k\in\nats$ and every $\varphi\in L_k$ there exists a quantifier-free formula $\psi\in L_k$ such that $\varphi$ is $T$-equivalent (or equivalent modulo $T$) to $\psi$ i.e.\ $T\models\forall\bar{x}(\varphi(\bar{x})\leftrightarrow\psi(\bar{x}))$.
+\end{dfn}
+
+\begin{dfn}[Substructure-completeness]
+	A first-order theory $T$, in some language $L$, is said to be \textbf{substructure-complete} whenever for every model $\mathfrak{M}$ of $T$ and every substructure $\mathfrak{A}$ of $\mathfrak{M}$ it necessarily holds that $T\cup\diag(\mathfrak{A})$ is a complete $L(A)$-theory.
+\end{dfn}
+
+\begin{dfn}[Literal]
+	A formula $\varphi\in L$ is called a \textbf{literal} whenever it is either an atomic $L$-formula or, otherwise, the negation of such an atomic formula.
+\end{dfn}
+
+\begin{dfn}[Simply primitive]
+	A formula $\varphi(\bar{x})\in L_n$, for some $n\in\posnats$, is said to be \textbf{simply primitive} whenever there exists literals $\varphi_0(\bar{x},y),\dotsc,\varphi_{n-1}(\bar{x},y)\in L_n$ such that $\varphi(\bar{x})=\exists y\bigwedge_{0\leq i<n}\varphi_i(\bar{x},y)$.  We denote the class of simply primitive formulas as $\E{}^\ast$.
+\end{dfn}
+
+\begin{prp}\label{prp:sprm}
+	An $L$-theory $T$ admits quantifier elimination iff every simply primitive $L$-formula is $T$-equivalent to a quantifier-free formula.
+\end{prp}
+\begin{proof}
+	\forward Trivial.
+
+	\backward We argue on the complexity of the formula $\varphi\in L$ that it is $T$-equivalent to a quantifier-free formula.  If $\varphi$ is atomic then it trivially follows that $\varphi$ is quantifier-free.  Note $\bot$ is quantifier-free as it is atomic and suppose now that $\varphi_0$ and $\varphi_1$ are, respectively, $T$-equivalent to quantifier-free formulas $\psi_0,\psi_1\in L$.  It follows  by definition that the formulas $\varphi_0\rightarrow\varphi_1$ and $\varphi_0\wedge\varphi_1$ are $T$-equivalent to the respective quantifier-free formulas $\psi_0\rightarrow\psi_1$ and $\psi_0\wedge\psi_1$.  Lastly, note that $\exists y\varphi_0$, by the induction hypothesis, is $T$-equivalent to the simply primitive formula $\exists y\psi_0$.  As simply primitive $L$-formulas (by assumption) are $T$-equivalent to quantifier-free formulas, we may conclude that $\exists y\psi_0$, and thus $\exists y\varphi_0$, is $T$-equivalent to a quantifier-free formula.
+\end{proof}
+
+\begin{dfn}[Boolean closure]
+	If $\Phi\subseteq L$ is a set of $L$-formulas then its \textbf{boolean closure} (denoted as $\widetilde{\Phi}$) is the smallest set of $L$-formulas such that $\widetilde{\Phi}\supseteq\Phi\cup\set{\bot,\top}$ and is closed under negation, conjunction and disjunction i.e.\ if $\varphi,\psi\in\widetilde{\Phi}$ then it must follow that $\set{\neg\varphi, \varphi\wedge\psi,\varphi\vee\psi}\subseteq\widetilde{\Phi}$.
+\end{dfn}
+
+\begin{rem}
+	Note in the definition of a boolean closure that the condition that $\widetilde{\Phi}$ be closed under disjunctions is redundant.
+\end{rem}
+
+\begin{lem}\label{lem:bcls}
+	Let $T$ be an $L$-theory and fix some $\sigma\in L_0$.  If $\Sigma$ is an $L$-theory then $\sigma$ is $T$-equivalent to a sentence from $\widetilde{\Sigma}$ iff it holds for every $\mathfrak{M},\mathfrak{N}\models T$ that:
+	\begin{equation}
+		\mathfrak{M}\equiv_\Sigma\mathfrak{N} \quad\implies\quad \mathfrak{M}\equiv_\sigma\mathfrak{N}
+	\end{equation}
+\end{lem}
+\begin{proof}
+	\forward  Note that no generality is lost by assuming that $\sigma\in\widetilde{\Sigma}$.  As the case $\sigma\in\set{\bot,\top}$ is trivial, suppose not.  We argue by induction on the complexity of $\sigma$.  If $\sigma\in\Sigma$ then it follows by definition that $\mathfrak{M}\equiv_\Sigma\mathfrak{N}$.  Assume now that $\sigma_0,\sigma_1\in\widetilde{\Sigma}$ and either $\sigma=\neg\sigma_0$, $\sigma=\sigma_0\wedge\sigma_1$, where (for $i=0,1$) it holds, for $\mathfrak{M},\mathfrak{N}\models T$, that
+	\begin{equation}
+		\mathfrak{M}\equiv_\Sigma\mathfrak{N} \quad\implies\quad \mathfrak{M}\equiv_{\sigma_i}\mathfrak{N}.
+	\end{equation}
+	In both cases it necessarily then follows from the usual definition of Tarski semantics that, for $\mathfrak{M},\mathfrak{N}\models T$, we must have
+	\begin{equation}
+		\mathfrak{M}\equiv_\Sigma\mathfrak{N} \quad\implies\quad \mathfrak{M}\equiv_\sigma\mathfrak{N}.
+	\end{equation}
+
+	\backward  Consider the set $S_L$ of complete $L$-theories, under its usual Stone topology, and define the sets $S=\gen{\sigma}{}\cap\bigcap_{\sigma^\prime\in T}\gen{\sigma^\prime}{}$ and $S^\prime=\gen{\neg\sigma}{}\cap\bigcap_{\sigma^\prime\in T}\gen{\sigma^\prime}{}$.  Note, if $T\cup\set{\sigma}$ is inconsistent then it follows that $T\models\neg\sigma$ and thus $\sigma$ is $T$-equivalent to $\bot$ so that the result follows trivially.  Similarly,  if $T\cup\set{\neg\Sigma}$ is inconsistent then $\sigma$ is $T$-equivalent to $\top$ and the result again follows trivially.  Now assume both $T\cup\set{\sigma}$ and $T\cup\set{\neg\sigma}$ are consistent so that $S\neq\emptyset\neq S^\prime$.
+
+	Note now that, for every $T_0\in S$ and $T_1\in S^\prime$, it follows our assumption (by contraposition) that if $\mathfrak{M}_0\models T_0$ and $\mathfrak{M}_1\models T_1$ then there exists a $\sigma_{T_0,T_1}\in\Sigma$ such that $\mathfrak{M}_0\models\sigma_{T_0,T_1}$ but $\mathfrak{M}_1\models\neg\sigma_{T_0,T_1}$.  Note that, for every $T_0\in S$, the set $\setbuild{\gen{\neg\sigma_{T_0,T^\prime}}{}}{{T^\prime\in S^\prime}}$ is an open cover of $S^\prime$.  Since $S^\prime$ is an intersection of closed sets, it now follows that $S^\prime$ itself is closed and therefore must be compact as it is a closed subset of the compact topological space $S_L$.  By definition of compactness, there must then exist $T^\prime_0,\dotsc,T^\prime_{k-1}\in S^\prime$ (for some $k\in\posnats$) such that the set $\set{\gen{\neg\sigma_{T_0,T^\prime_0}}{},\dotsc,\gen{\neg\sigma_{T_0,T^\prime_{k-1}}}{}}$ is an open cover of $S^\prime$.  We may now conclude that
+	\begin{equation}
+		T\cup\set{\neg\sigma}\models\bigvee_{i<k}\neg\sigma_{T_0,T^\prime_i},
+	\end{equation}
+	and therefore
+	\begin{equation}
+		T\models\neg\sigma\rightarrow\bigvee_{i<k}\neg\sigma_{T_0,T^\prime_i}.\label{eq:tmnsr}
+	\end{equation}
+	Now, for each $T_0\in S$, define $\sigma_{T_0}=\bigwedge_{i<k}\sigma_{T_0,T^\prime_i}$ and note that $\sigma_{T_0}\in\widetilde{\Sigma}$ as it is a conjunction of sentences from $\Sigma\subseteq\widetilde{\Sigma}$.  Note also, by contraposition, that
+	\begin{equation}
+		T\models\sigma_{T_0}\rightarrow\sigma.
+	\end{equation}
+	Note now for every $T_0\in S$, and each natural $i<k$, that we necessarily have $T_0\models\sigma_{T_0,T_i^\prime}$.  Consequently $T_0\models\sigma_{T_0}$, for each $T_0\in S$, and therefore the set $\setbuild{\gen{\sigma_{T_0}}{}}{T_0\in S}$ is an open cover of $S$.  Since $S$ is a closed, and therefore compact, subset of $S_L$ it follows that there exists a finite subcover $\set{\gen{\sigma_{T^\pprime_0}}{},\dotsc,\gen{\sigma_{T^\pprime_{m-1}}}{}}$ of the aforementioned open cover.  Consequently,
+	\begin{equation}
+		T\cup\set{\sigma}\models\bigvee_{i<m}\sigma_{T^\pprime_i}.
+	\end{equation}
+	We may now assume, without loss of generality, it holds that $T\cup\set{\sigma}\models\sigma_{T^\pprime_0}$ and therefore
+	\begin{equation}
+		T\models\sigma\rightarrow\sigma_{T^\pprime_0}.
+	\end{equation}
+	Since it has already been determined that $T\models\sigma_{T_0^\pprime}\rightarrow\sigma$ and it holds that $\sigma_{T^\pprime_0}\in\widetilde{\Sigma}$, the result then follows.
+\end{proof}
+
+\begin{prp}\label{prp:bcls}
+	Let $T$ be an $L$-theory and, for any $n\in\nats$, fix some $\varphi\in L_n$.  If $\Delta\subseteq L_n$ then $\varphi$ is $T$-equivalent to a formula from $\widetilde{\Delta}$ iff the following holds for every $\mathfrak{M},\mathfrak{N}\models T$ and each $\bar{a}\in M^n$ and $\bar{b}\in N^n$:
+	\begin{equation}
+		 \mathfrak{M}\models\delta(\bar{a})\text{ iff }\mathfrak{N}\models\delta(\bar{b})\text{, for all $\delta\in\Delta$,} \implies \mathfrak{M}\models\varphi(\bar{a})\text{ iff }\mathfrak{N}\models\varphi(\bar{b}).
+	\end{equation}
+\end{prp}
+\begin{proof}
+	Let $n\in\nats$ and suppose that $\varphi=\varphi(\bar{x})\in L_n$ and $\Delta=\Delta(\bar{x})\subseteq L_n$.  Consider now a tuple $\bar{c}$ of constant symbols which is of length $n$.  After convincing oneself that $\widetilde{\Delta(\bar{c})}=\widetilde{\Delta}(\bar{c})$, that is to say that the operation of taking a boolean closure of a set of formulas and that of substition by constant symbols commute, it follows from lemma \ref{lem:bcls} that $\varphi(\bar{c})$ is equivalent to a sentence from $\widetilde{\Delta}(\bar{c})$ iff
+	\begin{equation}
+		\mathfrak{M}^\prime\equiv_{\Delta(\bar{c})}\mathfrak{N}^\prime \quad\implies\quad \mathfrak{M}^\prime\equiv_{\varphi(\bar{c})}\mathfrak{N}^\prime,
+	\end{equation}
+	for all $L(\bar{c})$-expansions $\mathfrak{M}^\prime$ and $\mathfrak{N}^\prime$ of the respective $L$-structures $\mathfrak{M},\mathfrak{N}\models T$.  Redressing this equivalence purely in terms of $L$-formulas and $L$-structures (by taking their $L$-reducts) then yields the desired result.
+\end{proof}
+
+\begin{dfn}
+	Recursively define the following classes of $L_{\infty\omega}$ formulas, with $L$ ranging over all signatures:
+	\begin{enumerate}
+		\item	$\E{0}=\A{0}$ is the class of formulas $\varphi$ such that $\varphi$ is a quantifier-free formula in some first-order language $L$,
+		\item	if $n\in\nats$, $\E{n+1}\supseteq\A{n}$ is defined to the smallest class of formulas, closed under $\bigwedge$ and $\bigvee$, such that $\exists\bar{x}\varphi\in\E{n+1}$ whenever $\bar{x}$ is finite tuple of variables and $\varphi\in\E{n+1}$,
+		\item	if $n\in\nats$, $\A{n+1}\supseteq\E{n}$ is defined to be the smallest class of formulas, closed under $\bigwedge$ and $\bigvee$, such that $\forall\bar{x}\varphi\in\A{n+1}$ whenever $\bar{x}$ is finite tuple of variables and $\varphi\in\A{n+1}$.
+	\end{enumerate}
+	In particular, members of $\E{1}$ are known as the \textbf{existential formulas} while the members of $\A{1}$ are referred to as \textbf{universal formulas}.
+\end{dfn}
+\begin{lem}
+	The following are equivalent for a consistent $L$-theory $T$:
+	\begin{enumerate}
+		\item	$T$ admits quantifier elimination,
+		\item	$T$ is a substructure-complete theory,
+		\item	if $\mathfrak{A}$ is finitely generated, $f\colon\mathfrak{A}\to\mathfrak{M}$ and $g\colon\mathfrak{A}\to\mathfrak{N}$ are embeddings and $\mathfrak{M},\mathfrak{N}\models T$ then, for every $n\in\nats$ and each simply primitive $\varphi\in L_n(A)$, it holds for every $\bar{a}\in A^n$ that
+		\begin{equation}
+			\mathfrak{M}\models\varphi(f[\bar{a}]) \quad\iff\quad \mathfrak{N}\models\varphi(g[\bar{a}]).\label{eq:qelim}
+		\end{equation}
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	1$\Rightarrow$2:  Choose any $\mathfrak{M}\models T$ and any $\mathfrak{A}\subseteq\mathfrak{M}$.  Note, since $T$ has quantifier elimination, it follows from the diagram lemma (choosing $h$ as the inclusion map) that
+	\begin{equation}
+		\Th(\mathfrak{M},A)\subseteq T\cup\diag\mathfrak{A}.
+	\end{equation}
+	Since the former is complete it immediately follows that the latter is complete as well.
+
+	2$\Rightarrow$3:  Suppose $\mathfrak{A}$ is a finitely generated structure and let $f\colon\mathfrak{A}\hookrightarrow\mathfrak{M}$ and $g\colon\mathfrak{A}\hookrightarrow\mathfrak{N}$ be embeddings into the respective models $\mathfrak{M}$ and $\mathfrak{N}$ of $T$.  Without loss of generality we may assume $f$ and $g$ are inclusion maps and therefore $\mathfrak{A}\subseteq\mathfrak{M},\mathfrak{N}$.  By assumption the $L(A)$-theory $T\cup\diag\mathfrak{A}$ is complete.  Therefore, since $(\mathfrak{M},A)\models T\cup\diag\mathfrak{A}$ and $(\mathfrak{N},A)\models T\cup\diag\mathfrak{A}$, it follows that $(\mathfrak{M},A)\equiv(\mathfrak{N},A)$.  By definition, this is equivalent to (\ref{eq:qelim}).
+
+	3$\Rightarrow$1:  By Proposition \ref{prp:sprm}, it is enough to show that every simply primitive formula is $T$-equivalent to a quantifier-free formula.  In turn, Proposition \ref{prp:bcls} reduces this to showing, for each $n\in\nats$, that if $\bar{c}$ is an $n$-tuple of constant symbols and $\mathfrak{M},\mathfrak{N}\models T$ are $L$-structures then all of their (respective) $L(\bar{c})$-expansions $\mathfrak{M}^\prime$ and $\mathfrak{N}^\prime$ satisfy
+	\begin{equation}
+		\mathfrak{M}^\prime\equiv_{\A{0}}\mathfrak{N}^\prime \quad\implies\quad \mathfrak{M}^\prime\equiv_{\E{}^\ast}\mathfrak{N}^\prime.
+	\end{equation}
+
+	Let $\mathfrak{M},\mathfrak{N}\models T$ be $L$-structures and choose, for an arbitrary $n\in\nats$, any $\bar{a}\in\domain{n}\mathfrak{M}$ and any $\bar{b}\in\domain{n}\mathfrak{N}$ such that
+	\begin{equation}
+		(\mathfrak{M},\bar{a})\equiv_{\A{0}}(\mathfrak{N},\bar{b}).
+	\end{equation}
+	Define the structures $\mathfrak{A}=\gen{\bar{a}}{\mathfrak{M}}$ and $\mathfrak{B}=\gen{\bar{b}}{\mathfrak{N}}$ and note, by definition, that both of them are finitely generated.  From lemma \ref{lem:diagH}, it follows that there exists an embedding $h\colon\mathfrak{A}\to\mathfrak{N}$ such that $h[\bar{a}]=h[\bar{b}]$.  Since $\mathfrak{B}$ is generated by $\bar{b}=h[\bar{a}]$, we may consider $h$ to be an isomorphism $h\colon\mathfrak{A}\to\mathfrak{B}$.  Therefore, we may identify the structures $\mathfrak{A}$ and $\mathfrak{B}$ so that the desired conlusion then follows from (3) by choosing $f$ and $g$ to be the respective inclusion maps $f\colon\mathfrak{A}\hookrightarrow\mathfrak{M}$ and $g\colon\mathfrak{A}\hookrightarrow\mathfrak{N}$.
+\end{proof}
+
+\begin{dfn}[Model-completeness]
+	An $L$-theory $T$ is said to be \textbf{model-complete} if every embedding $f\colon\mathfrak{M}\to\mathfrak{N}$, between models $\mathfrak{M}$ and $\mathfrak{N}$ of $T$, is elementary.
+\end{dfn}
+
+
+\section{Games on structures}
 
 In what follows we will describe, for some arbitrary ordinal $\gamma$, the \textbf{Ehrenfeucht-Fra\"iss\'e game} $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ of length $\gamma$ on $L$-structures $\mathfrak{A}$ and $\mathfrak{B}$.  In this game there are two players $\Left$ and $\Right$ (respectively pronounced ``Left'' and ``Right'').  This first move of the game is always made by $\Left$ and consists of some choice of element from either one of the structures $\mathfrak{A}$ or $\mathfrak{B}$.  The players alternate turns and on each of  $\Right$'s turns he is obliged to choose an element from the opposing structure i.e.\ from $\mathfrak{B}$ if $\Left$'s last move was an element in $\mathfrak{A}$ or vice-versa.
 
@@ -38,7 +216,7 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 \end{dfn}
 
 \begin{dfn}[Play]
-	A \textbf{play} in the game $\EF_\gamma{\mathfrak{A},\mathfrak{A}}$ is any maximal position in the game.
+	A \textbf{play} in the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ is any maximal position in the game.
 \end{dfn}
 
 \begin{dfn}[Winning play]

@@ -153,11 +153,3 @@
 \begin{proof}
 	Suppose $\alpha\models\Th(\dense)$ then $\alpha$ must be infinite and thus, from the downward L\"owenheim-Skolem Theorem, there exists a countable $\alpha_0\preccurlyeq\alpha$.  From Cantor's theorem it follows that $\alpha_0\cong\eta$ and, therefore, there must exist an elementary embedding of $\eta$ into $\alpha$.
 \end{proof}
-
-\begin{dfn}[Quantifier elimination]
-	An $L$-theory $T$ is said to \textbf{admit quantifier elimination} (or \textit{has} quantifier elimination) if for every $k\in\nats$ and every $\varphi\in L_k$ there exists a quantifier-free formula $\psi\in L_k$ such that $\varphi$ is $T$-equivalent (or equivalent modulo $T$) to $\psi$ i.e.\ $T\models\forall\bar{x}(\varphi(\bar{x})\leftrightarrow\psi(\bar{x}))$.
-\end{dfn}
-
-\begin{dfn}[Model-completeness]
-	An $L$-theory $T$ is said to be \textbf{model-complete} if every embedding $f\colon\mathfrak{M}\to\mathfrak{N}$, between models $\mathfrak{M}$ and $\mathfrak{N}$ of $T$, is elementary.
-\end{dfn}
