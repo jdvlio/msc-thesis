@@ -208,6 +208,30 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 	An $L$-theory $T$ is said to be \textbf{model-complete} if every embedding $f\colon\mathfrak{M}\to\mathfrak{N}$, between models $\mathfrak{M}$ and $\mathfrak{N}$ of $T$, is elementary.
 \end{dfn}
 
+\begin{prp}
+	The following are equivalent for an $L$-theory $T$:
+	\begin{enumerate}
+		\item	$T$ is model-complete,
+		\item	for all $\mathfrak{N}\models T$, if $\mathfrak{M}\subseteq\mathfrak{N}$ and $\mathfrak{M}\models T$ then $T\cup\diag(\mathfrak{M})$ is a complete $L(M)$-theory.
+	\end{enumerate}
+\end{prp}
+\begin{proof}
+	1$\Rightarrow$2: Suppose $\mathfrak{M},\mathfrak{N}\models T$ and $\mathfrak{M}\subseteq\mathfrak{N}$.  Note now that for any $L(M)$-structure $\mathfrak{A}^\prime\models T\cup\diag(\mathfrak{M})$ if $\mathfrak{A}$ is the $L$-reduct of $\mathfrak{A}^\prime$ then there exists an embedding $h\colon\mathfrak{M}\hookrightarrow\mathfrak{A}$ such that $\mathfrak{A}^\prime=(\mathfrak{A},h[M])$.  From (1) it follows that $h$ is elementary and thus $(\mathfrak{M},M)\equiv\mathfrak{A}^\prime$.  Since $\mathfrak{A}^\prime$ was arbitrary it follows that any two models of $T\cup\diag(\mathfrak{M})$ will be elementarily equivalent to $(\mathfrak{M},M)$ and thus to each other.
+
+	2$\Rightarrow$1:  Suppose $\mathfrak{M},\mathfrak{N}\models T$ and let $f\colon\mathfrak{M}\hookrightarrow\mathfrak{N}$ be an embedding.  We are now required to show that $f$ is elementary.  By the Elementary Diagram Lemma this amounts to showing that
+	\begin{equation}\label{eq:mc2}
+		(\mathfrak{N},f[M])\models\Th(\mathfrak{M},M).
+	\end{equation}
+	Noting that, since $f$ is an embedding, it follows from the Diagram Lemma that $(\mathfrak{N},f[M])\models T\cup\diag{\mathfrak{M}}$.  Also, since $(\mathfrak{M},M)\models T\cup\diag{\mathfrak{M}}$ and $T\cup\diag{\mathfrak{M}}$ is complete it follows that the deductive closure of $T\cup\diag{\mathfrak{M}}$ is the complete theory $\Th(\mathfrak{M},M)$.  As a consequence of these observations, (\ref{eq:mc2}) follows immediately.
+\end{proof}
+
+\begin{cor}\label{cor:qemc}
+	If $T$ is a first-order theory that admits quantifier elmination then $T$ is model-complete.
+\end{cor}
+\begin{proof}
+	Follows immediately from the definition of model-completeness and the implication (2)$\Rightarrow$(1) in the previous proposition.
+\end{proof}
+
 
 \section{Games on structures}
 
