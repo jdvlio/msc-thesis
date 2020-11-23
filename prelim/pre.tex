@@ -232,6 +232,52 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 	Follows immediately from the definition of model-completeness and the implication (2)$\Rightarrow$(1) in the previous proposition.
 \end{proof}
 
+\begin{dfn}[$n$-Type]
+	Let $\mathfrak{A}$ be an $L$-structure and $n\in\nats$ while supposing, for some $A_0\subseteq A$, that $\Phi=\Phi(\bar{x})\subseteq L_n(A_0)$ is deductively closed.  We call $\Phi$ an $\mathbf{n}$\textbf{-type of }$\bm{\mathfrak{A}}$\textbf{ over }$\bm{A_0}$ iff there exists some $\mathfrak{B}\succcurlyeq\mathfrak{A}$ and a $\bar{b}\in B^n$ such that $\mathfrak{B}\models\Phi(\bar{b})$ i.e.\ $\mathfrak{B}\models\varphi(\bar{b})$, for every $\varphi\in\Phi(\bar{x})$.  Additionally, if $A_0=\emptyset$ then $\Phi$ is also referred to as an $\mathbf{n}$\textbf{-type of the complete theory }$T=\Th(\mathfrak{A})$.
+\end{dfn}
+
+\begin{dfn}[Realisation]
+	A tuple $\bar{b}$ of length $n$ in a structure $\mathfrak{B}\succcurlyeq\mathfrak{A}$ is said to \textbf{realise} a type $\Phi(\bar{x})\subseteq L_n(A)$ of a structure $\mathfrak{A}$ iff $\mathfrak{B}\models\Phi(\bar{b})$.
+\end{dfn}
+
+\begin{dfn}[Isolated and principal types]
+	An $n$-type $\Phi(\bar{x})\subseteq L_n(A)$ of an $L$-structure $\mathfrak{A}$ is called \textbf{isolated} whenever there exists a formula $\varphi_0\in L_n(A)$, satisfiable in $\mathfrak{A}$, such that $(\mathfrak{A},A)\models\forall\bar{x}(\varphi_0(\bar{x})\rightarrow\varphi(\bar{x}))$, for each $\varphi\in\Phi(\bar{x})$.  If $\varphi_0$ can be chosen such that $\varphi_0\in\Phi(\bar{x})$ then $\Phi$ is also said to be \textbf{principal}.
+\end{dfn}
+
+\begin{dfn}[Saturation]
+	Given any infinite cardinal $\kappa$, an $L$-structure $\mathfrak{A}$ is called $\bm{\kappa}$\textbf{-saturated} whenever $\kappa\leq\card{\mathfrak{A}}$ and each $1$-type of $\mathfrak{A}$, over any $A_0\subseteq A$ such that $\card{A_0}<\kappa$, is realised by some element in $\mathfrak{A}$.  We call $\mathfrak{A}$ \textbf{saturated} iff it is $\card{\mathfrak{A}}$-saturated.
+\end{dfn}
+
+\begin{prp}\label{prp:sat0}
+	If $\mathfrak{A}$ is an $\aleph_0$-saturated $L$-structure then, for each $n\in\posnats$, $\mathfrak{A}$ realises all $n$-types over subsets of finite cardinality.
+\end{prp}
+\begin{proof}
+	We argue by induction on $n$.  The case $n=1$ follows immediately from the definition of $\aleph_0$-saturation so assume for every $k\leq n$ it holds that $\mathfrak{A}$ realises all $k$-types of $\mathfrak{A}$ over any of its finite subsets.  Let $\Phi(\bar{x})\subseteq L_{n+1}(A_0)$ be an $(n+1)$-type of $\mathfrak{A}$, for some finite $A_0\subseteq A$.  By definition, there must exist an elementary extension $\mathfrak{B}\succcurlyeq\mathfrak{A}$ and some $\bar{b}\in B^{n+1}$ such that $\mathfrak{B}\models\Phi(\bar{b})$.  Now define $\Phi^\prime(x_n)\subseteq L_1(A_0)$ to be the deductive closure of the set
+	\begin{equation}
+		\setbuild{\exists x_0\dotso\exists x_{n-1}\varphi(x_0,\dotsc,x_n)}{\varphi\in\Phi}.
+	\end{equation}
+
+	Supposing that $\bar{b}=(b_0,\dotsc,b_n)$, note that $\mathfrak{B}\models\Phi^\prime(b_n)$ and thus $\Phi^\prime$ is a $1$-type of $\mathfrak{A}$ over $A_0$ and consequently, since $\mathfrak{A}$ is $\aleph_0$-saturated, there exists an $a_n\in A$ such that $\mathfrak{A}\models\Phi^\prime(a_n)$.  Aiming to show that $\Phi(x_0,\dotsc,x_{n-1},a_n)$ is an $n$-type of $\mathfrak{A}$ over $A_1\coloneqq A_0\cup\set{a_n}$, let $\bar{c}$ be an $n$-tuple of constant symbols.  Note that $\Phi(x_0,\dotsc,x_{n-1},a_n)$ is an $n$-type of $\mathfrak{A}$ iff $\Phi(\bar{c},a_n)\cup\Th(\mathfrak{A})$ is a consistent $L(A_1)$-theory.  Also, since $\Phi$ is deductively closed, that if $\psi=\psi(x_0,\dotsc,x_n)$ is a finite conjunction of formulas from $\Phi$ then $\psi\in\Phi(\bar{x})$ and thus $\exists x_0\dotso\exists x_{n-1}\psi\in\Phi^\prime(x_n)$.  Therefore, since $\psi$ was arbitrary and $\mathfrak{A}\models\Phi^\prime(a_n)$, it follows that $T\coloneqq\Th(\mathfrak{A})\cup\Phi(\bar{c},a_n)$ is a finitely satisfiable $L(A_1)$-theory so that, by the compactness theorem, $T$ must have an $L(A_1\cup\bar{c})$-model $(\mathfrak{M},\bar{d}\string^a_n)$, for some $L(A_0)$-structure $\mathfrak{M}$ and some $\bar{d}\in M^n$.  By definition it follows that $\mathfrak{M}\succcurlyeq\mathfrak{A}$ is an $L(A_0)$-structure such that $(\mathfrak{M},a_n)\models\Phi(\bar{d}\string^a_n)$.  Therefore, $\Phi(x_0,\dotsc,x_{n-1},a_n)$ is an $n$-type over $A_1$ which, by the induction hypothesis, is realised by some $(a_0,\dotsc,a_{n-1})\in A^n$ and thus if $\bar{a}=(a_0,\dotsc,a_{n-1},a_n)$ then $\mathfrak{A}\models\Phi(\bar{a})$.
+\end{proof}
+
+\begin{prp}
+	For any ordinal $\alpha$, if $\mathfrak{A}$ is an $\aleph_\alpha$-saturated $L$-structure then, for each $n\in\posnats$ and any ordinal $\beta<\alpha$, $\mathfrak{A}$ realises all $n$-types over subsets of cardinality $\aleph_\beta$.
+\end{prp}
+\begin{proof}
+	The case $\alpha=0$ is given by Proposition \ref{prp:sat0}.  Consider now the case $\alpha>0$ and note that if $A_0\subseteq A$ and $\card{A_0}=\aleph_\beta$, for some ordinal $\beta<\alpha$, then it follows that $\card{A_0\cup\set{a}}=\card{A_0}=\aleph_\beta$.  By leveraging this property of infinite cardinals, an induction argument similar to that in the proof of Proposition \ref{prp:sat0} yields the desired result.
+\end{proof}
+
+\begin{prp}
+	If $\Phi(\bar{x})\subseteq L_n(A)$ is an isolated type of the nonempty $L$-structure $\mathfrak{A}$ then there exists an $\bar{a}\in A^n$ which realises $\Phi$.
+\end{prp}
+\begin{proof}
+	Suppose $\Phi(\bar{x})$ is an $n$-type of $\mathfrak{A}$ over $A$, for some $n\in\posnats$.  Since $\Phi$ is isolated, there exists a $\varphi_0\in L_n(A)$ such that $\varphi_0(\bar{x})$ is satisfiable in $\mathfrak{A}$ and $\mathfrak{A}\models\forall\bar{x}(\varphi_0(\bar{x})\rightarrow\varphi(\bar{x}))$ for each $\varphi\in\Phi(\bar{x})$.  By definition, there must exist some $\bar{a}\in A^n$ such that $\mathfrak{A}\models\varphi_0(\bar{a})$.  Consequently, it follows from the definition of $\varphi_0$ that $\mathfrak{A}\models\Phi(\bar{a})$, as required.
+\end{proof}
+
+\begin{dfn}[Atomicity]
+	An $L$-structure $\mathfrak{A}$ is called \textbf{atomic} whenever the only types over $\emptyset$ which are realised in $\mathfrak{A}$ are isolated.
+\end{dfn}
+
 
 \section{Games on structures}
 
