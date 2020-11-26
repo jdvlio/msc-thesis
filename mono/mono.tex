@@ -143,6 +143,22 @@
 	It now remains but a simple exercise to show that, since each $f_n$ for $n\in\nats$ is an isomorphism, that $f$ itself is also an isomorphism.
 \end{proof}
 
+\begin{prp}\label{prp:xcantor}
+	If $\alpha\in\dense$ is countable and, for some $n\in\nats$, we fix any $\bar{a}\in\domain{n}\alpha$ and any $\bar{b}\in\rats^n$ then there exists an isomorphism $f\colon\alpha\to\eta$ such that $f[\bar{a}]=\bar{b}$.
+\end{prp}
+\begin{proof}
+	We prooceed by means of induction, nothing that the case $n=0$ is Cantor's Theorem (Theorem \ref{thm:cantor}).  Suppose now the result holds for each $k\leq n$ for some arbtrary $n\in\nats$ and note that we may assume $\bar{a}=(a_0,\dotsc,a_n)$ and $\bar{b}=(b_0,\dotsc,a_n)$ such that $a_i<a_j$ and $b_i<b_j$, whenever $i<j<\omega$.  It now follows from the inductive hypothesis that there exists isomoprhisms $f_0\colon\alpha^{<a_0}\to\eta^{<b_0}$ and $f_1\colon(\alpha^{>a_0},a_1,\dotsc,a_n)\to(\beta^{>a_0},b_1,\dotsc,b_n)$.  By identifying $f_0$ and $f_1$ with their (respective) underlying sets, we may define the new map $f\colon\alpha\to\beta$ such that $f=f_0\cup\set{(a_0,b_0)}\cup f_1$.  By definition, we have thusly obtained an order-preserving map $f\colon(\alpha,\bar{a})\to(\beta,\bar{b})$.  It is not difficult to see, simply from its definition, that $f$ is in fact an isomorphism $f\colon\alpha\to\beta$ satisfying $f[\bar{a}]=\bar{b}$, as required.
+\end{proof}
+
+As a consequence of the previous proposition we get the following:
+\begin{prp}
+	The linear order $\eta$ is saturated.
+\end{prp}
+\begin{proof}
+	Choose any finite $A\subseteq\rats$.  Suppose that $\Phi(x)\subseteq L_1(A)$ is an $1$-type of $\eta$ over $A$.  By definition there exists a $\alpha\succcurlyeq\eta$ such that $\Phi$ is realised by some $b\in\alpha$ i.e.\ $\alpha\models\Phi(b)$.  By the Downwards L\"owhenheim-Skolem Theorem, however, we may assume that $\alpha$ is countable.  We may assume that $A=\set{a_0,\dotsc,a_{k-1}}$ and thus, from Proposition \ref{prp:xcantor}, if $\bar{a}=(a_0,\dotsc,a_{k-1})$ then there must exist an isomorphism $f\colon(\eta,\bar{a})\to(\alpha,\bar{a})$.  Therefore, it must follow that $\eta\models\varphi(f(b))$, for each $\varphi\in\Phi(x)$, and thus $\Phi(x)$ is realised by the element $f(b)\in\rats$.
+\end{proof}
+
+
 \begin{thm}
 	The linear order $\eta$ is a prime model of the theory $\Th(\dense)$.
 \end{thm}
@@ -173,14 +189,11 @@
 	Immediate from the previous theorem and Corollary \ref{cor:qemc}.
 \end{proof}
 
+We've already seen that $\eta$ is saturated and can thus be thought of from an intuitive standpoint as being very ``thick'' among linear orders.  Contrary to what one might expect, though, the next result shows that $\eta$ is simultaneously also an atomic structure and can therefore be thought of as being very ``thin''!
+
 \begin{prp}
-	If $T=\Th(\dense)$ then the following statements hold:
-	\begin{enumerate}
-		\item	$\eta$ is a saturated model of $T$,
-		\item 	$\eta$ is an atomic model of $T$.
-	\end{enumerate}
+	The linear order $\eta$ is atomic.
 \end{prp}
 \begin{proof}
-	\begin{enumerate}
-	\end{enumerate}
+	Let $T=\Th(\dense)$ then the result follows from the fact that $T$ admits quantifier elimination and the fact that there are only finitely many inequivalent formulas in finitely many variables in a finitary language.
 \end{proof}
