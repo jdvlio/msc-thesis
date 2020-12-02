@@ -1,1 +1,65 @@
 \chapter{Suslin lines}
+
+\section{On the existence of Suslin lines and Suslin trees}
+
+\begin{dfn}
+	A complete linear order $\alpha\in\dense$ is said to be a \textbf{Suslin line} whenever $\alpha$ is not seperable and every pairwise disjoint set of open intervals in $\alpha$ is at most countable.
+\end{dfn}
+
+Restated succintly:  A suslin line is a complete inseperable linear order without endpoints posessing the \textit{Suslin property}.
+
+\begin{dfn}
+	If $P$ is a partially ordered set and $a\in P$ then we denote by $\down{a}$ the set
+	\begin{equation}
+		\down{a}=\setbuild{x\in P}{x\leq a}.
+	\end{equation}
+\end{dfn}
+
+\begin{dfn}[Tree]
+	A partial order $\mathfrak{T}=(T,<)$ is called a \textbf{tree} whenever it has a least element (referred to as a \textit{root}) and, for each $a\in T$, the set $\down{a}$ is well-ordered.
+\end{dfn}
+
+\begin{dfn}[Height]
+	If $\mathfrak{T}=(T,<)$ is any tree and $a\in T$ then \textbf{height of }$\mathbf{a}$\textbf{ in }$\bm{\mathfrak{T}}$ is the order type of $\mathfrak{T}^{<a}$.
+\end{dfn}
+
+Note that, by definition of a tree, any $\mathfrak{T}^{<a}$ is well-ordered and is thus isomorphic to an ordinal.  Therefore, the height of any element (called a \textit{node}) of a tree is an ordinal.  One can now also define the related but distinct concept of height for trees themselves.
+
+\begin{dfn}[Tree height]
+	The height $\height(\mathfrak{T})$ of a tree $\mathfrak{T}$ is the least ordinal such that, for any ordinal $\alpha>\height(T)$, there exists no embedding $f\colon\alpha\hookrightarrow\mathfrak{T}$.
+\end{dfn}
+
+The relation between these notions of height is then given by the following proposition:
+
+\begin{prp}
+	If $\mathfrak{T}$ is any tree and $\alpha$ is any ordinal then $\height(\mathfrak{T})=\alpha$ iff it holds that
+	\begin{equation}
+		\alpha=\sup_{a\in T}(\height(a)+1).
+	\end{equation}
+\end{prp}
+
+\begin{dfn}[Length]
+	For any chain $\beta$ in a tree $\mathfrak{T}$, the ordinal $\length(\beta)$ in Proposition \ref{prp:length} is referred to as the \textbf{length} of the chain $\beta$.
+\end{dfn}
+
+\begin{prp}\label{prp:length}
+	If $\beta$ is a chain in a tree $\mathfrak{T}$ then $\beta$ is isomorphic to some ordinal $\length(\beta)\leq\height(\mathfrak{T})$.
+\end{prp}
+
+\begin{dfn}[Branch]
+	A \textbf{branch} $\beta$ in a tree $\mathfrak{T}$ is any maximal chain of nodes in $\mathfrak{T}$.
+\end{dfn}
+
+\begin{dfn}[Suslin tree]
+	A tree $\mathfrak{T}$ is called a \textbf{Suslin tree} whenever $\height(\mathfrak{T})=\omega_1$, all the anti-chains of $\mathfrak{T}$ are at most countable and, for every branch $\beta$ in $\mathfrak{T}$, it holds that $\length(\beta)<\omega_1$.
+\end{dfn}
+
+For the remainder of this section if $\mathfrak{T}$ is any tree and $\alpha<\alpha$ is an ordinal then we will let $\reg{\alpha}(\mathfrak{T})$ denote the subtree of $\mathfrak{T}$ consisting of all nodes $a\in T$ such that $\height(\alpha)<\alpha$.
+
+\begin{dfn}[Regularity]
+	A tree $\mathfrak{T}$ is called \textbf{regular} whenever it satisfies:
+	\begin{enumerate}
+		\item	each node in $\mathfrak{T}$ has at most countably many successors,
+		\item	for every limit ordinal $\alpha<\height(\mathfrak{T})$ and every $a,b\in\reg{\alpha}(\mathfrak{T})$, if $T^{<a}=T^{<b}$ then $a=b$.
+	\end{enumerate}
+\end{dfn}
