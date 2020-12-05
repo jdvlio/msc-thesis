@@ -1,5 +1,10 @@
 \chapter{Suslin lines}
 
+\begin{assn}
+	For the remainder of this chapter, all trees are assumed to be well-founded.
+\end{assn}
+
+
 \section{Fundamental concepts}
 
 \begin{dfn}
@@ -55,11 +60,11 @@ The relation between these notions of height is then given by the following prop
 \begin{dfn}[Normality]
 	A \textbf{normal }$\bm{\alpha}$\textbf{-tree} is a tree $\mathfrak{T}$ such that
 	\begin{enumerate}
-		\item	$\height(\mathfrak{T})=\alpha$,
-		\item	for each $\gamma<\alpha$ it holds that $\card{\level{\gamma}(\mathfrak{T})}\leq\aleph_0$,
-		\item	if $x\in T$ is not maximal then $x$ has infinitely many immediate successors,
-		\item	for each $x\in T$ and each ordinal $\beta<\alpha$, if $\beta>\height(x)$ then there exists some $y\in\level{\beta}(\mathfrak{T})$ such that $y>x$,
-		\item	for every $x,y\in T$, if $\mathfrak{T}^{<x}=\mathfrak{T}^{<y}$ then $x=y$.
+		\item	$\height(\mathfrak{T})=\alpha$,\label{dfn:n1}
+		\item	for each $\gamma<\alpha$ it holds that $\card{\level{\gamma}(\mathfrak{T})}\leq\aleph_0$,\label{dfn:n2}
+		\item	if $x\in T$ is not maximal then $x$ has infinitely many immediate successors,\label{dfn:n3}
+		\item	for each $x\in T$ and each ordinal $\beta<\alpha$, if $\beta>\height(x)$ then there exists some $y\in\level{\beta}(\mathfrak{T})$ such that $y>x$,\label{dfn:n4}
+		\item	for every limit ordinal $\beta<\alpha$ and every $x,y\in\level{\beta}(\mathfrak{T})$, if $\mathfrak{T}^{<x}=\mathfrak{T}^{<y}$ then $x=y$.\label{dfn:n5}
 	\end{enumerate}
 	As one might expect, we refer to a tree $\mathfrak{T}$ simply as being \textbf{normal} whenever it is $\height(\mathfrak{T})$-normal.
 \end{dfn}
@@ -71,7 +76,7 @@ The relation between these notions of height is then given by the following prop
 	A complete linear order $\alpha\in\dense$ is said to be a \textbf{Suslin line} whenever $\alpha$ is not seperable and every pairwise disjoint set of open intervals in $\alpha$ is at most countable.
 \end{dfn}
 
-Restated succintly:  A Suslin line is a complete inseperable linear order without endpoints posessing the \textit{Suslin property}.
+Restated succintly:  A Suslin line is an inseperable linear order without endpoints posessing the \textit{Suslin property}.
 
 \begin{prp}
 	If there exists a Suslin line then there exists a complete Suslin line.
@@ -85,6 +90,27 @@ Restated succintly:  A Suslin line is a complete inseperable linear order withou
 	A tree $\mathfrak{T}$ is called a \textbf{Suslin tree} whenever $\height(\mathfrak{T})=\omega_1$, all the anti-chains of $\mathfrak{T}$ are at most countable and, for every branch $\beta$ in $\mathfrak{T}$, it holds that $\length(\beta)<\omega_1$.
 \end{dfn}
 
+\begin{dfn}[Branching point]
+	If $\mathfrak{T}$ is a tree and $x\in T$ is not maximal then $x$ is called a \textbf{branching point} of $\mathfrak{T}$ whenever there exists branches $\beta_0$ and $\beta_1$ in $\mathfrak{T}$ such that $\beta_0\cap \beta_1=\down{x}$.
+\end{dfn}
+
+Note that, in our case, a nonmaximal node $x\in T$ is a branching point of $\mathfrak{T}$ iff $x$ has at least two immediate successors.
+
+\begin{lem}
+	If there exists a Suslin Tree then there exists a normal Suslin tree.
+\end{lem}
+\begin{proof}
+	Suppose there exists a Suslin tree $\mathfrak{T}$.  We now construct a normal Suslin tree from $\mathfrak{T}$.  It already follows by definition that $\height(\mathfrak{T})=\omega_1$ and the levels of $\mathfrak{T}$ are at most countable, since each level is also an antichain.
+
+	We now choose $\mathfrak{T}_0$ to be the tree such that $T_0=\setbuild{x\in T}{\card{\up{x}}\geq\aleph_1}$.  That is to say that $\mathfrak{T}_0$ is obtained from $\mathfrak{T}$ by discarding all nodes $x$ such that $\up{x}$ is at most countable.  In order to dispell any doubt, $\mathfrak{T}_0$ is guaranteed to be a tree by the fact that subsets of a well-ordered set remain well-ordered.  It should be clear that $\mathfrak{T}_0$ is, in fact, also a Suslin tree as its antichains and branches are certainly, by definition of $\mathfrak{T}_0$, at most countable.  It now follows immediately from the definition of $\mathfrak{T}_0$ that $\mathfrak{T}_0$ satisfies property \ref{dfn:n4} in the definition of normality.
+
+	We now set out to construct a Suslin tree $\mathfrak{T}_1$ from $\mathfrak{T}_0$ that satisfies property \ref{dfn:n5}.  Define $\mathfrak{T}_1$ to be the extension of $\mathfrak{T}_0$ gotten by: (1) adding, for each $x\in T_0$ such that $\height(x)$ is a limit ordinal, an element $a_x$ such that $a_x>y$, for  each $y<x$, and $a_x<y$, for each $y\in T$ satisfying $y>z$ for every $z<x$ and (2) identifying $a_x$ and $a_{x^\prime}$ whenever $x,x^\prime\in T$ are siblings.  It remains to be shown that $\mathfrak{T}_1$ is in fact a tree.  It is enough, however, to shows that each maximal chain in $\mathfrak{T}_1$ is well-ordered.  Let $\beta^\prime$ be any such maximal chain in $\mathfrak{T}_1$ and define the map $h_\beta^\prime\colon\beta^\prime\to\mathfrak{T}_0$ such that $h_{\beta^\prime}$ maps each node $x\in\beta^\prime$ to its immediate successor in $\beta^\prime$.  It then follows that $h_{\beta^\prime}$ is an isomorphism from $\beta^\prime$ onto the corresponding branch $\beta$ in $\mathfrak{T}_0$ from which it was originally constructed.  Thus $\beta^\prime$ is well-ordered, as required.  Furthermore, $\beta^\prime$ is also forced to be countable as it is isomorphic to the countable branch $\beta$ in $\mathfrak{T}_0$.  We need now show that the antichains in $\mathfrak{T}_0$ are at most countable.  This is easily observed by considering an arbitrary antichain $X$ in $\mathfrak{T}_1$ and letting $X^\prime$ be the set of all immediate successors in $\mathfrak{T}_0$ of elements in $X$.  It then follows by definition of $\mathfrak{T}_1$ that $X^\prime$ is an antichain in $\mathfrak{T}_0$ and $\card{X}\leq\card{X^\prime}$.  Since $\mathfrak{T}_0$ is a Suslin tree it follows that $X^\prime$, and thus $X$, is at most countable and therefore, as $X$ was arbitrary, we may conclude that $\mathfrak{T}_1$ is a Suslin tree.  It should now be clear that $\mathfrak{T}_1$ satisfies properties \ref{dfn:n4} and \ref{dfn:n5} in the definition of normality.
+
+	We now discard all nodes that aren't branching points by letting $\mathfrak{T}_2$ be the tree such that $T_2=\setbuild{x\in T_1}{x\text{ is a branching point of }\mathfrak{T}_1}$.  Since $\mathfrak{T}_1$ has property \ref{dfn:n4}, there exists an $x\in T_1$ such that $\height(x)=\alpha$ for each ordinal $\alpha$ such that $0<\alpha<\omega_1$.  We may thus conclude that there exists a branching point at each level less than $\omega_1$ in $\mathfrak{T}_1$ and, therefore, $\height(\mathfrak{T}_2)=\omega_1$.  It should also be clear from its definition that $\mathfrak{T}_2$ cannot have uncountable branches or antichains, as this would contradict $\mathfrak{T}_1$ being a Suslin tree, and therefore $\mathfrak{T}_2$ is a Suslin tree.  Note now, for any $x\in T_2$, that if $\height(x)$ is a limit ordinal then the next limit ordinal is $\height(x)+\omega$.  Since every node of $\mathfrak{T}_2$ must be a branching point of $\mathfrak{T}_2$, it follows that if $x\in T_2$ and $\height(x)$ is a limit ordinal then the set $\level{h(x)+\omega}\cap\up{x}$ is infinite.  Using this fact as a stepping stone, choose $\mathfrak{T}_3$ to be the tree such that $T_3=\setbuild{x\in T_2}{h(x)\text{ is a limit ordinal}}$.  As $\mathfrak{T}_2$ had no uncountable branches or antichains it immediately follows that neither will $\mathfrak{T}_3$ and, therefore, $\mathfrak{T}_3$ is a Suslin tree.
+
+	By definition, it follows that each node in $\mathfrak{T}_3$ has infinitely many immediate successors, thus satisfying property \ref{dfn:n3}.  As it satisfies properties \ref{dfn:n1} (for $\alpha=\omega_1$) and \ref{dfn:n2}, by virtue of being a Suslin tree, and inherits properties \ref{dfn:n4} and \ref{dfn:n5}, via the construction from $\mathfrak{T}_2$, we may conclude that $\mathfrak{T}_3$ is the desired normal Suslin tree.
+\end{proof}
+
 \begin{lem}
 	If there exists a Suslin line then there exists a Suslin tree.
 \end{lem}
@@ -93,12 +119,8 @@ Restated succintly:  A Suslin line is a complete inseperable linear order withou
 
 	We are now required to show that $\mathfrak{T}$ is in fact a Suslin tree.  That is we are required to prove that $\height(\mathfrak{T})=\omega_1$ and $\mathfrak{T}$ has neither an uncountable antichain nor an uncountable branch.  It follows from the construction of $\mathfrak{T}$ that if $\alpha,\beta<\omega_1$ and $\alpha<\beta$ then either $I_\alpha\supsetneq I_\beta$ or $I_\alpha\cap I_\beta=\emptyset$.  From this observation it follows that if $X\subseteq T$ is an antichain then $X$ is a pairwise disjoint set of closed intervals in $X$.  Choose $X^\prime$ to now be the corresponding set of open intervals i.e.\ $X^\prime=\setbuild{\Int(I)}{I\in X}$.  Since $\sigma$ is a Suslin line it now follows that $X^\prime$, and thus also $X$, is at most countable.  In order to show that $\mathfrak{T}$ has no uncountable branch suppose the contrary: there exists a branch $\beta=(B,\supsetneq)$ in $\mathfrak{T}$ such that $\length(\beta)=\delta\geq\omega_1$.  We may now assume $B=\setbuild{I_\gamma}{\gamma<\delta}$ and $I_{\gamma_0}\supsetneq I_{\gamma_1}$ whenever $\gamma_0<\gamma_1$.  If, for each $\gamma<\delta$, we choose $x_\gamma$ to be the left endpoint of the interval $I_\gamma$ then it follows, since $B$ pairwise disjoint, that $\setbuild{(a_\gamma,a_{\gamma+1})}{\gamma<\delta}$ is an uncountable set of pairwise disjoint open intervals in $\sigma$ --- contradicting the fact that $\sigma$ is a Suslin line.
 
-	All that remains is to show that $\height(\mathfrak{T})=\omega_1$.  Since $\beta$ has no uncountable branch, however, it follows that $\height(\mathfrak{T})\leq\omega_1$.  Note also, since levels are antichains. each level of $\mathfrak{T}$ must be countable.  Therefore, as $\card{\mathfrak{T}}=\aleph_1$, we cannot have $\height(\mathfrak{T})<\omega_1$ and thus we may conclude that $\height(\mathfrak{T})=\omega_1$, as required.
+	All that remains is to show that $\height(\mathfrak{T})=\omega_1$.  Since $\beta$ has no uncountable branch, however, it follows that $\height(\mathfrak{T})\leq\omega_1$.  Note also, since levels are antichains. each level of $\mathfrak{T}$ must be countable.  Consequently, as $\card{\mathfrak{T}}=\aleph_1$, we cannot have $\height(\mathfrak{T})<\omega_1$ and thus we may conclude that $\height(\mathfrak{T})=\omega_1$, as required.
 \end{proof}
-
-\begin{lem}
-	If there exists a Suslin Tree then there exists a normal Suslin tree.
-\end{lem}
 
 \begin{lem}
 	If there exists a Suslin tree then there exists a Suslin line.
