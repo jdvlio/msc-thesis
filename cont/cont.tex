@@ -1,1 +1,111 @@
 \chapter{A La\"uchli and Leonard style result for continuous linear orders}
+
+\begin{dfn}[Continuous linear order]
+	A \textbf{continuous linear order} is a complete linear order $\alpha$ such that $\alpha\in\dense$.  A \textit{coloured linear order} is said to be \textbf{continuous} whenever its monochromatic reduct is a continuous linear order.
+\end{dfn}
+
+\begin{dfn}[The class $\C$]\label{dfn:C}
+	Let $\C$ be the smallest class of linear orders such that:
+	\begin{enumerate}
+		\item	$\lambda\in\C$\label{dfn:C1}
+		\item	if $\alpha,\beta\in\C$ then $\alpha+\one+\beta\in\C$\label{dfn:C2}
+		\item	if $\alpha\in\C$ then $(\alpha+\one)\cdot\omega,(\one+\alpha)\cdot\dual{\omega}\in\C$\label{dfn:C3}
+		\item	if $\mathcal{F}\subseteq\C$ is finite and $h\colon\reals\to\mathcal{F}$ is a surjection such that, for each $\alpha\in\mathcal{F}$, the set $\inv{h}[\alpha]$ is dense in $\lambda$ then it follows that
+			\begin{equation}
+				\sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
+			\end{equation}\label{dfn:C4}
+	\end{enumerate}
+\end{dfn}
+
+\begin{dfn}[The class $\C_k$]
+	For each $k\in\nats$, let $\C_k$ denote the class of all $k$-coloured expansions of linear orders belonging to $\C$.
+\end{dfn}
+
+\begin{prp}\label{prp:cont}
+	If $\alpha$ is a continuous linear order then there exists an embedding $h\colon\lambda\hookrightarrow\alpha$.  Furthermore, $h$ can be chosen such that $h[\reals]$ is an open interval in $\alpha$.
+\end{prp}
+\begin{proof}
+	Since $\alpha$ is dense there exists an embedding $h_0\colon\eta\hookrightarrow\alpha$.  We now set out to extend $h_0$ to an embedding of $\lambda$ into $\alpha$.  Define the map $h\colon\reals\to\domain{}\alpha$ such that, for each $r\in\reals$,
+	\begin{equation}
+		h(r)=\sup\setbuild{h_0(q)}{q\in\rats\text{ and }q<r}.
+	\end{equation}
+	It clearly follows by definition that $h\restriction\rats=h_0$.  Note that, since $\eta$ is dense in $\lambda$ there exists a $q_0\in\rats$ such that $x<q_0<y$.  Again invoking the density of the rationals in the reals, there exists a $q_1\in(q_0,y)\cap\rats$.  Since $h_0$ is an embedding, it follows from the definition of $h$ that $h(x)\leq h(q_0)<h(q_1)\leq h(y)$ so that, in particular, it holds that $h(x)<h(y)$ and thus $h$ is order-preserving map and, therefore, also an embedding $h\colon\lambda\hookrightarrow\alpha$.
+
+	All that remains is to show that there now exists an embedding $h^\prime\colon\lambda\hookrightarrow\alpha$ such that $h^\prime[\reals]$ is a convex set in $\alpha$.  Consider now the open interval $I=(0,1)\subseteq\reals$ and its image $J=h[I]$ under $h$.  We now proceed to show that $J$ is convex.  Note that $h(0)<J<h(1)$ so we may therefore conclude that $J$ is bounded in $\alpha$.  Thus, since $\alpha$ is complete, we may define $a=\inf J$ and $b=\sup J$.  Now fix any $d\in(a,b)_\alpha$ and choose $\ell=\sup\setbuild{r\in\reals}{h(r)<d}$ and $u=\inf\setbuild{r\in\reals}{h(r)>d}$.  By definition, it must hold that $\ell\leq u$.  Suppose that $u<\ell$ then there exists some $r_0\in(\ell,u)$.  Since $h$ is an embedding, it follows that $h(\ell)<h(r_0)<h(u)$.  Now, if $h(r_0)<d$ then it follows by definition of $\ell$ that $r_0\leq\ell$, which is a contradiction.  Similarly, if $h(r_0)>d$ then it follows that $r_0\geq u$, also a contradiction.  Therefore, it follows that $h(r_0)=d$ from which we may conclude that, since $r_0\in(\ell,u)\subseteq I$ it follows that $d\in J$.  Note that if $J$ had a greatest element then its preimage under $h$ would be forced to be $1\in\reals$, contradicting the fact that $1\notin I=(0,1)$.  Similarly, since $0\notin I$, $J$ cannot have a least element either.  Therefore, since it holds that $(0,1)\cong\lambda$, $h$ is an embedding and $h\restriction(0,1)$ maps onto a convex subset of $\alpha$, the result follows.
+\end{proof}
+
+\begin{thm}
+	For each $k,n\in\nats$, if $\alpha$ is a continuous $k$-coloured linear order then there exists a $\beta_n\in\C$ such that:
+	\begin{equation}
+		\alpha\nequiv{n}\beta_n
+	\end{equation}
+\end{thm}
+\begin{proof}
+	Fix any $k,n\in\nats$ and suppose $\alpha$ is a continuous $k$-coloured linear order.  Define a binary relation $R$ on $\domain{}\alpha$ such that, for every $a,b\in\reals$, $aRb$ iff  $a<b$ and there exists a $\beta\in\C_k$ such that $(a,b)\nequiv{n}\beta$.  It follows from clause \ref{dfn:C2} in definition \ref{dfn:C} that $R$ is transitive and, therefore, induces a congruence $\sim$ on $\alpha$.
+
+	\begin{claim}
+		The congruence $\sim$ is definable.
+	\end{claim}
+	\begin{proof}
+		The defining formula $\varphi=\varphi(x,y)$ is of the same form as the formula in (\ref{eq:condef}), with the only differences being that $\varphi$ is a formulated in a language with a finite number of additional (unary) relation symbols and $\tau=\bigvee_{\delta\in\C_k}\cha{\delta}{n}$.
+	\end{proof}
+
+	\begin{claim}
+		The linear order $\faktor{\alpha}{\sim}$ is dense.
+	\end{claim}
+	\begin{proof}
+		Fix any $I,J\in\faktor{\alpha}{\sim}$ such that $I<J$ i.e.\ $x<y$ for each $x\in I$ and $y\in J$.  Since $\alpha$ is complete, there exists some $a,b\in\alpha$ such that $a=\sup I$ and $b=\inf J$.  Note, if $a=b$ then it follows from clause \ref{dfn:C2} in definition \ref{dfn:C} that $x\sim y$, for every $x\in I$ and $y\in J$, contradicting the definition of $I$ and $J$.  Hence, we may assume that $a<b$.  It now follows from the density of $\alpha$ that there exists a $c\in (a,b)$.  Consequently, it follows that $I<[c]<J$ --- as required.
+	\end{proof}
+
+	\begin{claim}
+		The linear order $\faktor{\alpha}{\sim}$ is complete.
+	\end{claim}
+	\begin{proof}
+		Suppose $X\subseteq\faktor{\alpha}{\sim}$ is bounded above.  Note that $\bigcup X\subseteq\alpha$ is now bounded above in $\alpha$.  It therefore follows from the completeness of $\alpha$ that there exists a $u\in\bigcup X$ such that
+		\begin{equation}
+			u=\sup\bigcup X.
+		\end{equation}
+		Define $I$ to now be the equivalence class $I=[u]$.  Suppose by way of contradiction that there exists a $J\in\faktor{\alpha}{\sim}$ such that $J\geq X$ and $J<I$.  Since $\faktor{\alpha}{\sim}$ is dense there must exist a $K\in\faktor{\alpha}{\sim}$ such that $J<K<I$.  Therefore, there exists an $x_0\in K$ such that $x<x_0<u$ for each $x\in J$.  This implies that $x_0$ is an upper bound of $\bigcup X$ less than $u$, a contradiction.  Therefore, $I$ is in fact the supremum of $X$.
+	\end{proof}
+
+	\begin{claim}\label{clm:contInt}
+		For every $I\in\faktor{\alpha}{\sim}$ there exists a $\beta\in\C_k$ such that $\Int I\nequiv{n}\beta$.
+	\end{claim}
+	\begin{proof}
+		Note that, by the Downwards L\"owenheim-Skolem Theorem, we may assume $I$ is at most countable.  Consider first the case where $I$ is bounded below but not above in $\alpha$ and choose a cofinal sequence $a=\family{a_i}{i<\omega}$ in $\alpha$ such that $a_0=\inf I$.  If $h$ denotes some colouring of $I$ such that, for $x,y\in I$, $h(x,y)\in\C_k$ and $(x,y)\nequiv{n}h(x,y)$ then it follows from Ramsey's Theorem that there exists a homogeneous subsequence $a^\prime=\family{a^\prime_i}{i<\omega}$ of $a$ for $h$.  It then follows by definition of $a^\prime$ that
+		\begin{equation}
+			\sum_{i<\omega}(a^\prime_i,a^\prime_{i+1}]\nequiv{n}\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega.
+		\end{equation}
+		We now choose $\beta\in\C_k$ such that
+		\begin{equation}
+			\beta=\begin{cases}
+				\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega,&\text{if }a_0=a^\prime_0,\\
+				h(a_0,a^\prime_0)+\one+\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega,& \text{otherwise}.\\
+			\end{cases}
+		\end{equation}
+		It follows by definition then that $\beta\in\C_k$ and
+		\begin{equation}
+			\Int I\nequiv{n}\beta,
+		\end{equation}
+		as required.  The case where $I$ is bounded above but not below in $\alpha$ is obtained dually i.e.\ by considering a cofinal sequence $b=\family{b_i}{i<\omega}$ in $\dual{I}\subseteq\dual{\alpha}$ and repeating the above argument.  In order to establish the claim, the remaining cases are obtained by similar means: considering the relevant cofinal, or coinitial, sequences and taking the appropriate sums.
+	\end{proof}
+
+	We now wish to show that $\card{\faktor{\alpha}{\sim}}=1$ so it follows from the previous claim that $\alpha\nequiv{n}\beta_n$, for some $\beta_n\in\C_k$.  To this end, we suppose to the contrary that $\card{\faktor{\alpha}{\sim}}>1$ and note that proposition \ref{prp:cont} implies the existence of an interval $I=(a,b)\subseteq\alpha$ and an embedding $g\colon\lambda\hookrightarrow\alpha$ such that $g[\reals]=I$.  Let $f$ be the surjective homomorphism $f\colon\alpha\to\faktor{\alpha}{\sim}$ induced by the congruence $\sim$ and define $S=\set{\delta_0,\dotsc,\delta_{m-1}}$ to be an $n$-spectrum for the class of $\chi\in\C_k$ such that $\chi\nequiv{n}X$ for some $X\in f[I]$.
+
+	\begin{claim}
+		There exists an open interval $J=(a^\prime,b^\prime)\subseteq I$ and a nonempty $S^\prime\subseteq S$ such that, for each $\sigma\in S$, the set
+		\begin{equation}
+			D_\delta=\setbuild{\faktor{d}{\sim}}{d\in J\text{ and }\faktor{d}{\sim}\nequiv{n}\delta}
+		\end{equation}
+		is dense in $f[J]$.
+	\end{claim}
+	\begin{proof}
+		Proceed by induction on $m$ and note that, by definition of $I$, every nonempty open interval in $I$ has order type $\lambda$, implying that $I$ contains no singletons.  If $m=1$ then the result follows immediately from the definition of $S$ as then every member of $I$ is $n$-equivalent to the same (unique) linear order in $S$.  Assume the result holds whenever $m<m^\prime$, for some arbitrary $m^\prime\geq 1$.  Suppose to the contrary that $\delta\in S$ and $D_\delta$ is not dense in any open interval $(a^\prime,b^\prime)\subseteq I$.  By definition, there must then exist an open interval $J\subsetneq I$ such that no $X\in J$ satisfies $X\nequiv{n}\delta$.  If we now let $S^\prime=\setbuild{\delta^\prime\in S}{X\nequiv{n}\delta^\prime,\text{ for some }X\in J}$ then it follows by definition that $\delta\notin S^\prime$ and thus $\card{S^\prime}<\card{S}$.  Applying the induction hypothesis now to $J$ and $S^\prime$ yields the desired contradiction, thus establishing the claim.
+	\end{proof}
+
+	Note, since $I$ is bounded in $\alpha$, that each $X\in f[I]$ is also bounded in $\alpha$ and thus (by completeness of $\alpha$ and claim \ref{clm:contInt}) $X$ has a least and greatest element.  If we now choose $h$ to be the map $h\colon\reals\to S$ such that, for each $x\in\reals$, $h(x)$ is the interior of the (unique) $n$-equivalent of $fg(x)$ belonging to $S$ then it follows from lemma \ref{lem:fvsum} that
+	\begin{equation}
+		I\nequiv{n}\sum_{x\in\lambda}(\one+h(x)+\one)\in\C_k.
+	\end{equation}
+	Therefore, by definition of $I$, it follows that $a\sim b$ and thus $a,b\in I$, which is the desired contradiction.  Hence $\faktor{\alpha}{\sim}$ has only one element and the result follows from claim 4.
+\end{proof}
