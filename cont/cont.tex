@@ -109,3 +109,19 @@
 	\end{equation}
 	Therefore, by definition of $I$, it follows that $a\sim b$ and thus $a,b\in I$, which is the desired contradiction.  Hence $\faktor{\alpha}{\sim}$ has only one element and the result follows from claim 4.
 \end{proof}
+
+\begin{prp}
+	Suppose, for some $k\in\nats$, $\mathcal{S}$ is a set of $k$-coloured linear orders and fix any $\alpha\in\dense$.  If $h,h^\prime\colon\alpha\to\mathcal{S}$ are surjections such that, for every $\delta\in\mathcal{S}$, $\inv{h}[\delta]$ and $\inv{h^\prime}[\delta]$ are respectively dense in $\alpha$ then it follows, for each $n\in\nats$, that
+	\begin{equation}
+		\sum_{x\in\alpha}h(x)\nequiv{n}\sum_{x\in\alpha}h^\prime(x).
+	\end{equation}
+\end{prp}
+\begin{proof}
+	The case $n=0$ is immediate from the fact that the language of coloured linear orders has no constant symbols so we may assume $n>0$.  Define the linear orders $\beta_0$ and $\beta_1$ such that
+	\begin{equation}
+		\beta_0=\sum_{x\in\alpha}h(x)\quad\text{and}\quad\beta_1=\sum_{x\in\alpha}h^\prime(x).
+	\end{equation}
+	We now argue by describing the winning strategy of $\Right$ in the game $\EF_n(\beta_0,\beta_1)$.  On the first round of the game if $\Left$ plays $a_0\in\beta_0$ then $\Right$ responds with an element from a summand of $\beta_1$ which, leveraging the definition of $h^\prime$, corresponds to the summand of $\beta_0$ from which $a_0$ arose.  Should $\Left$ have played some $b_0\in\beta_1$ in stead a similar cuntermove would suffice.
+
+	Consider now a position $(\bar{a},\bar{b})$ of length $\ell$ such that $0<\ell<n$.  Since $\alpha$ is dense, it follows from the definitions of $h$ and $h^\prime$ that (irrespective of $\Left$'s $\ell$-th move) $\Right$ always has available a response from an appropriate summand, of either $\beta_0$ or $\beta_1$, in the opposing $k$-coloured linear order.  If $\Left$ plays $d\in\beta_0$ and $d>\bar{a}$ then $\Right$ responds, from a corresponding summand, with an element $e\in\beta_1$ such that $d>\bar{b}$.  One argues dually when $d<\bar{a}$.  Otherwise, it must hold that $d\in(a_i,a_j)$, for some $i,j<\ell$, such that $a_{i^\prime}\notin(a_i,a_j)$ when $i^\prime<\ell$.  In this latter case it follows again from the definition of $h^\prime$ that $\Right$ has an ``appropriate'' response $e\in\beta_1$ from a summand corresponding to the one from which $d$ arose: meaning $e$ can be chosen such that $e\in(b_i,b_j)$ and $d_{i^\prime}\notin(d_i,d_j)$ when $i^\prime<\ell$.
+\end{proof}
