@@ -317,6 +317,67 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 \end{proof}
 
 
+\section{Interpretations}
+
+\begin{dfn}[(Un)nested term]
+	If $L$ is any language and $t$ is an $L$-term then $t$ is said to be \textbf{unnested} whenever $t$ one of the following holds:
+	\begin{enumerate}
+		\item	$t$ is a variable $x$,
+		\item	$t$ is a constant symbol $c$,
+		\item	or, for some $n\in\posnats$, there exists an $n$-ary function symbol $f$ in $L$ and an $n$-tuple $\bar{x}$ of variables such that $t=t(\bar{x})$ is of the form $f(\bar{x})$.
+	\end{enumerate}
+	A term which is not unnested is (unsurprisingly) referred to as being \textbf{nested}.
+\end{dfn}
+
+\begin{dfn}[Unnested atomic formula]
+	An \textit{atomic} $L$-formula $\varphi$ is said to be \textbf{unnested} provided that $\varphi$ is either of the form $s=t$, for some unnested $L$-terms $s$ and $t$, or there exists a $n\in\posnats$, an $n$-ary relation symbol $R$ and an $n$-tuple $\bar{x}$ of variables such that $\varphi=\varphi(\bar{x})$ is $R(\bar{x})$.
+
+\end{dfn}
+
+\begin{dfn}[(Un)nested formula]
+	An arbitrary formula $\varphi$ is called \textbf{unnested} whenever each of its atomic subformulas is unnested.  A \textbf{nested formula} is then simply a formula which is not unnested.
+\end{dfn}
+
+\begin{dfn}[Substitutability of terms]
+	Suppose $\varphi=\varphi(\bar{x},y)$ is an $L$-formula and $t=t(\bar{v})$ is any $L$-term such that $\bar{v}=(v_0,\dotsc,v_k)$.  We say that $t$ is \textbf{substitutable} for $y$ in $\varphi$ iff no instance of a variable $v_i$ in $t$ (for $i<k$) is bound by a quantifier in $\varphi(\bar{x},t/y)$.  In other words, no free instance of $y$ in $\varphi(\bar{x},y)$ lies in the scope of some $\exists v_i$ (hence also $\forall v_i$) such that $i<k$.
+\end{dfn}
+
+\begin{dfn}[Substitability]
+	Suppose $\varphi=\varphi(\bar{x},\bar{y})$ is an $L$-formula and, for some $n\in\nats$, $\bar{y}$ has length $n$ and $\bar{t}$ is an $n$-tuple of terms.  We say that $\bar{t}$ is substitutable for $\bar{y}$ in $\varphi$ whenever, for each $i<n$, $t_i$ is \textbf{substitutable} for $y_i$ in $\varphi$.
+\end{dfn}
+
+\begin{dfn}[Interpretation]
+	Suppose $L$ and $L^\prime$ are arbitrary signatures and fix an enumeration $(x_i)_{i<\omega}$ of the set, $V$ say, of variables.  If $\beta$ is any ordinal then a map $\Gamma\colon L_{\omega_\beta\omega}\to L^\prime_{\omega_\beta\omega}$ is called an $\mathbf{n}$\textbf{-dimensional interpretation} of $L_{\omega_\beta\omega}$ in $L^\prime_{\omega_\beta\omega}$ whenever, for every $\varphi,\psi\in L$, it holds that:
+	\begin{enumerate}
+		\item	$\Gamma(\bot)=\bot$,
+		\item	for each ordinal $\alpha<\beta$, if $\family{\varphi_\gamma}{\gamma<\omega_\alpha}\subseteq L_{\infty\omega}$ then
+			\begin{equation}
+				\Gamma\left(\bigwedge_{\gamma<\omega_\alpha}\varphi_\gamma\right)=\bigwedge_{\gamma<\omega_\alpha}\Gamma(\varphi_\gamma)
+			\end{equation}
+		\item	$\Gamma(\varphi\rightarrow\psi)=\Gamma(\varphi)\rightarrow\Gamma(\psi)$,
+		\item	for every $k\in\nats$, if $\varphi=\varphi(x_0,\dotsc,x_{k-1})$ then
+			\begin{equation}
+				\Gamma(\varphi)=\Gamma(\varphi)(x_0,\dotsc,x_{kn-1}),
+			\end{equation}
+			i.e\ the free variables of $\Gamma(\varphi)$ are among $x_0,\dotsc,x_{kn-1}$,
+		\item	if $k\in\nats$ and $\varphi=\varphi(x_0,\dotsc,x_{k+1})$ then, by defining $\del_\Gamma\coloneqq\Gamma(\exists x_1(x_0=x_1))$, it follows that $\Gamma(\exists x_k\varphi)$ is the formula
+			\begin{equation}
+				\exists x_{kn}\exists x_{kn+1}\dotso\exists x_{(k+1)n-1}\left(\del_\Gamma(x_{kn}/x_0,\dotsc,x_{(k+1)n-1}/x_{n-1})\wedge\Gamma(\varphi)\right),
+			\end{equation}
+		\item	for each $n\in\nats$ and every $\bar{x},\bar{x}^\prime\in V^n$: if $\varphi=\varphi(\bar{x})$, $\bar{x}^\prime$ is substitutable for $\bar{x}$ in $\varphi$ and $\psi=\varphi(\bar{x}^\prime/\bar{x})$ then it follows that $\Gamma(\psi)$ is a substitution instance of $\Gamma(\varphi)$.  Concisely phrased, $\Gamma$ maps substitution instances to substitution instances.
+	\end{enumerate}
+	Furthermore, we call $\Gamma\colon L_{\infty\omega}\to L^\prime_{\infty\omega}$ an $\mathbf{n}$\textbf{-dimensional} interpretation of $L_{\omega\infty}$ in $L^\prime_{\omega\infty}$ whenever $\Gamma\restriction L_{\omega_\beta\omega}\colon L_{\omega_\beta\omega}\to L^\prime_{\omega_\beta\omega}$ is an $n$-dimensional interpretation of $L_{\omega_\beta\omega}$ in $L^\prime_{\omega_\beta\omega}$ for every ordinal $\beta$.
+\end{dfn}
+
+\begin{dfn}[Interpration of theories]
+	If $L$ and $L^\prime$ are signatures while $T$ is an $L_{\omega_\alpha\omega}$-theory and $T^\prime$ is an $L^\prime_{\omega_\alpha\omega}$-theory then an $n$-dimensional interpretation $\Gamma$ of $L_{\omega_\alpha\omega}$ in $L^\prime_{\omega_\alpha\omega}$ is referred to as an \textbf{interpretation of }$\bm{T}$\textbf{ in }$\bm{T^\prime}$ whenever it holds for every sentence $\sigma$ in $L_{\omega_\alpha\omega}$ that
+	\begin{equation}
+		T\models\sigma\quad\implies\quad T^\prime\models\Gamma(\sigma).
+	\end{equation}
+	The concept is defined similarly between theories of the respective languages $L_{\infty\omega}$ and $L^\prime_{\infty\omega}$.
+\end{dfn}
+
+
 \section{Linear orders and coloured expansions}
 
 \begin{assn}
