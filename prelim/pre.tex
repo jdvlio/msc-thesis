@@ -342,8 +342,8 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 	Suppose $\varphi=\varphi(\bar{x},y)$ is an $L$-formula and $t=t(\bar{v})$ is any $L$-term such that $\bar{v}=(v_0,\dotsc,v_k)$.  We say that $t$ is \textbf{substitutable} for $y$ in $\varphi$ iff no instance of a variable $v_i$ in $t$ (for $i<k$) is bound by a quantifier in $\varphi(\bar{x},t/y)$.  In other words, no free instance of $y$ in $\varphi(\bar{x},y)$ lies in the scope of some $\exists v_i$ (hence also $\forall v_i$) such that $i<k$.
 \end{dfn}
 
-\begin{dfn}[Substitability]
-	Suppose $\varphi=\varphi(\bar{x},\bar{y})$ is an $L$-formula and, for some $n\in\nats$, $\bar{y}$ has length $n$ and $\bar{t}$ is an $n$-tuple of terms.  We say that $\bar{t}$ is substitutable for $\bar{y}$ in $\varphi$ whenever, for each $i<n$, $t_i$ is \textbf{substitutable} for $y_i$ in $\varphi$.
+\begin{dfn}[Substitutability]
+	Suppose $\varphi=\varphi(\bar{x},\bar{y})$ is an $L$-formula and, for some $n\in\nats$, $\bar{y}$ has length $n$ and $\bar{t}$ is an $n$-tuple of terms.  We say that $\bar{t}$ is \textbf{substitutable} for $\bar{y}$ in $\varphi$ whenever, for each $i<n$, $t_i$ is substitutable for $y_i$ in $\varphi$.
 \end{dfn}
 
 \begin{dfn}[Interpretation]
