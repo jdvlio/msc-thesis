@@ -377,6 +377,13 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 	The concept is defined similarly between theories of the respective languages $L_{\infty\omega}$ and $L^\prime_{\infty\omega}$.
 \end{dfn}
 
+\begin{dfn}[Interpretation of structures]
+	Let $L$ and $L^\prime$ be first-order languages and suppose that $\mathfrak{A}$ is an $L$-structure and $\mathfrak{B}$ is an $L^\prime$-structure.  If $\Gamma$ is an $n$-dimensional ($n\in\nats$) interpretation of $L^\prime$ in $L$ and $f\colon\del_\Gamma(A^n)\to B$ is a surjection then we call the pair $(\Gamma,f)$ an \textbf{interpration of }$\bm{\mathfrak{B}}$\textbf{ in }$\bm{\mathfrak{A}}$ whenever it holds for every unnested atomic formula $\varphi\in L^\prime_k$ and each $\bar{a}_i\in A^n$ ($i<k$) that
+	\begin{equation}
+		\mathfrak{B}\models\varphi(f(\bar{a}_0),\dotsc,f(\bar{a}_{k-1}))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-1}).
+	\end{equation}
+\end{dfn}
+
 
 \section{Linear orders and coloured expansions}
 
