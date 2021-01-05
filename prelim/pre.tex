@@ -377,6 +377,16 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 	The concept is defined similarly between theories of the respective languages $L_{\infty\omega}$ and $L^\prime_{\infty\omega}$.
 \end{dfn}
 
+\begin{prp}
+	Suppose $T$ is an $L$-theory and $T^\prime$ is an $L^\prime$-theory and let $\Gamma$ be an interpretation of $T$ in $T^\prime$.  If $T$ is complete then, for every $L$-sentence $\sigma$,
+	\begin{equation}
+		T^\prime\models\Gamma(\sigma)\quad\implies\quad T\models\sigma
+	\end{equation}
+\end{prp}
+\begin{proof}
+	Assume to the contrary that $T^\prime\not\models\Gamma(\sigma)$ but $T\models\sigma$.  Since $T$ is complete it immediately follows that $T\models\neg\sigma$ and thus, by definition of $\Gamma$, we may conclude that $T^\prime\models\Gamma(\sigma)$ --- which is the desired contradiction.
+\end{proof}
+
 \begin{dfn}[Interpretation of structures]
 	Let $L$ and $L^\prime$ be first-order languages and suppose that $\mathfrak{A}$ is an $L$-structure and $\mathfrak{B}$ is an $L^\prime$-structure.  If $\Gamma$ is an $n$-dimensional ($n\in\nats$) interpretation of $L^\prime$ in $L$ and $f\colon\del_\Gamma(A^n)\to B$ is a surjection then we call the pair $(\Gamma,f)$ an \textbf{interpration of }$\bm{\mathfrak{B}}$\textbf{ in }$\bm{\mathfrak{A}}$ whenever it holds for every unnested atomic formula $\varphi\in L^\prime_k$ and each $\bar{a}_i\in A^n$ ($i<k$) that
 	\begin{equation}
@@ -384,6 +394,16 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 	\end{equation}
 \end{dfn}
 
+\begin{prp}
+	If $L$ is a first-order language then, for each atomic $\varphi\in L$, there exists an unnested $\E{1}$-formula $\varphi^\exists$ and an unnested $\A{1}$-formula $\varphi^\forall$ such that $\varphi$ is logically equivalent to $\varphi^\exists$ as well as $\varphi^\forall$.
+\end{prp}
+
+\begin{prp}
+	If $(\Gamma,f)$ is an $n$-dimensional interpretation of the $L^\prime$-structure $\mathfrak{B}$ in the $L$-structure $\mathfrak{A}$ and $k\in\nats$ then, for every $\varphi\in L^\prime_k$ and each $\bar{a}_0,\dotsc,\bar{a}_{k-1}\in A^n$, it follows that
+	\begin{equation}
+		\mathfrak{B}\models\varphi(f(\bar{a}_0),\dotsc,f(\bar{a}_{k-1}))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-1})
+	\end{equation}
+\end{prp}
 
 \section{Linear orders and coloured expansions}
 
