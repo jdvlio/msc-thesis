@@ -347,34 +347,33 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 \end{dfn}
 
 \begin{dfn}[Interpretation]
-	Suppose $L$ and $L^\prime$ are arbitrary signatures and fix an enumeration $(x_i)_{i<\omega}$ of the set, $V$ say, of variables.  If $\beta$ is any ordinal then a map $\Gamma\colon L_{\omega_\beta\omega}\to L^\prime_{\omega_\beta\omega}$ is called an $\mathbf{n}$\textbf{-dimensional interpretation} of $L_{\omega_\beta\omega}$ in $L^\prime_{\omega_\beta\omega}$ whenever, for every $\varphi,\psi\in L$, it holds that:
+	Suppose $L$ and $L^\prime$ are first-order languages and fix an enumeration $\family{x_i}{i<\omega}$ of the set of variables $V$.  If $\Gamma\colon L\to L^\prime$ is a map and $\del_\Gamma\coloneqq\Gamma(\exists x_1(x_0=x_1))$ then $\Gamma$ is called an $\mathbf{n}$\textbf{-dimensional interpretation} of $L$ in $L^\prime$ whenever the following holds:
 	\begin{enumerate}
-		\item	$\Gamma(\bot)=\bot$,
-		\item	for each ordinal $\alpha<\beta$, if $\family{\varphi_\gamma}{\gamma<\omega_\alpha}\subseteq L_{\infty\omega}$ then
-			\begin{equation}
-				\Gamma\left(\bigwedge_{\gamma<\omega_\alpha}\varphi_\gamma\right)=\bigwedge_{\gamma<\omega_\alpha}\Gamma(\varphi_\gamma)
-			\end{equation}
-		\item	$\Gamma(\varphi\rightarrow\psi)=\Gamma(\varphi)\rightarrow\Gamma(\psi)$,
 		\item	for every $k\in\nats$, if $\varphi=\varphi(x_0,\dotsc,x_{k-1})$ then
 			\begin{equation}
 				\Gamma(\varphi)=\Gamma(\varphi)(x_0,\dotsc,x_{kn-1}),
 			\end{equation}
 			i.e\ the free variables of $\Gamma(\varphi)$ are among $x_0,\dotsc,x_{kn-1}$,
-		\item	if $k\in\nats$ and $\varphi=\varphi(x_0,\dotsc,x_{k+1})$ then, by defining $\del_\Gamma\coloneqq\Gamma(\exists x_1(x_0=x_1))$, it follows that $\Gamma(\exists x_k\varphi)$ is the formula
+		\item	if $k\in\nats$ and $\varphi=\varphi(x_0,\dotsc,x_{k+1})$ then it necessarily follows that $\Gamma(\exists x_k\varphi)$ is the formula
 			\begin{equation}
 				\exists x_{kn}\exists x_{kn+1}\dotso\exists x_{(k+1)n-1}\left(\del_\Gamma(x_{kn}/x_0,\dotsc,x_{(k+1)n-1}/x_{n-1})\wedge\Gamma(\varphi)\right),
 			\end{equation}
+		\item	$\Gamma(\bot)=\bot$,
+		\item	$\Gamma(\varphi\wedge\psi)=\Gamma(\varphi)\wedge\Gamma(\psi)$,
+		\item	$\Gamma(\varphi\rightarrow\psi)=\Gamma(\varphi)\rightarrow\Gamma(\psi)$,
 		\item	for each $n\in\nats$ and every $\bar{x},\bar{x}^\prime\in V^n$: if $\varphi=\varphi(\bar{x})$, $\bar{x}^\prime$ is substitutable for $\bar{x}$ in $\varphi$ and $\psi=\varphi(\bar{x}^\prime/\bar{x})$ then it follows that $\Gamma(\psi)$ is a substitution instance of $\Gamma(\varphi)$.  Concisely phrased, $\Gamma$ maps substitution instances to substitution instances.
 	\end{enumerate}
-	Furthermore, we call $\Gamma\colon L_{\infty\omega}\to L^\prime_{\infty\omega}$ an $\mathbf{n}$\textbf{-dimensional} interpretation of $L_{\omega\infty}$ in $L^\prime_{\omega\infty}$ whenever $\Gamma\restriction L_{\omega_\beta\omega}\colon L_{\omega_\beta\omega}\to L^\prime_{\omega_\beta\omega}$ is an $n$-dimensional interpretation of $L_{\omega_\beta\omega}$ in $L^\prime_{\omega_\beta\omega}$ for every ordinal $\beta$.
 \end{dfn}
 
+It should be empasised that the first two clauses in the preceding definition are merely there for convenience.  They simplify the task of keeping track of free variables accross interpretations.  The final clause on the other hand is to guarantee that formulas which differ only in their choice of free variables remain as such when taking their respecitve images under $\Gamma$.  The remaining clauses server to preserve the syntactic structure of formulas under $\Gamma$.  Those familiar with algebraic logic will recognise that $\Gamma$, in an obvious manner, gives rise to homomorphism of cylindrical algebras.  For the rest of us, $\Gamma$ merely acts as a ``translator'' of formulas in $L$ to formulas in $L^\prime$.
+
+A model theorist, however, is far more concerned with theories and models than formal languages for their own sake.  Fortunately, interpretations can serve a purpose that the model theorist would find pleasing.  We refer to the ability of reducing truth of sentences in the presence of a theory to truth of their interpretation in a more appropriate or better understood theory.
+
 \begin{dfn}[Interpration of theories]
-	If $L$ and $L^\prime$ are signatures while $T$ is an $L_{\omega_\alpha\omega}$-theory and $T^\prime$ is an $L^\prime_{\omega_\alpha\omega}$-theory then an $n$-dimensional interpretation $\Gamma$ of $L_{\omega_\alpha\omega}$ in $L^\prime_{\omega_\alpha\omega}$ is referred to as an \textbf{interpretation of }$\bm{T}$\textbf{ in }$\bm{T^\prime}$ whenever it holds for every sentence $\sigma$ in $L_{\omega_\alpha\omega}$ that
+	Suppose $L$ and $L^\prime$ are first-order languages.  If $T$ is an $L$-theory and $T^\prime$ is an $L^\prime$-theory then an \textbf{interpretation of }$\bm{T}$\textbf{ in }$\bm{T^\prime}$ is an interpretation $\Gamma$ of $L$ in $L^\prime$ such that, for every sentence $\sigma$ in $L$,
 	\begin{equation}
 		T\models\sigma\quad\implies\quad T^\prime\models\Gamma(\sigma).
 	\end{equation}
-	The concept is defined similarly between theories of the respective languages $L_{\infty\omega}$ and $L^\prime_{\infty\omega}$.
 \end{dfn}
 
 \begin{prp}
@@ -394,9 +393,46 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 	\end{equation}
 \end{dfn}
 
+Having introduced a third concept sharing the common name of ``interpration'' we would like them all be related in some manner.  As the connection between the first two should be clear we now turn our attention towards interpretation of structures.
+
 \begin{prp}
 	If $L$ is a first-order language then, for each atomic $\varphi\in L$, there exists an unnested $\E{1}$-formula $\varphi^\exists$ and an unnested $\A{1}$-formula $\varphi^\forall$ such that $\varphi$ is logically equivalent to $\varphi^\exists$ as well as $\varphi^\forall$.
 \end{prp}
+\begin{proof}
+	Suppose $\varphi$ is atomic and argue by induction on the maximum number of nested function symbols in $\varphi$.  The base case (i.e.\ when no function symbols occur in $\varphi$) follows from the fact that atomic formulas are simultaneously also $\A{1}$-formulas and $\E{1}$-formulas.
+
+	Suppose, for some $n\in\nats$, the result holds whenever the maximum number of nested function symbols in $\varphi$ is $k<n$.  Suppose now that $\varphi$ has at most $n$ nested occurences of any function symbol in $L$.
+	\begin{case}
+		$\varphi$ is $s=t$ for some $L$-terms $s$ and $t$.
+	\end{case}
+	\begin{proof}
+		Consider the case where $s$ is of the form $f(s_0,\dotsc,s_{m-1})$, for $L$-terms $s_0,\dotsc,s_{m-1}$, and $t$ is the variable $x$.  Let $\bar{y}$ be an $m$-tuple of variables then it follows that $\varphi$ is logically equivalent to the $\E{1}$-formula
+		\begin{equation}
+			\exists\bar{y}\left(\left(\bigwedge_{i<m}y_i=s_i\right)\wedge f(\bar{y})=x\right),
+		\end{equation}
+		which has at most $n$ nested occurences of any function symbol belonging to $L$.  In a similar fashion $\varphi$ is also logically equivalent to the $\A{1}$-formula
+		\begin{equation}
+			\forall\bar{y}\left(\left(\bigwedge_{i<m}y_i=s_i\right)\rightarrow f(\bar{y})=x\right),
+		\end{equation}
+		which also has at most $n$ nested occurences of any function symbol.  One may now apply the induction hypothesis and the remaining cases will follow similarly.
+	\end{proof}
+
+	\begin{case}
+		There exists a relation symbol $r$ in $L$, having arity $m\in\nats$, and $L$-terms $t_0,\dotsc,t_{m-1}$ such that $\varphi$ is $r(t_0,\dotsc,t_{m-1})$.
+	\end{case}
+	\begin{proof}
+		Let $\bar{y}$ be an $m$-tuple of variables.  The formula $\varphi$ must necessarily be logically equivalent to the $\E{1}$-formula
+		\begin{equation}
+			\exists\bar{y}\left(\left(\bigwedge_{i<m}y_i=t_i\right)\wedge r(y_0,\dotsc,y_{m-1})\right),
+		\end{equation}
+		as well as the $\A{1}$-formula
+		\begin{equation}
+			\forall\bar{y}\left(\left(\bigwedge_{i<m}y_i=t_i\right)\rightarrow r(y_0,\dotsc,y_{m-1})\right),
+		\end{equation}
+		both of which can have no more than $n$ nested occurences of any function symbol in $L$.  Now applying the induction hypothesis yields the desired result.
+	\end{proof}
+	The result has thus been proven for all atomic $\varphi$ belonging to $L$, concluding the proof.
+\end{proof}
 
 \begin{prp}
 	If $(\Gamma,f)$ is an $n$-dimensional interpretation of the $L^\prime$-structure $\mathfrak{B}$ in the $L$-structure $\mathfrak{A}$ and $k\in\nats$ then, for every $\varphi\in L^\prime_k$ and each $\bar{a}_0,\dotsc,\bar{a}_{k-1}\in A^n$, it follows that
