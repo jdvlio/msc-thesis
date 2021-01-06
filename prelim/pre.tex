@@ -480,6 +480,29 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 	Obtained as a special case from Proposition \ref{prp:strint} by considering sentences only.
 \end{proof}
 
+\begin{dfn}[Definitional expansion]
+	Suppose $\mathfrak{A}$ is an $L$-structure and let $L^\prime\supseteq L$.  We call an $L^\prime$-structure $\mathfrak{A}^\prime$ a \textbf{definitional expansion} of $\mathfrak{A}$ whenever the following holds:
+	\begin{enumerate}
+		\item	$A=A^\prime$,
+		\item	for each constant symbold $c$ belonging to $L^\prime\setminus L$, there exists an $L$-formula $\varphi\in L_1$ such that, for every $a\in A$,
+			\begin{equation}
+				\mathfrak{A}\models\varphi(a)\quad\iff\quad a=c^{\mathfrak{A}^\prime},
+			\end{equation}
+		\item	for each $n\in\nats$ and every $(n+1)$-ary function symbol $f$ belonging to $L^\prime\setminus L$ there exists an $L$-formula $\varphi=\varphi(\bar{x},y)$ such that $\varphi\in L_{n+1}$ and, for every $\bar{a}\in A^n$ and $b\in A$,
+			\begin{equation}
+				\mathfrak{A}\models\varphi(\bar{a},b)\quad\iff\quad f^{\mathfrak{A}^\prime}(\bar{a})=b,
+			\end{equation}
+		\item	for each $n\in\posnats$ and every $n$-ary relation symbol $r$ belonging to $L^\prime\setminus L$ there exists an $L$-formula $\varphi=\varphi(\bar{x})$ such that $\varphi\in L_n$ and, for each $\bar{a}\in A^n$,
+			\begin{equation}
+				\mathfrak{A}\models r(\bar{a})\quad\iff\quad r^{\mathfrak{A}^\prime}(\bar{a}).
+			\end{equation}
+	\end{enumerate}
+\end{dfn}
+
+\begin{dfn}[Regular expansion]
+	Suppose $\mathfrak{A}$ is an $L$-structure and, for some $n\in\nats$ and $\bar{a}\in A^n$, let $L^\prime\supseteq L(\bar{a})$.  If the signature $L^\prime$ is obtained from $L(\bar{a})$ by adding finitely many additional relation symbols then an $L^\prime$-structure $\mathfrak{A}^\prime$ is called a \textbf{regular expansion} of $\mathfrak{A}$ whenever $\mathfrak{A}^\prime$ is a definitional expansion of $(\mathfrak{A},\bar{a})$.
+\end{dfn}
+
 \section{Linear orders and coloured expansions}
 
 \begin{assn}
