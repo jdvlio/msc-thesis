@@ -347,25 +347,25 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 \end{dfn}
 
 \begin{dfn}[Interpretation]
-	Suppose $L$ and $L^\prime$ are first-order languages and fix an enumeration $\family{x_i}{i<\omega}$ of the set of variables $V$.  If $\Gamma\colon L\to L^\prime$ is a map and $\del_\Gamma\coloneqq\Gamma(\exists x_1(x_0=x_1))$ then $\Gamma$ is called an $\mathbf{n}$\textbf{-dimensional interpretation} of $L$ in $L^\prime$ whenever the following holds:
+	Suppose $L$ and $L^\prime$ are first-order languages, fix an enumeration $\family{x_i}{i<\omega}$ of the set of variables $V$ and, for each $i<\omega$, let $\bar{x}_i$ denote the $n$-tuple $\left(x_i,\dotsc,x_{i+(n-1)}\right)$.  If $\Gamma\colon L\to L^\prime$ is a map and $\del_\Gamma\coloneqq\Gamma(\exists x_1(x_0=x_1))$ then $\Gamma$ is called an $\mathbf{n}$\textbf{-dimensional interpretation} of $L$ in $L^\prime$ whenever the following holds:
 	\begin{enumerate}
 		\item	for every $k\in\nats$, if $\varphi=\varphi(x_0,\dotsc,x_{k-1})$ then
 			\begin{equation}
-				\Gamma(\varphi)=\Gamma(\varphi)(x_0,\dotsc,x_{kn-1}),
+				\Gamma(\varphi)=\Gamma(\varphi)(\bar{x}_0,\dotsc,\bar{x}_{k-1}),
 			\end{equation}
-			i.e\ the free variables of $\Gamma(\varphi)$ are among $x_0,\dotsc,x_{kn-1}$,
-		\item	if $k\in\nats$ and $\varphi=\varphi(x_0,\dotsc,x_{k+1})$ then it necessarily follows that $\Gamma(\exists x_k\varphi)$ is the formula
-			\begin{equation}
-				\exists x_{kn}\exists x_{kn+1}\dotso\exists x_{(k+1)n-1}\left(\del_\Gamma(x_{kn}/x_0,\dotsc,x_{(k+1)n-1}/x_{n-1})\wedge\Gamma(\varphi)\right),
-			\end{equation}
+			i.e\ the free variables of $\Gamma(\varphi)$ are among the components of $\bar{x}_0,\dotsc,\bar{x}_{k-1}$,
 		\item	$\Gamma(\bot)=\bot$,
 		\item	$\Gamma(\varphi\wedge\psi)=\Gamma(\varphi)\wedge\Gamma(\psi)$,
 		\item	$\Gamma(\varphi\rightarrow\psi)=\Gamma(\varphi)\rightarrow\Gamma(\psi)$,
-		\item	for each $n\in\nats$ and every $\bar{x},\bar{x}^\prime\in V^n$: if $\varphi=\varphi(\bar{x})$, $\bar{x}^\prime$ is substitutable for $\bar{x}$ in $\varphi$ and $\psi=\varphi(\bar{x}^\prime/\bar{x})$ then it follows that $\Gamma(\psi)$ is a substitution instance of $\Gamma(\varphi)$.  Concisely phrased, $\Gamma$ maps substitution instances to substitution instances.
+		\item	if $k\in\nats$ and $\varphi=\varphi(x_0,\dotsc,x_{k+1})$ then it necessarily follows that $\Gamma(\exists x_{k+1}\varphi)$ is the formula
+			\begin{equation}
+				\exists\bar{x}_{k+1}\left(\del_\Gamma(\bar{x}_{k+1}/\bar{x}_0)\wedge\Gamma(\varphi)\right),
+			\end{equation}
+		\item	for each $n\in\nats$ and every $\bar{x},\bar{x}^\prime\in V^n$: if $\varphi=\varphi(\bar{x})$, $\bar{x}^\prime$ is substitutable for $\bar{x}$ in $\varphi$ and $\psi=\varphi(\bar{x}^\prime/\bar{x})$ then it follows that $\Gamma(\psi)$ is is obtainable from $\Gamma(\varphi)$ by a change of variables.
 	\end{enumerate}
 \end{dfn}
 
-It should be empasised that the first two clauses in the preceding definition are merely there for convenience.  They simplify the task of keeping track of free variables accross interpretations.  The final clause on the other hand is to guarantee that formulas which differ only in their choice of free variables remain as such when taking their respecitve images under $\Gamma$.  The remaining clauses server to preserve the syntactic structure of formulas under $\Gamma$.  Those familiar with algebraic logic will recognise that $\Gamma$, in an obvious manner, gives rise to homomorphism of cylindrical algebras.  For the rest of us, $\Gamma$ merely acts as a ``translator'' of formulas in $L$ to formulas in $L^\prime$.
+It should be empasised that the first clause in the preceding definition merely exists for convenience: simplifying the task of keeping track of free variables accross interpretations.  The final clause on the other hand is to guarantee that formulas which differ only in their choice of free variables remain as such when taking their respecitve images under $\Gamma$.  The remaining clauses server to preserve the syntactic structure of formulas under $\Gamma$.  Those familiar with algebraic logic will recognise that $\Gamma$, in an obvious manner, gives rise to homomorphism of cylindrical algebras.  For the rest of us, $\Gamma$ merely acts as a ``translator'' of formulas in $L$ to formulas in $L^\prime$.
 
 A model theorist, however, is far more concerned with theories and models than formal languages for their own sake.  Fortunately, interpretations can serve a purpose that the model theorist would find pleasing.  We refer to the ability of reducing truth of sentences in the presence of a theory to truth of their interpretation in a more appropriate or better understood theory.
 
