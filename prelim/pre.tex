@@ -395,7 +395,7 @@ A model theorist, however, is far more concerned with theories and models than f
 
 Having introduced a third concept sharing the common name of ``interpration'' we would like them all be related in some manner.  As the connection between the first two should be clear we now turn our attention towards interpretation of structures.
 
-\begin{prp}
+\begin{prp}\label{prp:unnest}
 	If $L$ is a first-order language then, for each atomic $\varphi\in L$, there exists an unnested $\E{1}$-formula $\varphi^\exists$ and an unnested $\A{1}$-formula $\varphi^\forall$ such that $\varphi$ is logically equivalent to $\varphi^\exists$ as well as $\varphi^\forall$.
 \end{prp}
 \begin{proof}
@@ -434,12 +434,51 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 	The result has thus been proven for all atomic $\varphi$ belonging to $L$, concluding the proof.
 \end{proof}
 
-\begin{prp}
+\begin{cor}\label{cor:unnest}
+	If $\varphi$ is any $L$-formula then there exists an unnested $L$-formula $\psi$ which is logically equivalent to $\varphi$.
+\end{cor}
+\begin{proof}
+	Leveraging Proposition \ref{prp:unnest}, we may replace all unnested atomic subformulas of $\varphi$ with unnested eqvuivalents in order to obtain a new formula $\varphi^\prime$.  As no atomic subformula of $\varphi^\prime$ is nested, and $\varphi^\prime$ is certainly logically equivalent to $\varphi$, the result follows.
+\end{proof}
+
+\begin{prp}\label{prp:strint}
 	If $(\Gamma,f)$ is an $n$-dimensional interpretation of the $L^\prime$-structure $\mathfrak{B}$ in the $L$-structure $\mathfrak{A}$ and $k\in\nats$ then, for every $\varphi\in L^\prime_k$ and each $\bar{a}_0,\dotsc,\bar{a}_{k-1}\in A^n$, it follows that
 	\begin{equation}
-		\mathfrak{B}\models\varphi(f(\bar{a}_0),\dotsc,f(\bar{a}_{k-1}))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-1})
+		\mathfrak{B}\models\varphi(f(\bar{a}_0),\dotsc,f(\bar{a}_{k-1}))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-1})\label{eq:interp}
 	\end{equation}
 \end{prp}
+\begin{proof}
+	Observe that a formula is unnested iff each of its subformulas are unnested.  Additionally, \ref{cor:unnest} tells us we need only concern ourselves with unnested formulas.  Employing these facts, we now argue by induction on the complexity of formulas that \ref{eq:interp} holds whenever $\varphi$ is unnested.
+
+	The atomic case is trivial as per the definition of an interpretation of structures.  Suppose now that $\varphi,\psi\in L$ satisfy \ref{eq:interp}.  Note that we may assume $\varphi,\psi\in L_k$, for some $k\in\nats$:  if $y$ is any variable which has an occurence in $\psi$ but not in $\varphi=\varphi(\bar{x})$ then $\varphi$ is logically equivalent to $\varphi(\bar{x})\wedge y=y$.  If $\varphi\wedge\psi$ is unnested then it follows that both $\varphi$ and $\psi$ are (respectively) unnested and, thus, from the inductive hypothesis and the Tarski definition of $\models$ it must hold, for every $\bar{a}_0,\dotsc,\bar{a}_k\in A^n$, that
+	\begin{equation}
+		\mathfrak{B}\models(\varphi\wedge\psi)(f(\bar{a}_0),\dotsc,f(\bar{a}_k))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi\wedge\psi)(\bar{a}_0,\dotsc,\bar{a}_k).
+	\end{equation}
+	Similarly, it can be shown that if $\varphi\rightarrow\psi$ is unnested then
+	\begin{equation}
+		\mathfrak{B}\models(\varphi\rightarrow\psi)(f(\bar{a}_0),\dotsc,f(\bar{a}_k))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi\rightarrow\psi)(\bar{a}_0,\dotsc,\bar{a}_k).
+	\end{equation}
+	 Suppose now that $\varphi=\varphi(\bar{x},y)$, for some $(k-1)$-tuple of variables $\bar{x}$, and that $\exists y\varphi(\bar{x},y)$ is unnested then it follows that $\varphi$ is unnested.  If $\bar{b}\in B^{k-1}$ and $\mathfrak{B}\models\exists y\varphi(\bar{x},y)$ then there exists a $d\in B$ such that
+	 \begin{equation}
+		 \mathfrak{B}\models\varphi(\bar{b},d).
+	 \end{equation}
+	 Since $f$ is a surjection there exists $\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{c}\in A^n$ such that $f(\bar{c})=d$ and $f(\bar{a}_i)=b_i$, for $i<n$.  From the definition of $\varphi$ it then follows that
+	 \begin{equation}
+		 \mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{c}),
+	 \end{equation}
+	 and thus we may conclude
+	 \begin{equation}
+		 \mathfrak{A}\models\exists\bar{y}\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{y}).\label{eq:exint}
+	 \end{equation}
+	 The converse is even simpler:  start from (\ref{eq:exint}) and take the image under $f$ of the initial tuples in $A^n$ as well as the tuple acting in the role of $\bar{c}$.
+\end{proof}
+
+\begin{cor}
+	If $(\Gamma,f)$ is an interpretation of the structure $\mathfrak{B}$ in the structure $\mathfrak{A}$ then it follows that $\Gamma$ is an interpretation of $\Th(\mathfrak{B})$ in $\Th(\mathfrak{A})$.
+\end{cor}
+\begin{proof}
+	Obtained as a special case from Proposition \ref{prp:strint} by considering sentences only.
+\end{proof}
 
 \section{Linear orders and coloured expansions}
 
