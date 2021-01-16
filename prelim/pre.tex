@@ -499,12 +499,16 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 	\end{enumerate}
 \end{dfn}
 
+\begin{dfn}[Recursively enumerable theory]
+	If $L$ is a countable first-order language and $T$ is an $L$-theory then we refer to $T$ as being \textbf{recursively enumerable} whenever $\dcl{T}$ is a recursively enumerable set.
+\end{dfn}
+
 \begin{dfn}[Regular expansion]
 	Suppose $\mathfrak{A}$ is an $L$-structure and let $L^\prime\supseteq L$.  If the signature $L^\prime$ is obtained from $L$ by adding finitely many additional relation symbols and the $L^\prime$-structure $\mathfrak{A}^\prime$ satisfies $A=A^\prime$ then $\mathfrak{A}^\prime$ is said to be a \textbf{regular expansion} of $\mathfrak{A}$.
 \end{dfn}
 
 \begin{dfn}[Proof sequence]
-	Suppose $L$ is a finitary first-order language and let $T$ be an $L$-theory.  If $\mathcal{S}$ is a recursively enumerable class of regular expansions of models of $T$ then a \textbf{proof sequence} over $\mathcal{S}$ is a finite sequence of pairs $(\mathfrak{M}_0,\sigma_0),\dotsc,(\mathfrak{M}_{n-1},\sigma_{n-1})$ such that, for each $i<n$, $\mathfrak{M}_i\in\mathcal{S}$ and one of the following holds:
+	Suppose $L$ is a finitary first-order language and let $T$ be a recursively enumerable $L$-theory.  If $\mathcal{S}$ is a recursively enumerable class of regular expansions of models of $T$ then a \textbf{proof sequence} over $\mathcal{S}$ is a finite sequence of pairs $(\mathfrak{M}_0,\sigma_0),\dotsc,(\mathfrak{M}_{n-1},\sigma_{n-1})$ such that, for each $i<n$, $\mathfrak{M}_i\in\mathcal{S}$ and one of the following holds:
 	\begin{enumerate}
 		\item	$\sigma_i$ is a logical axiom,
 		\item	$\sigma_i\in T$,
@@ -512,6 +516,7 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 		\item	$i>0$ and, for some $j<i$, there exists an interpretation $\Gamma$ of $\mathfrak{M}_j$ in $\mathfrak{M}_i$ such that $\sigma_i=\Gamma(\sigma_j)$.
 	\end{enumerate}
 \end{dfn}
+
 
 \section{Linear orders and coloured expansions}
 
