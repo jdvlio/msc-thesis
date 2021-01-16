@@ -500,7 +500,17 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 \end{dfn}
 
 \begin{dfn}[Regular expansion]
-	Suppose $\mathfrak{A}$ is an $L$-structure and let $L^\prime\supseteq L$.  If the signature $L^\prime$ is obtained from $L$ by adding finitely many additional relation symbols and the $L^\prime$-structure $\mathfrak{A}^\prime$ is a definitional expansion of $\mathfrak{A}$ then $\mathfrak{A}^\prime$ is referred to as a \textbf{regular expansion} of $\mathfrak{A}$.
+	Suppose $\mathfrak{A}$ is an $L$-structure and let $L^\prime\supseteq L$.  If the signature $L^\prime$ is obtained from $L$ by adding finitely many additional relation symbols and the $L^\prime$-structure $\mathfrak{A}^\prime$ satisfies $A=A^\prime$ then $\mathfrak{A}^\prime$ is said to be a \textbf{regular expansion} of $\mathfrak{A}$.
+\end{dfn}
+
+\begin{dfn}[Proof sequence]
+	Suppose $L$ is a finitary first-order language and let $T$ be an $L$-theory.  If $\mathcal{S}$ is a recursively enumerable class of regular expansions of models of $T$ then a \textbf{proof sequence} over $\mathcal{S}$ is a finite sequence of pairs $(\mathfrak{M}_0,\sigma_0),\dotsc,(\mathfrak{M}_{n-1},\sigma_{n-1})$ such that, for each $i<n$, $\mathfrak{M}_i\in\mathcal{S}$ and one of the following holds:
+	\begin{enumerate}
+		\item	$\sigma_i$ is a logical axiom,
+		\item	$\sigma_i\in T$,
+		\item	$\sigma_i$ follows via an inference rule from $\setbuild{\sigma_j}{j<i}$,
+		\item	$i>0$ and, for some $j<i$, there exists an interpretation $\Gamma$ of $\mathfrak{M}_j$ in $\mathfrak{M}_i$ such that $\sigma_i=\Gamma(\sigma_j)$.
+	\end{enumerate}
 \end{dfn}
 
 \section{Linear orders and coloured expansions}
