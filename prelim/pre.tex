@@ -508,7 +508,7 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 \end{dfn}
 
 \begin{dfn}[Proof sequence]
-	Suppose $L$ is a finitary first-order language and let $T$ be a recursively enumerable $L$-theory.  If $\mathcal{S}$ is a recursively enumerable class of regular expansions of models of $T$ then a \textbf{proof sequence} over $\mathcal{S}$ is a finite sequence of pairs $(\mathfrak{M}_0,\sigma_0),\dotsc,(\mathfrak{M}_{n-1},\sigma_{n-1})$ such that, for each $i<n$, $\mathfrak{M}_i\in\mathcal{S}$ and one of the following holds:
+	Suppose $L$ is a finitary first-order language and let $T$ be a recursively enumerable $L$-theory.  If $\mathcal{A}$ is a recursively enumerable class of regular expansions of models of $T$ then a \textbf{proof sequence} over $\mathcal{A}$ is a finite sequence of pairs $(\mathfrak{M}_0,\sigma_0),\dotsc,(\mathfrak{M}_{n-1},\sigma_{n-1})$ such that, for each $i<n$, $\mathfrak{M}_i\in\mathcal{A}$ and one of the following holds:
 	\begin{enumerate}
 		\item	$\sigma_i$ is a logical axiom,
 		\item	$\sigma_i\in T$,
@@ -520,9 +520,8 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 
 \section{Linear orders and coloured expansions}
 
-\begin{assn}
-	From this section onwards all languages $L$ will be assumed to be first-order unless explicitly stated otherwise.
-\end{assn}
+Note that, from this section onwards, $L$ will exclusively denote the \textit{language of partial orders} i.e.\ the language whose signature consists of only the binary relation symbol $<$.
+
 
 \begin{dfn}[Dense linear order]
 	A linear order $\alpha$ is called \textbf{dense} whenever, for every $a,b\in\alpha$, there exists $a\in\alpha$ such that $a<c<b$.  Additionally, $\alpha$ is said to be \textit{trivially dense} if the order type of alpha is either $\zero$ or $\one$.
@@ -545,6 +544,30 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 		\sum_{i\in I}\alpha_i\nequiv{n}\sum_{i\in I}\beta_i.
 	\end{equation}
 \end{lem}
+
+\begin{prp}
+	If $\beta\models\Th(\omega)$ then there exists a linear order $\alpha$ such that $\beta=\omega+\zeta\cdot\alpha$.
+\end{prp}
+
+\begin{prp}\label{prp:omega}
+	The first-order theory $\Th(\omega)$ is finitely axiomatisable.
+\end{prp}
+\begin{proof}
+	Let $T$ denote the first-order theory consisting of only the sentences:
+	\begin{enumerate}
+		\item	$\axmlin$,
+		\item	$\exists x\forall y(x\neq y\rightarrow x<y)$,
+		\item	$\forall x\exists y(x<y\wedge\neg\exists z(x<z<y))$,
+		\item	$\forall x\big(\exists y(y<x)\rightarrow\exists y(y<x\wedge\neg\exists z(y<z<x))\big)$.
+	\end{enumerate}
+	Together these express (in order) that if $\alpha$ is a model of $T$ then:
+	\begin{enumerate}
+		\item	$\alpha$ is a linear order,
+		\item	$\alpha$ has a least element,
+		\item	every element of $\alpha$ has an immediate successor,
+		\item	every non-minimal element of $\alpha$ has an immediate predecessor.
+	\end{enumerate}
+\end{proof}
 
 
 \section{Lattices}
