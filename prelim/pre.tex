@@ -535,6 +535,23 @@ Note that, from this section onwards, $L$ will exclusively denote the \textit{la
 	Suppose $\mathcal{A}$ is a class of $k$-coloured linear orders.  We call $F$ an $\mathbf{n}$\textbf{-spectrum} for the class $\mathcal{A}$ when $F$ is a minimal set of linear orders with the property that for every $\alpha\in\mathcal{A}$ there exists a $\chi\in F$ such that $\alpha\nequiv{n}\chi$.
 \end{dfn}
 
+\begin{dfn}[Spectrum of sentences]
+	Suppose $\mathcal{A}$ is a class of $k$-coloured linear orders and $F$ is an $n$-spectrum for $\mathcal{A}$.  If $\Sigma$ is a set of sentences (in the language of coloured linear orders) such that $\card{\Sigma}=\card{F}$ and, for each $\alpha\in F$, there exists a unique $\sigma_\alpha\in\Sigma$ such that $\alpha\models\sigma_\alpha$ then $\Sigma$ is called an $\mathbf{n}$\textbf{-spectrum} for $\Th(\mathcal{A})$.
+\end{dfn}
+
+\begin{lem}[Splitting Lemma]\label{lem:split}
+	Suppose $\alpha$ and $\beta$ linear orders and fix any $n\in\posnats$ then the following are equivalent:
+	\begin{enumerate}
+		\item	$\alpha\nequiv{n}\beta$,
+		\item	\begin{enumerate}
+				\item	for every $a\in\alpha$ there exists a $b\in\beta$ such that $\alpha^{<a}\nequiv{n-1}\beta^{<b}$ and $\alpha^{>a}\nequiv{n-1}\beta^{>b}$, and also,
+				\item	for every $b\in\beta$ there exists an $a\in\alpha$ such that $\alpha^{<a}\nequiv{n-1}\beta^{<b}$ and $\alpha^{>a}\nequiv{n-1}\beta^{>b}$.
+			\end{enumerate}
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\noindent(1)$\Rightarrow$(2):\quad 	Suppse $\alpha\nequiv{n}\beta$ and fix any $a\in\alpha$.  By considering $a$ as the first move of player $\Left$ in the game $\EF_n(\alpha,\beta)$, $\Right$ uses his winning strategy to play some $b\in\beta$.
+\end{proof}
 
 \section{Basic operations on linear orders}
 
