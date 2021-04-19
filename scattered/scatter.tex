@@ -340,57 +340,94 @@
 \end{proof}
 
 \begin{prp}
-	Let $n\in\nats$ and fix any $\alpha_0,\alpha_1,\beta_0,\dotsc,\beta_{n-1}\in\mathcal{M}$.  If $\alpha$ is a linear order such that one of the following holds:
-	\begin{enumerate}
-		\item	$\alpha=\alpha_0+\alpha_1$,
-		\item	$\alpha=\alpha_0\cdot\omega$,
-		\item	$\alpha=\sigma(\beta_0,\cdots,\beta_{n-1})$,
-	\end{enumerate}
-	then there exists a regular expansion $\alpha^\prime$ of $\alpha$ such that $\Th(\alpha^\prime)$ is recursively enumerable.
+	Suppose $\alpha$ and $\beta$ are linear orders and consider the families $\family{\mathfrak{A}_i}{i\in\alpha}$ and $\family{\mathfrak{B}_j}{j\in\beta}$ such that, for each $i\in\alpha$ and $j\in\beta$, $\mathfrak{A}_i,\mathfrak{B}_j$ are regular $L^\prime$-expansions of linear orders.  If $n\in\nats$, $\alpha\nequiv{n}\beta$ and, for each $i\in\alpha$ and $j\in\beta$,
+	\begin{equation}
+		\mathfrak{A}_i\nequiv{n}\mathfrak{B}_j
+	\end{equation}
+	then it necessarily follows that
+	\begin{equation}
+		\sum_{i\in\alpha}\mathfrak{A}_i\nequiv{n}\sum_{j\in\beta}\mathfrak{B}_j.
+	\end{equation}
 \end{prp}
 \begin{proof}
+	We describe a winning strategy for $\Right$ in the $n$-round game
+	\begin{equation}
+		\EF_n\left(\sum_{i\in\alpha}\mathfrak{A}_i,\sum_{j\in\beta}\mathfrak{B}_j\right).
+	\end{equation}
+	A move $(a,i)$ in $\sum_{i\in\alpha}\mathfrak{A}_i$ by $\Left$ is countered by $\Right$ by first employing his winning strategy in the game $\EF_n(\alpha,\beta)$ to obtain some $j\in\beta$ followed by an application of his winning strategy in the game $\EF_n(\mathfrak{A}_i,\mathfrak{B}_j)$ in order to acquire a $b\in B_j$.  The countermove by $\Right$ is then $(b,j)$.  A similar choice is made in the case that $\Left$ instead plays some $(b^\prime,j^\prime)$ in the opposing sum.
 \end{proof}
 
 \begin{lem}
 	The following set is recursively enumerable:
 	\begin{equation}
-		R\coloneqq\setbuild{(\alpha,\sigma)}{\alpha\in\scattered\text{ and }\alpha\models\sigma}.
+		R\coloneqq\setbuild{(\alpha,\sigma)}{\alpha\in\Mzero\text{ and }\alpha\models\sigma}.
 	\end{equation}
 \end{lem}
 \begin{proof}
-	We show that there exists  a set $\Mzero^\prime$ of regular expansions of members of $\Mzero$ and a recursively enumerable subset $P$ of the set of proof sequences over $\Mzero^\prime$, the latter possessing the property that each $(\alpha,\sigma)\in R$ is the final element of some proof sequence in $P$.  Once this is done the result will have been established.
+	Recursively on $\Mzero$, for each $\alpha\in\Mzero$, by adding finitely many (new) relation symbols to $L$ we shall define a language $L_\alpha\supseteq L$ and first-order theories $S_\alpha$, $T_\alpha$ such that $T_\alpha\supseteq S_\alpha$ is a recursively enumerable complete theory.  The role of each $S_\alpha$ will be that of a finitely axiomatisable theory whose models interpret a finitely axiomatisable linear order.
 
-	In what follows, we (recursively) construct the desired $\Mzero^\prime$ while taking note of the accompanying language $L_\alpha$ of each (chosen) regular expansion $\alpha^\prime\in\Mzero$ of a linear order $\alpha\in\Mzero$.  Along the way we also obtain a recursively enumerable theory $T_\alpha$, for each $\alpha\in\Mzero$, such that $T_\alpha$ is recursively enumerable and $\dcl{T_\alpha}=\Th(\alpha^\prime)$.
+	If $\alpha=\zero$ then we choose $L_\alpha$ to be the language of linear orders and we define $T_\alpha=S_\alpha$ to consist only of the sentence $\neg\exists x(x=x)$.  While, when $\alpha=\one$, we choose the same $L_\alpha$ as before and define $T_\alpha=S_\alpha$ to consist only of the sentence $\axmlin\wedge\exists x\forall y(x=y)$.
 
-	If $\alpha=\zero$ then we choose $L_\alpha$ to be the language of linear orders and we define $T_\alpha=S_\alpha$ to consist only of the sentence $\neg\exists x(x=x)$.  While, when $\alpha=\one$, we choose the same $L_\alpha$ as before and define $T_\alpha=S_\alpha$ to consist only of the sentence $\axmlin\wedge\forall x\forall y(x=y)$.  In both cases $T_\alpha$ is recursively enumerable (since it is finite) as well as complete:  $T_\alpha$ determines its models up to isomorphism.  Hence it follows that $\dcl{=T_\alpha}=\Th(\alpha)$ for $\alpha\in\set{\zero,\one}$ and thus $\Th(\alpha)$ is recursively enumerable and we may now proceed with $\zero, \one$ as the chosen basis elements of $\Mzero^\prime$.
+	In both cases above, $T_\alpha$ is recursively enumerable (since it is finite) as well as complete:  $T_\alpha$ determines its models up to isomorphism.
 
-	Assume now that $L_\alpha$, $T_\alpha$ and $S_\alpha$ have been defined for $\alpha\in\set{\alpha_0,\alpha_1}\cup\set{\beta_0,\dotsc,\beta_{n-1}}$.  Suppose that $\alpha=\alpha_0+\alpha_1$ and expand $L$ by adding the unary relation symbols $r_0$ and $r_1$ in order to obtain $L_\alpha$.  These symbols will serve to ``identify'' the linear orders $\alpha_0$ and $\alpha_1$, respectively, within $\alpha$.  Let $S_\alpha$ consist of the $L_\alpha$-sentences $\forall x(r_0(x)\vee r_1(x))$ and $\forall x\forall y(r_0(x)\wedge r_1(y)\rightarrow x<y)$ while also choosing
+	Assume now that $L_\alpha$, $T_\alpha$ and $S_\alpha$ have been defined for $\alpha\in\set{\alpha_0,\alpha_1}$ and that $T_{\alpha_0},T_{\alpha_1}$ are recursively enumerable (complete) theories.  Suppose that $\alpha=\alpha_0+\alpha_1$ and expand $L$ by adding the unary relation symbols $r_0$ and $r_1$ in order to obtain $L_\alpha$.  These new symbols will serve to ``identify'' the linear orders $\alpha_0$ and $\alpha_1$, respectively, within $\alpha$.  Let $S_\alpha$ consist of exactly the $L_\alpha$-sentences $\axmlin$, $\forall x(r_0(x)\vee r_1(x))$ and $\forall x\forall y(r_0(x)\wedge r_1(y)\rightarrow x<y)$ while also choosing
 	\begin{equation}
 		T_\alpha=S_\alpha\cup\setbuild{\sigma^{r_0(v)}}{\alpha_0\models\sigma}\cup\setbuild{\sigma^{r_1(v)}}{\alpha_1\models\sigma}.
 	\end{equation}
-	Note that if $\mathfrak{A},\mathfrak{A}^\prime\models T_\alpha$ then, by definition, $\mathfrak{A}$ and $\mathfrak{A}^\prime$ can be decomposed as
-	\begin{equation}
-		\mathfrak{A}=\mathfrak{A}_0+\mathfrak{A}_1 \quad\text{and}\quad \mathfrak{A}^\prime=\mathfrak{A}^\prime_0+\mathfrak{A}^\prime_1,
-	\end{equation}
-	such that
-	\begin{equation}
-		\mathfrak{A}_i,\mathfrak{A}^\prime_i\models\setbuild{\sigma^{r_i(v)}}{\alpha_i\models\sigma},
-	\end{equation}
-	for $i=0,1$.
 
-	There exists, for each $i=0,1$, and obvious interpretation of $\mathfrak{A}_i$ in $\mathfrak{A}_i\restriction L$ and of $\mathfrak{A}^\prime_i$ in $\mathfrak{A}^\prime_i\restriction L$: in the former case we interpret $x<y$ as itself and $r_0(x)$ as $x=x$ while, in the latter case, we (similarly) interpret $x<y$ as itself and $r_1(x)$ as $x=x$.  Consequently it follows that $\mathfrak{A}_i\equiv\mathfrak{A}^\prime_i$ for $i=0,1$.  Note now that, for each $n\in\nats$, $\Right$ has a winning strategy for the game $\EF_n(\mathfrak{A},\mathfrak{A}^\prime)$ by combining his wininng strategies in the games $\EF_n(\mathfrak{A}_0,\mathfrak{A}^\prime_0)$ and $\EF_n(\mathfrak{A}_1,\mathfrak{A}^\prime_1)$.  Thus we may conclude that $\mathfrak{A}\equiv\mathfrak{A}^\prime$, showing that $T_\alpha$ is complete.
-
-	If $\alpha=\alpha_0\cdot\omega$ then we obtain $L_\alpha$ from $L$ by adding a single binary relation symbol $\theta$.  Choose $\Gamma$ to be the (unique) interpretation of $L$ in $L_\alpha$ such that $\Gamma(x<y)$ is the formula $x<y\wedge\neg\theta(x,y)$ and, if $\Sigma$ consists of finitely many $L_\alpha$-sentences ``$\theta$ is an equivalence relation'', define $S_\alpha$ to be the $L_\alpha$-theory
+	We now argue that $T_\alpha$ is complete.  Note that if $\mathfrak{M},\mathfrak{N}\models T_\alpha$ then, by definition, their respective order types, $\beta$ and $\delta$, can be decomposed as $\beta=\beta_0+\beta_1$ and $\delta=\delta_0+\delta_1$ such that,
 	\begin{equation}
-		S_\alpha=\Gamma\left[\Th(\omega)\right]\cup\Sigma
+		\beta_i,\delta_i\models\Th(\alpha_i), \quad\text{for }i=0,1.
 	\end{equation}
-	and let $T_\alpha=S_\alpha\cup\setbuild{\forall w\sigma^{\theta(w,v)}}{\alpha_0\models\sigma}$.  The latter set of sentences expresses the sentiment that each $\theta$-equivalence class is elementarily equivalent to $\alpha$.
+	Therefore $\beta_0\equiv\delta_0$ and $\beta_1\equiv\delta_1$ so that, for each $n\in\nats$, $\Right$ has the (respective) winning strategies $s_n$ and $t_n$ for the games $\EF_n(\beta_0,\delta_0)$ and $\EF_n(\beta_1,\delta_1)$.
 
-	The burden is now on us to show that the $L_\alpha$-theory $T_\alpha$ is complete.  Consider $\mathfrak{A},\mathfrak{A}^\prime\models T_\alpha$.  By definition, $\mathfrak{A}$ and $\mathfrak{A}^\prime$ can be decomposed as
+	The winning strategy for $\Right$ in the game $\EF_n(\mathfrak{M},\mathfrak{N})$ is laid out as follows.  A move in the $\beta_0$-part of $\mathfrak{M}$ is countered using the strategy $s_n$, as if playing the game $\EF_n(\beta_0,\delta_0)$ while a move in the $\beta_1$-part is similarly countered but using the strategy $t_n$.  If instead $\Left$ plays a member of $\mathfrak{N}$ then a similar methodology may be employed.
+
+	If $\alpha=\alpha_0\cdot\omega$ then we obtain $L_\alpha$ from $L$ by adding a single binary relation symbol $\theta$.  Choose $\Gamma$ to be the (unique) interpretation of $L$ in $L_\alpha$ such that $\Gamma(x<y)$ is the formula $x<y\wedge\neg\theta(x,y)$.
+
+	Let $\Sigma$ consist of the (finitely many) $L_\alpha$-sentences which, together, express the assertion ``$\theta$ is an equivalence relation'' as well as the sentence
 	\begin{equation}
-		\mathfrak{A}=\sum_{i\in\beta}\mathfrak{A}_i \quad\text{and}\quad \mathfrak{A}^\prime=\sum_{i\in\beta^\prime}\mathfrak{A}^\prime_i
+		\forall x_0\forall x_1\forall y_0\forall y_1( x_0<y_0\wedge\neg\theta(x_0,y_0)\wedge\theta(x_1,x_0)\wedge\theta(y_1,y_0)\rightarrow x_1<y_1).
 	\end{equation}
-	such that $\beta,\beta^\prime\models\Th(\omega)$ and, for each $i\in\beta$ and $j\in\beta^\prime$, both $\mathfrak{A}_i\restriction L$ and $\mathfrak{A}^\prime_j\restriction L$ are models of $\Th(\alpha_0)$.  From Lemma \ref{lem:fvsum}, we may assume without loss of generality that $\mathfrak{A}=\alpha_0\cdot\beta$ and $\mathfrak{A}=\alpha_0\cdot\beta^\prime$.
+	so that, in fact, $\theta$ is a congruence and not simply a mere equivalence relation.
+
+	Define $S_\alpha$ to be a finite axiomatisation of the $L_\alpha$-theory
+	\begin{equation}
+		\Gamma\left[\Th(\omega)\right]\cup\Sigma\cup\set{\axmlin}
+	\end{equation}
+	and let $T_\alpha=S_\alpha\cup\setbuild{\forall w\sigma^{\theta(w,v)}}{\alpha_0\models\sigma}$.  The latter set of sentences expresses the sentiment that each $\theta$-equivalence class is elementarily equivalent to $\alpha_0$.
+
+	Note, it follows from the induction hypothesis that $T_\alpha$ is recursively enumerable.  The burden is now on us to show that the $L_\alpha$-theory $T_\alpha$ is complete.  Consider any $\mathfrak{M},\mathfrak{N}\models T_\alpha$ then the respective order types, $\beta$ and $\delta$, of $\mathfrak{M}$ and $\mathfrak{N}$ can be decomposed as
+	\begin{equation}
+		\beta=\beta_0\cdot\gamma_0\qquad\text{and}\qquad\delta=\delta_0\cdot\gamma_1,
+	\end{equation}
+	such that $\gamma_0\equiv\omega\equiv\gamma_1$ and $\beta_0,\delta_0\models\Th(\alpha_0)$.
+
+	Fix any $n\in\nats$ then we describe a winning strategy for $\Right$ in the game $\EF_n(\mathfrak{M},\mathfrak{N})$.  If $\Left$ plays the move $(a,i)\in\domain{}\beta\times\domain{}\gamma_0$ then $\Right$ chooses a $j\in\gamma_1$ using his winning strategy in the game $\EF_n(\gamma_0,\gamma_1)$.  This is then followed by a choice of $b\in\delta_0$ using his winning strategy in the game $\EF(\beta_0,\delta_0)$.  This determines the countermove $(b,j)$.  If $\Left$ instead plays a move in the opposite structure then a countermove be obtained by $\Right$ in a similar fashion.
+
+	The case when $\alpha=\alpha_0\cdot\dual{\omega}$ is approached in a similar manner: let $\theta$, $L_\alpha$, $\Gamma$ and $\Sigma$ be defined as before.  Choose $S_\alpha$ to be a finite axiomatisation of the theory
+	\begin{equation}
+		\Gamma[\Th(\dual{\omega})]\cup\Sigma\cup\set{\axmlin}
+	\end{equation}
+	and define $T_\alpha$ as in the previous case.  It again follows that $T_\alpha$ is recursively enumerable and a similar argument as before will suffice to show that $T_\alpha$ is complete.
+
+	All that remains is that a mechanical listing of the set
+	\begin{equation}
+		R^\prime\coloneqq\setbuild{(\alpha,\sigma)}{\alpha\in\Mzero\text{ and }\sigma\text{ is an }L_\alpha\text{-sentence such that }T_\alpha\models\sigma}
+	\end{equation}
+	need be given.  Once this procedure has been established it will follow that $R$ is also recursively enumerable since, for any $\alpha\in\Mzero$ and $\sigma\in L_\alpha$, the problem of whether or not $\sigma$ is a member of $L$ is decidable.
+
+	The list starts with all pairs of the form $(\alpha,\sigma)$ such that $\alpha\in\set{\zero,\one}$ and $\sigma\in S_\alpha$, noting that the aforementioned pairs are finite in number.  Now assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for $i\geq n$, as follows:
+	\begin{enumerate}
+		\item 	list all pairs of the form $(\alpha_i,\sigma)$ such that $\sigma\in S_{\alpha_i}$ and $i<n_0$ and let $n_1$ denote the resulting number of entries in the list;
+		\item 	list all pairs of the form $(\alpha_i, \sigma)$, for $i<n_1$, where $\sigma$ is the direct consequence of an inference rule from $\sigma_{i_0},\dotsc,\sigma_{i_{k-1}}$ and, for each $j<k$, $(\alpha_i,\sigma_{i_j})$ has already appeared in the list and let $n_2$ denote the resulting number of entries;
+		\item	list all pairs of the form $(\alpha,\sigma)$ where, for $i,j<n_2$, $\alpha=\alpha_i+\alpha_j$ and $\sigma=\sigma_i^{r_0(v)}\wedge\sigma_j^{r_1(v)}$ and let $n_3$ denote the resulting number of entries in the list;
+		\item	list all pairs of the form $(\alpha_i\cdot\omega,\sigma)$, for $i<n_3$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and and let $n_4$ denote the resulting number of entries in the list;
+		\item	list all pairs of the form $(\alpha_i\cdot\dual{\omega},\sigma)$, for $i<n_4$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and and redefine $n_0$ to be the resulting number of entries in the list;
+		\item	repeat steps 1 to 5.
+	\end{enumerate}
+
+	By way of induction (on $\alpha\in\Mzero$) it can be shown that each member of the set $R^\prime$ does indeed appear as some entry in the above list.  Consequently, we may conclude that the set $R$ is in fact recursively enumerable, as required.
 \end{proof}
 
 \begin{thm}
