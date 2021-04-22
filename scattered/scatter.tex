@@ -438,7 +438,10 @@
 	\begin{equation}
 		R=\setbuild{(\alpha,\sigma)}{\alpha\in\Mzero)\text{ and }\alpha\models\sigma}.
 	\end{equation}
+
 	Now consider a machine $M$ which, when given a sentence $\sigma$, alternately produces entries from each list until either $\sigma$ or, for some $\alpha\in\Mzero$, $(\alpha,\neg\sigma)$ appears in the list, at which point the machine halts and returns the value "True" if $\sigma$ appeared on the list as member of $\Th(\scattered)$ and returns "False" otherwise.
 
-	We now need to argue that $M$ always halts irrespective of the choice of input sentence.  The case where $\sigma\in\Th(\scattered)$ is trivial so suppose that $\sigma\notin\Th(\scattered)$.  By definition, there must exist an $\alpha\in\scattered$ such that $\alpha\models\neg\sigma$.  Choose $n=\qrank(\sigma)$ and recall it follows from the theorem of L\"auchli and Leonard that, for some $\beta_n\in\Mzero$, it holds that $\beta_n\nequiv{n}\alpha$ and thus $\beta_n\models\neg\sigma$.  Consequently, $(\beta_n,\neg\sigma)\in R$ and thus $(\beta_n,\neg\sigma)$ will appear in the list and $M$ will return "False".  Therefore, the machcine $M$ always halts --- as required.
+	We now need to argue that $M$ always halts irrespective of the choice of input sentence.  The case where $\sigma\in\Th(\scattered)$ is trivial so suppose that $\sigma\notin\Th(\scattered)$.  By definition, there must exist an $\alpha\in\scattered$ such that $\alpha\models\neg\sigma$.
+
+	Choose $n=\qrank(\sigma)$ and recall it follows from the theorem of L\"auchli and Leonard that, for some $\beta_n\in\Mzero$, it holds that $\beta_n\nequiv{n}\alpha$ and thus $\beta_n\models\neg\sigma$.  Consequently, $(\beta_n,\neg\sigma)\in R$ and thus $(\beta_n,\neg\sigma)$ will appear in the list and $M$ will return "False".  Therefore, the machcine $M$ always halts --- as required.
 \end{proof}
