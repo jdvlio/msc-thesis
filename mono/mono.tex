@@ -45,7 +45,7 @@
 		\item	$\zero,\one\in\M$,
 		\item	if $\alpha,\beta\in\M$ then $\alpha+\beta\in\M$,
 		\item	if $\alpha\in\M$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\M$,
-		\item	for every finite $F\subseteq\M$, it holds that $\sigma(F)\in\M$.
+		\item	for every finite $F\subseteq\M\setminus\set{\zero}$, it holds that $\sigma(F)\in\M$.
 	\end{enumerate}
 \end{dfn}
 
@@ -115,8 +115,46 @@
 \end{proof}
 
 \begin{lem}
-	The set $\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}$ is recursively enumerable.  Assume, by way of contradiction, that for some natural $k<m^\prime$ it holds that $D_{\chi_k}$ is not dense in $I$.
+	The set $\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}$ is recursively enumerable.
 \end{lem}
+\begin{proof}
+	The proof is near identical to that of Lemma \label{lem:rescat}.  We shall only highlight the additions necessary to prove the current result.
+
+	It is necessary to add an additional clause, respectively, to the defintions of $L_\alpha$, $S_\alpha$ and $T_\alpha$.  If, for some $n\in\nats$, there exists $\alpha_0,\dotsc,\alpha_{n-1}\in\M\setminus\set{\zero}$ such that $\alpha=\sigma(\alpha_0,\dotsc,\alpha_{n-1})$ then $L_\alpha$ is obtained from $L$ by adding new unary relation symbols $r_0,\dotsc,r_{n-1}$ and a new binary relation symbol $\theta$.
+
+	We choose $S_\alpha$ to consist of sentences expressing that ``$\theta$ is a congruence relation'' as well as, for each $i<n$, the sentences:
+	\begin{itemize}
+		\item	$\exists x r_i(x)$,
+		\item	$\forall x\big(r_0(x)\vee\dotsb\vee r_{n-1}(x)\big)$,
+		\item	for each $j<i$: $\neg\exists x\big(r_i(x)\wedge r_j(x)\big)$,
+		\item	$\forall x\forall y\big(x<y\rightarrow\exists z(r_i(z)\wedge x<z \wedge z<y))\big)$,
+		\item	$\forall x\big(r_i(x)\rightarrow\forall y(\theta(y,x)\rightarrow r_i(y))\big)$.
+		\item	$\forall x\big(\exists y(\neg\theta(x,y)\wedge y<x)\wedge\exists y(\neg\theta(x,y)\wedge x<y)\big)$
+	\end{itemize}
+
+	Define the $L_\alpha$-theory
+	\begin{equation}
+		T_\alpha=S_\alpha\cup\bigcup_{i<n}\setbuild{\forall x\left(r_i(x)\rightarrow\sigma^{\theta(v,x)}\right)}{\alpha_i\models\sigma}
+	\end{equation}
+	and note that, by definition, $T_\alpha$ is recursively enumerable.  Hence, we need only show that $T_\alpha$ is complete.  To this end, consider any $\mathfrak{M},\mathfrak{N}\models T_\alpha$.
+
+	Fix any $k\in\nats$, so that our task is reduced to showing that $\mathfrak{M}\nequiv{k}\mathfrak{N}$.  This is facilitated by the following description of a winning strategy for player $\Right$ in the game $\EF_k(\mathfrak{M},\mathfrak{N})$.
+
+	Should it be the case that $n\leq 1$ then it follows that $\mathfrak{M}\equiv\mathfrak{N}$ so we may suppose that $n>1$.  Let $a_0\in M$ be the first move of player $\Left$.  By definition of $T_\alpha$, there exists a natural $i_0<n$ such that $\mathfrak{M}\models r_{i_0}(a_0)$.
+
+	It then follows from the definition of $T_\alpha$ that there exists a countermove $b_0\in N$ for player $\Right$ such that $\mathfrak{N}\models r_{i_0}(b_0)$.  Any such $b_0$ will suffice and a similar tactic is used if $\Left$ instead chooses his first move in $\mathfrak{N}$.
+
+	Suppose now that $\bar{a}\in M^{k-1}$ and $\bar{b}\in N^{k-1}$ and we are in the position $(\bar{a},\bar{b})$ in the game.  Without loss of generality we may assume $a_i<a_{i+1}$, for $i<k$, and need only consider the case where $\Left$ never repeats any of his moves.
+
+	Suppose, during the $k$-th round, $\Left$ plays some $c\in M$.  There must then exist, by definition of $T_\alpha$, some $i_k<n$ such that $\mathfrak{M}\models r_{i_{k-1}}(c)$.  If $c>a_{k-1}$ then there must exists some $d\in N$ such that $d>\bar{b}$ and $\mathfrak{N}\models r_{i_{k-1}}(d)$.  A similar scenario is encountered if $c<a_0$: there exists a $d<\bar{b}$ in $\mathfrak{M}$ such that $\mathfrak{N}\models r_{i_{k-1}}(d)$.
+
+	Now, consider the case where $a_j<c<a_{j+1}$, for some $j<k$.  If $b_{j+1}\leq b_j$ then $\Right$ may play any element but otherwise there exists a $d\in N$ such that $b_j<d<b_{j+1}$ and, for $i<n$,
+	\begin{equation}
+		\mathfrak{M}\models r_i(c)\quad\iff\quad\mathfrak{N}\models r_i(d).
+	\end{equation}
+
+	Should $\Left$ instead play a move $d\in N$ then $\Right$ plays as follows.  If $b_{j+1}\leq b_j$, for some $j<k$ then $\Right$ may play any move in $\mathfrak{M}$ but otherwise $\Right$ plays similarly to the previous case where $\Left$ chose a move in $\mathfrak{M}$.  The roles of the two structures are merely interchanged.
+\end{proof}
 
 \begin{thm}
 	The theory of linear orders is decidable.

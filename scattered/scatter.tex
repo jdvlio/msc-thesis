@@ -357,7 +357,7 @@
 	A move $(a,i)$ in $\sum_{i\in\alpha}\mathfrak{A}_i$ by $\Left$ is countered by $\Right$ by first employing his winning strategy in the game $\EF_n(\alpha,\beta)$ to obtain some $j\in\beta$ followed by an application of his winning strategy in the game $\EF_n(\mathfrak{A}_i,\mathfrak{B}_j)$ in order to acquire a $b\in B_j$.  The countermove by $\Right$ is then $(b,j)$.  A similar choice is made in the case that $\Left$ instead plays some $(b^\prime,j^\prime)$ in the opposing sum.
 \end{proof}
 
-\begin{lem}\label{lem:psscat}
+\begin{lem}\label{lem:rescat}
 	The following set is recursively enumerable:
 	\begin{equation}
 		R\coloneqq\setbuild{(\alpha,\sigma)}{\alpha\in\Mzero\text{ and }\alpha\models\sigma}.
@@ -434,7 +434,7 @@
 	The theory $\Th(\scattered)$ is decidable.
 \end{thm}
 \begin{proof}
-	From Proposition \ref{prp:rescat} and Lemma \ref{lem:psscat}, there exists machines $M_0$ and $M_1$ which, respectively, list the members of $\Th(\scattered)$ and the set of pairs
+	From Proposition \ref{prp:rescat} and Lemma \ref{lem:rescat}, there exists machines $M_0$ and $M_1$ which, respectively, list the members of $\Th(\scattered)$ and the set of pairs
 	\begin{equation}
 		R=\setbuild{(\alpha,\sigma)}{\alpha\in\Mzero)\text{ and }\alpha\models\sigma}.
 	\end{equation}
