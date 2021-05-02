@@ -417,7 +417,7 @@
 	\end{equation}
 	need be given.  Once this procedure has been established it will follow that $R$ is also recursively enumerable since, for any $\alpha\in\Mzero$ and $\sigma\in L_\alpha$, the problem of whether or not $\sigma$ is a member of $L$ is decidable.
 
-	The list starts with all pairs of the form $(\alpha,\sigma)$ such that $\alpha\in\set{\zero,\one}$ and $\sigma\in S_\alpha$, noting that the aforementioned pairs are finite in number.  Now assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for $i\geq n$, as follows:
+	The list starts with all pairs of the form $(\alpha,\sigma)$ such that $\alpha\in\set{\zero,\one}$ and $\sigma\in S_\alpha$, noting that the aforementioned pairs are finite in number.  Now assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for $i\geq n_0$, as follows:
 	\begin{enumerate}
 		\item 	list all pairs of the form $(\alpha_i,\sigma)$ such that $\sigma\in S_{\alpha_i}$ and $i<n_0$ and let $n_1$ denote the resulting number of entries in the list;
 		\item 	list all pairs of the form $(\alpha_i, \sigma)$, for $i<n_1$, where $\sigma$ is the direct consequence of an inference rule from $\sigma_{i_0},\dotsc,\sigma_{i_{k-1}}$ and, for each $j<k$, $(\alpha_i,\sigma_{i_j})$ has already appeared in the list and let $n_2$ denote the resulting number of entries;
