@@ -153,7 +153,34 @@
 		\mathfrak{M}\models r_i(c)\quad\iff\quad\mathfrak{N}\models r_i(d).
 	\end{equation}
 
-	Should $\Left$ instead play a move $d\in N$ then $\Right$ plays as follows.  If $b_{j+1}\leq b_j$, for some $j<k$ then $\Right$ may play any move in $\mathfrak{M}$ but otherwise $\Right$ plays similarly to the previous case where $\Left$ chose a move in $\mathfrak{M}$.  The roles of the two structures are merely interchanged.
+	Should $\Left$ instead play a move $d\in N$ then $\Right$ plays as follows.  If $b_{j+1}\leq b_j$, for some $j<k$ then $\Right$ may play any move in $\mathfrak{M}$ but otherwise $\Right$ plays similarly to the previous case where $\Left$ chose a move in $\mathfrak{M}$.  The roles of the two structures are merely interchanged in this case.
+
+	Define the set
+	\begin{equation}
+		R^\prime=\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}.
+	\end{equation}
+	We now adapt the algorithm given in the proof of Lemma \ref{lem:rescat} with the goal of listing the elements of $R^\prime$.  This i accomplished by also taking shuffles into account.
+
+	Assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for $i\geq n_0$, as follows:
+	\begin{enumerate}
+		\item 	list all pairs of the form $(\alpha_i,\sigma)$ such that $\sigma\in S_{\alpha_i}$ and $i<n_0$ and let $n_1$ denote the resulting number of entries in the list;
+		\item 	list all pairs of the form $(\alpha_i, \sigma)$, for $i<n_1$, where $\sigma$ is the direct consequence of an inference rule from $\sigma_{i_0},\dotsc,\sigma_{i_{k-1}}$ and, for each $j<k$, $(\alpha_i,\sigma_{i_j})$ has already appeared in the list and let $n_2$ denote the resulting number of entries;
+		\item	list all pairs of the form $(\alpha,\sigma)$ where, for $i,j<n_2$, $\alpha=\alpha_i+\alpha_j$ and $\sigma=\sigma_i^{r_0(v)}\wedge\sigma_j^{r_1(v)}$ and let $n_3$ denote the resulting number of entries in the list;
+		\item	list all pairs of the form $(\alpha_i\cdot\omega,\sigma)$, for $i<n_3$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_4$ denote the resulting number of entries in the list;
+		\item	list all pairs of the form $(\alpha_i\cdot\dual{\omega},\sigma)$, for $i<n_4$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_5$ denote the resulting number of entries in the list;
+		\item	for each $k<n_5$ and nonzero linear orders $\alpha_{i_0},\dotsc,\alpha_{i_k}$, add $(\alpha,\sigma)$ to the list whenever
+			\begin{equation}
+				\alpha=\sigma(\alpha_{i_0},\dotsc,\alpha_{i_{k-1}})
+			\end{equation}
+			and, for some $j<k$,
+			\begin{equation}
+				\sigma=\forall x\left(r_{i_j}(x)\rightarrow\sigma_{i_j}^{\theta(v,x)}\right);
+			\end{equation}
+		\item	redefine $n_0$ to denote the current length of the list;
+		\item	repeat steps 1 to 7.
+	\end{enumerate}
+
+	An argument by means of induction (on $\alpha\in\M$) will now show that the procedure described above will list any desired member of $R^\prime$ after a finite amount of time.  Consequently, the same may be said of $R$.
 \end{proof}
 
 \begin{thm}
