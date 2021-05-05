@@ -59,7 +59,7 @@
 	Since $\M$ is closed under finite sums as well as right multiplication by $\omega$ and $\dual{\omega}$, results analagous to propositions \ref{prp:M0sum} and \ref{prp:M0sumop} can be proven in the context of $\M$.  An argument similar to that which appears in the proof of proposition \ref{prp:M0sumint} then yields the desired result.
 \end{proof}
 
-\begin{thm}[L\"auchli and Leonard]
+\begin{thm}[L\"auchli and Leonard]\label{thm:LLlin}
 	For every countable linear order $\alpha$, and every $n\in\nats$, there exists some $\beta_n\in\M$ such that $\alpha\nequiv{n}\beta_n$.
 \end{thm}
 \begin{proof}
@@ -114,7 +114,7 @@
 
 \end{proof}
 
-\begin{lem}
+\begin{lem}\label{lem:relin}
 	The set $\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}$ is recursively enumerable.
 \end{lem}
 \begin{proof}
@@ -159,7 +159,7 @@
 	\begin{equation}
 		R^\prime=\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}.
 	\end{equation}
-	We now adapt the algorithm given in the proof of Lemma \ref{lem:rescat} with the goal of listing the elements of $R^\prime$.  This i accomplished by also taking shuffles into account.
+	We now adapt the algorithm given in the proof of Lemma \ref{lem:rescat} with the goal of listing the elements of $R^\prime$.  This is accomplished by also taking shuffles into account.
 
 	Assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for $i\geq n_0$, as follows:
 	\begin{enumerate}
@@ -186,6 +186,13 @@
 \begin{thm}
 	The theory of linear orders is decidable.
 \end{thm}
+\begin{proof}
+	Since the theory of linear orders is finitely axiomatisable, say by $T=\set{\axmlin}$, there exists a machine $M_0$ that lists all of its consequences.  This is accomplished, using inference rules, by mechanically generating all proofs from the theory $T$.
+
+	From Lemma \ref{lem:relin}, there exists a machine $M_1$ that mechanically lists all pairs $(\alpha,\sigma)$ such that $\alpha\in\M$ and $\alpha\models\sigma$.  Now consider a machine $M$ that, given a sentence $\sigma$, alternately lists entries from each of the two lists until either $\sigma$ or a pair of the form $(\alpha,\neg\sigma)$ appears on the list.  In the former case $M$ prints the string ``True'' and in the latter it prints ``False''.
+
+	It follows from Theorem \ref{thm:LLlin} and the definitions of $M_0$ and $M_1$ that $M$ always halts, irrespective of the choice of $\sigma$.  This is as required.
+\end{proof}
 
 
 \section{Model-theoretic aspects of the class \text{$\dense$}}
