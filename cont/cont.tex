@@ -1,5 +1,8 @@
 \chapter{A La\"uchli and Leonard style result for continuous linear orders}
 
+
+\section{Continuous linear orders}
+
 \begin{dfn}[Continuous linear order]
 	A \textbf{continuous linear order} is a complete linear order $\alpha$ such that $\alpha\in\dense$.  A \textit{coloured linear order} is said to be \textbf{continuous} whenever its monochromatic reduct is a continuous linear order.
 \end{dfn}
@@ -161,4 +164,59 @@ It is inconvenient, however, that the class $\C$ as it stands, due to the final 
 \end{thm}
 \begin{proof}
 	Near-identical to the proof of Theorem \ref{thm:Cll}.  The only variation is that one invokes Proposition \ref{prp:dsum} to choose the surjection $h$, occuring in (\ref{eq:rsum}), that induces the required canonical partition of $\reals$ into dense subsets.
+\end{proof}
+
+
+\section{Decidability: the coloured case}
+
+\begin{dfn}[Definable completeness]
+	A coloured linear order $\alpha$ is said to be \textbf{definably complete} whenever every nonempty definable subset of $\alpha$, which is bounded above, has a supremum.
+\end{dfn}
+
+Note that, for any subset $A$ of a definably complete $\alpha$, if there exists a tuple $\bar{a}$ of $\alpha$ such that $A$ is defined by the formula $\varphi(x,\bar{a})$ and $A$ is bounded bounded \textit{below} then the set of lower bounds of $A$ is defined by the formula
+\begin{equation}
+	\psi(x,\bar{a})=\forall y\big(\varphi(y,\bar{a})\rightarrow x<y\big).
+\end{equation}
+
+Additionally, the set defined by $\psi$ will necessarily be bounded above and thus have a supremum.  It can then be shown that the aforementioned supremum is the infimum of $A$.  Therefore, if a coloured linear order $\alpha$ is definably complete then every definable subset of $\alpha$, which is bounded below, has an infimum.  A similar argument shows that the converse also holds.
+
+\begin{lem}
+	Suppose $\beta$ is a coloured linear order and, for each $i\in\beta$, $\alpha_i$ is a complete coloured linear order then the following holds:
+	\begin{enumerate}
+		\item	If $\beta$ is complete and, for each $i\in\beta$, $\alpha_i$ has both a least and a greatest element then $\sum_{i\in\beta}\alpha_i$ is complete.
+		\item	If $\beta$ is well-ordered and, for each $i\in\beta$, $\alpha_i$ has a least element then $\sum_{i\in\beta}\alpha_i$ is complete.
+	\end{enumerate}
+\end{lem}
+\begin{proof}
+	\begin{enumerate}[nosep]
+		\item	Suppose $B$ is a nonempty subset of $\sum_{i\in\beta}\alpha_i$ which is bounded above.  By definition, there must then exist some $u\in\beta$ such that, for each $i\geq u$, $B$ is disjoint from the set $A_i=\setbuild{(a,i)}{a\in\alpha_i}$.  Since $\beta$ is complete we may choose $u$ to be the least element of $\beta$ with this property.  If $B\cap A_u$ is unbounded in $A_u$ then the supremum of $B$ is the greatest element of $A_u$.  Otherwise, the supremum of $B$ is $\sup A_u$.
+		\item	Similar to 1 except one leverages the well-ordering property of $\beta$ to obtain the necessary $u\in\beta$.\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{prp}
+	If $\alpha$ is a definably complete coloured linear order and $n\in\nats$ then there exists a complete coloured linear order $\beta_n$ such that $\alpha\nequiv{n}\beta_n$.
+\end{prp}
+
+\begin{prp}
+	For each $k\in\nats$, the theory $T$ of complete $k$-coloured linear orders is recursively enumerable.
+\end{prp}
+\begin{proof}
+	We proceed by defining an axiomatisation $\Sigma$ of $T$ such that $\Sigma$ is recursively enumerable.  Let $\Sigma$ be the theory consisting of the following sentences which, together, express that its models are (nontrivially) dense coloured linear orders without endpoints and are definably complete:
+	\begin{itemize}
+		\item	$\exists x(x=x)$
+		\item	$\axmlin$,
+		\item	$\axmden$,
+		\item	$\forall x\exists y(x<y)$,
+		\item	$\forall x\exists y(y<x)$,
+		\item	for each formula $\varphi(x)$ the sentence given by:
+			\begin{multline}
+				\exists x\varphi(x)\wedge\exists y\forall x\big(\varphi(x)\rightarrow x<y\big)\rightarrow\\
+				\exists z\Big(\forall x\big(\varphi (x)\rightarrow x<z\big)\wedge\forall y\big(\forall x(\varphi(x)\rightarrow x<y)\rightarrow z\leq y\big)\Big).
+			\end{multline}
+	\end{itemize}
+
+	It follows by definition that $\Sigma$ is a recursively enumerable set of sentences.  All that remains is to show that $\Sigma$ is in fact an axiomatisation of $T$.  To that end, suppose $\alpha\models\Sigma$ while aiming to show that $\alpha$ is also a model of $T$.
+
+	Define $T^\prime=T\cup\setbuild{\neg\sigma}{\sigma\in T\text{ and }\alpha\not\models\sigma}$.
 \end{proof}
