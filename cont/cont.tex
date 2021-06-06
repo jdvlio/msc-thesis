@@ -180,7 +180,7 @@ Note that, for any subset $A$ of a definably complete $\alpha$, if there exists 
 
 Additionally, the set defined by $\psi$ will necessarily be bounded above and thus have a supremum.  It can then be shown that the aforementioned supremum is the infimum of $A$.  Therefore, if a coloured linear order $\alpha$ is definably complete then every definable subset of $\alpha$, which is bounded below, has an infimum.  A similar argument shows that the converse also holds.
 
-\begin{lem}
+\begin{lem}\label{lem:compsum}
 	Suppose $\beta$ is a coloured linear order and, for each $i\in\beta$, $\alpha_i$ is a complete coloured linear order then the following holds:
 	\begin{enumerate}
 		\item	If $\beta$ is complete and, for each $i\in\beta$, $\alpha_i$ has both a least and a greatest element then $\sum_{i\in\beta}\alpha_i$ is complete.
@@ -194,29 +194,91 @@ Additionally, the set defined by $\psi$ will necessarily be bounded above and th
 	\end{enumerate}
 \end{proof}
 
-\begin{prp}
-	If $\alpha$ is a definably complete coloured linear order and $n\in\nats$ then there exists a complete coloured linear order $\beta_n$ such that $\alpha\nequiv{n}\beta_n$.
+\begin{prp}\label{prp:defcomp}
+	If $\alpha$ is a definably complete coloured linear order without endpoints and $n\in\nats$ then there exists a complete coloured linear order $\beta_n$ such that $\alpha\nequiv{n}\beta_n$.
 \end{prp}
+\begin{proof}
+	Let $n\in\nats$ be fixed but arbitrary and define a binary relation $r$ on $\domain{}\alpha$ such that $aRb$ iff $(a,b)$ is $n$-equivalent to a complete coloured linear order.  It follows from Lemma \ref{lem:IndCong} that $R$ induces a congruence $\sim$ on $\alpha$.
+
+	Take note that, as in the proof of Theorem \ref{thm:Cll}, the congruence $\sim$ is definable.  Therefore, each equivalence class is also definable and we may prove the following:
+
+	\begin{claim}
+		If $I\in\faktor{\alpha}{\sim}$ then $I$ is $n$-equivalent to a complete coloured linear order.  Furthermore, if $I$ is bounded above (below) in $\alpha$ then $I$ has a greatest (least) element.
+	\end{claim}
+	\begin{proof}
+		We first consider the case where $I$ is bounded above in $\alpha$.  Choose $u=\sup I$ and let $\family{a_\xi}{\xi<\beta}$ be a cofinal sequence in $I^{<u}$, for some ordinal $\beta\geq\omega$.
+
+		By definition of $I$ it now follows, for each $\xi<\beta$, that the interval $[a_\xi,a_{\xi+1})$ is $n$-equivalent to some complete linear order $\delta_\xi$.  Define the linear order
+		\begin{equation}
+			\delta=\sum_{\xi<\beta}\delta_\xi
+		\end{equation}
+		so that it follows from Lemma \ref{lem:compsum} that $\delta$ is a complete coloured linear order.  Lemma \ref{lem:fvsum} then tells us that $\delta\nequiv{n}I\restriction(a_0,u)$ and thus, by definition, we have $a_0\sim u$.  Consequently, $u\in I$ and therefore $u$ is the greatest element of $I$.
+
+		Were it the case that $I$ is unbounded in $\alpha$ then one, again, chooses $\family{a_\xi}{\xi<\beta}$ cofinal in $\alpha$ and a similar argument as before suffices in showing that $I^{>a_0}$ has a complete $n$-equivalent $\delta$.
+
+		Similarly, one may obtain a $b_0\in I$ such that $b_0<a_0$ and $I^{<b_0}$ has a complete $n$-equivalent $\delta^\prime$.  Note, by definition, that $I\restriction (b_0,a_0)$ has a complete $n$-equivalent $\epsilon$.  Therefore, we may conclude that there exists a coloured expansion of the sum
+		\begin{equation}
+			\delta^\prime+\one+\epsilon+\one+\delta
+		\end{equation}
+		which is a complete $n$-equivalent of $I$, as required.
+	\end{proof}
+
+	\begin{claim}
+		The coloured linear order $\faktor{\alpha}{\sim}$ is dense.
+	\end{claim}
+	\begin{proof}
+		Choose any $I,J\in\faktor{\alpha}{\sim}$ such that $I<J$ and, aiming for a contradiction, suppopose there exists no $K\in\faktor{\alpha}{\sim}$ such that $I<K<J$.
+
+		Note that, respectively, $I$ is bounded above and $J$ is bounded below in $\alpha$.  Since $I$ and $J$ are both definable, and $\alpha$ is definably complete, it now follows that there exists $a,b\in\alpha$ such that $a=\sup I$ and $b=\inf J$.
+
+		From our assumption it now follows that $(a,b)=\emptyset$ so that $\alpha\restriction(a,b)$ is (vacuously) complete.  Therefore, since the previous claim yields $a\in I$ and $b\in J$, we may conclude that $a\sim b$ and thus $I=J$ --- the desired contradiction.
+	\end{proof}
+
+	Observe that if $\card{\faktor{\alpha}{\sim}}=1$ then the result follows immediately.  By way of contradiction, suppose now that $\card{\faktor{\alpha}{\sim}}>1$.  Let $S=\set{\alpha_0,\dotsc,\alpha_{k-1}}$ be an $n$-spectrum for the class of complete coloured linear orders. The contradiction desired is contained in the following claim:
+	\begin{claim}
+		There exists an $S^\prime\subseteq S$ and an open interval $D\subseteq\faktor{\alpha}{\sim}$ such that, for each $\delta\in S^\prime$, the set $\setbuild{I\in D}{I\nequiv{n}\delta}$ is dense in $D$.
+	\end{claim}
+	\begin{proof}
+		Choose some open interval $D_0\subseteq\faktor{\alpha}{\sim}$ and define
+		\begin{equation}
+			S_0=\setbuild{\delta\in S}{\text{there exists an }I\in D_0\text{ such that }\delta\nequiv{n}I}.
+		\end{equation}
+
+		Recursively, whenever $0<k<\card{S_0}-1$, we obtain $S_{k+1}$ from $S_k$ by removing any order type $\delta_k\in S_k$ whose $n$-equivalents in the open interval $D_k\subseteq D_{k-1}$ are not dense in $D_k$.  Additionally, we choose $D_{k+1}\subseteq D_k$ to be some open interval, not having $\delta_k$ as a member.  Otherwise, if no such $\delta_k$ exists, we declare $S_{k+1}=S_k$ and $D_{k+1}=D_k$.
+
+		Since $\faktor{\alpha}{\sim}$ is dense, if $m=\card{S_0}-1$ then it follows that $\card{S_m}>0$.  By definition, choosing $S^\prime=S_m$ and $D=D_m$ will establish the claim.
+	\end{proof}
+
+	We may assume that $D=(I,J)$ for some $I,J\in\faktor{\alpha}{\sim}$.  Now, let $a,b\in\bigcup D$ satisfy $a<b$.  Our aim is to show that the interval $(a,b)$ of $\alpha$ has some $n$-equivalent in $S$.
+
+	Let $h\colon\reals\to S^\prime$ be the map that induces the canonical partition of $\reals$ into $\card{S^\prime}$ sets.  As in claim 1, note that $I^{>a}$ and $J^{<b}$ will have respective $n$-equivalents $\nu_a,\nu_b\in S$.
+
+	Define a coloured linear order $\chi_{a,b}$ such that
+	\begin{equation}
+		\chi_{a,b}=\nu_a+\sum_{x\in\lambda}h(x)+\nu_b.
+	\end{equation}
+	As $\one+\lambda+\one$ is a complete order type, it follows from Lemma \ref{lem:fvsum} that $\chi_{a,b}$ is a complete coloured linear order.  Since the $n$-equivalents in $D$ of any member of $S^\prime$ form a dense subset of $D$, $\Right$ has a winning strategy in the $n$-game between the coloured linear orders $(a,b)$ and $\chi_{a,b}$.
+
+	By definition, we now have $a\sim b$.  Since $a$ and $b$ were chosen arbitrarily, it follows by definition of $\faktor{\alpha}{\sim}$ that $\bigcup D$ is itself an equivalence class.  Thus $D$ has only one element, contradicting that $D$ is an open interval and thereby concluding the proof.
+\end{proof}
+
+For the purposes of the proof of the following proposition, given a fixed $k\in\nats$, let $\Sigma_k$ be the theory consisting of the following sentences which, together, express that its models are (nontrivially) dense coloured linear orders without endpoints and are definably complete:
+\begin{itemize}
+	\item	$\exists x(x=x)$
+	\item	$\axmlin\wedge\axmden$,
+	\item	$\forall x\exists y(x<y)\wedge\forall x\exists y(y<x)$,
+	\item	for each formula $\varphi(x)$ the sentence given by:
+		\begin{multline}
+			\exists x\varphi(x)\wedge\exists y\forall x\big(\varphi(x)\rightarrow x<y\big)\rightarrow\\
+			\exists z\Big(\forall x\big(\varphi (x)\rightarrow x<z\big)\wedge\forall y\big(\forall x(\varphi(x)\rightarrow x<y)\rightarrow z\leq y\big)\Big).
+		\end{multline}
+\end{itemize}
 
 \begin{prp}
 	For each $k\in\nats$, the theory $T$ of complete $k$-coloured linear orders is recursively enumerable.
 \end{prp}
 \begin{proof}
-	We proceed by defining an axiomatisation $\Sigma$ of $T$ such that $\Sigma$ is recursively enumerable.  Let $\Sigma$ be the theory consisting of the following sentences which, together, express that its models are (nontrivially) dense coloured linear orders without endpoints and are definably complete:
-	\begin{itemize}
-		\item	$\exists x(x=x)$
-		\item	$\axmlin$,
-		\item	$\axmden$,
-		\item	$\forall x\exists y(x<y)$,
-		\item	$\forall x\exists y(y<x)$,
-		\item	for each formula $\varphi(x)$ the sentence given by:
-			\begin{multline}
-				\exists x\varphi(x)\wedge\exists y\forall x\big(\varphi(x)\rightarrow x<y\big)\rightarrow\\
-				\exists z\Big(\forall x\big(\varphi (x)\rightarrow x<z\big)\wedge\forall y\big(\forall x(\varphi(x)\rightarrow x<y)\rightarrow z\leq y\big)\Big).
-			\end{multline}
-	\end{itemize}
+	Fix any $k\in\nats$ and note that it is enough to show that every model $\alpha$ of $\Sigma_k$ is also a model of $T$.  In line with this we suppose $\alpha\models\Sigma_k$ is fixed but arbitrary.
 
-	It follows by definition that $\Sigma$ is a recursively enumerable set of sentences.  All that remains is to show that $\Sigma$ is in fact an axiomatisation of $T$.  To that end, suppose $\alpha\models\Sigma$ while aiming to show that $\alpha$ is also a model of $T$.
-
-	Define $T^\prime=T\cup\setbuild{\neg\sigma}{\sigma\in T\text{ and }\alpha\not\models\sigma}$.
+	Choose any $\sigma\in T$ and let $n=\qrank(\sigma)$.  It follows now from Proposition \ref{prp:defcomp} that there exists a complete coloured linear order $\beta_n\nequiv{n}\alpha$.  By definition, we must have $\beta_n\models T$ and therefore $\beta\models\sigma$.  In conclusion, since $\sigma$ has quantifier rank at most $n$ and $\beta_n\nequiv{n}\alpha$, it holds that $\alpha\models\sigma$.
 \end{proof}
