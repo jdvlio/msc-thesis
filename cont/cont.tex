@@ -282,3 +282,45 @@ For the purposes of the proof of the following proposition, given a fixed $k\in\
 
 	Choose any $\sigma\in T$ and let $n=\qrank(\sigma)$.  It follows now from Proposition \ref{prp:defcomp} that there exists a complete coloured linear order $\beta_n\nequiv{n}\alpha$.  By definition, we must have $\beta_n\models T$ and therefore $\beta\models\sigma$.  In conclusion, since $\sigma$ has quantifier rank at most $n$ and $\beta_n\nequiv{n}\alpha$, it holds that $\alpha\models\sigma$.
 \end{proof}
+
+\begin{dfn}[Normality] We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{normal} whenever its colours form a partition of $\alpha$.  Equivalently, $\alpha$ is normal whenever
+	\begin{equation}
+		\alpha\models\left(\bigwedge_{0\leq i<k}\exists xr_i(x)\right)\wedge\forall x\left(\bigvee_{0\leq i<n}r_i(x)\right).
+	\end{equation}
+\end{dfn}
+
+\begin{lem}
+	For each $k\in\nats$, the set
+	\begin{equation}
+		R_k=\setbuild{(\alpha,\sigma)}{\alpha\in\Cast_k\text{ is normal and }\alpha\models\sigma}
+	\end{equation}
+	is recursively enumerable.
+\end{lem}
+\begin{proof}
+	We proceed by induction on $k\in\nats$.  Since the order types in $\Cast$ are all dense and without endpoints, the result is trivial for the case $k=0$: each member of $\Cast$ is elementarily equivalent to order type of the rationals $\eta$ and $\Th(\eta)$ is recursively enumerable as it is both finitely axiomatisable and complete.
+
+	Assume now that $R_k$ is recursively enumerable for some $k\in\nats$.  In what follows, we choose $\family{\sigma_i}{i<\omega}$ to be a (mechanically generated) enumeration of all instances of the first-order scheme which expresses the completeness property:
+	\begin{equation}
+		\forall\bar{z}\big(\exists x\varphi(x,\bar{z})\wedge\exists y\forall x(\varphi(x,\bar{z})\rightarrow x\leq y)\big).
+	\end{equation}
+	Additionally, if $\chi_\varphi$ denotes the sentence expressing that ``the binary relation defined by $\varphi(x,y,\bar{z})$ is a congruence``: choose $\family{\tau_i}{i\in\nats}$ be a (mechanically generated) enumeration of all instances of the first-order scheme expressing quasi-seperability:
+	\begin{equation}
+		\forall\bar{z}\big(\chi_\varphi\rightarrow\forall x_0\forall x_1\exists y_0(x_0<y_0<x_1\wedge\forall y_1(\varphi(y_0,y_1,\bar{z})\rightarrow y_0=y_1))\big)
+	\end{equation}
+
+	For each $\alpha\in\Cast$, we proceed to define theories $S_\alpha\subseteq T_\alpha$ such that $S_\alpha$ is finite and $T_\alpha$ is a complete recursively enumerable theory.
+
+	Define $S_\lambda$ to consist of only the sentence which expresess that $\lambda$ is a dense linear order without endpoints:
+	\begin{equation}
+		\axmlin\wedge\axmden\wedge\forall x\exists y\exists z(y<x<z).
+	\end{equation}
+	Now choose $T_\lambda=S_\lambda$
+\end{proof}
+
+\begin{dfn}[$k$-Complete theory]
+	A first-order theory $T$, for some $k\in\nats$, is called $\bm{k}$\textbf{-complete} whenever it holds, for every sentence $\sigma$ of quantifier rank at most $k$, that $T\models\sigma$ or $T\models\neg\sigma$.
+\end{dfn}
+
+\begin{dfn}[$k$-Decidability]
+	A first-order theory $T$, for some $k\in\nats$, is called $\bm{k}$\textbf{-decidable} whenever it holds, for every sentence $\sigma$ of quantifier rank at most $k$, that there exists a machine that can decide the statement ``$T\models\sigma$''.
+\end{dfn}
