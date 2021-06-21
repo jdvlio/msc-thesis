@@ -283,11 +283,61 @@ For the purposes of the proof of the following proposition, given a fixed $k\in\
 	Choose any $\sigma\in T$ and let $n=\qrank(\sigma)$.  It follows now from Proposition \ref{prp:defcomp} that there exists a complete coloured linear order $\beta_n\nequiv{n}\alpha$.  By definition, we must have $\beta_n\models T$ and therefore $\beta\models\sigma$.  In conclusion, since $\sigma$ has quantifier rank at most $n$ and $\beta_n\nequiv{n}\alpha$, it holds that $\alpha\models\sigma$.
 \end{proof}
 
-\begin{dfn}[Normality] We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{normal} whenever its colours form a partition of $\alpha$.  Equivalently, $\alpha$ is normal whenever
+\begin{dfn}[Regularity]
+	We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{regular} whenever \textit{a subset of} its colours form a partition of $\alpha$ and no member of $\alpha$ posesses two distinct colours.  Equivalently, $\alpha$ is regular whenever it holds that:
 	\begin{equation}
-		\alpha\models\left(\bigwedge_{0\leq i<k}\exists xr_i(x)\right)\wedge\forall x\left(\bigvee_{0\leq i<n}r_i(x)\right).
+		\alpha\models\left(\forall x\bigvee_{0\leq i<n}r_i(x)\right)\wedge\left(\neg\exists x\bigvee_{i<j<k}(r_i(x)\wedge r_j(x))\right).
 	\end{equation}
 \end{dfn}
+
+\begin{dfn}[Normality]
+	We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{normal} whenever \textit{all its colours} (together) form a partition of $\alpha$.  Equivalently, $\alpha$ is normal whenever it is regular and satisfies:
+	\begin{equation}
+		\alpha\models\bigwedge_{0\leq i<k}\exists xr_i(x).
+	\end{equation}
+\end{dfn}
+
+\begin{dfn}[$k$-Pattern]
+	A $k$-coloured linear order $\alpha$ is called a $\bm{k}$\textbf{-pattern} whenever $\alpha$ is both regular and finite.  Should $k\in\nats$ be clear from the context we will refer to $\alpha$ as simply being a \textit{pattern}.
+\end{dfn}
+
+\begin{prp}
+	If $n\in\nats$ and $\alpha$ is a normal $k$-coloured linear order of order type $\omega$, with colours $r_0,\dotsc,r_{k-1}$, such that
+	\begin{equation}
+		i<k\quad\implies\quad\alpha\models\forall x\exists y\big(x<y\wedge r_i(y)\big),
+	\end{equation}
+	then there exists a $k$-coloured linear order $\beta_n$ such that $\alpha\nequiv{n}\beta_n$ and, for each $i<n$, $r_i^{\beta_n}$ is a recursively enumerable set of natural numbers.
+\end{prp}
+\begin{proof}
+	The case $n=0$ is trivial so fix any natural $n>0$.  Choose any $\beta_n$ such that the initial segment of $\beta_n$ of length $2^n$ is coloured identically to the corresponding initial segment of $\alpha$, each of the colours $r_0^{\beta_n},\dotsc,r_{k-1}^{\beta_n}$ are recursively enumerable subsets of $\beta_n$ and there exists arbitrary large elements in $\beta_n$ of any given colour.
+
+	We proceed by means of an $n$-game between $\alpha$ and $\beta_n$.  The winning strategy for the player $\Right$ is described as follows.  Should $\Left$ choose some $a_0\in\alpha$ such that $r_i^\alpha(a_0)$, for some $i<k$, and there are at most $2^n-1$ elements (strictly) below $a_0$ in $\alpha$ then $\Right$ responds with the corresponding element (per the definition of $\beta_n$) in $\beta_n$.
+
+	On the other hand, if the elements (strictly) below $a_0$ in $\alpha$ number at least $2^n$ then $\Right$ chooses the least $b_0\in\beta$ such that $r^{\beta_n}_i(b_0)$ and every pattern, of length at most $n-1$, embeddable in $\alpha^{<a_0}$ can also be embedded in $\beta_n^{<b_0}$.  A similar approach is followed if, in stead, $\Left$ has some $b_0\in\beta_n$ as his first move.
+
+	Suppose now that $0<m\leq n$ and it is round $m$, of the $n$-round game, and $\Left$ has just played some $a_{k-1}\in\alpha$.  Note that there is no harm in assuming $\Left$ never repeats a move and, for each $i<m-1$, that $a_i<a_{i+1}$.
+
+	Additionally, we need only consider the case where the following holds: (1) the first $m-1$ rounds of the current game constitute a winning position for $\Right$ in the game $\EF_{m-1}(\alpha,\beta_n)$; (2) every pattern, of length at most $n-(m-1)$, which embeds in $\alpha^{<a_0}$ also embeds in $\beta_n^{<b_0}$ and (3) for each $i<m-1$ and every pattern, of length at most $n-(m-1)$, which can be embedded in $(a_i,a_{i+1})$ also embeds in $(b_i,b_{i+1})$.  Otherwise, $\Right$ would be free to pick any element from $\beta_n$ as his move.
+
+	It now follows by assumption, for each $i<m-1$ and every $j<k$, that $b_i<b_{i+1}$ and
+	\begin{equation}
+		\alpha\models r_j(a_i)\quad\iff\quad\beta_n\models r_j(b_i).
+	\end{equation}
+
+	Should the length of $\alpha^{<a_{k-1}}$ be at most $2^{n-(m-1)}-1$ then $\Right$ simply responds with the corresponding element of $\beta_n$, according to the definition of $\beta_n$ by noting that $2^{n-(m-1)}\leq 2^n-1$.
+
+	Now suppose the length of $\alpha^{<a_{k-1}}$ is at least $2^{n-(m-1)}$. In the case where $a_{k-1}>a_{k-2}$, $\Right$ responds with the least $b_{k-1}\in\beta_n$ such that every pattern, of length at most $2^{n-(m-1)}-1$, that embeds in $(a_{k-2},a_{k-1})$ also embeds in $(b_{k-2},b_{k-1})$.
+
+	The only remaining case is if there exists some natural $\ell<m-1$ such that $a_k\in(a_\ell,a_{\ell+1})$.  The proper response is then for $\Right$ to play the least $b_k\in\beta_n$ such that every pattern embeddable in $(a_\ell,a_{k-1})$ also embeds in $(b_\ell,b_k)$.
+\end{proof}
+
+\begin{prp}
+	Suppose $\alpha$ is a normal $k$-coloured linear order of order type $\omega$ such that each of the colours, say $r_0,\dotsc,r_{k-1}$, is cofinal in $\alpha$ i.e.\ for each $i<k$:
+	\begin{equation}
+		\alpha\models\forall x\exists y\big(x<y\wedge r_i(y)\big).
+	\end{equation}
+	It then necessarily follows that $\Th(\alpha)$ is a recursively enumerable theory.
+\end{prp}
 
 \begin{lem}
 	For each $k\in\nats$, the set
