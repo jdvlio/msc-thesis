@@ -14,9 +14,9 @@
 		\item	if $\alpha,\beta\in\C$ then $\alpha+\one+\beta\in\C$\label{dfn:C2}
 		\item	if $\alpha\in\C$ then $(\alpha+\one)\cdot\omega,(\one+\alpha)\cdot\dual{\omega}\in\C$\label{dfn:C3}
 		\item	if $\mathcal{F}\subseteq\C$ is finite and $h\colon\reals\to\mathcal{F}$ is a surjection such that, for each $\alpha\in\mathcal{F}$, the set $\inv{h}[\alpha]$ is dense in $\lambda$ then it follows that
-			\begin{equation}
-				\sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
-			\end{equation}\label{dfn:C4}
+		\begin{equation}
+			\sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
+		\end{equation}\label{dfn:C4}
 	\end{enumerate}
 \end{dfn}
 
@@ -283,74 +283,82 @@ For the purposes of the proof of the following proposition, given a fixed $k\in\
 	Choose any $\sigma\in T$ and let $n=\qrank(\sigma)$.  It follows now from Proposition \ref{prp:defcomp} that there exists a complete coloured linear order $\beta_n\nequiv{n}\alpha$.  By definition, we must have $\beta_n\models T$ and therefore $\beta\models\sigma$.  In conclusion, since $\sigma$ has quantifier rank at most $n$ and $\beta_n\nequiv{n}\alpha$, it holds that $\alpha\models\sigma$.
 \end{proof}
 
-\begin{dfn}[Regularity]
+
+\iffalse
+\begin{dfn}[regularity]
 	We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{regular} whenever \textit{a subset of} its colours form a partition of $\alpha$ and no member of $\alpha$ posesses two distinct colours.  Equivalently, $\alpha$ is regular whenever it holds that:
 	\begin{equation}
 		\alpha\models\left(\forall x\bigvee_{0\leq i<n}r_i(x)\right)\wedge\left(\neg\exists x\bigvee_{i<j<k}(r_i(x)\wedge r_j(x))\right).
 	\end{equation}
 \end{dfn}
 
-\begin{dfn}[Normality]
-	We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{normal} whenever \textit{all its colours} (together) form a partition of $\alpha$.  Equivalently, $\alpha$ is normal whenever it is regular and satisfies:
-	\begin{equation}
-		\alpha\models\bigwedge_{0\leq i<k}\exists xr_i(x).
-	\end{equation}
-\end{dfn}
-
 \begin{dfn}[$k$-Pattern]
 	A $k$-coloured linear order $\alpha$ is called a $\bm{k}$\textbf{-pattern} whenever $\alpha$ is both regular and finite.  Should $k\in\nats$ be clear from the context we will refer to $\alpha$ as simply being a \textit{pattern}.
 \end{dfn}
+\fi
+
+\begin{dfn}[Finitary]
+	We call a $k$-coloured linear order $\alpha$ \textbf{finitary} whenever there exists some $n\in\nats$ such that, for every $k$-coloured linear order $\beta$, $\beta\nequiv{n}\alpha$ necessarily implies $\beta\equiv\alpha$.
+\end{dfn}
 
 \begin{prp}
-	If $n\in\nats$ and $\alpha$ is a normal $k$-coloured linear order of order type $\omega$, with colours $r_0,\dotsc,r_{k-1}$, such that
-	\begin{equation}
-		i<k\quad\implies\quad\alpha\models\forall x\exists y\big(x<y\wedge r_i(y)\big),
-	\end{equation}
-	then there exists a $k$-coloured linear order $\beta_n$ such that $\alpha\nequiv{n}\beta_n$ and, for each $i<n$, $r_i^{\beta_n}$ is a recursively enumerable set of natural numbers.
+	A $k$-coloured linear order $\alpha$ is finitary iff $\Th(\alpha)$ is finitely axiomatisable.
 \end{prp}
 \begin{proof}
-	The case $n=0$ is trivial so fix any natural $n>0$.  Choose any $\beta_n$ such that the initial segment of $\beta_n$ of length $2^n$ is coloured identically to the corresponding initial segment of $\alpha$, each of the colours $r_0^{\beta_n},\dotsc,r_{k-1}^{\beta_n}$ are recursively enumerable subsets of $\beta_n$ and there exists arbitrary large elements in $\beta_n$ of any given colour.
+	\forward	By assumption, there must exists a least $n\in\nats$ such that, for every $k$-coloured $\beta$, $\beta\nequiv{n}\alpha$ impies $\beta\equiv\alpha$.  Now, choose $T$ to be the theory consisting of all sentences $\sigma$ of quantifier rank at most $n$ such that $\alpha\models\sigma$.
 
-	We proceed by means of an $n$-game between $\alpha$ and $\beta_n$.  The winning strategy for the player $\Right$ is described as follows.  Should $\Left$ choose some $a_0\in\alpha$ such that $r_i^\alpha(a_0)$, for some $i<k$, and there are at most $2^n-1$ elements (strictly) below $a_0$ in $\alpha$ then $\Right$ responds with the corresponding element (per the definition of $\beta_n$) in $\beta_n$.
+	Note that every model $\beta$ of $T$ is forced to be an $n$-equivalent of $\beta$ and is therefore, by assumption, elementarily equivalent to $\alpha$.  Thus, we may conclude that $T$ is a complete theory.  Consequently, we have that $\dcl{T}=\Th(\alpha)$ so that $T$ is an axiomatization of the theory of $\alpha$.
 
-	On the other hand, if the elements (strictly) below $a_0$ in $\alpha$ number at least $2^n$ then $\Right$ chooses the least $b_0\in\beta$ such that $r^{\beta_n}_i(b_0)$ and every pattern, of length at most $n-1$, embeddable in $\alpha^{<a_0}$ can also be embedded in $\beta_n^{<b_0}$.  A similar approach is followed if, in stead, $\Left$ has some $b_0\in\beta_n$ as his first move.
+	As there are, up logical equivalence, only finitely many sentences of quantifier rank $\sigma$ it follows that $\Th(\alpha)$ is, in fact, finitely axiomatisable.
 
-	Suppose now that $0<m\leq n$ and it is round $m$, of the $n$-round game, and $\Left$ has just played some $a_{k-1}\in\alpha$.  Note that there is no harm in assuming $\Left$ never repeats a move and, for each $i<m-1$, that $a_i<a_{i+1}$.
-
-	Additionally, we need only consider the case where the following holds: (1) the first $m-1$ rounds of the current game constitute a winning position for $\Right$ in the game $\EF_{m-1}(\alpha,\beta_n)$; (2) every pattern, of length at most $n-(m-1)$, which embeds in $\alpha^{<a_0}$ also embeds in $\beta_n^{<b_0}$ and (3) for each $i<m-1$ and every pattern, of length at most $n-(m-1)$, which can be embedded in $(a_i,a_{i+1})$ also embeds in $(b_i,b_{i+1})$.  Otherwise, $\Right$ would be free to pick any element from $\beta_n$ as his move.
-
-	It now follows by assumption, for each $i<m-1$ and every $j<k$, that $b_i<b_{i+1}$ and
-	\begin{equation}
-		\alpha\models r_j(a_i)\quad\iff\quad\beta_n\models r_j(b_i).
-	\end{equation}
-
-	Should the length of $\alpha^{<a_{k-1}}$ be at most $2^{n-(m-1)}-1$ then $\Right$ simply responds with the corresponding element of $\beta_n$, according to the definition of $\beta_n$ by noting that $2^{n-(m-1)}\leq 2^n-1$.
-
-	Now suppose the length of $\alpha^{<a_{k-1}}$ is at least $2^{n-(m-1)}$. In the case where $a_{k-1}>a_{k-2}$, $\Right$ responds with the least $b_{k-1}\in\beta_n$ such that every pattern, of length at most $2^{n-(m-1)}-1$, that embeds in $(a_{k-2},a_{k-1})$ also embeds in $(b_{k-2},b_{k-1})$.
-
-	The only remaining case is if there exists some natural $\ell<m-1$ such that $a_k\in(a_\ell,a_{\ell+1})$.  The proper response is then for $\Right$ to play the least $b_k\in\beta_n$ such that every pattern embeddable in $(a_\ell,a_{k-1})$ also embeds in $(b_\ell,b_k)$.
+	\backward	Choose $n$ to be the maximum quantifier rank of the sentences in the selected axiomatisation.  It immediately follows that $\beta\nequiv{n}\alpha$ implies $\beta\equiv\alpha$, as required.
 \end{proof}
 
+\begin{dfn}[$k$-Partitioned linear orders]
+	A $\bm{k}$\textbf{-coloured} order $\alpha$ is said to be a $\bm{k}$\textbf{-partitioned} whenever each of the $k$ colours appears in $\alpha$ and every member of $\alpha$ has precisely one colour.
+\end{dfn}
+
+\begin{dfn}[Density of colours]
+	If $\alpha$ is a $k$-partitioned linear order, $I$ is a subset of $\alpha$ and $C$ is a set of colours then a colour $r\in C$ is said to \textbf{occur densely in }$\bm{I}$, whenever $r^\alpha\cap I\neq\emptyset$ implies that $r^\alpha\cap I$ is a dense subset of $I$.
+\end{dfn}
+
+\begin{dfn}[Pigment]
+	Suppose $\alpha$ is a $k$-partitioned linear order, the collours being $r_i$ for $i<k$, and $I$ is any convex subset of $\alpha$.  Should it be the case that $I$ is maximal with respect to the property that each colour, among those that occur in $I$, occur densely in $I$ then we refer to $I$ as being a \textbf{pigment} of $\alpha$.
+\end{dfn}
+
 \begin{prp}
-	Suppose $\alpha$ is a normal $k$-coloured linear order of order type $\omega$ and $\pi$ is any $k$-pattern.  There then exists a sentence $\sigma_\pi$ such that $\alpha\models\sigma_\pi$ iff $\pi$ cannot be embedded into $\alpha$ as an initial segment.
+	For a dense $k$-partitioned linear order $\alpha$, the pigments of $\alpha$ form a partition.  Furthermore, the induced equivalence relation is a congruence.
 \end{prp}
 \begin{proof}
-	Suppose our language contains the colours $r_i$, for each $i<k$, and the $k$-pattern $\pi$ is ordered as: $a_0<a_1<\dotsb<a_{n-1}$.  We may also assume, for each $j<n$, that $r^\alpha_j(a_j)$.
+	Since singletons are trivially dense, it follows that every element of $\alpha$ belongs to some pigment.  Hence, we only required to show that distinct pigments of $\alpha$ need be disjoint.
 
-	Let us now define the sentence $\sigma_\pi$ given by:
+	Suppose $I$ and $J$ are both pigments of $\alpha$ and that $I\neq J$.  We now argue that the colours occuring in $I\cup J$ occur densely by fixing any $a,b\in I\cup J$ such that $a<b$.  The cases where $a,b\in I$ or $a,b\in J$ are trivial so we may assume, without loss of generality, that $a\in I$, $b\in J$ and $a,b\notin I\cap J$.
+
+	If $I\cap J=\emptyset$ then there is nothing to prove so we may suppose that $I\cap J$ is nonempty.  By definition of $\alpha$, it now follows that $I\cap J\subseteq (a,b)$.  Consequently, we can find and element $c\in I\cap J\subseteq (a,b)$ which is of any arbitrary colour among those in $I\cup J$.  This now contradicts the maximality of $I,J$ and, therefore, it follows that $I$ and $J$ must be disjoint.
+
+	From the definition of a pigment, it additionally follows that the equivalence relation induced by the aforementioned partition is, in fact, a congruence and not just a mere equivalence relation.
+\end{proof}
+
+\begin{dfn}[The class $\Mzero^k$]
+	For each $k,n\in\nats$, we define the class $\Mzero^k(n)$ recursively as follows.  The class $\Mzero^k(0)$ consists of exactly the finite $k$-partitioned linear orders.
+
+	If $\Mzero^k(n)$ has already been defined then we let $\Mzero^k(n+1)$ be the class of all finite sums $\sum_{i<m}\alpha_i$ such that each $\alpha_i$ is either a member of $\Mzero^k(n)$ or is a \textit{sum} of $\omega$ (or $\dual{\omega}$) copies of some fixed member of $\Mzero^k(n)$.
+
+	Ultimately, as one might anticipate, we make the declaration that
 	\begin{equation}
+		\Mzero^k=\bigcup_{n<\omega}\Mzero^k(n).
 	\end{equation}
-\end{proof}
-\begin{proof}
+\end{dfn}
 
-\end{proof}
+Take note that this definition exhibits a striking resemblance to the previously defined class $\Mzero$ of (monochromatic) scattered linear orders.  In fact, $\Mzero$ is none other than the class $\Mzero^0$, as defined above.  We have merely broadened our perspective.
+
+The following result will prove useful with regards to our analysis of the  theory of continuous $k$-partitioned linear orders:
+\begin{thm}[Amit, Schmerl, Shelah]
+	For every $k,n\in\nats$, and each $\alpha\in\Mzero^k$, there exists a finitary $k$-partitioned linear order $\beta_n$ such that $\alpha\nequiv{n}\beta_n$.
+\end{thm}
 
 \begin{prp}
-	Suppose $\alpha$ is a normal $k$-coloured linear order of order type $\omega$ such that each of the colours, say $r_0,\dotsc,r_{k-1}$, is cofinal in $\alpha$ i.e.\ for each $i<k$:
-	\begin{equation}
-		\alpha\models\forall x\exists y\big(x<y\wedge r_i(y)\big).
-	\end{equation}
-	It then necessarily follows that $\Th(\alpha)$ is a recursively enumerable theory.
+	Every $k$-partitioned linear order $\alpha$ of order type $\lambda$, for each $n\in\nats$, has a decidable $n$-equivalent $\beta_n$ which is also of order type $\lambda$.
 \end{prp}
 \begin{proof}
 \end{proof}
@@ -358,27 +366,9 @@ For the purposes of the proof of the following proposition, given a fixed $k\in\
 \begin{lem}
 	For each $k\in\nats$, the set
 	\begin{equation}
-		R_k=\setbuild{(\alpha,\sigma)}{\alpha\in\Cast_k\text{ is normal and }\alpha\models\sigma}
+		R_k=\setbuild{(\alpha,\sigma)}{\alpha\in\Cast_k\text{ and }\alpha\models\sigma}
 	\end{equation}
 	is recursively enumerable.
 \end{lem}
 \begin{proof}
-	We proceed by induction on $k\in\nats$.  Since the order types in $\Cast$ are all dense and without endpoints, the result is trivial for the case $k=0$: each member of $\Cast$ is elementarily equivalent to order type of the rationals $\eta$ and $\Th(\eta)$ is recursively enumerable as it is both finitely axiomatisable and complete.
-
-	Assume now that $R_k$ is recursively enumerable for some $k\in\nats$.  In what follows, we choose $\family{\sigma_i}{i<\omega}$ to be a (mechanically generated) enumeration of all instances of the first-order scheme which expresses the completeness property:
-	\begin{equation}
-		\forall\bar{z}\big(\exists x\varphi(x,\bar{z})\wedge\exists y\forall x(\varphi(x,\bar{z})\rightarrow x\leq y)\big).
-	\end{equation}
-	Additionally, if $\chi_\varphi$ denotes the sentence expressing that ``the binary relation defined by $\varphi(x,y,\bar{z})$ is a congruence``: choose $\family{\tau_i}{i\in\nats}$ be a (mechanically generated) enumeration of all instances of the first-order scheme expressing quasi-seperability:
-	\begin{equation}
-		\forall\bar{z}\big(\chi_\varphi\rightarrow\forall x_0\forall x_1\exists y_0(x_0<y_0<x_1\wedge\forall y_1(\varphi(y_0,y_1,\bar{z})\rightarrow y_0=y_1))\big)
-	\end{equation}
-
-	For each $\alpha\in\Cast$, we proceed to define theories $S_\alpha\subseteq T_\alpha$ such that $S_\alpha$ is finite and $T_\alpha$ is a complete recursively enumerable theory.
-
-	Define $S_\lambda$ to consist of only the sentence which expresess that $\lambda$ is a dense linear order without endpoints:
-	\begin{equation}
-		\axmlin\wedge\axmden\wedge\forall x\exists y\exists z(y<x<z).
-	\end{equation}
-	Now choose $T_\lambda=S_\lambda$
 \end{proof}
