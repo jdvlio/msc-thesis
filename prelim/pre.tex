@@ -553,6 +553,7 @@ Note that, from this section onwards, $L$ will exclusively denote the \textit{la
 	\noindent(1)$\Rightarrow$(2):\quad 	Suppse $\alpha\nequiv{n}\beta$ and fix any $a\in\alpha$.  By considering $a$ as the first move of player $\Left$ in the game $\EF_n(\alpha,\beta)$, $\Right$ uses his winning strategy to play some $b\in\beta$.
 \end{proof}
 
+
 \section{Basic operations on linear orders}
 
 \begin{lem}\label{lem:fvsum}
@@ -561,9 +562,19 @@ Note that, from this section onwards, $L$ will exclusively denote the \textit{la
 		\sum_{i\in I}\alpha_i\nequiv{n}\sum_{i\in I}\beta_i.
 	\end{equation}
 \end{lem}
+\begin{proof}
+	We describe the winning strategy for the relevant $n$-game, namely
+	\begin{equation}
+		\EF_n\left(\sum_{i\in I}\alpha,\sum_{i\in I}\beta\right).
+	\end{equation}
+
+	For any $k<n$, if $\Left$ chose his $k$-th move to be $a_{k-1}\in\alpha_i$, for some $i\in I$, the player $\Right$ chooses his move $b_{k-1}$ such that $b_{k-1}\in\beta_i$ by applying his winning strategy for the $n$-round game between $\alpha_i$ and $\beta_i$.
+
+	A move $b_{k-1}\in\beta_j$ by $\Left$ is countered by $\Right$ in a similar fashion.  This now establishes the result.
+\end{proof}
 
 \begin{prp}
-	If $\beta\models\Th(\omega)$ then there exists a linear order $\alpha$ such that $\beta=\omega+\zeta\cdot\alpha$.
+	If $\beta\models\Th(\omega)$ then there exists a linear order $\alpha$ such that $\beta\cong\omega+\zeta\cdot\alpha$.
 \end{prp}
 
 \begin{prp}\label{prp:omega}
