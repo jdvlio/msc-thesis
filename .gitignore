@@ -1,6 +1,11 @@
-*\.sh
-*\.aux
-*\.pdf
-*\.slo
-*\.xdy
-*\.log
+*.sh
+*.aux
+*.pdf
+*.slo
+*.xdy
+*.log
+*.blg
+*.bbl
+*.slg
+*.sls
+*/references.bib
