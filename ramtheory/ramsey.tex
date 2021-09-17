@@ -1,4 +1,4 @@
-\bibliographystyle{alpha}
+\bibstyle{amsalpha}
 
 \chapter{Ramsey theory}
 
@@ -6,143 +6,151 @@
 \section{Classical Ramsey theorem}
 
 
-    \begin{dfn}[Homogeneous set for a partition]
-       If $A$ is a nonempty set and, for some $k\in\posnats$, $\mathcal{C}$ is a parition of $\subsets{k}{A}$ then we will call $X\subseteq A$ \textbf{homogeneous for the partition} $\mathcal{C}$ if there exists a $C\in \mathcal{C}$ such that $\subsets{k}{X}\subseteq C$.
-    \end{dfn}
+\begin{dfn}[Homogeneous set for a partition]
+   If $A$ is a nonempty set and, for some $k\in\posnats$, $\mathcal{C}$ is a
+   parition of $\subsets{k}{A}$ then we will call $X\subseteq A$
+   \textbf{homogeneous for the partition} $\mathcal{C}$ if there exists a $C\in
+   \mathcal{C}$ such that $\subsets{k}{X}\subseteq C$.
+\end{dfn}
 
-    \begin{thm}[Ramsey's theorem]
-        Suppose $\mathcal{C}$ is a finite partition of $[\nats]^k$, for some $k\in\posnats$, then there exists an infinite set $X\subseteq\nats$ such that $X$ is homogeneous for $\mathcal{C}$.
-    \end{thm}
-    \begin{proof}
-        We proceed by induction on $k$. If $k=1$ then there must exists an infinite $C\in\mathcal{C}$ and thus $X=C$ is homogeneous for $\mathcal{C}$.
+\begin{thm}[Ramsey's theorem]
+	Suppose $\mathcal{C}$ is a finite partition of $[\nats]^k$, for some
+	$k\in\posnats$, then there exists an infinite set $X\subseteq\nats$ such
+	that $X$ is homogeneous for $\mathcal{C}$.
+\end{thm}
+\begin{proof}
+	We proceed by induction on $k$. If $k=1$ then there must exists an infinite
+	$C\in\mathcal{C}$ and thus $X=C$ is homogeneous for $\mathcal{C}$.
 
-        Suppose $\mathcal{C}=\set{C_0,\dotsc,C_{m-1}}$ and assume the result holds for some $k\in\posnats$. If we let $s\colon\nats\to\posnats$ be the successor map then $s$ is a bijection.  Now define
-        \begin{equation}
-            B_i=\setbuild{s^{-1}[X]}{X\in\subsets{k}{\posnats}\text{ and }X\cup\set{0}\in C_i},
-        \end{equation}
-        for each $i=0,\dotsc,m-1$.  Since $\mathcal{C}$ is a partition of $\subsets{k+1}{\nats}$, $s(x)\neq 0$ for any $x\in\nats$ and $s^{-1}$ is bijective it follows that $\mathcal{B}=\set{B_0,\dotsc,B_{m-1}}$ is a partition of $\subsets{k}{\nats}$.  By the inductive hypothesis there exists an infinite set $H\subseteq\nats$ which is homogeneous for $\mathcal{B}$.  Without loss of generality we may assume $\subsets{k}{H}\subseteq B_0$.  Therefore, by definition of $B_0$, if we define $H^\prime=\setbuild{s[X]\cup\set{0}}{X\in\subsets{k}{H}}$ then $H^\prime\subseteq C_0$, as required.
-    \end{proof}
+	Suppose the result holds for $k\in\posnats$ and let
+	$\mathcal{C}=\set{C_0,\dotsc,C_{m-1}}$ be a partition of
+	$\subsets{\nats}{k+1}$.  If we let $s\colon\nats\to\posnats$
+	be the successor map then $s$ is a bijection.  Now define
+	\begin{equation}
+		B_i=\setbuild{s^{-1}[X]}{X\in\subsets{k}{\posnats}\text{ and }X\cup\set{0}\in C_i},
+	\end{equation}
+	for each $i=0,\dotsc,m-1$.  Since $\mathcal{C}$ is a partition of $\subsets{k+1}{\nats}$, $s(x)\neq 0$ for any $x\in\nats$ and $s^{-1}$ is bijective it follows that $\mathcal{B}=\set{B_0,\dotsc,B_{m-1}}$ is a partition of $\subsets{k}{\nats}$.  By the inductive hypothesis there exists an infinite set $H\subseteq\nats$ which is homogeneous for $\mathcal{B}$.  Without loss of generality we may assume $\subsets{k}{H}\subseteq B_0$.  Therefore, by definition of $B_0$, if we define $H^\prime=\setbuild{s[X]\cup\set{0}}{X\in\subsets{k}{H}}$ then $H^\prime\subseteq C_0$, as required.
+\end{proof}
 
-    \begin{dfn}[Colouring]\label{def:Col}
-        If $S$ is a nonempty set and $\card{C}=k\in\posnats$ then a $\mathbf{k}$\textbf{-colouring} of $S$ is a surjective map $f\colon  S\to C$.  We call a surjection $f$ simply a \textbf{colouring} if it is a $k$-coulouring for some $k$.
-    \end{dfn}
+\begin{dfn}[Colouring]\label{def:Col}
+	If $S$ is a nonempty set and $\card{C}=k\in\posnats$ then a $\mathbf{k}$\textbf{-colouring} of $S$ is a surjective map $f\colon  S\to C$.  We call a surjection $f$ simply a \textbf{colouring} if it is a $k$-coulouring for some $k$.
+\end{dfn}
 
-    Note that if $\mathcal{C}$ is some partition of a nonempty set $S$ then there exists a unique surjection $f\colon S\to \mathcal{C}$ such that $\mathcal{C}=\setbuild{f^{-1}[X]}{X\in \mathcal{C}}$. Since every surjection $f$ induces a partition of its domain, this justifies the following definition:
+Note that if $\mathcal{C}$ is some partition of a nonempty set $S$ then there exists a unique surjection $f\colon S\to \mathcal{C}$ such that $\mathcal{C}=\setbuild{f^{-1}[X]}{X\in \mathcal{C}}$. Since every surjection $f$ induces a partition of its domain, this justifies the following definition:
 
-    \begin{dfn}[Homogeneous set for a colouring]
-        Suppose $S$ is a nonempty set and $f\colon S\to C$ is a colouring.  We call $X\subseteq A$ \textbf{homogeneous for} $f$ whenever there exists a $c\in C$ such that $X\subseteq f^{-1}[c]$ or, equivalently, $f(x)=f(y)$ for every $x,y\in X$.
-    \end{dfn}
+\begin{dfn}[Homogeneous set for a colouring]
+	Suppose $S$ is a nonempty set and $f\colon S\to C$ is a colouring.  We call $X\subseteq A$ \textbf{homogeneous for} $f$ whenever there exists a $c\in C$ such that $X\subseteq f^{-1}[c]$ or, equivalently, $f(x)=f(y)$ for every $x,y\in X$.
+\end{dfn}
 
-    \begin{rem}[Conventions: colourings]\label{rem:Col}
-        If $A$ is some linearly ordered set and, then for every $k\in\posnats$ then every colouring $f$ of $\subsets{k}{A}$ corresponds uniquely to a colouring $\tau_f$ of the set $\setbuild{(a_0,\dotsc,a_{k-1})\in A^k}{a_i<a_j\text{ whenever }i<j<k}$ such that if $a_i<a_j$ for each $i<j<k$ then
-        \begin{equation}
-            f(\set{a_0,\dotsc,a_{k-1}})=\tau_f(a_0,\dotsc,a_{k-1}).
-        \end{equation}
-        Therefore, we will make a habit of identifying each $f$ with the corresponding $\tau_f$ and simply write $f(a_0,\dotsc,a_{k-1})$ in stead of $f(\set{a_0,\dotsc,a_{k-1}})$ when $a_0<a_1<\dotsb<a_{k-1}$.  Furthermore, for the special case $k=2$ we will also identify each $f$ with the map $\upsilon_f$ that sends each (nonempty) open interval $(a,b)\subseteq A$ to $\tau_f(a,b)$.
-    \end{rem}
+\begin{rem}[Conventions: colourings]\label{rem:Col}
+	If $A$ is some linearly ordered set and, then for every $k\in\posnats$ then every colouring $f$ of $\subsets{k}{A}$ corresponds uniquely to a colouring $\tau_f$ of the set $\setbuild{(a_0,\dotsc,a_{k-1})\in A^k}{a_i<a_j\text{ whenever }i<j<k}$ such that if $a_i<a_j$ for each $i<j<k$ then
+	\begin{equation}
+		f(\set{a_0,\dotsc,a_{k-1}})=\tau_f(a_0,\dotsc,a_{k-1}).
+	\end{equation}
+	Therefore, we will make a habit of identifying each $f$ with the corresponding $\tau_f$ and simply write $f(a_0,\dotsc,a_{k-1})$ in stead of $f(\set{a_0,\dotsc,a_{k-1}})$ when $a_0<a_1<\dotsb<a_{k-1}$.  Furthermore, for the special case $k=2$ we will also identify each $f$ with the map $\upsilon_f$ that sends each (nonempty) open interval $(a,b)\subseteq A$ to $\tau_f(a,b)$.
+\end{rem}
 
-    \begin{rem}
-        Note that if $f$ is a colouring of $\subsets{k}{S}$, for some nonempty set $S$ and some $k\in\posnats$, then it follows by definition that $H\subseteq S$ is homogeneous for the partition $\setbuild{f^{-1}[c]}{c\in\range f}$ if and only if $\subsets{k}{H}$ is homogeneous for $f$.  This gives us the connection between the two notions of homogeneity.
-    \end{rem}
+\begin{rem}
+	Note that if $f$ is a colouring of $\subsets{k}{S}$, for some nonempty set $S$ and some $k\in\posnats$, then it follows by definition that $H\subseteq S$ is homogeneous for the partition $\setbuild{f^{-1}[c]}{c\in\range f}$ if and only if $\subsets{k}{H}$ is homogeneous for $f$.  This gives us the connection between the two notions of homogeneity.
+\end{rem}
 
 
-    \begin{dfn}[Cofinality]
-        If $\alpha$ is a linear order then $\cf(\alpha)$, called the \textbf{cofinality} of $\alpha$, is the least ordinal $\beta$ so that there exists an embedding $f\colon\beta\to\alpha$ such that $f[\beta]$ is not bounded above in $\alpha$.
-    \end{dfn}
+\begin{dfn}[Cofinality]
+	If $\alpha$ is a linear order then $\cf(\alpha)$, called the \textbf{cofinality} of $\alpha$, is the least ordinal $\beta$ so that there exists an embedding $f\colon\beta\to\alpha$ such that $f[\beta]$ is not bounded above in $\alpha$.
+\end{dfn}
 
-    \begin{dfn}[Cofinal sequence]
-        A \textbf{cofinal sequence} in a linear order $\alpha$ is any (strictly) increasing transfinitite sequence $(a_\gamma)_{\gamma<\beta}$, where $\beta\geq\cf(\alpha)$, such that $\setbuild{a_\gamma}{\gamma<\beta}$ is an unbounded subset of $\alpha$
-    \end{dfn}
+\begin{dfn}[Cofinal sequence]
+	A \textbf{cofinal sequence} in a linear order $\alpha$ is any (strictly) increasing transfinitite sequence $(a_\gamma)_{\gamma<\beta}$, where $\beta\geq\cf(\alpha)$, such that $\setbuild{a_\gamma}{\gamma<\beta}$ is an unbounded subset of $\alpha$
+\end{dfn}
 
-    \begin{dfn}[Homogeneous sequence]
-        If $\alpha$ is a linear order and $f$ is a colouring of $\subsets{2}{\domain\alpha}$ then a \textbf{homogeneous sequence for $f$} is a cofinal sequence $\family{a_\gamma}{\gamma<\beta}$ in $\alpha$ such that
-        \begin{equation}
-            H=\setbuild{\set{a_\gamma,a_\delta}}{\gamma<\delta<\beta}
-        \end{equation}
-        is homogeneous for $f$.
-    \end{dfn}
+\begin{dfn}[Homogeneous sequence]
+	If $\alpha$ is a linear order and $f$ is a colouring of $\subsets{2}{\domain\alpha}$ then a \textbf{homogeneous sequence for $f$} is a cofinal sequence $\family{a_\gamma}{\gamma<\beta}$ in $\alpha$ such that
+	\begin{equation}
+		H=\setbuild{\set{a_\gamma,a_\delta}}{\gamma<\delta<\beta}
+	\end{equation}
+	is homogeneous for $f$.
+\end{dfn}
 
-    \begin{cor}[Existence: homogeneous sequences]\label{cor:Cofinal}
-        Suppose $A$ is an infinite linearly ordered set without a greatest element. If $A$ has cofinality $\omega$ and $f$ is a colouring of $\subsets{2}{A}$ then there exists a homogeneous sequence $x=\family{a_i}{i<\omega}$ for $f$ in $A$.
-    \end{cor}
+\begin{cor}[Existence: homogeneous sequences]\label{cor:Cofinal}
+	Suppose $A$ is an infinite linearly ordered set without a greatest element. If $A$ has cofinality $\omega$ and $f$ is a colouring of $\subsets{2}{A}$ then there exists a homogeneous sequence $x=\family{a_i}{i<\omega}$ for $f$ in $A$.
+\end{cor}
 
-    \begin{proof}
-        Choose $y=(b_i)_{i<\omega}$ to be cofinal in $A$.  If we define $B=\setbuild{\set{b_i,b_j}}{i<j<\omega}$ then by Ramsey's theorem there exists a $H\subseteq B$ which is homogeneous for $f$.  Since $x$ is increasing, there exists a unique subsequence $x=(a_i)_{i<\omega}=(b_{k_i})_{i<\omega}$ of $y$ with image $H$.  By definition $x$ is the desired homogeneous sequence for the colouring $f$.
-    \end{proof}
+\begin{proof}
+	Choose $y=(b_i)_{i<\omega}$ to be cofinal in $A$.  If we define $B=\setbuild{\set{b_i,b_j}}{i<j<\omega}$ then by Ramsey's theorem there exists a $H\subseteq B$ which is homogeneous for $f$.  Since $x$ is increasing, there exists a unique subsequence $x=(a_i)_{i<\omega}=(b_{k_i})_{i<\omega}$ of $y$ with image $H$.  By definition $x$ is the desired homogeneous sequence for the colouring $f$.
+\end{proof}
 
-    \begin{exm}[Cofinal sequences in $\lambda$]
-        Note that $\cf(\lambda)=\omega$ since $\lambda$ has no greatest element and $\family{k}{k<\omega}$ is a cofinal sequence in $\lambda$.  Now suppose $f$ is a colouring of $\subsets{2}{\reals}$ and let $x=(x_i)_{i<\omega}$ be a cofinal sequence in $\lambda$.  Now let $X=\setbuild{x_i}{i<\omega}$ and define $g=f\restriction_X$ then we may assume, without loss of generality, that $g$ is surjective and thus a colouring of $X$.  Since $x$ is clearly cofinal in $X$ it follows from corollary (\ref{cor:Cofinal}) that there exists a subsequence $y$ of $x$ which is homogeneous for $g$.  Since $y$ is homogeneous for $g$ and $X$ is a cofinal subset of $\lambda$, it follows by definition of $g$ that $y$ is a homogeneous sequence for $f$.
-    \end{exm}
+\begin{exm}[Cofinal sequences in $\lambda$]
+	Note that $\cf(\lambda)=\omega$ since $\lambda$ has no greatest element and $\family{k}{k<\omega}$ is a cofinal sequence in $\lambda$.  Now suppose $f$ is a colouring of $\subsets{2}{\reals}$ and let $x=(x_i)_{i<\omega}$ be a cofinal sequence in $\lambda$.  Now let $X=\setbuild{x_i}{i<\omega}$ and define $g=f\restriction_X$ then we may assume, without loss of generality, that $g$ is surjective and thus a colouring of $X$.  Since $x$ is clearly cofinal in $X$ it follows from corollary (\ref{cor:Cofinal}) that there exists a subsequence $y$ of $x$ which is homogeneous for $g$.  Since $y$ is homogeneous for $g$ and $X$ is a cofinal subset of $\lambda$, it follows by definition of $g$ that $y$ is a homogeneous sequence for $f$.
+\end{exm}
 
 
 
 \section{Additive Ramsey theorem}
 
 
-    A natural question to ask is whether corollary (\ref{cor:Cofinal}) also holds for order types of uncountable cofinality.  Unfortunately,  this is not the case.  This is illustrated in the following example:
-    \begin{exm}[Sierpi\'nski colouring]
-        Suppose $\alpha=(\reals,\prec)$ is a well-order.  Note that $\alpha\geq\omega_1$ and that every countable ordinal is bijectively equivalent to $\omega$.  Therefore, since $\omega+\alpha=\alpha$, we may assume $\cf(\alpha)\geq\omega_1$ because, informally speaking, we can move any countable tail to the front. The \textit{Sierpi\'nski colouring} $s\colon\subsets{2}{\reals}\to\set{0,1}$ is defined, for every $x,y\in\reals$, (recalling remark (\ref{rem:Col})) as
-        \begin{equation}
-            s(x,y)=
-            \begin{cases}
-                1,  &\text{if }x\prec y,\\
-                0,   &\text{otherwise.}
-            \end{cases}
-        \end{equation}
-        Since $\lambda$ is clearly not a well-order it follows that $s$ is a colouring of $\subsets{2}{\reals}$.  By way of contradiction, assume there exists a homogeneous sequence $x=(x_{\gamma})_{\gamma<\beta}$ for $s$ in $\alpha$.  By assumption we must have $\beta\geq\cf(\alpha)\geq\omega_1$.  However, since $\eta$ is dense in $\lambda$ we may shoose a rational $q_\gamma\in(x_\gamma,x_{\gamma+1})_{\lambda}\cap\rats$, for each $\gamma<\beta$, giving us the desired contradiction since the rationals are countable.
-    \end{exm}
+A natural question to ask is whether corollary (\ref{cor:Cofinal}) also holds for order types of uncountable cofinality.  Unfortunately,  this is not the case.  This is illustrated in the following example:
+\begin{exm}[Sierpi\'nski colouring]
+	Suppose $\alpha=(\reals,\prec)$ is a well-order.  Note that $\alpha\geq\omega_1$ and that every countable ordinal is bijectively equivalent to $\omega$.  Therefore, since $\omega+\alpha=\alpha$, we may assume $\cf(\alpha)\geq\omega_1$ because, informally speaking, we can move any countable tail to the front. The \textit{Sierpi\'nski colouring} $s\colon\subsets{2}{\reals}\to\set{0,1}$ is defined, for every $x,y\in\reals$, (recalling remark (\ref{rem:Col})) as
+	\begin{equation}
+		s(x,y)=
+		\begin{cases}
+			1,  &\text{if }x\prec y,\\
+			0,   &\text{otherwise.}
+		\end{cases}
+	\end{equation}
+	Since $\lambda$ is clearly not a well-order it follows that $s$ is a colouring of $\subsets{2}{\reals}$.  By way of contradiction, assume there exists a homogeneous sequence $x=(x_{\gamma})_{\gamma<\beta}$ for $s$ in $\alpha$.  By assumption we must have $\beta\geq\cf(\alpha)\geq\omega_1$.  However, since $\eta$ is dense in $\lambda$ we may shoose a rational $q_\gamma\in(x_\gamma,x_{\gamma+1})_{\lambda}\cap\rats$, for each $\gamma<\beta$, giving us the desired contradiction since the rationals are countable.
+\end{exm}
 
-    \begin{dfn}[Additive colouring]
-        An \textbf{additive colouring} of a linear order $\alpha$ is a colouring $f$ of $\subsets{2}{\domain\alpha}$ such that
-        \begin{equation}
-            f(x_0,y_0)=f(x_1,y_1)\text{ and }f(y_0,z_0)=f(y_1,z_1)
-        \end{equation}
-        imply $f(x_0,z_0)=f(x_1,z_1)$.
-    \end{dfn}
+\begin{dfn}[Additive colouring]
+	An \textbf{additive colouring} of a linear order $\alpha$ is a colouring $f$ of $\subsets{2}{\domain\alpha}$ such that
+	\begin{equation}
+		f(x_0,y_0)=f(x_1,y_1)\text{ and }f(y_0,z_0)=f(y_1,z_1)
+	\end{equation}
+	imply $f(x_0,z_0)=f(x_1,z_1)$.
+\end{dfn}
 
-    \begin{rem}[Addition of intervals]
-        What this definition essentially says is that a colouring is called additive when $I_0,\dotsc, I_3$ are open intervals in $\alpha$ such that $I_0$ is the same colour as $I_1$ and $I_2$ the same colour as $I_3$ then by `joining together' $I_0$ with $I_2$ and $I_1$ with $I_3$ we obtain a pair of intervals which are of the same colour.  This is possible whenever there is exactly one element $x\in\alpha$ such that $I_0<x<I_2$ and exactly one element $y\in\alpha$ such that $I_1<y<I_3$.  In fact, if this is the case we may define a (partial) binary operation $+$, not to be confused with addition of order types, on the set of nonempty open intervals of $\alpha$ such that $I_0+I_2=I_0\cup\set{x}\cup I_2$ and, similarly $I_1+I_3=I_1\cup\set{y}\cup I_3$.  Consequently, one can restate the above definition as follows: the equivalence relation induced by $f$ on the set of (nonempty) open intervals in $\alpha$ is a congruence relation for the operation $+$.
-    \end{rem}
+\begin{rem}[Addition of intervals]
+	What this definition essentially says is that a colouring is called additive when $I_0,\dotsc, I_3$ are open intervals in $\alpha$ such that $I_0$ is the same colour as $I_1$ and $I_2$ the same colour as $I_3$ then by `joining together' $I_0$ with $I_2$ and $I_1$ with $I_3$ we obtain a pair of intervals which are of the same colour.  This is possible whenever there is exactly one element $x\in\alpha$ such that $I_0<x<I_2$ and exactly one element $y\in\alpha$ such that $I_1<y<I_3$.  In fact, if this is the case we may define a (partial) binary operation $+$, not to be confused with addition of order types, on the set of nonempty open intervals of $\alpha$ such that $I_0+I_2=I_0\cup\set{x}\cup I_2$ and, similarly $I_1+I_3=I_1\cup\set{y}\cup I_3$.  Consequently, one can restate the above definition as follows: the equivalence relation induced by $f$ on the set of (nonempty) open intervals in $\alpha$ is a congruence relation for the operation $+$.
+\end{rem}
 
-    \begin{thm}[Additive Ramsey theorem \cite{ShelahOrder}]
-        If $\delta$ is a limit ordinal, $\beta=\cf(\delta)$ and $f$ is an additive colouring of $\delta$ then there exists a homogeneous sequence $x=(\alpha_\gamma)_{\gamma<\beta}$ for $f$.
-    \end{thm}
+\begin{thm}[Additive Ramsey theorem \cite{ShelahOrder}]
+	If $\delta$ is a limit ordinal, $\beta=\cf(\delta)$ and $f$ is an additive colouring of $\delta$ then there exists a homogeneous sequence $x=(\alpha_\gamma)_{\gamma<\beta}$ for $f$.
+\end{thm}
 
-    \begin{proof}
-        For every $\alpha,\alpha^\prime<\delta$, define $\alpha\sim\alpha^\prime$ whenever there exists a $\gamma_0<\delta$ such that $\alpha_0,\alpha_1<\gamma_0$ and $f(\alpha,\gamma_0)=f(\alpha^\prime,\gamma_0)$.  We now prove the following claim:
-        \begin{claim}
-            The binary relation $\sim$ is an equivalence relation
-        \end{claim}
-        \begin{proof}
-            Fix any $\alpha_0,\alpha_1,\alpha_2<\delta$.  Since $f(\alpha_0,\alpha_0+1)=f(\alpha_0,\alpha_0+1)$ it follows that $\sim$ is reflexive.  If there exists a $\gamma_0>\alpha_0,\alpha_1$ such that $\gamma_0<\delta$ and $f(\alpha_0,\gamma_0)=f(\alpha_1,\gamma_0)$ then $f(\alpha_1,\gamma_0)=f(\alpha_0,\gamma_0)$ so that $\sim$ is symmetric.
+\begin{proof}
+	For every $\alpha,\alpha^\prime<\delta$, define $\alpha\sim\alpha^\prime$ whenever there exists a $\gamma_0<\delta$ such that $\alpha_0,\alpha_1<\gamma_0$ and $f(\alpha,\gamma_0)=f(\alpha^\prime,\gamma_0)$.  We now prove the following claim:
+	\begin{claim}
+		The binary relation $\sim$ is an equivalence relation
+	\end{claim}
+	\begin{proof}
+		Fix any $\alpha_0,\alpha_1,\alpha_2<\delta$.  Since $f(\alpha_0,\alpha_0+1)=f(\alpha_0,\alpha_0+1)$ it follows that $\sim$ is reflexive.  If there exists a $\gamma_0>\alpha_0,\alpha_1$ such that $\gamma_0<\delta$ and $f(\alpha_0,\gamma_0)=f(\alpha_1,\gamma_0)$ then $f(\alpha_1,\gamma_0)=f(\alpha_0,\gamma_0)$ so that $\sim$ is symmetric.
 
-            Lastly, to show transitivity, if there exists a $\gamma_0>\alpha_1,\alpha_0$ as well as a $\gamma_1>\alpha_1,\alpha_2$ such that $\gamma_0,\gamma_1<\delta$, $f(\alpha_0,\gamma_0)=f(\alpha_1,\gamma_0)$ and $f(\alpha_1,\gamma_1)=f(\alpha_2,\gamma_1)$. If $\gamma_0=\gamma_1$ then it follows that $f(\alpha_0,\gamma_0)=f(\alpha_2,\gamma_0)$ and thus $\alpha_0\sim\alpha_2$ so suppose $\gamma_0<\gamma_1$.  Since (trivially) $f(\gamma_0,\gamma_1)=f(\gamma_0,\gamma_1)$, it follows by additivity of $f$ that $f(\alpha_0,\gamma_1)=f(\alpha_1,\gamma_1)$ and therefore $f(\alpha_0,\gamma_1)=f(\alpha_2,\gamma_1)$ so that $\alpha_0\sim\alpha_2$, as required.  Since the case $\gamma_1<\gamma_0$ is similar, the relation $\sim$ is transitive and thus $\sim$ is an equivalence relation.
-        \end{proof}
+		Lastly, to show transitivity, if there exists a $\gamma_0>\alpha_1,\alpha_0$ as well as a $\gamma_1>\alpha_1,\alpha_2$ such that $\gamma_0,\gamma_1<\delta$, $f(\alpha_0,\gamma_0)=f(\alpha_1,\gamma_0)$ and $f(\alpha_1,\gamma_1)=f(\alpha_2,\gamma_1)$. If $\gamma_0=\gamma_1$ then it follows that $f(\alpha_0,\gamma_0)=f(\alpha_2,\gamma_0)$ and thus $\alpha_0\sim\alpha_2$ so suppose $\gamma_0<\gamma_1$.  Since (trivially) $f(\gamma_0,\gamma_1)=f(\gamma_0,\gamma_1)$, it follows by additivity of $f$ that $f(\alpha_0,\gamma_1)=f(\alpha_1,\gamma_1)$ and therefore $f(\alpha_0,\gamma_1)=f(\alpha_2,\gamma_1)$ so that $\alpha_0\sim\alpha_2$, as required.  Since the case $\gamma_1<\gamma_0$ is similar, the relation $\sim$ is transitive and thus $\sim$ is an equivalence relation.
+	\end{proof}
 
-        Note that $\sim$ has at most $\card{\range f}<\aleph_0$ equivalence classes and there must exist an equivalence class $C$ under $\sim$ which is unbounded in $\delta$.  We will now define a cofinal sequence $x=(\alpha_{\gamma})_{\gamma<\beta}$, where $\beta=\cf(\delta)$, by means of transfinite recursion.  Let $\alpha_0$ be the least element of $C$ and define, for each $c\in\range f$, the set $I_c=\setbuild{\alpha\in C}{\alpha_0<\alpha\text{ and }f(\alpha_0,\alpha)=c}$.  It then follows, by definition, that
-        \begin{equation}
-            C\setminus\set{\alpha_0}=\bigcup_{c\in\range f}I_c.
-        \end{equation}
-        Since $I$ is unbounded in $\delta$ and $\card{\range f}<\card{\cf(\delta)}$ it follows that there exists a $d\in\range f$ such that $I_d$ is unbounded in $\delta$.  Note that there exists a cofinal sequence $(\delta_\gamma)_{\gamma<\beta}$ in $I_d$.  Now, continuing with the recursion, assume $\alpha_\gamma\in C$ has been defined for each $\gamma<\epsilon$ and some ordinal $\epsilon<\beta=\cf(\delta)$.  Invoking the definition of $\sim$, let $\alpha_\epsilon$ be the least ordinal $\alpha_\epsilon\in I_d$ such that $\alpha_\gamma<\alpha_\epsilon$, $\delta_\gamma<\alpha_\epsilon$ and
-        \begin{equation}
-            f(\alpha_0,\alpha_\epsilon)=f(\alpha_\gamma,\alpha_\epsilon),\quad\text{whenever }\gamma<\epsilon.
-        \end{equation}
-        By definition, it then follows that $x=\family{\alpha_\gamma}{\gamma<\beta}$ is a homogeneous sequence for the colouring $f$.
-    \end{proof}
+	Note that $\sim$ has at most $\card{\range f}<\aleph_0$ equivalence classes and there must exist an equivalence class $C$ under $\sim$ which is unbounded in $\delta$.  We will now define a cofinal sequence $x=(\alpha_{\gamma})_{\gamma<\beta}$, where $\beta=\cf(\delta)$, by means of transfinite recursion.  Let $\alpha_0$ be the least element of $C$ and define, for each $c\in\range f$, the set $I_c=\setbuild{\alpha\in C}{\alpha_0<\alpha\text{ and }f(\alpha_0,\alpha)=c}$.  It then follows, by definition, that
+	\begin{equation}
+		C\setminus\set{\alpha_0}=\bigcup_{c\in\range f}I_c.
+	\end{equation}
+	Since $I$ is unbounded in $\delta$ and $\card{\range f}<\card{\cf(\delta)}$ it follows that there exists a $d\in\range f$ such that $I_d$ is unbounded in $\delta$.  Note that there exists a cofinal sequence $(\delta_\gamma)_{\gamma<\beta}$ in $I_d$.  Now, continuing with the recursion, assume $\alpha_\gamma\in C$ has been defined for each $\gamma<\epsilon$ and some ordinal $\epsilon<\beta=\cf(\delta)$.  Invoking the definition of $\sim$, let $\alpha_\epsilon$ be the least ordinal $\alpha_\epsilon\in I_d$ such that $\alpha_\gamma<\alpha_\epsilon$, $\delta_\gamma<\alpha_\epsilon$ and
+	\begin{equation}
+		f(\alpha_0,\alpha_\epsilon)=f(\alpha_\gamma,\alpha_\epsilon),\quad\text{whenever }\gamma<\epsilon.
+	\end{equation}
+	By definition, it then follows that $x=\family{\alpha_\gamma}{\gamma<\beta}$ is a homogeneous sequence for the colouring $f$.
+\end{proof}
 
-    \begin{rem}
-        If in the above proof we substitute for the colouring $f$ any surjection with the property that $\card{\range f}<\card{\cf(\delta)}$ then the proof remains valid.  Hence, it is not necessary for the proof that $\card{\range f}<\aleph_0$ when $\cf(\delta)\geq\omega_1$.
-    \end{rem}
+\begin{rem}
+	If in the above proof we substitute for the colouring $f$ any surjection with the property that $\card{\range f}<\card{\cf(\delta)}$ then the proof remains valid.  Hence, it is not necessary for the proof that $\card{\range f}<\aleph_0$ when $\cf(\delta)\geq\omega_1$.
+\end{rem}
 
 
-    \begin{cor}[Existence: homogeneous sequences]
-        Suppose $\alpha$ is a linear order without a greatest element and $f$ is an additive colouring of $\alpha$ then there exists a limit ordinal $\delta\geq\cf(\alpha)$ and a homogeneous sequence $(a_\gamma)_{\gamma<\delta}$ for $f$.
-    \end{cor}
+\begin{cor}[Existence: homogeneous sequences]
+	Suppose $\alpha$ is a linear order without a greatest element and $f$ is an additive colouring of $\alpha$ then there exists a limit ordinal $\delta\geq\cf(\alpha)$ and a homogeneous sequence $(a_\gamma)_{\gamma<\delta}$ for $f$.
+\end{cor}
 
-    \begin{proof}
-        Let $(b_\gamma)_{\gamma<\delta^\prime}$ be some cofinal sequence in $\alpha$ such that $\delta^\prime=\cf(\alpha)$.  Note that, since $\alpha$ has no greatest element, $\delta^\prime=\cf(\alpha)$ is a limit ordinal.  Now define $B=\setbuild{b_\gamma}{\gamma<\delta}$ and let $g=f\restriction_B$ then we may assume, without loss of generality, that $g$ is surjective and hence a colouring of $B$.  Since $B\cong\delta^\prime=\cf(\alpha)$, it follows from the additive Ramsey theorem that there exists homogeneous sequence $x=(a_\gamma)_{\gamma<\delta}$, for some $\delta\geq\cf(\alpha)$, for $g$.  Since $B$ is not bounded above, $\delta$ must be a limit ordinal and, by definition of $g$, $x$ is a homogeneous sequence for $f$, as required.
-    \end{proof}
-
+\begin{proof}
+	Let $(b_\gamma)_{\gamma<\delta^\prime}$ be some cofinal sequence in $\alpha$ such that $\delta^\prime=\cf(\alpha)$.  Note that, since $\alpha$ has no greatest element, $\delta^\prime=\cf(\alpha)$ is a limit ordinal.  Now define $B=\setbuild{b_\gamma}{\gamma<\delta}$ and let $g=f\restriction_B$ then we may assume, without loss of generality, that $g$ is surjective and hence a colouring of $B$.  Since $B\cong\delta^\prime=\cf(\alpha)$, it follows from the additive Ramsey theorem that there exists homogeneous sequence $x=(a_\gamma)_{\gamma<\delta}$, for some $\delta\geq\cf(\alpha)$, for $g$.  Since $B$ is not bounded above, $\delta$ must be a limit ordinal and, by definition of $g$, $x$ is a homogeneous sequence for $f$, as required.
+\end{proof}
 
 
 \bibliography{references}
