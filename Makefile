@@ -22,8 +22,8 @@ cos.aux: ${TEXROOT} ${TEXINCLUDE} references.bib
 	for dir in ${SUBDIR} ; do \
 		ln -sf references.bib $$dir ; \
 	done
-	find -type f -name '*.aux' ! -path '${BASE}.aux' ! -path './.git/*' -execdir bibtex '{}' ';'
-	bibtex ${BASE}
+	find -type f -name '*.aux' ! -path './${BASE}.aux' ! -path './.git/*' -execdir bibtex '{}' ';'
+	bibtex ${BASE} || /usr/bin/true
 	pdflatex -draftmode ${TEXROOT}
 
 clean:
