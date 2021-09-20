@@ -5,7 +5,7 @@ LATEX= pdflatex
 BIBTEX= bibtex
 BASE= cos
 TEXROOT= ${BASE}.tex
-SUBDIR!= find -type d ! -path '.' ! -path './.git/*' -print0
+SUBDIR!= find -type d ! -path '.' ! -path './.git/*' -print
 TEXINCLUDE!= find -type f -name '*.tex' ! -path './${TEXROOT}' ! -path './.git/*' -print
 
 build: ${BASE}.pdf
