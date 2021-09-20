@@ -20,7 +20,7 @@ cos.aux: ${TEXROOT} ${TEXINCLUDE} references.bib
 	pdflatex -draftmode ${TEXROOT}
 	makeglossaries ${BASE}
 	for dir in ${SUBDIR} ; do \
-		ln -sf references.bib $$dir ; \
+		cp -f references.bib $$dir ; \
 	done
 	bibtex ${BASE} || /usr/bin/true
 	find -type f -name '*.aux' ! -path './${BASE}.aux' ! -path './.git/*' -execdir bibtex '{}' ';'
