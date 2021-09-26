@@ -1,7 +1,22 @@
-\bibstyle{amsalpha}
+\bibliographystyle{amsalpha}
 
 \chapter{Scattered linear orders}
 
+The scattered linear orders are antithetical to the \textit{dense linear
+orders}, the latter of which includes specimens such as $\eta$ and $\lambda$.
+They are precisely the linear orders which do not embed any dense linear order
+or, equivalently, do not embed a copy of the order type $\eta$ of the
+rationals.
+
+As we will see, the scattered linear orders can constructed in a systematic
+fashion from the ground up by starting with the order types $\zero$ and $\one$
+and iterating relatively ``simple'' operations.
+
+From the perspective of first-order logic, the class $\scattered$ is also
+well-behaved in that its theory $\Th(\scattered)$ is decidable.  A recursively
+enumerable class $\Mzero\subseteq\scattered$ is presented in order to establish
+this fact.  The argument proceeds as in \cite{RosLin}, owing to the techniques
+of L\"auchli and Leonard.
 
 \section{Condensation maps and congruence lattices}
 
@@ -447,3 +462,5 @@
 
 	Choose $n=\qrank(\sigma)$ and recall it follows from the theorem of L\"auchli and Leonard that, for some $\beta_n\in\Mzero$, it holds that $\beta_n\nequiv{n}\alpha$ and thus $\beta_n\models\neg\sigma$.  Consequently, $(\beta_n,\neg\sigma)\in R$ and thus $(\beta_n,\neg\sigma)$ will appear in the list and $M$ will return "False".  Therefore, the machcine $M$ always halts --- as required.
 \end{proof}
+
+\bibliography{references}
