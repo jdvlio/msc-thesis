@@ -28,5 +28,5 @@ cos.aux: ${TEXROOT} ${TEXINCLUDE} references.bib
 
 clean:
 	find -type f ! -path './.git/*' ! -name '*\.tex' \
-		! -name '*\.bib' ! -name '*\.sh' ! -name '\.gitignore' \
+		! -path './*\.bib' ! -name '*\.sh' ! -name '\.gitignore' \
 		! -name Makefile -delete
