@@ -20,18 +20,31 @@ of L\"auchli and Leonard.
 
 \section{Condensation maps and congruence lattices}
 
-\begin{lem}[Congruence construction]\label{lem:IndCong}
-        Suppose $\alpha$ is a linear order and $R$ is a transitive binary relation on $\alpha$.  Now define a another binary relation $\sim$ on $\alpha$ such that, for $a,b\in\alpha$, we have $a\sim b$ whenever one of the following is satisfied:
-        \begin{enumerate}
-            \item   $a=b$,
-            \item   $a<b$ and $aRb$,
-            \item   $b<a$ and $bRa$.
-        \end{enumerate}
-        Under these assumptions, $\sim$ is a congruence on $\alpha$.
+\begin{lem}[Congruence construction]
+	\label{lem:IndCong}
+	Suppose $\alpha$ is a linear order and $R$ is a transitive binary relation
+	on $\alpha$.  Now define a another binary relation $\sim$ on $\alpha$ such
+	that, for $a,b\in\alpha$, we have $a\sim b$ whenever one of the following
+	is satisfied:
+	\begin{enumerate}
+		\item   $a=b$,
+		\item   $a<b$ and $aRb$,
+		\item   $b<a$ and $bRa$.
+	\end{enumerate}
+	Under these assumptions, $\sim$ is a congruence on $\alpha$.
 \end{lem}
+\begin{proof}
+	By definition, $\sim$ must be both reflexive and transitive.  To establish
+	transitivity, fix any $a,b,c\in\domain{alpha}$.
+
+	Without loss of generality we may assume that $a\leq b\leq c$.  However,
+	sine the cases $b=c$ and $a=b$ are trivial, it suffices to consider only the
+	case $a<b<c$.  The result then follows by trasitivity of the linear order
+	relation.
+\end{proof}
 
 \begin{dfn}[Induced congruence]
-        The congruence $\sim$ in lemma (\ref{lem:IndCong}) is referred to as the \textbf{congruence induced by $R$}.
+	The congruence $\sim$ in lemma (\ref{lem:IndCong}) is referred to as the \textbf{congruence induced by $R$}.
 \end{dfn}
 
 \begin{dfn}[Factor maps]
