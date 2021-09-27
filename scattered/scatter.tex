@@ -44,7 +44,7 @@ of L\"auchli and Leonard.
 \end{proof}
 
 \begin{dfn}[Induced congruence]
-	The congruence $\sim$ in lemma (\ref{lem:IndCong}) is referred to as the
+	The congruence $\sim$ in Lemma (\ref{lem:IndCong}) is referred to as the
 	\textbf{congruence induced by $R$}.
 \end{dfn}
 
@@ -192,7 +192,7 @@ role in some of the results to come.
     \end{lem}
 
 \begin{proof}
-    Suppose $\alpha\in\scattered$ is countable and define a relation $R$ on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$ whenever $a\leq b$ and $[a,b]$ is very discrete.  Note that $R$ is transitive and thus, by lemma (\ref{lem:IndCong}), it induces a congruence relation $\sim$ on $\domain\alpha$.
+    Suppose $\alpha\in\scattered$ is countable and define a relation $R$ on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$ whenever $a\leq b$ and $[a,b]$ is very discrete.  Note that $R$ is transitive and thus, by Lemma (\ref{lem:IndCong}), it induces a congruence relation $\sim$ on $\domain\alpha$.
 
         Define the condensation $\beta=\faktor{\alpha}{\sim}$.  If $\card{\beta}=1$ then there is nothing to prove so we may assume $\card{\beta}>1$.  By definition of $\VD$, it now suffices to show that $\beta\embed\zeta$ since every $\alpha\in\beta$ is very discrete simply by definition of $\sim$.  We will suppose to the contrary that $\beta\not\embed\zeta$.  Consequently, $\beta$ must be infinite.
 \end{proof}
@@ -217,7 +217,7 @@ role in some of the results to come.
 \end{thm}
 \begin{proof}
 
-	\forward\	This is lemma (\ref{prp:sctvd}).
+	\forward\	This is Lemma (\ref{prp:sctvd}).
 
 	\backward\	This is proposition (\ref{prp:vdsct}).
 \end{proof}
@@ -340,7 +340,7 @@ role in some of the results to come.
 \begin{proof}
 	For each $i,j<\omega$, if $i<j$ then define $\alpha_{ij}=\alpha_{i+1}+\alpha_{i+2}+\dotsb+\alpha_j$ and note that $\alpha_{ij}\in\Mzero$ since $\Mzero$ is closed under finite sums.  Choose $S=\set{\beta_0,\dotsc,\beta_{k-1}}\subseteq\Mzero$ to be an $n$-spectrum for $\Mzero$.  Consequently, there exists a colouring $h$ of $\omega$ whose codomain is $\set{0,\dotsc,k-1}$ such that $h(i,j)=\ell$ iff $\alpha_{ij}\nequiv{n}\beta_\ell$.
 
-	It now follows from Ramsey's theorem that there exists a homogeneous sequence $\family{i_j}{j<\omega}$ for $h$.  By definition, there exists a natural $m$ such that $0\leq m<k$ and $\alpha_{i_ji_{j+1}}\nequiv{n}\beta_m$, for every $j<\omega$.  Note, from lemma \ref{lem:fvsum}, it follows that
+	It now follows from Ramsey's theorem that there exists a homogeneous sequence $\family{i_j}{j<\omega}$ for $h$.  By definition, there exists a natural $m$ such that $0\leq m<k$ and $\alpha_{i_ji_{j+1}}\nequiv{n}\beta_m$, for every $j<\omega$.  Note, from Lemma \ref{lem:fvsum}, it follows that
 	\begin{align}
 		\sum_{i<\omega}\alpha_i&\cong\alpha_0+\alpha_1+\dotsb+\alpha_{i_0}+\sum_{j<\omega}\alpha_{i_ji_{j+1}}\\
 		&\nequiv{n}\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega,
@@ -378,7 +378,7 @@ role in some of the results to come.
 	\begin{equation}
 		\alpha=\sum_{i\in\zeta}\alpha_i.
 	\end{equation}
-	By the induction hypothesis there exists, for each $i\in\ints$, some $\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.  It now follows from lemma \ref{lem:fvsum}, if we choose $\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that $\alpha\nequiv{n}\alpha^\prime$.  According to proposition \ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that $\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as required.
+	By the induction hypothesis there exists, for each $i\in\ints$, some $\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.  It now follows from Lemma \ref{lem:fvsum}, if we choose $\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that $\alpha\nequiv{n}\alpha^\prime$.  According to proposition \ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that $\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as required.
 \end{proof}
 
 \begin{prp}
