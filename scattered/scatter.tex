@@ -58,24 +58,28 @@ The definition of a splitting should be somewhat reminiscent of the
 analog of a quotient structure is the following:
 
 \begin{dfn}[Condensations]
-		If $\sim$ is a congruence of the linear order $\alpha$ and
-		$\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is the (unique) sptitting such
-		that, for every $a,b\in\alpha$, it holds that: \begin{equation} a\sim
-		b\iff \pi(a)=\pi(b), \end{equation} then we call $\pi$ the
-		\textbf{splitting} of $\alpha$ \textit{induced by} $\sim$, refer to the
-		quotient $\faktor{\alpha}{\sim}$ as a \textbf{condensation} of $\alpha$
-		and write $\pi\colon\alpha\tto\faktor{\alpha}{\sim}$.
+	If $\sim$ is a congruence of the linear order $\alpha$ and
+	$\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is the (unique) sptitting such
+	that, for every $a,b\in\alpha$, it holds that: \begin{equation} a\sim b\iff
+	\pi(a)=\pi(b), \end{equation} then we call $\pi$ the \textbf{splitting} of
+	$\alpha$ \textit{induced by} $\sim$, refer to the quotient
+	$\faktor{\alpha}{\sim}$ as a \textbf{condensation} of $\alpha$ and write
+	$\pi\colon\alpha\tto\faktor{\alpha}{\sim}$.
 \end{dfn}
+
+We single out the following splitting in particular.  It will play a crucial
+role in some of the results to come.
 
 \begin{dfn}[Finite splitting]
-        Suppose $\alpha$ is a linear order and $\sim$ is the congruence on $\alpha$ induced by the relation $R$ defined by:
-        \begin{equation}
-        	aRb\quad\iff\quad a<b\text{ and }[a,b]\text{ is finite}.
-        \end{equation}
-        For any linear order $\alpha$ we let $\fsplit$ denote the map $\fsplit\colon a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer to $\fsplit$ as the $\textbf{finite splitting}$.
+	Suppose $\alpha$ is a linear order and $\sim$ is the congruence on $\alpha$ induced by the relation $R$ defined by:
+	\begin{equation}
+		aRb\quad\iff\quad a<b\text{ and }[a,b]\text{ is finite}.
+	\end{equation}
+	For any linear order $\alpha$ we let $\fsplit[\alpha]$ denote the map
+	$\fsplit[\alpha]\colon a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer
+	to $\fsplit[\alpha]$ as the $\textbf{finite splitting}$ on $\alpha$ and we
+	omit the prescript whenever $\alpha$ is clear from the context.
 \end{dfn}
-
-
 
 \begin{prp}[Congruence lattices]
         Let $\con \alpha\subseteq\domain{2}\alpha$ be the set of all congruences on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
