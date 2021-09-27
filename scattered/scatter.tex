@@ -81,25 +81,55 @@ role in some of the results to come.
 \end{dfn}
 
 \begin{prp}[Congruence lattices]
-        Let $\con \alpha\subseteq\domain{2}\alpha$ be the set of all congruences on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
+		Let $\con \alpha\subseteq\domain{2}\alpha$ be the set of all congruences
+		on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
         \begin{align}
-            \bigwedge X &\coloneqq\bigcap X,\\
-            \bigvee X   &\coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq a,\forall x\in X}.
+			\bigwedge X &\coloneqq\bigcap X,\\ \bigvee X
+						&\coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq
+						a,\forall x\in X}.
         \end{align}
-        It then follows that $(\con\alpha,\vee,\wedge)$ is a complete lattic.  Furthermore, it holds what $\bigvee X=\trclos(\bigcup X)$ --- the latter being the \textit{transitive closure} of the (reflexive and symmetric) binary relation $\bigcup X$.
+		It then follows that $(\con\alpha,\vee,\wedge)$ is a complete lattic.
+		Furthermore, it holds what $\bigvee X=\trclos(\bigcup X)$ --- the latter
+		being the \textit{transitive closure} of the (reflexive and symmetric)
+		binary relation $\bigcup X$.
 \end{prp}
 \begin{proof}
-	Let $X$ be an arbitrary (non-empty) subset of $\con\alpha$.  We now proceed to argue that $(\con\alpha,\vee,\wedge)$ is a complete lattice under the defined operations.  To achieve this, we are first required to show that (as defined above) the sets $\bigvee X$ and $\bigwedge X$ are in fact congruences.
+	Let $X$ be an arbitrary (non-empty) subset of $\con\alpha$.  We now proceed
+	to argue that $(\con\alpha,\vee,\wedge)$ is a complete lattice under the
+	defined operations.  To achieve this, we are first required to show that (as
+	defined above) the sets $\bigvee X$ and $\bigwedge X$ are in fact
+	congruences.
 
-	We first make the case for $\bigwedge X$.  Let $I$ denote the identity relation on $\domain{}\alpha$ then, since the members of $X$ are all reflexive, we must have $I\subseteq x$ for each $x\in X$ and thus $I\subseteq\bigcap X=\bigwedge X$.  Therefore $\bigwedge X$ is in fact a reflexive (binary) relation.  Also, since the members of $X$ are all symmetric it immediately follows that $\bigwedge X$ is also, since if $(a,b)\bigcap X$ then $(a,b)\in x$ for every $x\in X$ after which the symmetry of the members of $x$ yield the corresponding $(b,a)\in\bigcap X$.  In a somewhat similar fashion, an arbitrary intersection of transitive (binary) relations will again yield a transitive relation, all via first principles.
+	We first make the case for $\bigwedge X$.  Let $I$ denote the identity
+	relation on $\domain{}\alpha$ then, since the members of $X$ are all
+	reflexive, we must have $I\subseteq x$ for each $x\in X$ and thus
+	$I\subseteq\bigcap X=\bigwedge X$.  Therefore $\bigwedge X$ is in fact a
+	reflexive (binary) relation.  Also, since the members of $X$ are all
+	symmetric it immediately follows that $\bigwedge X$ is also, since if
+	$(a,b)\bigcap X$ then $(a,b)\in x$ for every $x\in X$ after which the
+	symmetry of the members of $x$ yield the corresponding $(b,a)\in\bigcap X$.
+	In a somewhat similar fashion, an arbitrary intersection of transitive
+	(binary) relations will again yield a transitive relation, all via first
+	principles.
 
-	Next we consider the case for $\bigvee X$.  Note that $I\subseteq \bigvee X$ since $X$ is non-empty and $I\subseteq x$ for each $x\in X$.  Therefore $\bigvee X$ is reflexive.  Note now that $\bigvee X$ is an intersection of symmetric (binary) relations and thus must itself also be symmetric.  In a similar fashion, since $\bigvee X$ is an intersection of transtive relations it must itself also be transitive.
+	Next we consider the case for $\bigvee X$.  Note that $I\subseteq \bigvee X$
+	since $X$ is non-empty and $I\subseteq x$ for each $x\in X$.  Therefore
+	$\bigvee X$ is reflexive.  Note now that $\bigvee X$ is an intersection of
+	symmetric (binary) relations and thus must itself also be symmetric.  In a
+	similar fashion, since $\bigvee X$ is an intersection of transtive relations
+	it must itself also be transitive.
 
-	All that remains is to show that $\bigvee X=\trclos(\bigcup X)$.  Clearly we already have $\trclos(\bigcup X)\subseteq\bigvee X$, since $\bigvee X$ is transitive,  so we need only show that the reverse inclusion also holds.  Not that, by definition, we must have $x\subseteq\bigcup X$ for each $x\in X$.  Also, by definition of transitive closure, we also have $\bigcup X\subseteq \trclos(\bigcup X)$ and thus $x\subseteq\trclos(\bigcup X)$ for each $x\in X$, as required.
+	All that remains is to show that $\bigvee X=\trclos(\bigcup X)$.  Clearly we
+	already have $\trclos(\bigcup X)\subseteq\bigvee X$, since $\bigvee X$ is
+	transitive,  so we need only show that the reverse inclusion also holds.
+	Not that, by definition, we must have $x\subseteq\bigcup X$ for each $x\in
+	X$.  Also, by definition of transitive closure, we also have $\bigcup
+	X\subseteq \trclos(\bigcup X)$ and thus $x\subseteq\trclos(\bigcup X)$ for
+	each $x\in X$, as required.
 \end{proof}
 
 \begin{prp}
-         Suppose $f\colon\alpha\tto\beta$ is a sptitting then there exists an unique congruence relation $\sim$ on $\alpha$ such that, if $\pi\colon\alpha\tto\faktor{\alpha}{\sim}$ is the splitting induced by $\sim$, there exists an unique isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ making the diagram
+         Suppose $f\colon\alpha\to\beta$ is a sptitting then there exists an unique congruence relation $\sim$ on $\alpha$ such that, if $\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is the splitting induced by $\sim$, there exists an unique isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ making the diagram
         \begin{equation}
             \begin{tikzcd}
 		\alpha \arrow[rr, "\pi",rightarrow]&&   \faktor{\alpha}{\sim}\\
