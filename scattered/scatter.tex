@@ -20,6 +20,32 @@ of L\"auchli and Leonard.
 
 \section{Condensation maps and congruence lattices}
 
+The following definition is reminiscent of the analogous concept from algebra.
+
+\begin{dfn}[Congruence]
+	Suppose $\sim$ is an equivalence relation on the domain of the linear order
+	$\alpha$.  We call $\sim$ a \textbf{congruence} on $\alpha$ whenever, for
+	every $a,b\in\alpha$ such that $a<b$ and $a\nsim b$, the following
+	holds:
+	\begin{equation}
+		a^\prime\sim a\text{ and }b^\prime\sim b\quad\implies\quad
+		a^\prime<b^\prime,
+	\end{equation}
+	for all $a^\prime,b^\prime\in\alpha$.
+\end{dfn}
+
+Essentially, congruences are the equivalence relations that are compatible with
+the order structure of $\alpha$.
+
+Upon careful inspection, the above definition can be seen to be equivalent to
+the definition of a lattice-theoretic congruence.  One need only view $\alpha$
+as a lattice.  The lattice operations are derived in the usual fashion from the
+order relation.
+
+We will, ofcourse, now need a means of constructing various condensations along
+our travels.  The following Lemma accomplished this feat by starting with an
+arbitrary transitive relation.
+
 \begin{lem}[Congruence construction]
 	\label{lem:IndCong}
 	Suppose $\alpha$ is a linear order and $R$ is a transitive binary relation
@@ -70,14 +96,15 @@ We single out the following splitting in particular.  It will play a crucial
 role in some of the results to come.
 
 \begin{dfn}[Finite splitting]
-	Suppose $\alpha$ is a linear order and $\sim$ is the congruence on $\alpha$ induced by the relation $R$ defined by:
-	\begin{equation}
-		aRb\quad\iff\quad a<b\text{ and }[a,b]\text{ is finite}.
-	\end{equation}
-	For any linear order $\alpha$ we let $\fsplit[\alpha]$ denote the map
-	$\fsplit[\alpha]\colon a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer
-	to $\fsplit[\alpha]$ as the $\textbf{finite splitting}$ on $\alpha$ and we
-	omit the prescript whenever $\alpha$ is clear from the context.
+	Suppose $\alpha$ is a linear order and $\sim$ is the congruence on $\alpha$
+	induced by the relation $R$ defined by:
+	\begin{equation} aRb\quad\iff\quad
+		a<b\text{ and }[a,b]\text{ is finite}.
+	\end{equation} For any linear order
+	$\alpha$ we let $\fsplit[\alpha]$ denote the map $\fsplit[\alpha]\colon
+	a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer to $\fsplit[\alpha]$
+	as the $\textbf{finite splitting}$ on $\alpha$ and we omit the prescript
+	whenever $\alpha$ is clear from the context.
 \end{dfn}
 
 \begin{prp}[Congruence lattices]
