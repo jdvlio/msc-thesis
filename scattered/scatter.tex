@@ -111,17 +111,17 @@ role in some of the results to come.
 \end{dfn}
 
 \begin{prp}[Congruence lattices]
-		Let $\con \alpha\subseteq\domain{2}\alpha$ be the set of all congruences
-		on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
-        \begin{align}
-			\bigwedge X &\coloneqq\bigcap X,\\ \bigvee X
-						&\coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq
-						a,\forall x\in X}.
-        \end{align}
-		It then follows that $(\con\alpha,\vee,\wedge)$ is a complete lattic.
-		Furthermore, it holds what $\bigvee X=\trclos(\bigcup X)$ --- the latter
-		being the \textit{transitive closure} of the (reflexive and symmetric)
-		binary relation $\bigcup X$.
+	Let $\con \alpha\subseteq\powerset{\domain{2}\alpha}$ be the set of all
+	congruences on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
+	\begin{align}
+		\bigwedge X &\coloneqq\bigcap X,\\ \bigvee X
+					&\coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq
+					a,\forall x\in X}.
+	\end{align}
+	It then follows that $(\con\alpha,\vee,\wedge)$ is a complete lattice.
+	Furthermore, it holds that $\bigvee X=\trclos(\bigcup X)$ --- the latter
+	being the \textit{transitive closure} of the (reflexive and symmetric)
+	binary relation $\bigcup X$.
 \end{prp}
 \begin{proof}
 	Let $X$ be an arbitrary (non-empty) subset of $\con\alpha$.  We now proceed
