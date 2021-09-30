@@ -167,25 +167,43 @@ congruences on $\alpha$ will be denoted as $\defcon{\alpha}$.  It should be clea
 that, in general, $\defcon{\alpha}$ will not be complete as it might lack
 certain \textit{infinite} joins or meets.
 
-\begin{prp}
-	 Suppose $f\colon\alpha\to\beta$ is a splitting then there exists a unique congruence relation $\sim$ on $\alpha$ such that, if $\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is the splitting induced by $\sim$, there exists a unique isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ making the diagram
+Ideally, one would want every condensation of a member of $\con\alpha$ to again
+belong to $\con\alpha$.  Up to isomorphism this is in fact the case, as
+suggested by the following ``homomorphism'' theorem.  Take note that we use
+$\pi_\sim$ to denote the splitting
+$\pi_\sim\colon\alpha\to\faktor{\alpha}{\sim}$ induced by the congruence $\sim$
+on $\alpha$.
+
+\begin{prp}[Homomorphisms]
+	 Suppose $f\colon\alpha\to\beta$ is a splitting. There exists a unique
+	 congruence relation $\sim$ on $\alpha$ and a unique order isomorphism
+	 $\iota\colon\faktor{\alpha}{\sim}\to\beta$ that makes the following diagram
+	 commute:
 	\begin{equation}
 		\begin{tikzcd}
-	\alpha \arrow[rr, "\pi",rightarrow]&&   \faktor{\alpha}{\sim}\\
-	\\
-	 &&   \beta \arrow[from=uu,"\iota", dashrightarrow] \arrow[from=uull,"f"']
+			\alpha \arrow[r, "\pi_\sim",rightarrow]&   \faktor{\alpha}{\sim}\\
+			 &   \beta\arrow[from=u,"\iota", dashrightarrow]
+			 \arrow[from=ul,"f"']
 		\end{tikzcd}
 	\end{equation}
-	commute.
 \end{prp}
 \begin{proof}
-	The desired congruence relations is obtained in a manner familiar from algebra:  identify elements in $\alpha$ whenever they have the same image under $f$.  Borrowing a definition from universal algebra and lattice theory, we let $\sim$ be a binary relation whose underlying set of pairs is:
+	The desired congruence relations is obtained in a manner familiar from
+	algebra:  identify elements in $\alpha$ whenever they have the same image
+	under $f$.  Borrowing a definition from universal algebra and lattice
+	theory, we let $\sim$ be a binary relation such that:
 	\begin{equation}
-		\kernel f=\setbuild{(a,b)\in\domain{2}\alpha}{f(a)=f(b)}.
+		\sim{}=\kernel f=\setbuild{(a,b)\in\domain{2}\alpha}{f(a)=f(b)}.
 	\end{equation}
-	The required isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ is then given by $\iota\colon[a]\mapsto f(a)$, for each $a\in\alpha$.  That $\iota$ is well-defined follows simply from the definition of ${\sim}=\kernel f$.
 
-	We are now required to establish the uniquness of $\sim$ and $\iota$ in their respective roles.  By way of contradiction then, suppose $\sim_0$ is a congruence of $\alpha$ so that there exists a unique isomorphism $\iota_0$ that makes
+	The required isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ is then
+	given by $\iota\colon[a]\mapsto f(a)$, for each $a\in\alpha$.  That $\iota$
+	is well-defined follows simply from the definition of ${\sim}=\kernel f$.
+
+	We are now required to establish the uniquness of $\sim$ and $\iota$ in
+	their respective roles.  By way of contradiction then, suppose $\sim_0$ is a
+	congruence of $\alpha$ so that there exists a unique isomorphism $\iota_0$
+	that makes
         \begin{equation}
             \begin{tikzcd}
 		\alpha \arrow[rr, "\pi_0",rightarrow]&&   \faktor{\alpha}{\sim_0}\\
@@ -193,7 +211,8 @@ certain \textit{infinite} joins or meets.
 		 &&   \beta \arrow[from=uu,"\iota_0", dashrightarrow] \arrow[from=uull,"f"']
             \end{tikzcd}
         \end{equation}
-	commute.  This then clearly implies that ${\sim_0}=\ker f={\sim}$ and thus also $\iota_0=\iota$.
+	commute.  This then clearly implies that ${\sim_0}=\ker f={\sim}$ and,
+	consequently, also $\iota_0=\iota$.
 \end{proof}
 
 \section{Hausdorff's characterisation of the countable scattered linear orders}
