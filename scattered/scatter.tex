@@ -196,21 +196,21 @@ on $\alpha$.
 		\sim{}=\kernel f=\setbuild{(a,b)\in\domain{2}\alpha}{f(a)=f(b)}.
 	\end{equation}
 
-	The required isomorphism $\iota\colon\faktor{\alpha}{\sim}\to\beta$ is then
-	given by $\iota\colon[a]\mapsto f(a)$, for each $a\in\alpha$.  That $\iota$
-	is well-defined follows simply from the definition of ${\sim}=\kernel f$.
+	It is readily verified that the required isomorphism is given by
+	$\iota([a])=f(a)$, for each $a\in\alpha$.  That $\iota$ is well-defined
+	follows simply from the definition of ${\sim}=\kernel f$.
 
-	We are now required to establish the uniquness of $\sim$ and $\iota$ in
-	their respective roles.  By way of contradiction then, suppose $\sim_0$ is a
-	congruence of $\alpha$ so that there exists a unique isomorphism $\iota_0$
-	that makes
-        \begin{equation}
-            \begin{tikzcd}
-		\alpha \arrow[rr, "\pi_0",rightarrow]&&   \faktor{\alpha}{\sim_0}\\
-		\\
-		 &&   \beta \arrow[from=uu,"\iota_0", dashrightarrow] \arrow[from=uull,"f"']
-            \end{tikzcd}
-        \end{equation}
+	We are now required to establish the uniqueness of $\sim$ and $\iota$ in
+	their respective roles.  Suppose $\sim_0$ is a congruence on $\alpha$ and
+	there exists a unique isomorphism $\iota_0$ that makes
+	\begin{equation}
+		\begin{tikzcd}
+			\alpha\arrow[r, "\pi_{\sim_0}",rightarrow]&
+			\faktor{\alpha}{\sim_0}\\
+			 &   \beta\arrow[from=u,"\iota", dashrightarrow]
+			 \arrow[from=ul,"f"']
+		\end{tikzcd}
+	\end{equation}
 	commute.  This then clearly implies that ${\sim_0}=\ker f={\sim}$ and,
 	consequently, also $\iota_0=\iota$.
 \end{proof}
