@@ -300,46 +300,15 @@ readily extends to the class of \text{all} scattered linear orders.
 	orders.  Therefore we must have $\alpha\in\scattered$, as requred.
 \end{proof}
 
-\iffalse\begin{lem}
-        If $\alpha\in\VD$ and $\beta\subseteq\alpha$ is convex in $\alpha$ then $\beta\in\VD$.
+\begin{lem}\label{prp:sctvd}
+	If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is very discrete.
 \end{lem}
-
-\begin{proof}
-	 We argue by induction on  $\vdrank(\alpha)$.  The case $\vdrank(\alpha)=0$ is trivial so suppose that $\beta\subseteq\alpha$ and $\beta$ convex in $\alpha$ imply $\beta\in\VD$ whenever $\vdrank(\alpha)<\gamma<\omega_1$.  Suppose now that $\vdrank(\alpha)=\gamma$ and $\beta\subseteq\alpha$ is convex in $\alpha$.  By definition, for each $i\in\zeta$ there must exist $\alpha_i\in\VD_{\gamma_i}$, for some $\gamma_i<\gamma$, such that
-	\begin{equation}
-	    \alpha=\sum_{i\in\zeta}\alpha_i.
-	\end{equation}
-	Now define $\beta_i=\beta\cap\alpha_i$ for each $i\in I$.  For each $i\in\zeta$, since $\beta_i$ is convex in $\alpha_i$ and $\vdrank(\alpha_i)<\gamma$, it follows that $\beta_i\in\VD$.  However, note that
-	\begin{equation}
-	    \beta=\sum_{i\in\zeta}\beta_i.
-	\end{equation}
-	Therefore, by definition of $\VD$ it follows that $\beta\in\VD$.
-\end{proof}\fi
-
-    \begin{lem}\label{prp:sctvd}
-        If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is very discrete.
-    \end{lem}
 
 \begin{proof}
     Suppose $\alpha\in\scattered$ is countable and define a relation $R$ on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$ whenever $a\leq b$ and $[a,b]$ is very discrete.  Note that $R$ is transitive and thus, by Lemma (\ref{lem:IndCong}), it induces a congruence relation $\sim$ on $\domain\alpha$.
 
         Define the condensation $\beta=\faktor{\alpha}{\sim}$.  If $\card{\beta}=1$ then there is nothing to prove so we may assume $\card{\beta}>1$.  By definition of $\VD$, it now suffices to show that $\beta\embed\zeta$ since every $\alpha\in\beta$ is very discrete simply by definition of $\sim$.  We will suppose to the contrary that $\beta\not\embed\zeta$.  Consequently, $\beta$ must be infinite.
 \end{proof}
-
-    	\iffalse\begin{prp}\label{prp:splitfix}
-		Suppose $\Lambda$ is the lattice of condensations of the linear order $\alpha$.  Define $S$ to be the functor that takes each factor map $f\colon\alpha\to\beta$ to the splitting $S(f)\colon\alpha\to\faktor{\alpha}{\sim_\beta}$, for some congruence $\sim_\beta$ on $\alpha$, such that the unique isomorphism $\iota_\beta\colon\faktor{\alpha}{\sim_\beta}\to\beta$ makes the diagram
-		\begin{equation}
-			\begin{tikzcd}
-				\alpha\arrow[rr,"S(f)"]&&\faktor{\alpha}{\sim_\beta}\arrow[dd,"\iota_\beta",dashrightarrow]\\
-				\\
-						       &&\beta\arrow[from=lluu,"f"]
-			\end{tikzcd}
-		\end{equation}
-		commute.  If $\beta\in\Lambda$ is a minimal fixed point of $S^\prime=S\fsplit[-]$, and $\beta$ is not trivially dense then $\beta\in\Dense$.
-		\begin{enumerate}
-			.
-		\end{enumerate}
-	\end{prp}\fi
 
 \begin{thm}[Hausdorff's Theorem]
 	A linear order $\alpha$ is countable and  scattered iff it is very discrete.
