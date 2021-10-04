@@ -272,20 +272,32 @@ readily extends to the class of \text{all} scattered linear orders.
 \end{dfn}
 
 \begin{dfn}[$\VD$-rank]
-        If $\alpha$ is a very discrete linear order then its $\bm{\mathcal{VD}}$\textbf{-rank} $\vdrank(\alpha)$ is the least ordinal $\beta$ such that $\alpha\in\VD_{\beta}$.
+		If $\alpha$ is a very discrete linear order then its
+		$\bm{\mathcal{VD}}$\textbf{-rank} $\vdrank(\alpha)$ is the least ordinal
+		$\beta$ such that $\alpha\in\VD_{\beta}$.
 \end{dfn}
 
 \begin{lem}\label{prp:vdsct}
-	Every very discrete linear order is scattered.  That is to say that $\VD\subseteq\scattered$.
+	Every very discrete linear order is scattered.  That is to say
+	$\VD\subseteq\scattered$.
 \end{lem}
 \begin{proof}
-	We argue by transfinite induction on $\gamma$ that $\VD_\gamma\subseteq\scattered$.  Finite linear orders are (trivially) scattered and thus $\zero,\one\in\scattered$.
+	We argue by transfinite induction on $\gamma$ that
+	$\VD_\gamma\subseteq\scattered$.  Finite linear orders are (trivially)
+	scattered and thus $\VD_0\subseteq\scattered$.
 
-	Assume now that for all ordinals $\gamma<\delta<\omega_1$ that $\VD_\gamma\subseteq\scattered$.  By definition, if $\vdrank(\alpha)=\delta$ then there exists for each $i\in\zeta$ an $\alpha_i\in\VD_{\gamma_i}$, for some ordinal $\gamma_i<\delta$, such that
+	Fix $\delta<\omega_1$ and assume $\VD_\gamma\subseteq\scattered$, for each
+	$\gamma<\delta$.  By definition, if $\vdrank(\alpha)=\delta$ then there
+	exists, for each $i\in\zeta$, an $\alpha_i\in\VD_{\gamma_i}$, for some
+	ordinal
+	$\gamma_i<\delta$, such that
 	\begin{equation}
 		\alpha=\sum_{i\in\zeta}\alpha_i.
 	\end{equation}
-	It now follows from proposition (\ref{prp:OpScattered}) and the inductive hypothesis that $\alpha$ is a scattered sum of scattered linear orders and therefore we must have $\alpha\in\scattered$.
+
+	It follows from Proposition \ref{prp:OpScattered}, as well as the
+	inductive hypothesis, that $\alpha$ is a scattered sum of scattered linear
+	orders.  Therefore we must have $\alpha\in\scattered$, as requred.
 \end{proof}
 
 \iffalse\begin{lem}
@@ -336,7 +348,7 @@ readily extends to the class of \text{all} scattered linear orders.
 
 	\forward\	This is Lemma (\ref{prp:sctvd}).
 
-	\backward\	This is proposition (\ref{prp:vdsct}).
+	\backward\	This is Proposition (\ref{prp:vdsct}).
 \end{proof}
 
 
@@ -419,7 +431,7 @@ readily extends to the class of \text{all} scattered linear orders.
 	\begin{equation}
 		\forall x\forall y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\rightarrow\exists w(x<w<y\wedge\neg\varphi(x,w,\bar{z})\wedge\neg\varphi(w,y,\bar{z}))\big)
 	\end{equation}
-	which formalises the statement: ``the condensation which is induced by the congruence, defined by the formula $\varphi$, is dense'' and let each $\epsilon_\varphi(\bar{z})$ be defined as in proposition \ref{prp:dcform}.  It then holds that:
+	which formalises the statement: ``the condensation which is induced by the congruence, defined by the formula $\varphi$, is dense'' and let each $\epsilon_\varphi(\bar{z})$ be defined as in Proposition \ref{prp:dcform}.  It then holds that:
 	\begin{enumerate}
 		\item the theory $\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\neg\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$ axiomatises $\Th(\scattered)$, i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
 
@@ -472,7 +484,7 @@ readily extends to the class of \text{all} scattered linear orders.
 	\end{equation}
 \end{prp}
 \begin{proof}
-	Dualise the argument in the proof of proposition \ref{prp:M0sum}.
+	Dualise the argument in the proof of Proposition \ref{prp:M0sum}.
 \end{proof}
 
 \begin{prp}\label{prp:M0sumint}
@@ -482,7 +494,7 @@ readily extends to the class of \text{all} scattered linear orders.
 	\end{equation}
 \end{prp}
 \begin{proof}
-	Choose any fixed $a_0\in\alpha_0$ and define $\alpha=\sum_{i\in\zeta}\alpha_i$ apply propositions \ref{prp:M0sum} and \ref{prp:M0sum} respectively to $\alpha^{>a_0}$ and $\alpha^{<a_0}$ to obtain their (respective $n$-equivelants $\beta^+\in\Mzero$ and $\beta^-\in\Mzero$.  It then follows, since $\Mzero$ is closed under finite sums, that if $\beta=\beta^-+\one+\beta^+$ then $\alpha\nequiv{n}\beta$, as required.
+	Choose any fixed $a_0\in\alpha_0$ and define $\alpha=\sum_{i\in\zeta}\alpha_i$ apply Propositions \ref{prp:M0sum} and \ref{prp:M0sum} respectively to $\alpha^{>a_0}$ and $\alpha^{<a_0}$ to obtain their (respective $n$-equivelants $\beta^+\in\Mzero$ and $\beta^-\in\Mzero$.  It then follows, since $\Mzero$ is closed under finite sums, that if $\beta=\beta^-+\one+\beta^+$ then $\alpha\nequiv{n}\beta$, as required.
 \end{proof}
 
 \begin{thm}[L\"auchli and Leonard]
@@ -495,7 +507,7 @@ readily extends to the class of \text{all} scattered linear orders.
 	\begin{equation}
 		\alpha=\sum_{i\in\zeta}\alpha_i.
 	\end{equation}
-	By the induction hypothesis there exists, for each $i\in\ints$, some $\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.  It now follows from Lemma \ref{lem:fvsum}, if we choose $\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that $\alpha\nequiv{n}\alpha^\prime$.  According to proposition \ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that $\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as required.
+	By the induction hypothesis there exists, for each $i\in\ints$, some $\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.  It now follows from Lemma \ref{lem:fvsum}, if we choose $\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that $\alpha\nequiv{n}\alpha^\prime$.  According to Proposition \ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that $\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as required.
 \end{proof}
 
 \begin{prp}
