@@ -116,6 +116,7 @@ $\trclos(R)$ is the smallest (w.r.t.\ set inclusion) transitive binary relation
 containing $R$ as a subset.
 
 \begin{prp}[Congruence lattices]
+	\label{prp:conlat}
 	Let $\con \alpha\subseteq\powerset{\domain{2}\alpha}$ be the set of all
 	congruences on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
 	\begin{align}
@@ -300,14 +301,51 @@ readily extends to the class of \text{all} scattered linear orders.
 	orders.  Therefore we must have $\alpha\in\scattered$, as requred.
 \end{proof}
 
+Suppose $\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is a splitting. Define $\pi^0$
+to be the splitting $a\mapsto\set{a}$ and let $\pi^1=\pi$. Now choose $\delta$
+to be some limit ordinal and assume $\pi^\gamma$ has been defined for all
+$\gamma<\delta$.
+
+Recall from Proposition \ref{prp:conlat} that, given any linear order $\alpha$,
+the lattice $\con\alpha$ is complete.  Hence, if $\sim_\gamma$ is the congruence
+of $\alpha$ induced by $\pi_\gamma$, for each $\gamma<\delta$, we may define
+$\sim_\delta=\bigvee_{\gamma<\delta}\sim_\gamma$ and choose $\pi_\delta$ to be
+the (corresponding) induced splitting of $\alpha$.
+
+Note that there necessarily exists a least ordinal $\beta$ with the property:
+for every ordinal $\delta\geq\beta$, there exists an isomorphism $\iota$ such
+that the diagram
+\begin{equation}
+	\begin{tikzcd}
+		\alpha\arrow[dd,"{\pi^\beta}"']\arrow[rdd,"{\pi^\delta}"]&\\
+									 &\\
+		\faktor{\alpha}{\sim_\beta}\arrow[r,"{\iota}"]&\faktor{\alpha}{\sim_\delta}
+	\end{tikzcd}
+\end{equation}
+commutes.  In the special case $\pi=\fsplit$ we refer to $\beta$ as the
+\textit{Hausdorff rank} of $\alpha$ and denote it by $\hrank(\alpha)$.
+
 \begin{lem}\label{prp:sctvd}
 	If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is very discrete.
 \end{lem}
 
 \begin{proof}
-    Suppose $\alpha\in\scattered$ is countable and define a relation $R$ on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$ whenever $a\leq b$ and $[a,b]$ is very discrete.  Note that $R$ is transitive and thus, by Lemma (\ref{lem:IndCong}), it induces a congruence relation $\sim$ on $\domain\alpha$.
+	Suppose $\alpha\in\scattered$ is at most countable and define a relation $R$
+	on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$
+	whenever $a\leq b$ and $[a,b]$ is very discrete.
 
-        Define the condensation $\beta=\faktor{\alpha}{\sim}$.  If $\card{\beta}=1$ then there is nothing to prove so we may assume $\card{\beta}>1$.  By definition of $\VD$, it now suffices to show that $\beta\embed\zeta$ since every $\alpha\in\beta$ is very discrete simply by definition of $\sim$.  We will suppose to the contrary that $\beta\not\embed\zeta$.  Consequently, $\beta$ must be infinite.
+	Note that $R$ is transitive and thus, by Lemma \ref{lem:IndCong}, it induces
+	a congruence relation $\sim$ on $\domain\alpha$.
+
+	Define the condensation $\beta=\faktor{\alpha}{\sim}$.  If $\beta$ is finite
+	then it trivially follows that $\beta$ is very discrete as it can be written
+	as a $\zeta$-sum of terms almost all (i.e.\ all but a finite number) of
+	which are zero.  Hence, we suppose instead that $\beta$ is infinite.
+
+	By definition of $\VD$, it now suffices to show that $\beta\embed\zeta$
+	since every $\alpha\in\beta$ is very discrete simply by definition of
+	$\sim$.  We will suppose to the contrary that $\beta\not\embed\zeta$.
+	Consequently, $\beta$ must be infinite.
 \end{proof}
 
 \begin{thm}[Hausdorff's Theorem]
