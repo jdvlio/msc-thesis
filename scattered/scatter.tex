@@ -307,10 +307,10 @@ to be some limit ordinal and assume $\pi^\gamma$ has been defined for all
 $\gamma<\delta$.
 
 Recall from Proposition \ref{prp:conlat} that, given any linear order $\alpha$,
-the lattice $\con\alpha$ is complete.  Hence, if $\sim_\gamma$ is the congruence
-of $\alpha$ induced by $\pi_\gamma$, for each $\gamma<\delta$, we may define
-$\sim_\delta=\bigvee_{\gamma<\delta}\sim_\gamma$ and choose $\pi_\delta$ to be
-the (corresponding) induced splitting of $\alpha$.
+the lattice $\con\alpha$ is complete.  Hence, if $\delta$ is a limit ordinal
+$\sim_\gamma$ is the congruence of $\alpha$ induced by $\pi_\gamma$, for each
+$\gamma<\delta$, we may define $\sim_\delta=\bigvee_{\gamma<\delta}\sim_\gamma$
+and choose $\pi_\delta$ to be the (corresponding) induced splitting of $\alpha$.
 
 Note that there necessarily exists a least ordinal $\beta$ with the property:
 for every ordinal $\delta\geq\beta$, there exists an isomorphism $\iota$ such
@@ -325,37 +325,53 @@ that the diagram
 commutes.  In the special case $\pi=\fsplit$ we refer to $\beta$ as the
 \textit{Hausdorff rank} of $\alpha$ and denote it by $\hrank(\alpha)$.
 
+\begin{lem}
+	Suppose $\alpha$ is a countable linear order then the following holds:
+	\begin{enumerate}
+		\item	if $\alpha$ is very discrete and $\delta$ is a convex subset of
+				$\alpha$ then $\delta$ is a very discrete linear order.
+		\item	if $\alpha$ is scattered, $\rho=\hrank(\alpha)$ is a limit
+				ordinal and
+				\begin{equation}
+					\lim_{i<\omega}\rho_i=\rho
+				\end{equation}
+				then, for every $a<b$ in $\alpha$, there exists an $n<\omega$
+				such that $b\in\fsplit^{\rho_i}(a)$ and
+				$a\in\fsplit^{\rho_i}(b)$ whenever $i\geq n$.
+	\end{enumerate}
+\end{lem}
+
 \begin{lem}\label{prp:sctvd}
 	If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is very discrete.
 \end{lem}
-
 \begin{proof}
 	Suppose $\alpha\in\scattered$ is at most countable and define a relation $R$
 	on $\domain{}\alpha$ such that, for every $a,b\in\alpha$, we have $aRb$
-	whenever $a\leq b$ and $[a,b]$ is very discrete.
+	whenever $a\leq b$ and $[a,b]$ is finite.  Note that $R$ is transitive and
+	thus, by Lemma \ref{lem:IndCong}, it induces a congruence relation $\sim$ on
+	$\domain{}\alpha$.
 
-	Note that $R$ is transitive and thus, by Lemma \ref{lem:IndCong}, it induces
-	a congruence relation $\sim$ on $\domain\alpha$.
+	Define the condensation $\beta=\faktor{\alpha}{\sim}$ and argue by
+	transfinite induction on $\hrank(\alpha)$.  If $\hrank(\alpha)=0$ then it
+	follows immediately that $\alpha\embed\zeta$ and thus $\alpha\in\VD$.
 
-	Define the condensation $\beta=\faktor{\alpha}{\sim}$.  If $\beta$ is finite
-	then it trivially follows that $\beta$ is very discrete as it can be written
-	as a $\zeta$-sum of terms almost all (i.e.\ all but a finite number) of
-	which are zero.  Hence, we suppose instead that $\beta$ is infinite.
+	Assume the result holds for each $\gamma<\rho=\hrank(\alpha)$ and consider
+	the case where $\rho=\rho_0+1$.  It follows that
+	$\pi_{\rho_0}[\alpha]\embed\zeta$ and thus $\alpha$ can be written as a
+	$\zeta$-sum of members of $\beta$.  This implies that $\alpha$ is very
+	discrete, since $\hrank(\xi)<\rho$ whenever $\xi\in\beta$.
 
-	By definition of $\VD$, it now suffices to show that $\beta\embed\zeta$
-	since every $\alpha\in\beta$ is very discrete simply by definition of
-	$\sim$.  We will suppose to the contrary that $\beta\not\embed\zeta$.
-	Consequently, $\beta$ must be infinite.
+	Suppose now that $\rho$ is a limit ordinal.
 \end{proof}
 
 \begin{thm}[Hausdorff's Theorem]
-	A linear order $\alpha$ is countable and  scattered iff it is very discrete.
+	A linear order $\alpha$ is countable and scattered iff it is very discrete.
 \end{thm}
 \begin{proof}
 
-	\forward\	This is Lemma (\ref{prp:sctvd}).
+	\forward\	Lemma \ref{prp:sctvd}.
 
-	\backward\	This is Proposition (\ref{prp:vdsct}).
+	\backward\	Proposition \ref{prp:vdsct}.
 \end{proof}
 
 
