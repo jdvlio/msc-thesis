@@ -393,6 +393,7 @@ This is the desired contradiction.  Therefore, we may conclude that
 $\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
 
 \begin{lem}
+	\label{lem:consplit}
 	Suppose $\alpha$ is a countable linear order then the following holds:
 	\begin{enumerate}
 		\item if $\alpha$ is very discrete and $\delta$ is a convex subset of
@@ -479,7 +480,36 @@ $\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
 	$\zeta$-sum of members of $\beta$.  This implies that $\alpha$ is very
 	discrete, since $\hrank(\xi)<\rho$ whenever $\xi\in\beta$.
 
-	Suppose now that $\rho$ is a limit ordinal.
+	Suppose now that $\rho$ is a limit ordinal then there exists a (strictly)
+	increasing sequence
+	$\family{\rho_i}{i<\omega}$ of ordinals such that
+	$\lim_{i<\omega}\rho_i=\rho$.  Fix some $a_0\in\alpha$ and construct a
+	sequence $\family{a_i}{i<\omega}$ as follows.  If $a_i$ has been defined for
+	some $i<\omega$ then choose $a_{i+1}$ such that $a_{i+1}=a_i$ whenever
+	\begin{equation}
+		\up{a_0}\cap\pi^{\rho_{i+1}}(a_i)=\up{a_0}\cap\pi^{\rho_i}(a_i),
+	\end{equation}
+	otherwise, let
+	$a_{i+1}\in\up{a_0}\cap(\pi^{\rho_{i+1}}(a_i)\setminus\pi^{\rho_i}(a_i))$.
+
+	In a similar fashion, construct a sequence $\family{a_{-i}}{i<\omega}$ in
+	$\down{a_0}$.  Define the indexed family $\family{I_j}{j\in\zeta}$
+	such that
+	\begin{equation}
+		I_j=\begin{cases}
+			\set{a_0}&\text{if }j=0,\\
+			(a_{j-1},a_j]&\text{if }j>0,\\
+			[a_j,a_{j+1})&\text{if }j<0.
+		\end{cases}
+	\end{equation}
+	It follows from Lemma \ref{lem:consplit} that each $I_j$, for $i\in\ints$,
+	is very discrete and we must have $\bigcup_{j\in\ints} I_j=\domain{}\alpha$.
+	We may therefore write
+	\begin{equation}
+		\alpha=\sum_{j\in\zeta}I_j
+	\end{equation}
+	and thus conclude, by definition, that $\alpha$ is indeed a very discrete
+	linear order.
 \end{proof}
 
 \begin{thm}[Hausdorff's Theorem]
