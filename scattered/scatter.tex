@@ -302,15 +302,17 @@ readily extends to the class of \text{all} scattered linear orders.
 \end{proof}
 
 Suppose $\pi\colon\alpha\to\faktor{\alpha}{\sim}$ is a splitting. Define $\pi^0$
-to be the splitting $a\mapsto\set{a}$ and let $\pi^1=\pi$. Now choose $\delta$
-to be some limit ordinal and assume $\pi^\gamma$ has been defined for all
-$\gamma<\delta$.
+to be the splitting $a\mapsto\set{a}$ and let $\pi^1=\pi$.  If $\pi^\gamma$ has
+been defined and $\pi^\prime$ is the finite splitting of
+$\faktor{\alpha}{\sim_\gamma}$ then let
+$\pi^{\gamma+1}=\pi^\prime\circ\pi^\gamma$.  Now choose $\delta$ to be some
+limit ordinal and assume $\pi^\gamma$ has been defined for all $\gamma<\delta$.
 
 Recall from Proposition \ref{prp:conlat} that, given any linear order $\alpha$,
-the lattice $\con\alpha$ is complete.  Hence, if $\delta$ is a limit ordinal
-$\sim_\gamma$ is the congruence of $\alpha$ induced by $\pi_\gamma$, for each
-$\gamma<\delta$, we may define $\sim_\delta=\bigvee_{\gamma<\delta}\sim_\gamma$
-and choose $\pi_\delta$ to be the (corresponding) induced splitting of $\alpha$.
+the lattice $\con\alpha$ is complete.  Hence, $\sim_\gamma$ is the congruence of
+$\alpha$ induced by $\pi_\gamma$, for each $\gamma<\delta$, we may define
+$\sim_\delta=\bigvee_{\gamma<\delta}\sim_\gamma$ and choose $\pi_\delta$ to be
+the (corresponding) induced splitting of $\alpha$.
 
 Note that there necessarily exists a least ordinal $\beta$ with the property:
 for every ordinal $\delta\geq\beta$, there exists an isomorphism $\iota$ such
@@ -325,24 +327,140 @@ that the diagram
 commutes.  In the special case $\pi=\fsplit$ we refer to $\beta$ as the
 \textit{Hausdorff rank} of $\alpha$ and denote it by $\hrank(\alpha)$.
 
+\begin{prp}
+	If $\alpha$ is a linear order, $\beta<\hrank(\alpha)$ is a limit ordinal
+	and $\pi=\fsplit$ then it follows, for every $\gamma<\beta$, that there
+	exists a unique splitting
+	$h_\gamma\colon\faktor{\alpha}{\sim_\gamma}\to\faktor{\alpha}{\sim_\beta}$ so that
+	\begin{equation}
+		\begin{tikzcd}
+			\alpha\arrow[rd,"{\pi^\gamma}"]\arrow[dd,"{\pi^\beta}"']&\\
+			&\faktor{\alpha}{\sim_{\gamma}}\arrow[ld,dashrightarrow,"{h_\gamma}"]\\
+			\faktor{\alpha}{\sim_\beta}&
+		\end{tikzcd}
+	\end{equation}
+	commutes.
+\end{prp}
+\begin{proof}
+	Fix any $\gamma<\beta$ then note that, for any $a,b\in\alpha$,
+	\begin{equation}
+		a\sim_\gamma b\implies a\sim_\beta b.
+	\end{equation}
+	Denoting by $a_\gamma$ the equivalence class $[a]_{\sim_\gamma}$, for
+	$a\in\alpha$, it follows that the map $a_\gamma\mapsto\pi_\beta(a)$ is
+	well-defined.
+
+	Let $h_\gamma\colon\faktor{\alpha}{\sim_\gamma}\to\faktor{\alpha}{\sim_\beta}$ be
+	the map with the above action then the diagram in question commutes.  Since
+	$\pi_\gamma$ is surjective, it also follows that $h_\gamma$ is unique.
+
+	All that remains is to establish the surjectivity of $h_\gamma$.  To this
+	effect, it is sufficient to note: for every $a\in\alpha$ it holds that
+	$h_\gamma(a_{\gamma})=a_\beta$.
+
+\end{proof}
+
+Note, for a scattered linear order $\alpha$ and any ordinal
+$\beta\geq\hrank(\alpha)$, we necessarily have
+$\faktor{\alpha}{\sim_\beta}\cong\one$.  It is enough to argue that this is the
+case when $\beta=\hrank(\alpha)$ so suppose the contrary.
+
+By assumption there must exist some $a,b\in\alpha$ such that $a_\beta<b_\beta$.
+Since $\pi_\beta$ is surjective, it follows from the definition of $\beta$ that
+there exists a unique isomorphism
+$\iota\colon\faktor{\alpha}{\sim_\beta}\to\faktor{\alpha}{\sim_{\beta+1}}$ such
+that
+\begin{equation}
+	\begin{tikzcd}
+		\alpha\arrow[rd,"{\pi^\beta}"]\arrow[dd,"{\pi^{\beta+1}}"']&\\
+		&\faktor{\alpha}{\sim_{\beta}}\arrow[ld,dashrightarrow,"\iota"]\\
+		\faktor{\alpha}{\sim_{\beta+1}}&
+	\end{tikzcd}
+\end{equation}
+commutes.
+
+Since $\iota$ is injective it follows that $a_{\beta+1}<b_{\beta+1}$.  By
+definition of $\pi_{\beta+1}$, we may now conclude that the interval
+$[a_\beta,b_\beta]$, and thus also $I=(a_\beta,b_\beta)$, is infinite.
+
+Working towards a contradiction, we now argue that the interval $I$ is a dense
+linear order.  If $c_\beta<d_\beta$ both belong to $I$, for some $c,d\in\alpha$,
+then it follows from the injectivity of $\iota$ that $c_{\beta+1}<d_{\beta+1}$
+and, thus, $[c_\beta,d_\beta]$ is infinite.  Consequently, the open interval
+$(c_\beta,d_\beta)$ is nonempty, as required.
+
+This is the desired contradiction.  Therefore, we may conclude that
+$\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
+
 \begin{lem}
 	Suppose $\alpha$ is a countable linear order then the following holds:
 	\begin{enumerate}
-		\item	if $\alpha$ is very discrete and $\delta$ is a convex subset of
-				$\alpha$ then $\delta$ is a very discrete linear order.
-		\item	if $\alpha$ is scattered, $\rho=\hrank(\alpha)$ is a limit
-				ordinal and
-				\begin{equation}
-					\lim_{i<\omega}\rho_i=\rho
-				\end{equation}
-				then, for every $a<b$ in $\alpha$, there exists an $n<\omega$
-				such that $b\in\fsplit^{\rho_i}(a)$ and
-				$a\in\fsplit^{\rho_i}(b)$ whenever $i\geq n$.
+		\item if $\alpha$ is very discrete and $\delta$ is a convex subset of
+			$\alpha$ then $\delta$ is a very discrete linear order.
+		\item if $\alpha$ is scattered, $\hrank(\alpha)$ is a limit
+			ordinal $\rho>0$ and
+			\begin{equation}
+				\label{eq:limrank}
+				\lim_{i<\omega}\rho_i=\rho
+			\end{equation} then,
+			for every $a<b$ in $\alpha$, there exists an $n<\omega$ such that
+			$\fsplit^{\rho_i}(a)=\fsplit^{\rho_i}(b)$ whenever $i\geq n$.
 	\end{enumerate}
 \end{lem}
+\begin{proof}\leavevmode
+	\begin{enumerate}[topsep=0pt]
+		\item If $\vdrank(\alpha)=0$ then $\alpha$, and thus $\delta$, must be
+			finite so that the result holds trivially.
+
+			Suppose now that $\vdrank(\alpha)>0$ and assume the result holds for
+			all very discrete linear orders of $\VD$-rank less than
+			$\vdrank(\alpha)$.  It follows by definition that there exists
+			a family $\family{\alpha_i}{i\in\zeta}$ of very discrete linear
+			orders such that
+			\begin{equation}
+				\alpha=\sum_{i\in\zeta}\alpha_i.
+			\end{equation}
+
+			For each $i\in\zeta$, define $\delta_i=\delta\cap\alpha_i$.  We may
+			then conclude that
+			\begin{equation}
+				\delta=\sum_{i\in\zeta}\delta_i
+			\end{equation}
+			and, for each $i\in\zeta$, it holds that
+			$\delta_i\subseteq\alpha_i$.  From the inductive hypothesis the
+			result then readily follows.
+			\smallskip
+
+		\item Choose $\pi=\fsplit$ and let $\sim$ denote the induced congruence.
+			Define $\family{\rho_i}{i<\omega}$ to be a strictly increasing
+			sequence of ordinals such that (\ref{eq:limrank}) is
+			satisfied.
+
+			Choose the least $n<\omega$ such that
+			\begin{equation}
+				\hrank\left([a,b]\right)\leq\rho_n,
+			\end{equation}
+			and fix any $\delta=\rho_m$ such that $m\geq n$.  Note, if
+			$\sim^\prime$ denotes the congruence
+			$\sim_\delta\restriction[a,b]$ then it follows that
+			\begin{equation}
+				\faktor{[a,b]}{\sim^\prime}\cong
+				\left[\faktor{a}{\sim_\delta}\mathbin{,}\faktor{b}{\sim_\delta}\right].
+			\end{equation}
+			However, since $\alpha$ is scattered, it follows from part 1 that
+			the subinterval $[a,b]$ is also scattered.  Hence, we may conclude
+			that
+			\begin{equation}
+				\left[\faktor{a}{\sim_\delta}\mathbin{,}\faktor{b}{\sim_\delta}\right]\cong\one.
+			\end{equation}
+			Therefore, it follows that $\pi^\delta(a)=\pi^\delta(b)$, as
+			required.
+	\end{enumerate}
+\end{proof}
 
 \begin{lem}\label{prp:sctvd}
-	If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is very discrete.
+	If $\alpha\in\scattered$ and $\card{\alpha}\leq\aleph_0$ then $\alpha$ is
+	very discrete.
 \end{lem}
 \begin{proof}
 	Suppose $\alpha\in\scattered$ is at most countable and define a relation $R$
