@@ -23,6 +23,11 @@ of the countability of the underlying set.
 
 \section{Classical Ramsey Theorem}
 
+A formalisation is required of the aforementioned notion of ``uniformity''.
+This would be the essence of the following definition, formulated in terms of
+partitions.  These partitions are to be thought, of which there will be finitely
+many, are intended to represent the ``colours'' of the elements: two elements
+belong to the same member of the partition iff they share a colour.
 
 \begin{dfn}[Homogeneous set for a partition]
    If $A$ is a nonempty set and, for some $k\in\posnats$, $\mathcal{C}$ is a
@@ -31,10 +36,14 @@ of the countability of the underlying set.
    \mathcal{C}$ such that $\subsets{k}{X}\subseteq C$.
 \end{dfn}
 
+Rephrased in terms of colours, a set $X$ is homogeneous for a partition whenever
+$\subsets{k}{X}$ is a monochromatic subset of $\subsets{k}{\nats}$.  That is to
+say all its elements share the same colour.
+
 \begin{thm}[Ramsey's Theorem]
-	Suppose $\mathcal{C}$ is a finite partition of $[\nats]^k$, for some
-	$k\in\posnats$, then there exists an infinite set $X\subseteq\nats$ such
-	that $X$ is homogeneous for $\mathcal{C}$.
+	Suppose $\mathcal{C}$ is a finite partition of $\subsets{k}{\nats}$, for
+	some $k\in\posnats$, then there exists an infinite set $X\subseteq\nats$
+	such that $X$ is homogeneous for $\mathcal{C}$.
 \end{thm}
 \begin{proof}
 	We proceed by induction on $k$. If $k=1$ then there must exists an infinite
@@ -61,6 +70,15 @@ of the countability of the underlying set.
 	if we define $H^\prime=\setbuild{s[X]\cup\set{0}}{X\in\subsets{k}{H}}$ then
 	$H^\prime\subseteq C_0$, as required.
 \end{proof}
+
+Appealing to the imagination, a colouring of a countably infinite set always
+gives rise to an infinite monochromatic subset.  Thus, it is impossible to
+arrange the colours in such a manner that all the monochromatic subsets are
+finite.
+
+It would now be prudent to formally define the term \textit{colouring}.  This is
+done in terms of surjective maps and will serve in giving us a better (or at
+least different) view of certain concepts already introduced.
 
 \begin{dfn}[Colouring]\label{def:Col}
 	If $S$ is a nonempty set and $\card{C}=k\in\posnats$ then a
