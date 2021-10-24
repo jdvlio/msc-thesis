@@ -31,7 +31,7 @@ belong to the same member of the partition iff they share a colour.
 
 \begin{dfn}[Homogeneous set for a partition]
    If $A$ is a nonempty set and, for some $k\in\posnats$, $\mathcal{C}$ is a
-   parition of $\subsets{k}{A}$ then we will call $X\subseteq A$
+   partition of $\subsets{k}{A}$ then we will call $X\subseteq A$
    \textbf{homogeneous for the partition} $\mathcal{C}$ if there exists a $C\in
    \mathcal{C}$ such that $\subsets{k}{X}\subseteq C$.
 \end{dfn}
@@ -46,7 +46,7 @@ say all its elements share the same colour.
 	such that $X$ is homogeneous for $\mathcal{C}$.
 \end{thm}
 \begin{proof}
-	We proceed by induction on $k$. If $k=1$ then there must exists an infinite
+	We proceed by induction on $k$. If $k=1$ then there must exist an infinite
 	$C\in\mathcal{C}$ and thus $X=C$ is homogeneous for $\mathcal{C}$.
 
 	Suppose the result holds for $k\in\posnats$ and let
@@ -54,21 +54,21 @@ say all its elements share the same colour.
 	$\subsets{k+1}{\nats}$.  If we let $s\colon\nats\to\posnats$
 	be the successor map then $s$ is a bijection.
 
+	Without loss of generality we may assume $0\notin \bigcup C_i$ iff $n<i<m$.
 	Now define
 	\begin{equation}
 		B_i=\setbuild{s^{-1}[X]}{X\in\subsets{k}{\posnats}\text{ and
 		}X\cup\set{0}\in C_i},
 	\end{equation}
-	for each $i=0,\dotsc,m-1$.  Since $\mathcal{C}$ is a partition of
+	for each $i=0,\dotsc,n$.  Since $\mathcal{C}$ is a partition of
 	$\subsets{k+1}{\nats}$, $s(x)\neq 0$ for any $x\in\nats$ and $s^{-1}$ is
-	bijective it follows that $\mathcal{B}=\set{B_0,\dotsc,B_{m-1}}$ is a
+	bijective it follows that $\mathcal{B}=\set{B_0,\dotsc,B_n}$ is a
 	partition of $\subsets{k}{\nats}$.
 
 	By the inductive hypothesis there exists an infinite set $H\subseteq\nats$
 	which is homogeneous for $\mathcal{B}$.  Without loss of generality we may
-	assume $\subsets{k}{H}\subseteq B_0$.  Therefore, by definition of $B_0$,
-	if we define $H^\prime=\setbuild{s[X]\cup\set{0}}{X\in\subsets{k}{H}}$ then
-	$H^\prime\subseteq C_0$, as required.
+	assume $\subsets{k}{H}\subseteq B_0$.  Consequently, it follows by
+	definition that $s[H]\subseteq C_0$, as required.
 \end{proof}
 
 Appealing to the imagination, a colouring of a countably infinite set always
