@@ -41,37 +41,64 @@ $\subsets{k}{X}$ is a monochromatic subset of $\subsets{k}{\nats}$.  That is to
 say all its elements share the same colour.
 
 \begin{thm}[Ramsey's Theorem]
-	Suppose $\mathcal{C}$ is a finite partition of $\subsets{k}{\nats}$, for
-	some $k\in\posnats$, then there exists an infinite set $X\subseteq\nats$
-	such that $X$ is homogeneous for $\mathcal{C}$.
+	Suppose $\mathcal{C}$ is a finite partition of $\subsets{k}{X}$ and
+	$\card{X}=\aleph_0$, for some $k\in\posnats$, then there exists an infinite
+	set $H\subseteq\nats$ such that $H$ is homogeneous for $\mathcal{C}$.
 \end{thm}
 \begin{proof}
-	We proceed by induction on $k$. If $k=1$ then there must exist an infinite
-	$C\in\mathcal{C}$ and thus $X=C$ is homogeneous for $\mathcal{C}$.
+	Note that it is enough to consider the case $X=\nats$ and proceed by
+	induction on $k$. If $k=1$ then there must exist an infinite
+	$C\in\mathcal{C}$ and thus $H=C$ is homogeneous for $\mathcal{C}$.
 
 	Suppose the result holds for $k\in\posnats$ and let
-	$\mathcal{C}=\set{C_0,\dotsc,C_{m-1}}$ be a partition of
-	$\subsets{k+1}{\nats}$.  If we let $s\colon\nats\to\posnats$
-	be the successor map then $s$ is a bijection.
-
-	Without loss of generality we may assume $0\notin \bigcup C_i$ iff $n<i<m$.
-	Now define
+	$\mathcal{C}=\set{C_0,\dotsc,C_{p-1}}$ be a partition of
+	$\subsets{k+1}{\nats}$.  We proceed by recursively defining a sequence
+	$a=\family{a_i}{i<\omega}$ of natural numbers and a sequence
+	$\family{H_i}{i<\omega}$ of subsets of $\nats$ as follows.  For $i<p$,
+	$b\in\nats$ and $S\subseteq\nats$, the set $C_i(S,b)$ is defined by
 	\begin{equation}
-		B_i=\setbuild{s^{-1}[X]}{X\in\subsets{k}{\posnats}\text{ and
-		}X\cup\set{0}\in C_i},
+		C_i(b,S)=\setbuild{A\in\subsets{k}{S\setminus\set{b}}}{A\cup\set{b}\in
+		C_i}.
 	\end{equation}
-	for each $i=0,\dotsc,n$.  Since $\mathcal{C}$ is a partition of
-	$\subsets{k+1}{\nats}$, $s(x)\neq 0$ for any $x\in\nats$ and $s^{-1}$ is
-	bijective it follows that $\mathcal{B}=\set{B_0,\dotsc,B_n}$ is a
-	partition of $\subsets{k}{\nats}$.
 
-	By the inductive hypothesis there exists an infinite set $H\subseteq\nats$
-	which is homogeneous for $\mathcal{B}$.  Without loss of generality we may
-	assume $\subsets{k}{H}\subseteq B_0$.  Consequently, it follows by
-	definition that $s[H]\subseteq C_0$, as required.
+	Choose $a_0=0$ and $H_0=\nats\setminus\set{0}$.  Now assume $a_j$ and $H_j$
+	have been defined, for some $j<\omega$, and that $H_j$ is infinite.  Define
+	$a_{j+1}$ to be the least element of $H_j$ then
+	\begin{equation}
+		\mathcal{B}_{j+1}=\setbuild{C_i\big(a_{j+1},H_j\big)}{
+		i<p}\setminus\set{\emptyset}
+	\end{equation}
+	is a partition of $\subsets{k}{H_j\setminus\set{a_{j+1}}}$.
+
+	From the inductive hypothesis, there exists an infinite $H_{j+1}\subseteq
+	H_j\setminus\set{a_{j+1}}$ such that $H_{j+1}$ is homogeneous for
+	$\mathcal{B}_{j+1}$.  This completes the recursive definition so that all that
+	remains is to show that the set
+	\begin{equation}
+		H=\setbuild{a_i}{0<i<\omega}
+	\end{equation}
+	is homogeneous for $\mathcal{C}$.
+
+	Without loss of generality, we may assume it holds that
+	\begin{equation}
+		\subsets{k}{H_1}\subseteq C_0(a_1,H_0)
+	\end{equation}
+	and thus $\subsets{k}{H_1}\subseteq C_0$.  Consequently, it follows by
+	definition that $\subsets{k}{H_j}\subseteq C_0$, for all $j>0$.
+
+	By construction, for each $j>0$, all sets which are of the form
+	$X\cup\set{a_j}$, for some $X\in\subsets{k+1}{H_{j+1}}$, must necessarily be
+	members of $C_0$.  Now, suppose $X\in\subsets{k}{H}$ and let $b$ be the
+	least element of $X$.  Define $X_0=X\setminus\set{b}$ and note that there
+	exists some $j_0>0$ such that $b=a_{j_0}$.
+
+	Since $a$ is clearly (strictly) increasing, the members of $X_0$ all occur
+	in the sequence $a$ at some point after the index $j_0$. Therefore,
+	$X_0\in\subsets{k}{H_{j+1}}$ and thus we may conclude that $X\in C_0$.  This
+	then proves that $\subsets{k+1}{H}\subseteq C_0$, as required.
 \end{proof}
 
-Appealing to the imagination, a colouring of a countably infinite set always
+In an appeal to the imagination, a colouring of a countably infinite set always
 gives rise to an infinite monochromatic subset.  Thus, it is impossible to
 arrange the colours in such a manner that all the monochromatic subsets are
 finite.
