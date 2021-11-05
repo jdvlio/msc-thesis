@@ -365,43 +365,30 @@ given that the first one is blue and the second red.
 	in $\delta$.  Note that there exists a cofinal sequence
 	$(\delta_\gamma)_{\gamma<\beta}$ in $I_d$.
 
-	Now, continuing with the recursion, assume $\alpha_\gamma\in C$ has been
-	defined for each $\gamma<\epsilon$ and some ordinal
-	$\epsilon<\beta=\cf(\delta)$.  We suppose, whenever $\gamma<\xi<\epsilon$
-	and $\gamma^\prime<\xi^\prime<\epsilon$, that
+	Now, continuing the recursion, choose $\alpha_1$ to be the least member of
+	$I_d$ and assume $\alpha_\gamma\in I_d$ has been defined for each
+	$\gamma<\epsilon$ and some ordinal $\epsilon<\beta=\cf(\delta)$.  We
+	suppose, whenever $\gamma<\xi<\epsilon$ and
+	$\gamma^\prime<\xi^\prime<\epsilon$, that
 	\begin{equation}
 		f(\alpha_\gamma,\alpha_\xi)=f(\alpha_{\gamma^\prime},\alpha_{\xi^\prime}).
 	\end{equation}
-
-	Note for each $\gamma<\xi<\epsilon$, by definition of $\sim$, there exists a
-	least $\sigma_{\gamma,\xi}\in C$ such that
-	\begin{equation}
-		f(\alpha_\gamma,\sigma_{\gamma,\xi})=f(\alpha_\xi,\sigma_{\gamma,\xi}).\label{eq:add}
-	\end{equation}
-	For each $\xi<\epsilon$, since $\xi<\beta$, the transfinite sequence is
-	bounded above in $C$ and we may thus define
-	\begin{equation}
-			\sigma_\xi=\sup_{\gamma<\xi}\sigma_{\gamma,\xi}.
+	For each $\gamma<\xi<\epsilon$ define $\sigma_{\gamma,\xi}$ to be the least
+	member of $C$ such that
+	\begin{equation}\label{eq:addram}
+		f(\alpha_\gamma,\sigma_{\gamma,\xi})=f(\alpha_\xi,\sigma_{\gamma,\xi}).
 	\end{equation}
 
-	Let $\alpha_\epsilon\in C$ such that
-	\begin{equation}
-		\alpha_\epsilon=\sup\setbuild{\sigma_{\xi}}{\xi<\epsilon}.
-	\end{equation}
-	We are now required to show, for each $\gamma<\xi<\epsilon$, it holds
-	that
+	Choose $\alpha_\epsilon$ to be the first $\delta_\gamma$ such that
+	$\gamma\geq\epsilon$ and
+	$\delta_\gamma>\sup\setbuild{\sigma_{\nu,\xi}}{\nu<\xi<\epsilon}$.
+	Consequently, for each $\gamma<\xi<\epsilon$, it follows from
+	(\ref{eq:addram}) and the additivity of $f$ that
 	\begin{equation}
 		f(\alpha_\gamma,\alpha_\epsilon)=f(\alpha_\xi,\alpha_\epsilon).
 	\end{equation}
-
-	Fix any $\gamma<\xi<\epsilon$, then it follows from (\ref{eq:add}) and the
-	additivity of $f$ that
-	\begin{equation}
-		f(\alpha_\gamma,\alpha_\epsilon)=f(\alpha_\xi,\alpha_\epsilon).
-	\end{equation}
-	As intended, it follows immediately from the definition of
-	$\family{\alpha_\gamma}{\gamma<\beta}$ that it is a homogeneous sequence for
-	$f$.
+	It now follows from the construction that the transfinite sequence
+	$\family{\alpha_\gamma}{\gamma<\beta}$ is homogeneous for $f$.
 \end{proof}
 
 \begin{rem}
