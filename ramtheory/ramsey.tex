@@ -113,15 +113,14 @@ least different) view of certain concepts already introduced.
 \end{dfn}
 
 Note that if $\mathcal{C}$ is some partition of a nonempty set $S$ then there
-exists a unique surjection $f\colon S\to \mathcal{C}$ such that
-$\mathcal{C}=\setbuild{f^{-1}[X]}{X\in \mathcal{C}}$. Since every surjection
-$f\colon A\to B$ induces a partition of its domain $A$, by taking
-$\mathcal{C}=\setbuild{f^{-1}[x]}{x\in B}$, this justifies the following
-definition:
+exists a unique surjection $f\colon S\to \mathcal{C}$ such that $x\in f(x)$, for
+each $x\in S$. Since every surjection $f\colon A\to B$ induces a partition of
+its domain $A$, by taking $\mathcal{C}=\setbuild{f^{-1}[x]}{x\in B}$, this
+justifies the following definition:
 
 \begin{dfn}[Homogeneous set for a colouring]
 	Suppose $A$ is a nonempty set and $f\colon A\to C$ is a colouring.  We call
-	$X\subseteq A$ \textbf{homogeneous for} $f$ whenever there exists a $c\in
+	$X\subseteq A$ \textbf{homogeneous for} $\bm{f}$ whenever there exists a $c\in
 	C$ such that $X\subseteq f^{-1}[c]$ or, equivalently, $f(x)=f(y)$ for every
 	$x,y\in X$.
 \end{dfn}
@@ -131,7 +130,7 @@ $\bar{a}\in A^k$ is \textit{increasing} whenever its components form an
 increasing sequence i.e.\ it holds that $a_0<\dotsb<a_{k-1}$.
 
 Denote the set of increasing $k$-tuples of $A$ as $A^+(k)$ and let $f\colon
-\subsets{k}{A}\to C$ be some arbitrary $k$-colouring of $A$.  Defining the map
+\subsets{k}{A}\to C$ be some arbitrary colouring of $A$.  Defining the map
 $\tau_f\colon A^+(k)\to C$ such that
 $\tau_f(a_0,\dotsc,a_{k-1})=f(\set{a_0,\dotsc,a_{k-1}})$, for
 $(a_0,\dotsc,a_{k-1})\in A^+(k)$, there exists a unique bijection $h\colon
@@ -142,12 +141,13 @@ $(a_0,\dotsc,a_{k-1})\in A^+(k)$, there exists a unique bijection $h\colon
 		& C
 	\end{tikzcd}
 \end{center}
-commutes.  The unconvinced reader need only consider the map
+commutes.  The unconvinced reader need only consider the function $h$ inverse
+to:
 \begin{equation}
-	h\colon\set{a_0,\dotsc,a_{k-1}}\mapsto(a_0,\dotsc,a_{k-1})
+	(a_0,\dotsc,a_{k-1})\mapsto\set{a_0,\dotsc,a_{k-1}}.
 \end{equation}
-and noting that the surjectivity of $\tau_f$ guarantees the uniqueness of $h$
-relative to commutativity of the diagram above.
+Noting the surjectivity of $\tau_f$ guarantees the uniqueness of $h$,
+relative to the commutativity of the diagram above.
 
 \begin{conv}[Colourings]\label{rem:Col}
 	In light of these observations, we will henceforth identify the maps $f$ and
@@ -155,7 +155,7 @@ relative to commutativity of the diagram above.
 	shorthand for $f(\set{a_0,\dotsc,a_{k-1}})$.
 
 	When $k=2$ we take this a step further by also identifying $f$ with the map
-	that sends subintervals $(a,b)$ of $A$, under the condition $a<b$, to the
+	that sends subintervals $[a,b]$ of $A$, under the condition $a<b$, to the
 	colour $\tau_f(a,b)$.
 \end{conv}
 
@@ -170,70 +170,79 @@ relative to commutativity of the diagram above.
 
 \begin{dfn}[Cofinality]
 	If $\alpha$ is a linear order then $\cf(\alpha)$, called the
-	\textbf{cofinality} of $\alpha$, is the least ordinal $\beta$ so that there
-	exists an embedding $f\colon\beta\to\alpha$ such that $f[\beta]$ is not
-	bounded above in $\alpha$.
+	\textbf{cofinality} of $\alpha$, is the least ordinal $\beta$ with the
+	following property: there exists an embedding $f\colon\beta\to\alpha$ such
+	that $f[\beta]$ is not bounded above by a non-maximal element of $\alpha$.
 \end{dfn}
 
-In order to clarify the context of the following definition, it is important to
-point out that we use the phrase \textit{``transfinite sequence''} to refer to
-any function whose domain is some ordinal.  Hence, finite sequences are also
-perfectly valid candidates for playing this role.
+In clarification of the following definition, we use the phrase
+\textit{``transfinite sequence''} to refer to any function whose domain is some
+ordinal.  Hence, finite sequences (tuples) may also be considered in this
+regard.
 
 \begin{dfn}[Cofinal sequence]
 	A \textbf{cofinal sequence} in a linear order $\alpha$ is any (strictly)
 	increasing transfinite sequence $(a_\gamma)_{\gamma<\beta}$, where
-	$\beta\geq\cf(\alpha)$, such that $\setbuild{a_\gamma}{\gamma<\beta}$ is an
-	unbounded subset of $\alpha$
+	$\beta\geq\cf(\alpha)$, such that $\setbuild{a_\gamma}{\gamma<\beta}$ is
+	not bounded above by any non-maximal element of $\alpha$.
 \end{dfn}
 
 \begin{dfn}[Homogeneous sequence]
 	If $\alpha$ is a linear order and $f$ is a colouring of
-	$\subsets{2}{\domain\alpha}$ then a \textbf{homogeneous sequence for $f$}
-	is a cofinal sequence $\family{a_\gamma}{\gamma<\beta}$ in $\alpha$ such
-	that
+	$\subsets{2}{\domain\alpha}$ then a \textbf{homogeneous sequence for
+	$\bm{f}$} is a cofinal sequence $\family{a_\gamma}{\gamma<\beta}$ in
+	$\alpha$ such that
 	\begin{equation}
-		H=\setbuild{\set{a_\gamma,a_\delta}}{\gamma<\delta<\beta}
+		H=\setbuild{a_\gamma}{\gamma<\beta}
 	\end{equation}
 	is homogeneous for $f$.
 \end{dfn}
 
-\begin{cor}[Existence: homogeneous sequences]\label{cor:Cofinal}
+\begin{cor}[Existence of homogeneous sequences]\label{cor:Cofinal}
 	Suppose $A$ is an infinite linearly ordered set without a greatest element.
 	If $A$ has cofinality $\omega$ and $f$ is a colouring of $\subsets{2}{A}$
 	then there exists a homogeneous sequence $x=\family{a_i}{i<\omega}$ for $f$
 	in $A$.
 \end{cor}
-
 \begin{proof}
-	Choose $y=(b_i)_{i<\omega}$ to be cofinal in $A$.  If we define
+	Choose $y=(b_i)_{i<\omega}$ to be cofinal in $A$.  Define
 	\begin{equation}
-		B=\setbuild{\set{b_i,b_j}}{i<j<\omega}
+		B=\setbuild{b_i}{i<\omega}
 	\end{equation}
-	then by Ramsey's Theorem, and Remark \ref{rem:hom}, there exists an
-	$H\subseteq B$ which is homogeneous for $f$.  Since $y$ is increasing,
-	there exists a unique subsequence $x=(b_{k_i})_{i<\omega}$ of $y$ with
-	image $H$.  By definition $x$ is the desired homogeneous sequence for the
-	colouring $f$.
+	and let $g=f\restriction B$.
+
+	As superfluous colours may be discarded, thereby restricting the codomain of
+	$g$, we may safely assume that $g$ is surjective and thus a colouring of
+	$B$.  It follows from Remark \ref{rem:hom} and Ramsey's Theorem there exists
+	an $H\subseteq B$ which is homogeneous for $g$ and, clearly then, also for
+	$f$.
+
+	Since $y$ is increasing, there exists a unique subsequence
+	$x=(b_{k_i})_{i<\omega}$ of $y$ with image $H$.  By definition $x$ is the
+	desired homogeneous sequence for the colouring $f$.
 \end{proof}
 
-\begin{exm}[Cofinal sequences in $\lambda$]
+We conclude this exposition by providing an illustrative example.  The reader is
+encouraged to thoroughly internalise its contents.  Similar arguments will be
+employed throughout the text and it is, consequently, more significant than
+first appearances may suggest.
 
-	We aim to show that every $2$-colouring $f$ of $\reals$ is accompanied by a
+\begin{exm}[Cofinal sequences in $\lambda$]
+	We aim to show that every colouring $f$ of $\reals$ is accompanied by a
 	corresponding homogeneous sequence.  Note that $\cf(\lambda)=\omega$ since
 	$\lambda$ has no greatest element and $\family{k}{k<\omega}$ is a cofinal
 	sequence in $\lambda$.
 
-	Now suppose $f$ is a $2$-colouring of $\reals$ and let $x=(x_i)_{i<\omega}$
+	Now suppose $f$ is a colouring of $\subsets{2}{\reals}$ and let $x=(x_i)_{i<\omega}$
 	be a cofinal sequence in $\lambda$.  Let $X=\setbuild{x_i}{i<\omega}$ and
-	define $g=f\restriction \subsets{2}{X}$ then we may assume, without loss of
-	generality, that $g$ is surjective and thus a $2$-colouring of $X$.  Since
-	$x$ is clearly cofinal in $X$ it follows from corollary (\ref{cor:Cofinal})
-	that there exists a subsequence $y$ of $x$ which is homogeneous for $g$.
+	define $g=f\restriction \subsets{2}{X}$.
 
-	As $y$ is homogeneous for $g$ and $X$ is a cofinal subset of $\lambda$, it
-	follows by definition of $g$ that $y$ is a homogeneous sequence for $f$.
-
+	Similar to the proof of Corollary \ref{cor:Cofinal}, we may assume $g$ is
+	surjective and, hence, a colouring of the set $\subsets{2}{X}$.  Since $x$
+	is clearly cofinal in $X$, it follows from Corollary \ref{cor:Cofinal} that
+	there exists a subsequence $y$ of $x$ which is homogeneous for $g$.  As $y$
+	is homogeneous for $g$ and $X$ is a cofinal subset of $\lambda$, it follows
+	by definition of $g$ that $y$ is a homogeneous sequence for $f$.
 \end{exm}
 
 
@@ -398,6 +407,21 @@ given that the first one is blue and the second red.
 	f}<\aleph_0$ when $\cf(\delta)\geq\omega_1$.
 \end{rem}
 
+One could also view additive colourings, through a categorical lense, as a
+functor between appropriately chosen categories.  Leting $\cat{\alpha}$ denote
+the category whose \textit{objects} are the elelemnts of $\alpha$ and whose
+\textit{arrows} are (closed) intervals of the form $[a,b]\colon a\to b$.  It is
+readily verified that $\cat{\alpha}$ is in fact a legitimate category.
+
+Given this perspective, an additive colouring of $\alpha$ is then nothing more
+than a functor $\cat{\alpha}$ to a monoid $\cat{M}$, informally a "group without
+inverses", considered as a category (specifically, a category with a single
+object).
+
+The arrows of $\cat{M}$, i.e.\ the monoid elements, then represent
+what we have referred to as "colours" with $\circ$ corresponding simultaneously
+to the aforementioned $\oplus$ operation and multiplication within the monoid
+itself.
 
 \begin{cor}[Existence of homogeneous sequences]
 	Suppose $\alpha$ is a linear order, without a greatest element, and $f$ is
