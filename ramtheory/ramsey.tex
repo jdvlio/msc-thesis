@@ -248,44 +248,45 @@ first appearances may suggest.
 
 \section{Additive Ramsey Theorem}
 
-A natural question that arises is whether or not corollary (\ref{cor:Cofinal})
+A natural question that arises is whether or not Corollary \ref{cor:Cofinal}
 could be extended to linear orders of \textit{uncountable} cofinality.
-Unfortunately this is not the case, as illustrated by the example that follows.
+Unfortunately this is not the case, as illustrated by the following example.
 
 \begin{exm}[Sierpi\'nski colouring]
-	Suppose $\alpha=(\reals,\prec)$ is a well-order.  Take note that
-	$\alpha\geq\omega_1$ and thus the ordinal sum $\omega+\alpha$ is simply
-	$\alpha$ itself.
+	Suppose $\alpha=(\reals,\prec)$ is a well-order and assume
+	$\cf(\alpha)\geq\omega_1$.  Note that the uncountability of $\reals$
+	guarantees the existence of such an $\alpha$ e.g.\ by choosing $\alpha$
+	isomorphic to the initial ordinal of cardinality $2^{\aleph_0}$.
 
-	Therefore, since every countable ordinal is bijectively equivalent to the
-	ordinal $\omega$, we may assume $\cf(\alpha)\geq\omega_1$.  Intuitively
-	speaking, one can could have otherwise ``moved'' any countable tail to the
-	beginning of the ordinal by using an appropriate bijection and applying the
-	fact that $\omega+\alpha$ is isomorphic to $\alpha$.
-
-	Recalling remark \ref{rem:Col}, the \textit{Sierpi\'nski colouring}
-	$s\colon\subsets{2}{\reals}\to\set{0,1}$ is defined, for every
-	$x,y\in\reals$, as
+	The \textit{Sierpi\'nski colouring} $s\colon\subsets{2}{\reals}\to\set{0,1}$
+	is defined, for every $x,y\in\reals$, such that
 	\begin{equation}
 		s(x,y)=
 		\begin{cases}
-			1,  &\text{if }x\prec y,\\
+			1,  &\text{if }x\prec y\text{ and }x<y,\\
+			1,  &\text{if }x\nprec y\text{ and }x\not< y,\\
 			0,   &\text{otherwise.}
 		\end{cases}
 	\end{equation}
+	That is to say that $s(x,y)=1$ iff $<$ and $\prec$ agree on the order of
+	$x$ and $y$.
 
-	Since $\lambda$ is clearly not a well-order it follows that $s$ is a
-	$2$-colouring of $\reals$.  By way of contradiction, we assume there
-	exists a homogeneous sequence $x=(x_{\gamma})_{\gamma<\beta}$ for $s$ in
-	$\alpha$.
+	Since $\lambda$ is clearly not a well-order it follows that $s$ is
+	necessarily a surjection and, thus, a $2$-colouring of
+	$\subsets{2}{\reals}$.  By way of contradiction, we assume there exists a
+	homogeneous sequence $x=(x_{\gamma})_{\gamma<\beta}$ for $s$ in $\alpha$.
+
+	By definition, $x$ must be either an increasing or (otherwise) decreasing
+	sequence in $\lambda$.  Since $\lambda\cong\dual{\lambda}$, we may assume
+	without loss of generality that $x$ is increasing.
 
 	It now follows, by assumption, that $\beta\geq\cf(\alpha)\geq\omega_1$.
-	However, this gives rise to a necessarily uncountable family
+	However, this implies that there exists a (necessarily uncountable) set
 	\begin{equation}
 		\setbuild{(x_\gamma,x_{\gamma+1})}{\gamma<\omega_1}
 	\end{equation}
-	of pairwise disjoint open intervals of $\lambda$, yielding the desired
-	contradiction.
+	of pairwise disjoint open intervals of $\lambda$, thereby yielding the
+	desired contradiction.
 \end{exm}
 
 Although our hopes may have been dashed by the late Sierpi\'nski, all hope is
@@ -418,10 +419,9 @@ than a functor $\cat{\alpha}$ to a monoid $\cat{M}$, informally a "group without
 inverses", considered as a category (specifically, a category with a single
 object).
 
-The arrows of $\cat{M}$, i.e.\ the monoid elements, then represent
-what we have referred to as "colours" with $\circ$ corresponding simultaneously
-to the aforementioned $\oplus$ operation and multiplication within the monoid
-itself.
+The arrows of $\cat{M}$, i.e.\ the monoid elements, then represent what we have
+referred to as ``colours'' while $\circ$ corresponds simultaneously to the
+aforementioned $\oplus$ operation and multiplication within the monoid itself.
 
 \begin{cor}[Existence of homogeneous sequences]
 	Suppose $\alpha$ is a linear order, without a greatest element, and $f$ is
