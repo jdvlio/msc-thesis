@@ -525,10 +525,56 @@ $\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
 
 \section{The first-order theory of scattered linear orders}
 
+A technical, but useful, feature of splittings is that they necessarily always
+have \textit{right} inverses: if $s\colon\alpha\to\beta$ is a splitting then
+there exists a homomorphism $h\colon\beta\to\alpha$ such that $sh=\id_\alpha$.
+Additionally, $h$ must be an embedding of linear orders.  This latter remark
+follows from the fact that if $b<b^\prime$ are members of $\beta$ then we must
+have $sh(b)<sh(b^\prime)$ and thus $h(b)\neq h(b^\prime)$.
+
+Splittings turn out to be an instance of what a category theorist would refer to
+as a \textit{split epimorphism}.  This serves to justify our choice of
+terminology as splittings are therefore, in fact, split!  Henceforth, we will
+use this property without explicit mention of it.
+
+From an ontological standpoint, the definition of scatteredness is
+\textit{negative} in nature.  That is to say, scattered linear orders are
+defined by stating what they are \textit{not}.  We now seek to remedy this in
+the result that follows.
 
 \begin{prp}[Condensations and scatteredness]
-        A linear order $\alpha$ is scattered iff there exists no condensation $\beta$ of $\alpha$ such that $\beta$ is dense.
-    \end{prp}
+	The following are equivalent for any linear order $\alpha$:
+	\begin{enumerate}
+		\item  $\alpha$ is scattered,
+		\item  no (nontrivial) condensation of $\alpha$ is dense,
+		\item  the lattice $\con\alpha$ is atomic.
+	\end{enumerate}
+\end{prp}
+\begin{proof}
+	1$\Rightarrow$2:  If $\beta$ is a nontrivial condensation of $\alpha$ and
+	$s\colon\alpha\to\beta$ is the induced splitting then there exists a right
+	inverse $h$ of $s$ which is an embedding of $\beta$ in $\alpha$.  Hence,
+	$\beta$ cannot be dense as this would contradict the scatteredness of
+	$\alpha$.
+
+	\smallskip\noindent 2$\Rightarrow$3:  Suppose ${\sim}\in\con\alpha$ is not the identity
+	congruence.  By assumption, $\faktor{\alpha}{=}$ cannot be dense.  Hence,
+	there exists $a<a^\prime$ in $\alpha$ such that $a\sim a^\prime$ and
+	$a^\prime$ is an immediate successor of $a$.
+
+	Now define the congruence $\sim_0$ on $\alpha$ such that $x\sim_0 y$ iff
+	either $x=y$ or $x,y\in\set{a,a^\prime}$.  It follows immediately, by
+	definition, that ${\sim_0}\subseteq{\sim}$ and no congruence $\sim_1$ on
+	$\alpha$ satisfies ${\sim_1}\subsetneq{\sim_0}$ other than the identity
+	congruence.  Thus, $\con\alpha$ is indeed atomic.
+
+	\smallskip\noindent 3$\Rightarrow$1:  Suppose, with an aim to a
+	contradiction, that there exists an embedding $h\colon\eta\to\alpha$.  We
+	may then assume, without loss of generality, that $f[\beta]=\rats$.  Now, if
+	$\sim$ is an atomic element of $\con\alpha$ then it follows that
+	${\sim}\cap\rats\times\rats$ must be an atomic element of $\con\eta$,
+	contradicting the density of $\eta$.
+\end{proof}
 
     \begin{dfn}[Definably scattered]
 	    A linear order $\alpha$ is \textbf{definably scattered} whenever, for every $n\in\nats$, there exists no $\bar{a}\in\domain{n}\alpha$ and no congruence formula $\varphi(x,y,\bar{z})$ of $\alpha$ such that, if $\sim$ is the congruence defined by $\varphi(x,y,\bar{a})$, then $\faktor{\alpha}{\sim}$ is a dense linear order.
