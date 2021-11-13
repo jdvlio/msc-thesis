@@ -576,9 +576,54 @@ the result that follows.
 	contradicting the density of $\eta$.
 \end{proof}
 
-    \begin{dfn}[Definably scattered]
-	    A linear order $\alpha$ is \textbf{definably scattered} whenever, for every $n\in\nats$, there exists no $\bar{a}\in\domain{n}\alpha$ and no congruence formula $\varphi(x,y,\bar{z})$ of $\alpha$ such that, if $\sim$ is the congruence defined by $\varphi(x,y,\bar{a})$, then $\faktor{\alpha}{\sim}$ is a dense linear order.
-    \end{dfn}
+The implication 1$\Rightarrow$2, in the previous proposition, will serve to aid
+in the choice of a first-order approximation of the property of scatteredness.
+This is done by requiring that 2 holds for \textit{definable} congruences only.
+
+\begin{dfn}[Definably scattered]
+	A linear order $\alpha$ is \textbf{definably scattered} whenever, for every
+	$n\in\nats$, there exists no $\bar{a}\in\domain{n}\alpha$ and no congruence
+	formula $\varphi(x,y,\bar{z})$ of $\alpha$ such that, if $\sim$ is the
+	congruence defined by $\varphi(x,y,\bar{a})$, then $\faktor{\alpha}{\sim}$
+	is a dense linear order.
+\end{dfn}
+
+Na\"ively, one would expect that scatteredness and its ``definable
+approximation'' do not coincide.  This stems from the fact that ordinary
+scatteredness is itself a \textit{dyadic} second order property: if $X$ is a
+binary relation variable, $\varphi(X)$ expresses that $X$ is a (nontrivial)
+congruence and $\psi(X)$ expresses that the induced condensation is not dense
+then it follows that $\alpha$ is scattered iff
+\begin{equation}
+	\alpha\models\forall X\big(\varphi(X)\rightarrow\psi(X)\big).
+\end{equation}
+
+It turns out that this expectation is in fact correct!  To demonstrate this, it
+is sufficient to find an $\eta$-sum $\alpha=\sum_{r\in\eta}\alpha_r$ of
+scattered linear orders $\alpha_r$, for $r\in\eta$, such that no binary relation
+other than equality and $\domain[2]{\alpha}$ are definable.
+
+\begin{exm}
+	Since $\rats$ is countable, we may choose (for each $r\in\rats$)
+	$k_r\in\nats$ in such a manner that the family $\family{k_r}{r\in\rats}$ is
+	bijective as a mapping from $\rats$ onto $\nats$.  Now define the linear
+	order $\alpha$ such that:
+	\begin{equation}
+		\alpha=\sum_{r\in\eta}\bk_r.
+	\end{equation}
+	In other words, $\alpha$ is an $\eta$-sum of pairwise nonisomorphic finite
+	ordinals.
+
+	Define $\sim$ to be the congruence, on $\alpha$, induced by the finite
+	splitting and note that its equivalence classes correspond precisely to the
+	summands of $\alpha$.  We will now proceed by arguing that the group
+	$\Aut(\alpha)$ is trivial.
+
+	Fix any $g\in\Aut(\alpha)$ and suppose $X$ is some equivalence class.  As
+	noted, there exists a unique $\bk_{r_0}$ such that $r_0\in\rats$ and $X$ has
+	order type $\bk_{r_0}$.  Consequently, $g[X]$ has to be a subset of some
+	equivalence class $Y$.  Similary, $\inv{g}[Y]$ has to be a subset of $X$.
+\end{exm}
 
 \begin{prp}
         If $\alpha$ is some linear order then the following are equivalent:
