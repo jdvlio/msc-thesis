@@ -580,6 +580,18 @@ The implication 1$\Rightarrow$2, in the previous proposition, will serve to aid
 in the choice of a first-order approximation of the property of scatteredness.
 This is done by requiring that 2 holds for \textit{definable} congruences only.
 
+\begin{dfn}[Congruence formula]
+	If $\alpha$ is any linear order and, for some $\bar{b}\in\domain[n]{\alpha}$ the
+	formula $\varphi(x,y,\bar{b})$ defines a congruence $\sim$ on $\alpha$ then
+	we call the formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ an
+	$n$-tuple of variables, a \textbf{congruence formula} and refer to $\bar{b}$
+	as \textbf{a parameter of} $\bm{\varphi}$.
+
+	Furthermore, we will use the notation $\faktor{\alpha}{\varphi}$ to refer
+	to condensation $\faktor{\alpha}{\sim}$ and, for any $a\in\alpha$,
+	$a_\varphi=\faktor{a}{\varphi}$ will mean the equivalence class $\faktor{a}{\sim}$.
+\end{dfn}
+
 \begin{dfn}[Definably scattered]
 	A linear order $\alpha$ is \textbf{definably scattered} whenever, for every
 	$n\in\nats$, there exists no $\bar{a}\in\domain{n}\alpha$ and no congruence
@@ -589,7 +601,7 @@ This is done by requiring that 2 holds for \textit{definable} congruences only.
 \end{dfn}
 
 Na\"ively, one would expect that scatteredness and its ``definable
-approximation'' do not coincide.  This stems from the fact that ordinary
+approximation'' do not coincide.  This is suggessted by the fact that ordinary
 scatteredness is itself a \textit{dyadic} second order property: if $X$ is a
 binary relation variable, $\varphi(X)$ expresses that $X$ is a (nontrivial)
 congruence and $\psi(X)$ expresses that the induced condensation is not dense
@@ -598,12 +610,46 @@ then it follows that $\alpha$ is scattered iff
 	\alpha\models\forall X\big(\varphi(X)\rightarrow\psi(X)\big).
 \end{equation}
 
-It turns out that this expectation is in fact correct!  To demonstrate this, it
-is sufficient to find an $\eta$-sum $\alpha=\sum_{r\in\eta}\alpha_r$ of
-scattered linear orders $\alpha_r$, for $r\in\eta$, such that no binary relation
-other than equality and $\domain[2]{\alpha}$ are definable.
+It turns out that this expectation is in fact correct!  The demonstration of
+this fact is a routine application of the Diagram Lemma and Compactness Theorem.
+
+\begin{exm}[A definably scattered linear order which is not scattered]
+	Consider the language $L$ which is obtained, from the language of linear
+	orders, by adding a new constant symbol $c_q$, for each $q\in\rats$.  Also,
+	define $T$ to be the first-order theory of definably scattered linear
+	orders.
+
+	Since $\zeta$ is scattered, it follows that $\zeta\models T$.  Furthermore,
+	if $\Sigma\subseteq\diag\eta$ is finite then, for each $q\in\rats$,
+	$z_q={c_q}^\zeta\in\ints$ may be chosen in a manner such that
+	$(\zeta,\family{z_q}{q\in\rats})\models T\cup\Sigma$.  This is possible due
+	to the fact that only a finite number of the new constant symbols will have
+	an occurence in some member of $\Sigma$.
+
+	From the Compactness Theorem, it follows that $T\cup\diag\eta$ must have
+	some model $\mathfrak{M}$.  Therefore, from the Diagram Lemma, there exists
+	a linear order $\alpha$ and an embedding $h\colon\eta\to\alpha$ such that
+	$(\alpha,h[\rats])=\mathfrak{M}$.
+
+	By construction, $\alpha$ cannot be scattered but, nonetheless, must
+	be a model of the first-order theory $T$.  Consequently, $\alpha$ is
+	definably scattered but not scattered.
+\end{exm}
+
+\begin{prp}
+	If $\alpha$ is some linear order then the following are equivalent:
+	\begin{enumerate}
+		\item   $\alpha$ is definably scattered,
+		\item   there exists no dense linear order $\delta$ and no $n\in\nats$
+			such that, for some $\bar{b}\in\domain{n}\delta$ and
+			$\bar{a}\in\domain{n}\alpha$, $(\delta,\bar{b})$ is interpretable in
+			$(\alpha,\bar{a})$,
+		\item   the lattice $\defcon\alpha$ is atomic.
+	\end{enumerate}
+\end{prp}
 
 \begin{exm}
+	\label{exm:dscat}
 	Since $\rats$ is countable, we may choose (for each $r\in\rats$)
 	$k_r\in\nats$ in such a manner that the family $\family{k_r}{r\in\rats}$ is
 	bijective as a mapping from $\rats$ onto $\nats$.  Now define the linear
@@ -624,18 +670,6 @@ other than equality and $\domain[2]{\alpha}$ are definable.
 	order type $\bk_{r_0}$.  Consequently, $g[X]$ has to be a subset of some
 	equivalence class $Y$.  Similary, $\inv{g}[Y]$ has to be a subset of $X$.
 \end{exm}
-
-\begin{prp}
-        If $\alpha$ is some linear order then the following are equivalent:
-        \begin{enumerate}
-            \item   $\alpha$ is definably scattered,
-	    \item   there exists no dense linear order $\delta$ and no $n\in\nats$ such that, for some $\bar{b}\in\domain{n}\delta$ and $\bar{a}\in\domain{n}\alpha$, $(\delta,\bar{b})$ is interpretable in $(\alpha,\bar{a})$,
-            \item   the lattice $\defcon\alpha$ is atomic.
-        \end{enumerate}
-\end{prp}
-    	\begin{proof}
-
-	\end{proof}
 
 \begin{prp}\label{prp:dcform}
 	For each formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ possibly empty, define the formula $\epsilon_\varphi(\bar{z})$ to be the conjunction of the following formulas:
