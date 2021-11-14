@@ -586,18 +586,18 @@ This is done by requiring that 2 holds for \textit{definable} congruences only.
 	we call the formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ an
 	$n$-tuple of variables, a \textbf{congruence formula} and refer to $\bar{b}$
 	as \textbf{a parameter of} $\bm{\varphi}$.
-
-	Furthermore, we will use the notation $\faktor{\alpha}{\varphi}$ to refer
-	to condensation $\faktor{\alpha}{\sim}$ and, for any $a\in\alpha$,
-	$a_\varphi=\faktor{a}{\varphi}$ will mean the equivalence class $\faktor{a}{\sim}$.
 \end{dfn}
 
+Furthermore, we will use the notation $\faktor{\alpha}{\varphi}$ to refer
+to condensation $\faktor{\alpha}{\sim}$ and, for any $a\in\alpha$,
+$a_\varphi=\faktor{a}{\varphi}$ will mean the equivalence class
+$\faktor{a}{\sim}$.  In this given scenario, we will refer to
+$\faktor{\alpha}{\varphi}$ as being a \textit{definable condensation} of
+$\alpha$.
+
 \begin{dfn}[Definably scattered]
-	A linear order $\alpha$ is \textbf{definably scattered} whenever, for every
-	$n\in\nats$, there exists no $\bar{a}\in\domain{n}\alpha$ and no congruence
-	formula $\varphi(x,y,\bar{z})$ of $\alpha$ such that, if $\sim$ is the
-	congruence defined by $\varphi(x,y,\bar{a})$, then $\faktor{\alpha}{\sim}$
-	is a dense linear order.
+	A linear order $\alpha$ is \textbf{definably scattered} whenever none of its
+	(infinite) definable condensations are dense.
 \end{dfn}
 
 Na\"ively, one would expect that scatteredness and its ``definable
@@ -641,13 +641,18 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	If $\alpha$ is some linear order then the following are equivalent:
 	\begin{enumerate}
 		\item   $\alpha$ is definably scattered,
-		\item   there exists no dense linear order $\delta$ and no $n\in\nats$
-			such that, for some $\bar{b}\in\domain{n}\delta$ and
-			$\bar{a}\in\domain{n}\alpha$, $(\delta,\bar{b})$ is interpretable in
-			$(\alpha,\bar{a})$,
-		\item   the lattice $\defcon\alpha$ is atomic.
+		\item   the lattice $\defcon\alpha$ is atomic,
+		\item   there exists no dense linear order $\delta$ and no
+			$k,n\in\posnats$ such that $k\leq 2$ and, for some
+			$\bar{b}\in\domain[n]{\delta}$ and $\bar{a}\in\domain[kn]{\alpha}$,
+			$(\delta,\bar{b})$ is interpretable in $(\alpha,\bar{a})$,
 	\end{enumerate}
 \end{prp}
+\begin{proof}
+	1$\Rightarrow$2:  By way of contradiction, assume the contrary so that
+	$\delta$ is a dense linear order and $(\Gamma,f)$ is an interpretaion of
+	$(\delta,\bar{b})$ in $(\alpha,\bar{a}_0,\dotsc,\bar{a}_{n-1})$.
+\end{proof}
 
 \begin{prp}\label{prp:dcform}
 	For each formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ possibly empty, define the formula $\epsilon_\varphi(\bar{z})$ to be the conjunction of the following formulas:
