@@ -614,6 +614,7 @@ It turns out that this expectation is in fact correct!  The demonstration of
 this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 
 \begin{exm}[A definably scattered linear order which is not scattered]
+	\label{exm:dscat}
 	Consider the language $L$ which is obtained, from the language of linear
 	orders, by adding a new constant symbol $c_q$, for each $q\in\rats$.  Also,
 	define $T$ to be the first-order theory of definably scattered linear
@@ -647,29 +648,6 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 		\item   the lattice $\defcon\alpha$ is atomic.
 	\end{enumerate}
 \end{prp}
-
-\begin{exm}
-	\label{exm:dscat}
-	Since $\rats$ is countable, we may choose (for each $r\in\rats$)
-	$k_r\in\nats$ in such a manner that the family $\family{k_r}{r\in\rats}$ is
-	bijective as a mapping from $\rats$ onto $\nats$.  Now define the linear
-	order $\alpha$ such that:
-	\begin{equation}
-		\alpha=\sum_{r\in\eta}\bk_r.
-	\end{equation}
-	In other words, $\alpha$ is an $\eta$-sum of pairwise nonisomorphic finite
-	ordinals.
-
-	Define $\sim$ to be the congruence, on $\alpha$, induced by the finite
-	splitting and note that its equivalence classes correspond precisely to the
-	summands of $\alpha$.  We will now proceed by arguing that the group
-	$\Aut(\alpha)$ is trivial.
-
-	Fix any $g\in\Aut(\alpha)$ and suppose $X$ is some equivalence class.  As
-	noted, there exists a unique $\bk_{r_0}$ such that $r_0\in\rats$ and $X$ has
-	order type $\bk_{r_0}$.  Consequently, $g[X]$ has to be a subset of some
-	equivalence class $Y$.  Similary, $\inv{g}[Y]$ has to be a subset of $X$.
-\end{exm}
 
 \begin{prp}\label{prp:dcform}
 	For each formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ possibly empty, define the formula $\epsilon_\varphi(\bar{z})$ to be the conjunction of the following formulas:
