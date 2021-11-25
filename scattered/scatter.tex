@@ -663,6 +663,7 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 \end{proof}
 
 \begin{thm}
+	\label{thm:nscat}
 	For every countable definably scattered linear order $\alpha$, and every
 	$n\in\nats$, there exists a $\beta_n\in\scattered$ such that
 	$\alpha\nequiv{n}\beta_n$.
@@ -761,17 +762,53 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	$\epsilon_\varphi(\bar{z})$ be defined as in Proposition \ref{prp:dcform}
 	then the following holds:
 	\begin{enumerate}
-		\item the theory $\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\neg\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$ axiomatises $\Th(\scattered)$, i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
+		\item the theory
+			$\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})
+			\rightarrow\neg\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$
+			axiomatises $\Th(\scattered)$ i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
 
 		\item $\Sigma$ is recursively enumerable.
 	\end{enumerate}
 	\begin{proof}
-		\begin{enumerate}[nosep]
-			\item	$\alpha\models\Sigma$ iff $\alpha$ is definably scattered iff $\alpha\models\Th(\scattered)$.
-			\item	Since our signature is finite it follows that the set of formulas in our language can be enumerated (via a G\"odel numbering $\godel{-}\colon L\to\nats$).  We can then enumerate $\Sigma$ by declaring a map acting on $\Sigma$ such that $\axmlin\mapsto 0$ and, for every tuple $\bar{z}$ of variables,
-			\begin{equation}
-				\forall \bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z})))\mapsto 2^{\godel{\varphi(x,y,\bar{z})}}.
-			\end{equation}
+		\begin{enumerate}
+			\item	Since $\alpha\models\Sigma$ iff $\alpha$ is definably
+				scattered, it is enough to prove that $\alpha$ is definably
+				scattered iff $\alpha\models\Th(\scattered)$.  By the
+				L\"owenheim-Skolem Theorem, we need only consider the case where
+				$\alpha$ is countable.
+
+				If $\alpha$ is scattered then it follows from Proposition
+				\ref{prp:cscat} that no nontrivial condensation of $\alpha$ is
+				dense and thus, as this observation includes definable
+				condensations, $\alpha$ is necessarily definably scattered.
+
+				Suppose now, instead, that $\alpha$ is definably scattered so
+				that we are required to show that
+				$\alpha\models\Th(\scattered)$.  Choose any
+				$\sigma\in\Th(\scattered)$ and suppose it holds that
+				$\qrank(\sigma)=n\in\nats$.  It now follows from Theorem
+				\ref{thm:nscat} that there exists a scattered $\beta$ satisfying
+				$\beta\nequiv{n}\alpha$.  Certainly, we must have
+				$\beta\models\sigma$ and, therefore, the $n$-equivalence
+				guarantees that $\alpha\models\sigma$.
+
+			\item	Since our signature is finite, it follows that the set of
+				formulas in our language can be enumerated (via a G\"odel
+				numbering $\godel{-}\colon L\to\nats$).  We can then enumerate
+				$\Sigma$ by declaring a map, from $\Sigma$ to $\nats$, such that
+				$\axmlin\mapsto 0$ and, for every tuple $\bar{z}$ of variables,
+				\begin{equation}
+					\forall
+					\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z})))\mapsto
+					2^{\godel{\varphi(x,y,\bar{z})}}.\label{eq:regod}
+				\end{equation}
+
+				In other words, a listing of the members of $\Sigma$ may be
+				produced by simultaneously generating an auxiliary list of
+				formulas of the form $\varphi=\varphi(x,y,\bar{z})$.  For each
+				entry $\varphi$ in the auxiliary list one creates an entry,
+				having the form of (\ref{eq:regod}), in the principal
+				list.\qedhere
 		\end{enumerate}
 	\end{proof}
 \end{prp}
