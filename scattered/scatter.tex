@@ -668,9 +668,9 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	$\alpha\nequiv{n}\beta_n$.
 \end{thm}
 \begin{proof}
-	Suppose $\alpha\models\Th(\scattered)$, where $\alpha$ is countable, and
-	fix any $n\in\nats$.  Now define a binary relation $R$ on $\domain{\alpha}$
-	such that $aRb$ iff there exists a $\beta\in\scattered$ such that
+	Suppose $\alpha$ is countable and definably scattered and fix any
+	$n\in\nats$.  Now define a binary relation $R$ on $\domain{\alpha}$ such
+	that $aRb$ iff there exists a $\beta\in\scattered$ such that
 	$(a,b)\nequiv{n}\beta$.
 
 	Since $R$ is clearly transitive, it induces a congruence $\sim$ on $\alpha$.
@@ -753,9 +753,13 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 \begin{prp}\label{prp:rescat}
 	For each formula $\varphi(x,y,\bar{z})$ define $\theta_\varphi(\bar{z})$ to be the formula
 	\begin{equation}
-		\forall x\forall y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\rightarrow\exists w(x<w<y\wedge\neg\varphi(x,w,\bar{z})\wedge\neg\varphi(w,y,\bar{z}))\big)
+		\exists x\exists y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\wedge\forall
+		w(x<w<y\rightarrow\varphi(x,w,\bar{z})\vee\varphi(w,y,\bar{z}))\big)
 	\end{equation}
-	which formalises the statement: ``the condensation which is induced by the congruence, defined by the formula $\varphi$, is dense'' and let each $\epsilon_\varphi(\bar{z})$ be defined as in Proposition \ref{prp:dcform}.  It then holds that:
+	which formalises the statement: ``$\varphi(x,y,\bar{z})$ defines a
+	congruence of which the equivalence classes are not dense''.  Let each
+	$\epsilon_\varphi(\bar{z})$ be defined as in Proposition \ref{prp:dcform}
+	then the following holds:
 	\begin{enumerate}
 		\item the theory $\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\neg\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$ axiomatises $\Th(\scattered)$, i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
 
