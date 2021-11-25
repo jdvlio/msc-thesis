@@ -638,54 +638,116 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 \end{exm}
 
 \begin{prp}\label{prp:dcform}
-	For each formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ possibly empty, define the formula $\epsilon_\varphi(\bar{z})$ to be the conjunction of the following formulas:
+	For each formula $\varphi=\varphi(x,y,\bar{z})$, with $\bar{z}$ possibly
+	empty, define the formula $\epsilon_\varphi(\bar{z})$ to be the conjunction
+	of the following formulas:
 	\begin{enumerate}
 		\item	$\forall x\varphi(x,x,\bar{z})$,\hfill(reflexivity)
-		\item	$\forall x\forall y(\varphi(x,y,\bar{z})\rightarrow\varphi(y,x,\bar{z}))$,\hfill (symmetry)
-		\item 	$\forall x\forall y\forall w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})\rightarrow\varphi(x,w,\bar{z}))$.\hfill (transitivity)
-		\item 	$\forall x_0\forall x_1\forall y_0\forall y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})\wedge\varphi(x_0,y_0,\bar{z})\wedge\varphi(x_1,y_1,\bar{z})\rightarrow y_0<y_1)$.\phantom{}\hfill(compatibility)
+		\item	$\forall x\forall
+			y(\varphi(x,y,\bar{z})\rightarrow\varphi(y,x,\bar{z}))$,\hfill
+			(symmetry)
+		\item 	$\forall x\forall y\forall
+			w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})\rightarrow\varphi(x,w,\bar{z}))$.\hfill
+			(transitivity)
+		\item 	$\forall x_0\forall x_1\forall y_0\forall
+			y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})\wedge\varphi(x_0,y_0,\bar{z})
+			\wedge\varphi(x_1,y_1,\bar{z})\rightarrow
+			y_0<y_1)$\phantom{}\hfill(compatibility).
 	\end{enumerate}
-	For every finite tuple $\bar{a}$ of $\alpha$ (of the same length as $\bar{z}$), it holds that $\alpha\models\epsilon_\varphi(\bar{a})$ iff $\varphi(x,y,\bar{a})$ defines a congruence of $\alpha$.
+	For every finite tuple $\bar{a}$ of $\alpha$ (of the same length as
+	$\bar{z}$), it holds that $\alpha\models\epsilon_\varphi(\bar{a})$ iff
+	$\varphi(x,y,\bar{a})$ defines a congruence of $\alpha$.
 \end{prp}
+\begin{proof}
+	Immediate, follows from the definition of a congruence of on $\alpha$.
+\end{proof}
 
 \begin{thm}
-	For every countable, definably scattered linear order $\alpha$ and every  $n\in\nats$ there exists a $\beta_n\in\scattered$ such that $\alpha\nequiv{n}\beta_n$.
+	For every countable definably scattered linear order $\alpha$, and every
+	$n\in\nats$, there exists a $\beta_n\in\scattered$ such that
+	$\alpha\nequiv{n}\beta_n$.
 \end{thm}
 \begin{proof}
-	Suppose $\alpha\models\Th(\scattered)$ is countable and fix any $n\in\nats$.  Now define a binary relation $R$ on $\domain{}\alpha$ such that $aRb$ iff there exists a $\beta\in\scattered$ such that $(a,b)\nequiv{n}\beta$ in the language of $k$-coloured linear orders (for some $k\in\nats$).  Since $R$ is clearly transitive, it induces a cogruence $\sim$ on $\alpha$.  Moreover, $\sim$ is defined by the $L_{\omega_1\omega}$ formula $\varphi(x,y)$ given by:
+	Suppose $\alpha\models\Th(\scattered)$, where $\alpha$ is countable, and
+	fix any $n\in\nats$.  Now define a binary relation $R$ on $\domain{\alpha}$
+	such that $aRb$ iff there exists a $\beta\in\scattered$ such that
+	$(a,b)\nequiv{n}\beta$.
+
+	Since $R$ is clearly transitive, it induces a congruence $\sim$ on $\alpha$.
+	Moreover, $\sim$ is defined by the first-order formula $\varphi(x,y)$ as
+	follows.  Choose an $n$-spectrum $\chi=\set{\alpha_0,\dotsc,\alpha_{m-1}}$
+	for $\scattered$ and let $\varphi(x,y)$ be the formula:
 	\begin{equation}
-		x=;y\vee(x<y\wedge\bigvee_{\beta\in\scattered}(\cha{\beta}{n})^{(x,y)})\vee(y<x\wedge\bigvee_{\beta\in\scattered}(\cha{\beta}{n})^{(y,x)}).
+		x=y\vee\left(x<y\wedge\bigvee_{i<m}(\cha{\alpha_i}{n})^{(x,y)}\right)
+		\vee\left(y<x\wedge\bigvee_{i<m}(\cha{\alpha_i}{n})^{(y,x)} \right).
 	\end{equation}
-	Note that, since our language is finitary, we need only choose finitely many characterstics $\alpha_i\in\scattered$ such that $\alpha_0,\dotsc,\alpha_{m-1}$ is a traversal of the $n$-equivalence classes of $\scattered$. Thus we may identify $\varphi$ with its first-order equivalent which, has finite length.
 
 	\begin{claim}\label{clm:LL1}
 		Each $\gamma\in\faktor{\alpha}{\sim}$ has a scattered $n$-equivalent.
 	\end{claim}
-	\begin{proof}
-		Choose any $\gamma\in\faktor{\alpha}{\sim}$.  If there exists a least element $a_0\in\gamma$ then, since $\alpha$ and thus $\gamma$ is countable, there exists a cofinal sequence $\family{a_i}{i<\omega}$.  By Ramsey's Theorem, there then exists a homogeneous subsequence $\family{a^\prime_i}{i<\omega}\subseteq\family{a^\prime_i}{i<\omega}$ for the colouring $h$ that sends intervals $(a_i,a_j)$, with $i<j$, to a characteristic among $\alpha_0,\dotsc,\alpha_{m-1}$.  Consequently, $\gamma$ is an $\omega$-sum
-		\begin{equation}
-			\gamma=\sum_{i<\omega}[a^\prime_i,a^\prime_{i+1})
-		\end{equation}
-		where all of the summands are $n$-equivlent to the same $\one+\alpha_{i_0}$ for some $i_0\in\set{0,\dotsc,m-1}$ so that, since summation preserves $n$-equivalence, it follows that $\gamma$ is $n$-equivalent to the scattered linear order:
-		\begin{equation}
-			\gamma^\prime=(\one+\alpha_{i_0})\cdot\omega.
-		\end{equation}
-		Since $\gamma^{<a^\prime_0}=[a_0,a^\prime_0))$, by defintion of $\sim$, has an $n$-equivalent (($\gamma^\prime_0$ say) it follows that $\beta_n=\gamma_0+\gamma^\prime$ is the desired scatterred $n$-equivalent of $\gamma$.
+	\begin{proof}[Proof of claim]
+		Choose any $\gamma\in\faktor{\alpha}{\sim}$.  If there exists a least
+		element $a_0\in\gamma$ then, since $\gamma$ is countable, there exists a
+		cofinal sequence $\family{a_i}{i<\omega}$.
 
-		A similar argument can be obtained for when $\gamma$ has a greatest element by dualising the argument above (i.e. respectively swap around $<$ and $>$ as well as $\leq$ and $\geq$.  In te case where $\gamma$ has neither a largest nor a smallest element choose some fixed $a\in\gamma$ and apply a similar argument in the respective suborderings $\gamma^{\geq a}$ and $\gamma^{<a}$.  The sum of their $n$-equivalents will then yield a scattered $n$-equivalent of the equivalence class $\gamma$, as required.\noqed
+		By Ramsey's Theorem, if $h$ is the colouring of $\alpha$ that sends each
+		interval $(a,b)$ to its its characterstic in $\chi$, then there exists a
+		homogeneous subsequence
+		$\family{a^\prime_i}{i<\omega}\subseteq\family{a_i}{i<\omega}$ for the
+		colouring $h$.
+
+		Consequently, $\gamma$ is an $\omega$-sum
+		\begin{equation}
+			\gamma=\sum_{i<\omega}[a^\prime_i,a^\prime_{i+1}),
+		\end{equation}
+		where all of the summands are $n$-equivalent to the same $\one+\beta$,
+		for some $\beta\in\chi$.  It now follows that $\gamma$ is $n$-equivalent
+		to the scattered linear order:
+		\begin{equation}
+			\gamma^\prime=(\one+\beta)\cdot\omega.
+		\end{equation}
+		Since $[a_0,a^\prime_0)$ is $n$-equivalent to some $\gamma_0\in\chi$,
+		it follows that $\beta_n=\gamma_0+\gamma^\prime$ is the desired
+		scatterred $n$-equivalent of $\gamma$.
+
+		A similar methodology may be applied in the case where $\gamma$ has a
+		greatest element by dualising the argument above (in other words,
+		substitute $>$ for each occurence of $<$).
+
+		In the case where $\gamma$ has neither a largest nor a smallest element,
+		choose some fixed $b<a$ in $\gamma$ and apply the argument above to the
+		respective suborderings $\gamma^{\geq a}$ and $\gamma^{\leq b}$.  This
+		yields the respective $n$-equivalents $\gamma_a,\gamma_b\in\chi$.  Thus,
+		if $\delta\in\chi$ is the $n$-equivalent of $(a,b)$ then $\gamma$ is
+		$n$-equivalent to the scattered linear order
+		\begin{equation}
+			\gamma_b+\delta+\gamma_a,
+		\end{equation}
+		as required.\noqed
 	\end{proof}
 
 	\begin{claim}
 		The equivalence classes are dense under the induced order.
 	\end{claim}
-	\begin{proof}
-		Suppose $\epsilon_0,\epsilon_1\in\faktor{\alpha}{\sim}$ satisfy the property $\epsilon_0<\epsilon_1$ and and then assume, by way of contradiction, that for no $c\in\alpha$ does it hold that:
+	\begin{proof}[Proof of claim]
+		Suppose $\epsilon_0,\epsilon_1\in\faktor{\alpha}{\sim}$ satisfy the
+		relation $\epsilon_0<\epsilon_1$ and assume, by way of contradiction,
+		that no $c\in\alpha$ satisfies:
 		\begin{equation}
 			\epsilon_0<c<\epsilon_1.
 		\end{equation}
-		However, since $n$-equivalence is preserved under sums it follows that $\epsilon_0+\epsilon_1$ is $n$-equivalent to some scattered linear order which implies tha by choosing an $a_0\in\epsilon_1$ and an $a_1\in\epsilon_1$ that $(a_0,a_1)$ posess a scattered $n$-equivalent.  This is the desired contradiction as then, by defition, it would have to hold that $a_0\sim a_1$: a contradiction.\noqed
+
+		Since $n$-equivalence is preserved under sums it follows that
+		$\epsilon_0+\epsilon_1$ is $n$-equivalent to some scattered linear order
+		$\sigma$.  Choosing an $a_0\in\epsilon_1$ and an $a_1\in\epsilon_1$,
+		note that the interval $(a_0,a_1)$, in $\sigma$, necessarily posesses a
+		scattered $n$-equivalent.  This is the desired contradiction as then, by
+		definition, it would have to hold that $a_0\sim a_1$.\noqed
 	\end{proof}
-	Since $\faktor{\alpha}{\sim}$ is dense and $\alpha$ is definably scattered, the only possible conclusion is that $\faktor{\alpha}{\sim}\cong\one$.  From claim \ref{clm:LL1} the result then follows.
+	Since $\faktor{\alpha}{\sim}$ is dense and $\alpha$ is definably scattered,
+	it follows by definition that $\faktor{\alpha}{\sim}\cong\one$.  Therefore,
+	it follows from the first claim that $\alpha$ has a scattered
+	$n$-equivalent.
 \end{proof}
 
 \begin{prp}\label{prp:rescat}
