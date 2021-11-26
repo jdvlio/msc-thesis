@@ -825,7 +825,9 @@ In particular, and with more precision, if $T$ is a theory in a countable
 language then there exists a set $\mathcal{K}\subseteq\Mod T$ of cardinality at
 most $2^{\aleph_0}$ such that $\Th\mathcal{K}=\dcl{T}$.  This may be expressed
 by saying that such a set $\mathcal{K}$ \textit{approximates} the class of
-models of $T$.
+models of $T$.  Furthermore, if every sentence $\sigma$ consistent with $T$ has
+a model in $\mathcal{K}$ then it is said to be a \textit{full} approximation or
+that it \textit{fully approximates} the class $\Mod T$.
 
 Certain natural questions arise in this context.  Is it possible to choose the
 approximating class $\mathcal{K}$ to be countable or, better yet, recursively
@@ -876,7 +878,10 @@ questions of precisely this nature, for specified classes of linear orders.
 	\end{equation}
 \end{prp}
 \begin{proof}
-	Choose any fixed $a_0\in\alpha_0$ and define $\alpha=\sum_{i\in\zeta}\alpha_i$ apply Propositions \ref{prp:M0sum} and \ref{prp:M0sum} respectively to $\alpha^{>a_0}$ and $\alpha^{<a_0}$ to obtain their (respective $n$-equivelants $\beta^+\in\Mzero$ and $\beta^-\in\Mzero$.  It then follows, since $\Mzero$ is closed under finite sums, that if $\beta=\beta^-+\one+\beta^+$ then $\alpha\nequiv{n}\beta$, as required.
+	Choose any fixed $a_0\in\alpha_0$ and define
+	$\alpha=\sum_{i\in\zeta}\alpha_i$ apply Propositions \ref{prp:M0sum} and
+	\ref{prp:M0sum} respectively to $\alpha^{>a_0}$ and $\alpha^{<a_0}$ to
+	obtain their (respective) $n$-equivalents $\beta^+\in\Mzero$ and $\beta^-\in\Mzero$.  It then follows, since $\Mzero$ is closed under finite sums, that if $\beta=\beta^-+\one+\beta^+$ then $\alpha\nequiv{n}\beta$, as required.
 \end{proof}
 
 \begin{thm}[L\"auchli and Leonard]
