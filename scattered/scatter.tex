@@ -219,14 +219,15 @@ on $\alpha$.
 
 \section{Hausdorff's characterisation of the countable scattered linear orders}
 
-\begin{prp}[Operations on $\scattered$]\label{prp:OpScattered}
-        The following properties hold:
-        \begin{enumerate}
-			\item   If $I\in\scattered$ and $\alpha_i\in\scattered$ for each
-				$i\in I$ then $\sum_{i\in I}\alpha_i\in\scattered$;
-			\item   if $\alpha,\beta\in\scattered$ then
-				$\alpha+\beta,\alpha\cdot\beta\in\scattered$.
-        \end{enumerate}
+\begin{prp}[Operations on $\scattered$]
+	\label{prp:OpScattered}
+	The following properties hold:
+	\begin{enumerate}
+		\item   If $I\in\scattered$ and $\alpha_i\in\scattered$ for each
+			$i\in I$ then $\sum_{i\in I}\alpha_i\in\scattered$;
+		\item   if $\alpha,\beta\in\scattered$ then
+			$\alpha+\beta,\alpha\cdot\beta\in\scattered$.
+	\end{enumerate}
 \end{prp}
 \begin{proof}
 		(1):  Suppose, by way of contradiction, that $\delta\subseteq\sum_{i\in
@@ -843,6 +844,28 @@ questions of precisely this nature, for specified classes of linear orders.
 		\item	if $\alpha\in\Mzero$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\Mzero$,
 	\end{enumerate}
 \end{dfn}
+
+From Proposition \ref{prp:OpScattered}, and the above definition, it follows
+that $\Mzero$ is a countable set of countable scattered linear orders.  This is
+readily verified by induction on $\Mzero$.
+
+Note, however, that $\Mzero$ need not contain arbitrary $\zeta$-sums of its
+elements.  Hence, as we will argue, it is not the case that every countable
+scattered linear order need be isomorphic to a member of $\Mzero$.  It is
+sufficient to note that any ordinal $\alpha\in\Mzero$ must have finite degree.
+In other words, there must exist some $n\in\nats$ so that, in Cantor normal
+form,
+\begin{equation}
+	\alpha=\omega^n\cdot\bk_{m-1}+\dotsb+\bk_0.
+\end{equation}
+Therefore, we cannot have $\omega^\omega\in\Mzero$ as $\omega^\omega$ has degree
+$\omega$.
+
+As we will see, in the propositions that follow, $\Mzero$ is nonetheless closed
+under $\zeta$-sums when considered only up to $n$-equivalence, for any fixed
+$n\in\nats$.  This will prove useful when establishing the more general fact
+that $\Mzero$ contains, for each $n\in\nats$, $n$-equivalents for every choice
+of scattered linear order.
 
 \begin{prp}\label{prp:M0sum}
 	Let $n\in\nats$ and suppose for each $i<\omega$ it holds that $\alpha_i\in\Mzero$ then there exists a $\beta\in\Mzero$ such that
