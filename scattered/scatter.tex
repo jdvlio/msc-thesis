@@ -688,21 +688,22 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 		Each $\gamma\in\faktor{\alpha}{\sim}$ has a scattered $n$-equivalent.
 	\end{claim}
 	\begin{proof}[Proof of claim]
-		Choose any $\gamma\in\faktor{\alpha}{\sim}$.  If there exists a least
-		element $a_0\in\gamma$ then, since $\gamma$ is countable, there exists a
-		cofinal sequence $\family{a_i}{i<\omega}$.
+		Choose any $\gamma\in\faktor{\alpha}{\sim}$ and first consider the case
+		where $\gamma$ has a least element element $a_0$ but no greatest
+		element.  Since $\gamma$ is countable, there exists a cofinal sequence
+		$\family{a_i}{i<\omega}$.
 
 		By Ramsey's Theorem, if $h$ is the colouring of $\alpha$ that sends each
-		interval $(a,b)$ to its its characterstic in $\chi$, then there exists a
-		homogeneous subsequence
+		interval $(a,b)$ to its characteristic in $\chi$, then there exists
+		a homogeneous subsequence
 		$\family{a^\prime_i}{i<\omega}\subseteq\family{a_i}{i<\omega}$ for the
 		colouring $h$.
 
 		Consequently, $\gamma$ is an $\omega$-sum
 		\begin{equation}
-			\gamma=\sum_{i<\omega}[a^\prime_i,a^\prime_{i+1}),
+			\gamma=[a_0,a^\prime_0)+\sum_{i<\omega}[a^\prime_i,a^\prime_{i+1}),
 		\end{equation}
-		where all of the summands are $n$-equivalent to the same $\one+\beta$,
+		the summands of which are all $n$-equivalent to the same $\one+\beta$,
 		for some $\beta\in\chi$.  It now follows that $\gamma$ is $n$-equivalent
 		to the scattered linear order:
 		\begin{equation}
@@ -712,9 +713,18 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 		it follows that $\beta_n=\gamma_0+\gamma^\prime$ is the desired
 		scatterred $n$-equivalent of $\gamma$.
 
+		If $\gamma$ has both a least and a greatest element we simply add a
+		greatest element to $\gamma^\prime$ in the argument above.  That is to
+		say, $\gamma$ will be $n$-equivalent to
+		\begin{equation}
+			\gamma^\prime=(\one+\beta)\cdot\omega+\one.
+		\end{equation}
+
 		A similar methodology may be applied in the case where $\gamma$ has a
-		greatest element by dualising the argument above (in other words,
-		substitute $>$ for each occurence of $<$).
+		greatest element. One simply dualises the argument above: systematically
+		and consistently replace each linear order with its reverse order.  As a
+		result, each instance of $<$ will become $>$ and ``least element'' will
+		become ``greatest element'' (or vice-versa).
 
 		In the case where $\gamma$ has neither a largest nor a smallest element,
 		choose some fixed $b<a$ in $\gamma$ and apply the argument above to the
@@ -733,10 +743,10 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	\end{claim}
 	\begin{proof}[Proof of claim]
 		Suppose $\epsilon_0,\epsilon_1\in\faktor{\alpha}{\sim}$ satisfy the
-		relation $\epsilon_0<\epsilon_1$ and assume, by way of contradiction,
+		relation $\epsilon_0\ll\epsilon_1$ and assume, by way of contradiction,
 		that no $c\in\alpha$ satisfies:
 		\begin{equation}
-			\epsilon_0<c<\epsilon_1.
+			\epsilon_0\ll c\ll\epsilon_1.
 		\end{equation}
 
 		Since $n$-equivalence is preserved under sums it follows that
