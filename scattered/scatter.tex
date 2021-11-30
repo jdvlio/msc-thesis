@@ -878,20 +878,34 @@ that $\Mzero$ contains, for each $n\in\nats$, $n$-equivalents for every choice
 of scattered linear order.
 
 \begin{prp}\label{prp:M0sum}
-	Let $n\in\nats$ and suppose for each $i<\omega$ it holds that $\alpha_i\in\Mzero$ then there exists a $\beta\in\Mzero$ such that
+	Let $n\in\nats$ and suppose for each $i<\omega$ it holds that
+	$\alpha_i\in\Mzero$ then there exists a $\beta\in\Mzero$ such that
 	\begin{equation}
 		\sum_{i<\omega}\alpha_i\nequiv{n}\beta.
 	\end{equation}
 \end{prp}
 \begin{proof}
-	For each $i,j<\omega$, if $i<j$ then define $\alpha_{ij}=\alpha_{i+1}+\alpha_{i+2}+\dotsb+\alpha_j$ and note that $\alpha_{ij}\in\Mzero$ since $\Mzero$ is closed under finite sums.  Choose $S=\set{\beta_0,\dotsc,\beta_{k-1}}\subseteq\Mzero$ to be an $n$-spectrum for $\Mzero$.  Consequently, there exists a colouring $h$ of $\omega$ whose codomain is $\set{0,\dotsc,k-1}$ such that $h(i,j)=\ell$ iff $\alpha_{ij}\nequiv{n}\beta_\ell$.
+	For each $i,j<\omega$, if $i<j$ then define
+	$\alpha_{ij}=\alpha_{i+1}+\alpha_{i+2}+\dotsb+\alpha_j$ and note that
+	$\alpha_{ij}\in\Mzero$ since $\Mzero$ is closed under finite sums.  Choose
+	$S=\set{\beta_0,\dotsc,\beta_{k-1}}\subseteq\Mzero$ to be an $n$-spectrum
+	for $\Mzero$.  Consequently, there exists a colouring
+	$h\colon\subsets{k}{\nats}\to\set{0,\dotsc,k-1}$ of $\omega$ such that
+	$h(i,j)=\ell$ iff $\alpha_{ij}\nequiv{n}\beta_\ell$.
 
-	It now follows from Ramsey's theorem that there exists a homogeneous sequence $\family{i_j}{j<\omega}$ for $h$.  By definition, there exists a natural $m$ such that $0\leq m<k$ and $\alpha_{i_ji_{j+1}}\nequiv{n}\beta_m$, for every $j<\omega$.  Note, from Lemma \ref{lem:fvsum}, it follows that
+	It now follows from Ramsey's theorem that there exists a homogeneous
+	sequence $\family{i_j}{j<\omega}$ for $h$.  By definition, there exists a
+	natural $m$ such that $0\leq m<k$ and
+	$\alpha_{i_ji_{j+1}}\nequiv{n}\beta_m$, for every $j<\omega$.  Note, from
+	Lemma \ref{lem:fvsum}, it follows that
 	\begin{align}
-		\sum_{i<\omega}\alpha_i&\cong\alpha_0+\alpha_1+\dotsb+\alpha_{i_0}+\sum_{j<\omega}\alpha_{i_ji_{j+1}}\\
-		&\nequiv{n}\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega,
+		\sum_{i<\omega}\alpha_i&\cong\phantom{^n}\alpha_0+\dotsb+\alpha_{i_0}
+		+\sum_{j<\omega}\alpha_{i_ji_{j+1}}\\
+		&\nequiv{n}\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega.
 	\end{align}
-	Since $\Mzero$ is closed under finite sums, we may thus conclude that if $\beta=\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega$ then $\sum_{i<\omega}\alpha_i\nequiv{n}\beta$, as required.
+	Since $\Mzero$ is closed under finite sums, we may conclude that
+	$\beta=\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega$ implies
+	$\beta\in\Mzero$ and $\sum_{i<\omega}\alpha_i\nequiv{n}\beta$, as required.
 \end{proof}
 
 \begin{prp}\label{prp:M0sumop}
