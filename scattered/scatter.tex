@@ -940,13 +940,30 @@ of scattered linear order.
 	exists a $\beta_n\in\Mzero$ such that $\alpha\nequiv{n}\beta_n$.
 \end{thm}
 \begin{proof}
-	Suppose $\alpha\in\scattered$ is countable.  From Hausdorff's theorem it follows that $\alpha$ is very discrete so we may argue by induction on the $\VD$-rank of $\alpha$. Since $\zero,\one\in\Mzero$, the result holds when $\vdrank(\alpha)=0$.
+	Suppose $\alpha\in\scattered$ is countable.  From Hausdorff's theorem it
+	follows that $\alpha$ is very discrete so we may argue by induction on the
+	$\VD$-rank of $\alpha$. Since $\zero,\one\in\Mzero$, the result holds when
+	$\vdrank(\alpha)=0$.
 
-	Assume now there exists an ordinal $\gamma<\omega_1$ such that if $\vdrank(\alpha)<\gamma$ then, for every $n\in\nats$, there exists a $\beta_n\in\Mzero$ such that $\alpha\nequiv{n}\beta_n$.  Now fix any $n\in\nats$ and  suppose $\vdrank(\alpha)=\gamma$ then, by definition of $\VD$, there exists an $\alpha_i\in\VD$ such that $\vdrank(\alpha_i)<\gamma$, for each $i\in\ints$, such that
+	Assume, now, there exists an ordinal $\gamma<\omega_1$ such that if $\alpha$
+	is any linear order and $\vdrank(\alpha)<\gamma$ then, for every
+	$n\in\nats$, there exists a $\beta_n\in\Mzero$ such that
+	$\alpha\nequiv{n}\beta_n$.  Now fix any $n\in\nats$ and  suppose
+	$\vdrank(\alpha)=\gamma$.  Then, by definition of $\VD$, there exists for
+	each $i\in\ints$ an $\alpha_i\in\VD$ such that $\vdrank(\alpha_i)<\gamma$
+	and
 	\begin{equation}
 		\alpha=\sum_{i\in\zeta}\alpha_i.
 	\end{equation}
-	By the induction hypothesis there exists, for each $i\in\ints$, some $\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.  It now follows from Lemma \ref{lem:fvsum}, if we choose $\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that $\alpha\nequiv{n}\alpha^\prime$.  According to Proposition \ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that $\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as required.
+
+	By the induction hypothesis there exists, for each $i\in\ints$, some
+	$\alpha^\prime_i\in\Mzero$ such that $\alpha_i\nequiv{n}\alpha_i^\prime$.
+	It now follows from Lemma \ref{lem:fvsum}, if we choose
+	$\alpha^\prime=\sum_{i\in\zeta}\alpha_i^\prime$, that
+	$\alpha\nequiv{n}\alpha^\prime$.  According to Proposition
+	\ref{prp:M0sumint} there exists a $\beta\in\Mzero$ such that
+	$\alpha^\prime\nequiv{n}\beta$ and, therefore, $\alpha\nequiv{n}\beta$, as
+	required.
 \end{proof}
 
 \begin{prp}
