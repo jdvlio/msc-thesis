@@ -763,7 +763,8 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 \end{proof}
 
 \begin{prp}\label{prp:rescat}
-	For each formula $\varphi(x,y,\bar{z})$ define $\theta_\varphi(\bar{z})$ to be the formula
+	For each formula $\varphi(x,y,\bar{z})$ define $\theta_\varphi(\bar{z})$ to
+	be the formula
 	\begin{equation}
 		\exists x\exists y\big((x<y\wedge\neg\varphi(x,y,\bar{z}))\wedge\forall
 		w(x<w<y\rightarrow\varphi(x,w,\bar{z})\vee\varphi(w,y,\bar{z}))\big)
@@ -774,7 +775,8 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	then the following holds:
 	\begin{enumerate}
 		\item the theory
-			$\Sigma=\set{\axmlin}\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})
+			$\Sigma=\set{\axmlin}
+			\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})
 			\rightarrow\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$
 			axiomatises $\Th(\scattered)$ i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
 
@@ -809,8 +811,8 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 				$\Sigma$ by declaring a map, from $\Sigma$ to $\nats$, such that
 				$\axmlin\mapsto 0$ and, for every tuple $\bar{z}$ of variables,
 				\begin{equation}
-					\forall
-					\bar{z}(\epsilon_\varphi(\bar{z})\rightarrow\theta_\varphi(\bar{z})))\mapsto
+					\forall\bar{z}(\epsilon_\varphi(\bar{z})
+					\rightarrow\theta_\varphi(\bar{z})))\mapsto
 					2^{\godel{\varphi(x,y,\bar{z})}}.\label{eq:regod}
 				\end{equation}
 
@@ -847,11 +849,13 @@ theories occur in $\mathcal{K}$?  Henceforth, we will concern ourselves with
 questions of precisely this nature, for specified classes of linear orders.
 
 \begin{dfn}[The class $\Mzero$]
-	The class $\Mzero$ is the smallest class of linear orders which satisfies the following:
+	The class $\Mzero$ is the smallest class of linear orders which satisfies
+	the following:
 	\begin{enumerate}
 		\item	$\zero,\one\in\Mzero$,
 		\item	if $\alpha,\beta\in\Mzero$ then $\alpha+\beta\in\Mzero$,
-		\item	if $\alpha\in\Mzero$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\Mzero$,
+		\item	if $\alpha\in\Mzero$ then
+			$\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\Mzero$,
 	\end{enumerate}
 \end{dfn}
 
