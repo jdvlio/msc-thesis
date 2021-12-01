@@ -974,24 +974,6 @@ of scattered linear order.
 	required.
 \end{proof}
 
-\begin{prp}
-	Suppose $\alpha$ and $\beta$ are linear orders and consider the families $\family{\mathfrak{A}_i}{i\in\alpha}$ and $\family{\mathfrak{B}_j}{j\in\beta}$ such that, for each $i\in\alpha$ and $j\in\beta$, $\mathfrak{A}_i,\mathfrak{B}_j$ are regular $L^\prime$-expansions of linear orders.  If $n\in\nats$, $\alpha\nequiv{n}\beta$ and, for each $i\in\alpha$ and $j\in\beta$,
-	\begin{equation}
-		\mathfrak{A}_i\nequiv{n}\mathfrak{B}_j
-	\end{equation}
-	then it necessarily follows that
-	\begin{equation}
-		\sum_{i\in\alpha}\mathfrak{A}_i\nequiv{n}\sum_{j\in\beta}\mathfrak{B}_j.
-	\end{equation}
-\end{prp}
-\begin{proof}
-	We describe a winning strategy for $\Right$ in the $n$-round game
-	\begin{equation}
-		\EF_n\left(\sum_{i\in\alpha}\mathfrak{A}_i,\sum_{j\in\beta}\mathfrak{B}_j\right).
-	\end{equation}
-	A move $(a,i)$ in $\sum_{i\in\alpha}\mathfrak{A}_i$ by $\Left$ is countered by $\Right$ by first employing his winning strategy in the game $\EF_n(\alpha,\beta)$ to obtain some $j\in\beta$ followed by an application of his winning strategy in the game $\EF_n(\mathfrak{A}_i,\mathfrak{B}_j)$ in order to acquire a $b\in B_j$.  The countermove by $\Right$ is then $(b,j)$.  A similar choice is made in the case that $\Left$ instead plays some $(b^\prime,j^\prime)$ in the opposing sum.
-\end{proof}
-
 \begin{lem}\label{lem:rescat}
 	The following set is recursively enumerable:
 	\begin{equation}
