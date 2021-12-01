@@ -447,13 +447,15 @@ $\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
 			$\sim_\delta\restriction[a,b]$ then it follows that
 			\begin{equation}
 				\faktor{[a,b]}{\sim^\prime}\cong
-				\left[\faktor{a}{\sim_\delta}\mathpunct{,}\faktor{b}{\sim_\delta}\right].
+				\left[\faktor{a}{\sim_\delta}
+				\mathpunct{,}\faktor{b}{\sim_\delta}\right].
 			\end{equation}
 			However, since $\alpha$ is scattered, it follows from part 1 that
 			the subinterval $[a,b]$ is also scattered.  Hence, we may conclude
 			that
 			\begin{equation}
-				\left[\faktor{a}{\sim_\delta},\faktor{b}{\sim_\delta}\right]\cong\one.
+				\left[\faktor{a}{\sim_\delta},\faktor{b}{\sim_\delta}\right]
+				\cong\one.
 			\end{equation}
 			Therefore, it follows that $\pi^\delta(a)=\pi^\delta(b)$, as
 			required.
@@ -559,10 +561,10 @@ the result that follows.
 	$\beta$ cannot be dense as this would contradict the scatteredness of
 	$\alpha$.
 
-	\smallskip\noindent 2$\Rightarrow$3:  Suppose ${\sim}\in\con\alpha$ is not the identity
-	congruence.  By assumption, $\faktor{\alpha}{=}$ cannot be dense.  Hence,
-	there exists $a<a^\prime$ in $\alpha$ such that $a\sim a^\prime$ and
-	$a^\prime$ is an immediate successor of $a$.
+	\smallskip\noindent 2$\Rightarrow$3:  Suppose ${\sim}\in\con\alpha$ is not
+	the identity congruence.  By assumption, $\faktor{\alpha}{=}$ cannot be
+	dense.  Hence, there exists $a<a^\prime$ in $\alpha$ such that $a\sim
+	a^\prime$ and $a^\prime$ is an immediate successor of $a$.
 
 	Now define the congruence $\sim_0$ on $\alpha$ such that $x\sim_0 y$ iff
 	either $x=y$ or $x,y\in\set{a,a^\prime}$.  It follows immediately, by
@@ -648,10 +650,12 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 			y(\varphi(x,y,\bar{z})\rightarrow\varphi(y,x,\bar{z}))$,\hfill
 			(symmetry)
 		\item 	$\forall x\forall y\forall
-			w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})\rightarrow\varphi(x,w,\bar{z}))$.\hfill
+			w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})
+			\rightarrow\varphi(x,w,\bar{z}))$.\hfill
 			(transitivity)
 		\item 	$\forall x_0\forall x_1\forall y_0\forall
-			y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})\wedge\varphi(x_0,y_0,\bar{z})
+			y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})
+			\wedge\varphi(x_0,y_0,\bar{z})
 			\wedge\varphi(x_1,y_1,\bar{z})\rightarrow
 			y_0<y_1)$\phantom{}\hfill(compatibility).
 	\end{enumerate}
