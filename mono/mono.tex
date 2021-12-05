@@ -15,24 +15,82 @@ that the theory of \textit{all} linear orders is decidable.
 \section{The shuffle operation}
 
 \begin{prp}\label{prp:ratpart}
-	Suppose $n\in\nats$ and $n\geq 2$ and let $P$ bet a set of $n-1$ primes $p\in\nats$.  Choose
+	Suppose $n\geq 2$ is a natural number and let $P\subseteq\nats$ bet the set
+	of the first $n-1$ primes $p_0,\dotsc,p_{n-2}$.  Choose, for each $i<n-1$,
+	the set
 	\begin{equation}
-		D_p=\setbuild{q=\faktor{a}{p^k}}{a\in\ints\text{ and }k\in\ints\setminus\set{0}},\quad\text{for each }p\in P.
+		Q_i=\bigcup_{\substack{k\in\ints\\ k\neq
+			0}}\setbuild{\faktor{a}{p_i^k}}{a\in\ints\text{ and } p_i\nmid a}.
 	\end{equation}
-	If $P=\set{p_0,\dotsc,p_{n-2}}$ and $Q_i=\setbuild{D_p}{p\in P}$ when $i<n$ and $Q_n=\rats\setminus\bigcup_{i<n}Q_i$ then $\setbuild{Q_i}{0\leq i<n}$ is a partition of $\rats$ such that $Q_i$ is dense in $\eta$, for each $i=0,\dotsc,n-1$.
+	and define $Q_{n-1}=\rats\setminus\bigcup_{i<n-1}Q_i$.  Then
+	$\mathcal{Q}=\setbuild{Q_i}{0\leq i<n}$ is a partition of $\rats$ into dense
+	subsets of $\eta$.
 \end{prp}
+\begin{proof}
+	By definition, it clearly follows that $\mathcal{Q}$ is a partition of
+	$\rats$.  Hence, all that remains is to show that its equivalence classes
+	are dense subset of the rationals.
 
-\begin{dfn}[Canonical partition]
-	The partition defined in proposition \ref{prp:ratpart} will be referred to as the \textbf{canonical partion} of the rationals into dense subsets.
-\end{dfn}
+	We commence by showing that $Q_{n-1}$ is such a dense subset.  Choose $p$ to
+	be the least prime such that $p>p_{n-1}$ and define
+	\begin{equation}
+		S=\bigcup_{\substack{k\in\ints\\ k\neq
+			0}}\setbuild{\faktor{a}{p^k}}{a\in\ints\text{ and } p\nmid a}.
+	\end{equation}
+	Since $S\subseteq Q_{n-1}$, it is sufficient to prove that $S$ is a dense
+	subset of $\eta$.  If $s_0<s_1$ are elements of $S$ then there exists
+	$a_0,a_1\in\ints$ and $k_0,k_1\in\posnats$ such that, for $i=0,1$, it holds
+	that $p\nmid a$ and
+	\begin{equation}
+		s_i=\frac{a_i}{p^{k_i}}.
+	\end{equation}
+
+	Suppose first that $\abs{s_1-s_0}\geq 1$ and choose $m>k_0$ to be the least
+	natural number such that $p^m>\abs{s_1-s_0}$.  Define
+	\begin{equation}
+		t=s_0+\frac{1}{p^m}.\label{eq:qpart}
+	\end{equation}
+	Then it follows that $s_0<t<s_1$ and
+	\begin{equation}
+		t=\frac{p^{m-k_0}a_0+1}{p^m}.
+	\end{equation}
+	Observe that, if $p$ divides the numerator, then we may conclude that $p\mid
+	1$.  This is clearly a contradiction and, thus, $p$ cannot divide the
+	aforementioned numerator.
+
+	Suppose now, instead, that $\abs{s_1-s_0}<1$ and choose $m>k_0$ to be the
+	least natural number such that $p^{-m}<\abs{s_1-s_0}$.  Define $t$ as
+	in (\ref{eq:qpart}) then, similar to previously, it follows that
+	\begin{equation}
+		t=\frac{p^{m-k_0}a_0+1}{p^m}.
+	\end{equation}
+	Again, using a similar argument, we may conclude that $p$ does not divide
+	the numerator above.
+
+	An analagous methodology may be employed in order to prove that $Q_i$ is a
+	dense subset of $\eta$ for $i<n$.  One need only substitute each $Q_i$ for
+	$S$, and $p_i$ for $p$, in the above proof.
+\end{proof}
+
+As we will be revisiting it, we shall refer to the partition of $\rats$, defined
+in the proposition above, as the \textit{canonical partition} of $\rats$ into
+$n$ dense subsets.  Similarly, the \textit{canonical partition of the reals}
+into $n$ dense subsets is laid out in the following corollary.
 
 \begin{cor}
-	For every natural $n\geq 2$ there exists a partition $\mathcal{R}=\set{R_0,\dotsc,R_{n-1}}$ of $\reals$ such that:
+	For every natural $n\geq 2$, there exists a canonical partition
+	$\mathcal{R}=\set{R_0,\dotsc,R_{n-1}}$ of $\reals$ such that:
 	\begin{enumerate}
 		\item $R_{n-1}=\irrats$,
 		\item $R_k$ is a countable dense subset of $\lambda$, for each natural $k<n-1$.
 	\end{enumerate}
 \end{cor}
+\begin{proof}
+	Choose $R_0,\dotsc,R_{n-2}$ so that they correspond exactly to the
+	equivalence classes of the canonical partition of $\rats$ into dense subsets
+	of $\eta$.  Together with $R_{n-1}=\irrats$, these then form the equivalence
+	classes of the desired partition $\mathcal{R}$ of $\reals$.
+\end{proof}
 
 \begin{dfn}[The shuffle operation]
 	Suppose $n\in\nats$ and let $F=\set{\alpha_0,\dotsc,\alpha_{n-1}}$ be an arbitrary set of $n$ linear orders.  Now suppose the following:
