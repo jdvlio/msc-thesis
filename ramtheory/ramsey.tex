@@ -28,10 +28,10 @@ intended to represent the ``colours'' of the elements: two elements belong to
 the same member of the partition iff they share a colour.
 
 \begin{dfn}[Homogeneous set for a partition]
-   If $A$ is a nonempty set and, for some $k\in\posnats$, $\mathcal{C}$ is a
-   partition of $\subsets{k}{A}$ then we will call $X\subseteq A$
-   \textbf{homogeneous for the partition} $\mathcal{C}$ if there exists a $C\in
-   \mathcal{C}$ such that $\subsets{k}{X}\subseteq C$.
+	If $A$ is a nonempty set and, for some $k\in\posnats$, $\mathcal{C}$ is a
+	partition of $\subsets{k}{A}$ then we will call $X\subseteq A$
+	\textbf{homogeneous for the partition} $\mathcal{C}$ if there exists a $C\in
+		\mathcal{C}$ such that $\subsets{k}{X}\subseteq C$.
 \end{dfn}
 
 Rephrased in terms of colours, a set $X$ is homogeneous for a partition whenever
@@ -56,7 +56,7 @@ say all its elements share the same colour.
 	$b\in\nats$ and $S\subseteq\nats$, the set $C_i(S,b)$ is defined by
 	\begin{equation}
 		C_i(b,S)=\setbuild{A\in\subsets{k}{S\setminus\set{b}}}{A\cup\set{b}\in
-		C_i}.
+			C_i}.
 	\end{equation}
 
 	Choose $a_0=0$ and $H_0=\nats\setminus\set{0}$.  Now assume $a_j$ and $H_j$
@@ -64,12 +64,12 @@ say all its elements share the same colour.
 	$a_{j+1}$ to be the least element of $H_j$ then
 	\begin{equation}
 		\mathcal{B}_{j+1}=\setbuild{C_i\big(a_{j+1},H_j\big)}{
-		i<p}\setminus\set{\emptyset}
+			i<p}\setminus\set{\emptyset}
 	\end{equation}
 	is a partition of $\subsets{k}{H_j\setminus\set{a_{j+1}}}$.
 
 	From the inductive hypothesis, there exists an infinite $H_{j+1}\subseteq
-	H_j\setminus\set{a_{j+1}}$ such that $H_{j+1}$ is homogeneous for
+		H_j\setminus\set{a_{j+1}}$ such that $H_{j+1}$ is homogeneous for
 	$\mathcal{B}_{j+1}$.  This completes the recursive definition so that all that
 	remains is to show that the set
 	\begin{equation}
@@ -108,7 +108,7 @@ least different) view of certain concepts already introduced.
 \begin{dfn}[Colouring]\label{def:Col}
 	If $S$ is a nonempty set and $\card{C}=k\in\posnats$ then a
 	$\mathbf{k}$\textbf{-colouring} of $S$ is a surjective map $f\colon  S\to
-	C$.  We call a surjection $f$ simply a \textbf{colouring} if it is a
+		C$.  We call a surjection $f$ simply a \textbf{colouring} if it is a
 	$k$-colouring for some $k$.
 \end{dfn}
 
@@ -121,7 +121,7 @@ justifies the following definition:
 \begin{dfn}[Homogeneous set for a colouring]
 	Suppose $A$ is a nonempty set and $f\colon A\to C$ is a colouring.  We call
 	$X\subseteq A$ \textbf{homogeneous for} $\bm{f}$ whenever there exists a $c\in
-	C$ such that $X\subseteq f^{-1}[c]$ or, equivalently, $f(x)=f(y)$ for every
+		C$ such that $X\subseteq f^{-1}[c]$ or, equivalently, $f(x)=f(y)$ for every
 	$x,y\in X$.
 \end{dfn}
 
@@ -130,11 +130,11 @@ $\bar{a}\in A^k$ is \textit{increasing} whenever its components form an
 increasing sequence i.e.\ it holds that $a_0<\dotsb<a_{k-1}$.
 
 Denote the set of increasing $k$-tuples of $A$ as $A^+(k)$ and let $f\colon
-\subsets{k}{A}\to C$ be some arbitrary colouring of $A$.  Defining the map
+	\subsets{k}{A}\to C$ be some arbitrary colouring of $A$.  Defining the map
 $\tau_f\colon A^+(k)\to C$ such that
 $\tau_f(a_0,\dotsc,a_{k-1})=f(\set{a_0,\dotsc,a_{k-1}})$, for
 $(a_0,\dotsc,a_{k-1})\in A^+(k)$, there exists a unique bijection $h\colon
-\subsets{k}{A}\to A^+(k)$ such that the diagram
+	\subsets{k}{A}\to A^+(k)$ such that the diagram
 \begin{center}
 	\begin{tikzcd}
 		\subsets{k}{A}\arrow[r,"h"]\arrow[rd,"f"']	& A^+(k)\arrow[d,"\tau_f"] \\
@@ -162,7 +162,7 @@ relative to the commutativity of the diagram above.
 \begin{rem}[Homogeneity]\label{rem:hom}
 	Note that if $f$ is a colouring of $\subsets{k}{S}$, for some nonempty set
 	$S$ and some $k\in\posnats$, then it follows by definition that $H\subseteq
-	S$ is homogeneous for the partition $\setbuild{f^{-1}[c]}{c\in\range f}$ if
+		S$ is homogeneous for the partition $\setbuild{f^{-1}[c]}{c\in\range f}$ if
 	and only if $\subsets{k}{H}$ is homogeneous for $f$.  This establishes the
 	relationship between the two notions of homogeneity.
 \end{rem}
@@ -190,7 +190,7 @@ regard.
 \begin{dfn}[Homogeneous sequence]
 	If $\alpha$ is a linear order and $f$ is a colouring of
 	$\subsets{2}{\domain\alpha}$ then a \textbf{homogeneous sequence for
-	$\bm{f}$} is a cofinal sequence $\family{a_\gamma}{\gamma<\beta}$ in
+		$\bm{f}$} is a cofinal sequence $\family{a_\gamma}{\gamma<\beta}$ in
 	$\alpha$ such that
 	\begin{equation}
 		H=\setbuild{a_\gamma}{\gamma<\beta}
@@ -263,9 +263,9 @@ Unfortunately this is not the case, as illustrated by the following example.
 	\begin{equation}
 		s(x,y)=
 		\begin{cases}
-			1,  &\text{if }x\prec y\text{ and }x<y,\\
-			1,  &\text{if }x\nprec y\text{ and }x\not< y,\\
-			0,   &\text{otherwise.}
+			1, & \text{if }x\prec y\text{ and }x<y,       \\
+			1, & \text{if }x\nprec y\text{ and }x\not< y, \\
+			0, & \text{otherwise.}
 		\end{cases}
 	\end{equation}
 	That is to say that $s(x,y)=1$ iff $<$ and $\prec$ agree on the order of
@@ -339,8 +339,8 @@ given that the first one is blue and the second red.
 		such that $\gamma_0,\gamma_1<\delta$.  Furthermore, assume both the
 		equations:
 		\begin{align}
-			f(\alpha_0,\gamma_0)&=f(\alpha_1,\gamma_0),\\
-			f(\alpha_1,\gamma_1)&=f(\alpha_2,\gamma_1).
+			f(\alpha_0,\gamma_0) & =f(\alpha_1,\gamma_0), \\
+			f(\alpha_1,\gamma_1) & =f(\alpha_2,\gamma_1).
 		\end{align}
 
 		If $\gamma_0=\gamma_1$ then it follows immediately that
@@ -364,8 +364,8 @@ given that the first one is blue and the second red.
 	of transfinite recursion.
 
 	Let $\alpha_0$ be the least element of $C$ and define, for each $c\in\range
-	f$, the set $I_c=\setbuild{\alpha\in C}{\alpha_0<\alpha\text{ and
-	}f(\alpha_0,\alpha)=c}$.  It then follows, by definition, that
+		f$, the set $I_c=\setbuild{\alpha\in C}{\alpha_0<\alpha\text{ and
+			}f(\alpha_0,\alpha)=c}$.  It then follows, by definition, that
 	\begin{equation}
 		C\setminus\set{\alpha_0}=\bigcup_{c\in\range f}I_c.
 	\end{equation}
@@ -405,7 +405,7 @@ given that the first one is blue and the second red.
 	If in the above proof we substitute for the colouring $f$ any surjection
 	with the property that $\card{\range f}<\card{\cf(\delta)}$ then the proof
 	remains valid.  Hence, it is not necessary for the proof that $\card{\range
-	f}<\aleph_0$ when $\cf(\delta)\geq\omega_1$.
+			f}<\aleph_0$ when $\cf(\delta)\geq\omega_1$.
 \end{rem}
 
 One could also view additive colourings, through a categorical lense, as a

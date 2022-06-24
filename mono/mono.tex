@@ -20,7 +20,7 @@ that the theory of \textit{all} linear orders is decidable.
 	the set
 	\begin{equation}
 		Q_i=\bigcup_{\substack{k\in\ints\\ k\neq
-			0}}\setbuild{\faktor{a}{p_i^k}}{a\in\ints\text{ and } p_i\nmid a}.
+				0}}\setbuild{\faktor{a}{p_i^k}}{a\in\ints\text{ and } p_i\nmid a}.
 	\end{equation}
 	and define $Q_{n-1}=\rats\setminus\bigcup_{i<n-1}Q_i$.  Then
 	$\mathcal{Q}=\setbuild{Q_i}{0\leq i<n}$ is a partition of $\rats$ into dense
@@ -35,7 +35,7 @@ that the theory of \textit{all} linear orders is decidable.
 	be the least prime such that $p>p_{n-1}$ and define
 	\begin{equation}
 		S=\bigcup_{\substack{k\in\ints\\ k\neq
-			0}}\setbuild{\faktor{a}{p^k}}{a\in\ints\text{ and } p\nmid a}.
+				0}}\setbuild{\faktor{a}{p^k}}{a\in\ints\text{ and } p\nmid a}.
 	\end{equation}
 	Since $S\subseteq Q_{n-1}$, it is sufficient to prove that $S$ is a dense
 	subset of $\eta$.  If $s_0<s_1$ are elements of $S$ then there exists
@@ -55,7 +55,7 @@ that the theory of \textit{all} linear orders is decidable.
 		t=\frac{p^{m-k_0}a_0+1}{p^m}.
 	\end{equation}
 	Observe that, if $p$ divides the numerator, then we may conclude that $p\mid
-	1$.  This is clearly a contradiction and, thus, $p$ cannot divide the
+		1$.  This is clearly a contradiction and, thus, $p$ cannot divide the
 	aforementioned numerator.
 
 	Suppose now, instead, that $\abs{s_1-s_0}<1$ and choose $m>k_0$ to be the
@@ -100,10 +100,10 @@ into $n$ dense subsets is laid out in the following corollary.
 		\item if $F=\emptyset$ then $\sigma(F)=\zero$;
 		\item if $F=\set{\alpha}$ then $\sigma(F)=\alpha\cdot\eta$;
 		\item if $n\geq 2$ and $h\colon\rats\to F$ is any colouring of $\eta$
-			whose induced partition on $\rats$ is the canonical one, define
-			\begin{equation}
-				\sigma(F)=\sum_{q\in\eta}h(q).
-			\end{equation}
+		      whose induced partition on $\rats$ is the canonical one, define
+		      \begin{equation}
+			      \sigma(F)=\sum_{q\in\eta}h(q).
+		      \end{equation}
 	\end{enumerate}
 	Furthermore, the image of $F$ under $\sigma$ is referred to as the
 	\textbf{shuffle} of $F$.
@@ -242,13 +242,13 @@ into $n$ dense subsets is laid out in the following corollary.
 		\item	list all pairs of the form $(\alpha_i\cdot\omega,\sigma)$, for $i<n_3$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_4$ denote the resulting number of entries in the list;
 		\item	list all pairs of the form $(\alpha_i\cdot\dual{\omega},\sigma)$, for $i<n_4$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_5$ denote the resulting number of entries in the list;
 		\item	for each $k<n_5$ and nonzero linear orders $\alpha_{i_0},\dotsc,\alpha_{i_k}$, add $(\alpha,\sigma)$ to the list whenever
-			\begin{equation}
-				\alpha=\sigma(\alpha_{i_0},\dotsc,\alpha_{i_{k-1}})
-			\end{equation}
-			and, for some $j<k$,
-			\begin{equation}
-				\sigma=\forall x\left(r_{i_j}(x)\rightarrow\sigma_{i_j}^{\theta(v,x)}\right);
-			\end{equation}
+		      \begin{equation}
+			      \alpha=\sigma(\alpha_{i_0},\dotsc,\alpha_{i_{k-1}})
+		      \end{equation}
+		      and, for some $j<k$,
+		      \begin{equation}
+			      \sigma=\forall x\left(r_{i_j}(x)\rightarrow\sigma_{i_j}^{\theta(v,x)}\right);
+		      \end{equation}
 		\item	redefine $n_0$ to denote the current length of the list;
 		\item	repeat steps 1 to 7.
 	\end{enumerate}

@@ -16,9 +16,9 @@
 		\item	if $\alpha,\beta\in\C$ then $\alpha+\one+\beta\in\C$\label{dfn:C2}
 		\item	if $\alpha\in\C$ then $(\alpha+\one)\cdot\omega,(\one+\alpha)\cdot\dual{\omega}\in\C$\label{dfn:C3}
 		\item	if $\mathcal{F}\subseteq\C$ is finite and $h\colon\reals\to\mathcal{F}$ is a surjection such that, for each $\alpha\in\mathcal{F}$, the set $\inv{h}[\alpha]$ is dense in $\lambda$ then it follows that
-		\begin{equation}
-			\sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
-		\end{equation}\label{dfn:C4}
+		      \begin{equation}
+			      \sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
+		      \end{equation}\label{dfn:C4}
 	\end{enumerate}
 \end{dfn}
 
@@ -84,8 +84,8 @@
 		We now choose $\beta\in\C_k$ such that
 		\begin{equation}
 			\beta=\begin{cases}
-				\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega,&\text{if }a_0=a^\prime_0,\\
-				h(a_0,a^\prime_0)+\one+\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega,& \text{otherwise}.\\
+				\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega,                        & \text{if }a_0=a^\prime_0, \\
+				h(a_0,a^\prime_0)+\one+\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega, & \text{otherwise}.         \\
 			\end{cases}
 		\end{equation}
 		It follows by definition then that $\beta\in\C_k$ and
@@ -148,9 +148,9 @@ It is inconvenient, however, that the class $\C$ as it stands, due to the final 
 		\item	if $\alpha,\beta\in\Cast$ then $\alpha+\one+\beta\in\Cast$\label{dfn:C2}
 		\item	if $\alpha\in\Cast$ then $(\alpha+\one)\cdot\omega,(\one+\alpha)\cdot\dual{\omega}\in\Cast$\label{dfn:C3}
 		\item	if $\mathcal{F}\subseteq\Cast$ is nonempty and finite while $h\colon\reals\to\mathcal{F}$ is a surjection which induces the canonical partition of $\reals$ into $\card{\mathcal{F}}$ subsets then
-			\begin{equation}
-				\sum_{x\in\lambda}(\one+h(x)+\one)\in\Cast.
-			\end{equation}\label{dfn:C4}
+		      \begin{equation}
+			      \sum_{x\in\lambda}(\one+h(x)+\one)\in\Cast.
+		      \end{equation}\label{dfn:C4}
 	\end{enumerate}
 \end{dfn}
 
@@ -270,10 +270,10 @@ For the purposes of the proof of the following proposition, given a fixed $k\in\
 	\item	$\axmlin\wedge\axmden$,
 	\item	$\forall x\exists y(x<y)\wedge\forall x\exists y(y<x)$,
 	\item	for each formula $\varphi(x)$ the sentence given by:
-		\begin{multline}
-			\exists x\varphi(x)\wedge\exists y\forall x\big(\varphi(x)\rightarrow x<y\big)\rightarrow\\
-			\exists z\Big(\forall x\big(\varphi (x)\rightarrow x<z\big)\wedge\forall y\big(\forall x(\varphi(x)\rightarrow x<y)\rightarrow z\leq y\big)\Big).
-		\end{multline}
+	      \begin{multline}
+		      \exists x\varphi(x)\wedge\exists y\forall x\big(\varphi(x)\rightarrow x<y\big)\rightarrow\\
+		      \exists z\Big(\forall x\big(\varphi (x)\rightarrow x<z\big)\wedge\forall y\big(\forall x(\varphi(x)\rightarrow x<y)\rightarrow z\leq y\big)\Big).
+	      \end{multline}
 \end{itemize}
 
 \begin{prp}
@@ -287,16 +287,16 @@ For the purposes of the proof of the following proposition, given a fixed $k\in\
 
 
 \iffalse
-\begin{dfn}[regularity]
-	We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{regular} whenever \textit{a subset of} its colours form a partition of $\alpha$ and no member of $\alpha$ posesses two distinct colours.  Equivalently, $\alpha$ is regular whenever it holds that:
-	\begin{equation}
-		\alpha\models\left(\forall x\bigvee_{0\leq i<n}r_i(x)\right)\wedge\left(\neg\exists x\bigvee_{i<j<k}(r_i(x)\wedge r_j(x))\right).
-	\end{equation}
-\end{dfn}
+	\begin{dfn}[regularity]
+		We call a $k$-coloured linear order $\alpha$, with colours say $r_0,\dotsc,r_{k-1}$, \textbf{regular} whenever \textit{a subset of} its colours form a partition of $\alpha$ and no member of $\alpha$ posesses two distinct colours.  Equivalently, $\alpha$ is regular whenever it holds that:
+		\begin{equation}
+			\alpha\models\left(\forall x\bigvee_{0\leq i<n}r_i(x)\right)\wedge\left(\neg\exists x\bigvee_{i<j<k}(r_i(x)\wedge r_j(x))\right).
+		\end{equation}
+	\end{dfn}
 
-\begin{dfn}[$k$-Pattern]
-	A $k$-coloured linear order $\alpha$ is called a $\bm{k}$\textbf{-pattern} whenever $\alpha$ is both regular and finite.  Should $k\in\nats$ be clear from the context we will refer to $\alpha$ as simply being a \textit{pattern}.
-\end{dfn}
+	\begin{dfn}[$k$-Pattern]
+		A $k$-coloured linear order $\alpha$ is called a $\bm{k}$\textbf{-pattern} whenever $\alpha$ is both regular and finite.  Should $k\in\nats$ be clear from the context we will refer to $\alpha$ as simply being a \textit{pattern}.
+	\end{dfn}
 \fi
 
 \begin{dfn}[Finitary]

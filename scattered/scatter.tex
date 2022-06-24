@@ -3,7 +3,7 @@
 \chapter{Scattered linear orders}
 
 The scattered linear orders are antithetical to the \textit{dense linear
-orders}, the latter of which includes specimens such as $\eta$ and $\lambda$.
+	orders}, the latter of which includes specimens such as $\eta$ and $\lambda$.
 They are precisely the linear orders which do not embed any dense linear order
 or, equivalently, do not embed a copy of the order type $\eta$ of the
 rationals.
@@ -91,7 +91,7 @@ analog of a quotient structure is the following:
 		a\sim b\iff\pi_\sim(a)=\pi_\sim(b),
 	\end{equation}
 	then we call $\pi_\sim$ the \textit{splitting of $\alpha$ induced
-	by} $\sim$, refer to the quotient $\faktor{\alpha}{\sim}$ as a
+		by} $\sim$, refer to the quotient $\faktor{\alpha}{\sim}$ as a
 	\textbf{condensation}.
 \end{dfn}
 
@@ -105,7 +105,7 @@ role in some of the results to come.
 		a<b\text{ and }[a,b]\text{ is finite}.
 	\end{equation} For any linear order
 	$\alpha$ we let $\fsplit[\alpha]$ denote the map $\fsplit[\alpha]\colon
-	a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer to $\fsplit[\alpha]$
+		a\mapsto\faktor{a}{\sim}$ for $a\in\alpha$.  We refer to $\fsplit[\alpha]$
 	as the $\textbf{finite splitting}$ on $\alpha$ and we omit the prescript
 	whenever $\alpha$ is clear from the context.
 \end{dfn}
@@ -120,13 +120,13 @@ containing $R$ as a subset.
 	Let $\con \alpha\subseteq\powerset{\domain{2}\alpha}$ be the set of all
 	congruences on $\alpha$ and, for each $X\subseteq \con\alpha$, define:
 	\begin{align}
-		\bigwedge X &\coloneqq\bigcap X,\\ \bigvee X
-					&\coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq
-					a,\forall x\in X}.
+		\bigwedge X & \coloneqq\bigcap X,                                    \\ \bigvee X
+		            & \coloneqq\bigwedge\setbuild{a\in\con\alpha}{x\subseteq
+			a,\forall x\in X}.
 	\end{align}
 	It then follows that $(\con\alpha,\vee,\wedge)$ is a complete lattice.
 	Furthermore, for any $X\subseteq\con\alpha$, it holds that $\bigvee
-	X=\trclos(\bigcup X)$.
+		X=\trclos(\bigcup X)$.
 \end{prp}
 \begin{proof}
 	Let $X$ be an arbitrary (non-empty) subset of $\con\alpha$.  We now proceed
@@ -159,7 +159,7 @@ containing $R$ as a subset.
 
 	All that remains is to show that $\bigvee X=\trclos(\bigcup X)$.  Clearly,
 	since $\bigvee X$ is transitive, we already have $\trclos(\bigcup
-	X)\subseteq\bigvee X$.  Noting then that $\trclos(\bigcup X)\in X$, we may
+		X)\subseteq\bigvee X$.  Noting then that $\trclos(\bigcup X)\in X$, we may
 	conclude $\bigvee X\leq\trclos(\bigcup X)$, as required.
 \end{proof}
 
@@ -176,15 +176,15 @@ $\pi_\sim\colon\alpha\to\faktor{\alpha}{\sim}$ induced by the congruence $\sim$
 on $\alpha$.
 
 \begin{prp}[Homomorphisms]
-	 Suppose $f\colon\alpha\to\beta$ is a splitting. There exists a unique
-	 congruence relation $\sim$ on $\alpha$ and a unique order isomorphism
-	 $\iota\colon\faktor{\alpha}{\sim}\to\beta$ that makes the following diagram
-	 commute:
+	Suppose $f\colon\alpha\to\beta$ is a splitting. There exists a unique
+	congruence relation $\sim$ on $\alpha$ and a unique order isomorphism
+	$\iota\colon\faktor{\alpha}{\sim}\to\beta$ that makes the following diagram
+	commute:
 	\begin{equation}
 		\begin{tikzcd}
 			\alpha \arrow[r, "\pi_\sim",rightarrow]&   \faktor{\alpha}{\sim}\\
-			 &   \beta\arrow[from=u,"\iota", dashrightarrow]
-			 \arrow[from=ul,"f"']
+			&   \beta\arrow[from=u,"\iota", dashrightarrow]
+			\arrow[from=ul,"f"']
 		\end{tikzcd}
 	\end{equation}
 \end{prp}
@@ -208,8 +208,8 @@ on $\alpha$.
 		\begin{tikzcd}
 			\alpha\arrow[r, "\pi_{\sim_0}",rightarrow]&
 			\faktor{\alpha}{\sim_0}\\
-			 &   \beta\arrow[from=u,"\iota", dashrightarrow]
-			 \arrow[from=ul,"f"']
+			&   \beta\arrow[from=u,"\iota", dashrightarrow]
+			\arrow[from=ul,"f"']
 		\end{tikzcd}
 	\end{equation}
 	commute.  This then clearly implies that ${\sim_0}=\ker f={\sim}$ and,
@@ -224,30 +224,30 @@ on $\alpha$.
 	The following properties hold:
 	\begin{enumerate}
 		\item   If $I\in\scattered$ and $\alpha_i\in\scattered$ for each
-			$i\in I$ then $\sum_{i\in I}\alpha_i\in\scattered$;
+		      $i\in I$ then $\sum_{i\in I}\alpha_i\in\scattered$;
 		\item   if $\alpha,\beta\in\scattered$ then
-			$\alpha+\beta,\alpha\cdot\beta\in\scattered$.
+		      $\alpha+\beta,\alpha\cdot\beta\in\scattered$.
 	\end{enumerate}
 \end{prp}
 \begin{proof}
-		(1):  Suppose, by way of contradiction, that $\delta\subseteq\sum_{i\in
-		I}\alpha_i$ is countable and dense.  Define
-		$\delta_i=\delta\cap\alpha_i$, for each $i\in I$.
+	(1):  Suppose, by way of contradiction, that $\delta\subseteq\sum_{i\in
+			I}\alpha_i$ is countable and dense.  Define
+	$\delta_i=\delta\cap\alpha_i$, for each $i\in I$.
 
-		Note that, since $\delta$ is dense, we cannot have
-		$1<\card{\delta_i}<\aleph_0$ for any $i\in I$.  Therefore, each
-		$\delta_i$ is either infinite or has at most one element.
+	Note that, since $\delta$ is dense, we cannot have
+	$1<\card{\delta_i}<\aleph_0$ for any $i\in I$.  Therefore, each
+	$\delta_i$ is either infinite or has at most one element.
 
-		If $\delta_i$ is finite for each $i\in I$ then $\delta\preceq I$,
-		contradicting the scatteredness of $I$.  Consequently, the must exist
-		some $j\in I$ such that $\delta_j$ is infinite.  However, since
-		$\delta_j\subseteq\alpha_j$, this implies that $\alpha_j$ has a
-		countable dense subset --- the desired contradiction.
+	If $\delta_i$ is finite for each $i\in I$ then $\delta\preceq I$,
+	contradicting the scatteredness of $I$.  Consequently, the must exist
+	some $j\in I$ such that $\delta_j$ is infinite.  However, since
+	$\delta_j\subseteq\alpha_j$, this implies that $\alpha_j$ has a
+	countable dense subset --- the desired contradiction.
 
-		(2):  Choosing $I=\two$, $\alpha_0=\alpha$ and $\alpha_1=\beta$ in (1)
-		yields $\alpha+\beta\in\scattered$.  Instead, choosing $I=\beta$ and
-		$\alpha_i=\alpha$ for each $i\in\beta$ we get
-		$\alpha\cdot\beta\in\scattered$, as required.
+	(2):  Choosing $I=\two$, $\alpha_0=\alpha$ and $\alpha_1=\beta$ in (1)
+	yields $\alpha+\beta\in\scattered$.  Instead, choosing $I=\beta$ and
+	$\alpha_i=\alpha$ for each $i\in\beta$ we get
+	$\alpha\cdot\beta\in\scattered$, as required.
 \end{proof}
 
 The result above gives us the mantra: \textit{scattered sums} of scattered
@@ -260,23 +260,23 @@ all scattered linear orders recursively as sums of previously constructed
 readily extends to the class of \text{all} scattered linear orders.
 
 \begin{dfn}[The class $\VD$]
-		By way of transfinite recursion define, for each ordinal
-		$\gamma<\omega_1$, the class of linear orders
-		$\VD_{\gamma}\subseteq\linear$ to be the smallest class which is
-		\textit{closed under isomorphisms} and satisfies:
-        \begin{enumerate}
-            \item   $\zero,\one\in\VD_0$;
-			\item   if $\alpha_i\in\bigcup_{\beta<\gamma}\VD_{\beta}$, for each
-				$i\in \zeta$, then $\sum_{i\in\zeta}\alpha_i\in\VD_\gamma$.
-        \end{enumerate}
-		The class $\VD=\bigcup_{\gamma<\omega_1}\VD_\gamma$ is called the class
-		of $\textbf{(countable) very discrete}$ linear orders.
+	By way of transfinite recursion define, for each ordinal
+	$\gamma<\omega_1$, the class of linear orders
+	$\VD_{\gamma}\subseteq\linear$ to be the smallest class which is
+	\textit{closed under isomorphisms} and satisfies:
+	\begin{enumerate}
+		\item   $\zero,\one\in\VD_0$;
+		\item   if $\alpha_i\in\bigcup_{\beta<\gamma}\VD_{\beta}$, for each
+		      $i\in \zeta$, then $\sum_{i\in\zeta}\alpha_i\in\VD_\gamma$.
+	\end{enumerate}
+	The class $\VD=\bigcup_{\gamma<\omega_1}\VD_\gamma$ is called the class
+	of $\textbf{(countable) very discrete}$ linear orders.
 \end{dfn}
 
 \begin{dfn}[$\VD$-rank]
-		If $\alpha$ is a very discrete linear order then its
-		$\bm{\mathcal{VD}}$\textbf{-rank} $\vdrank(\alpha)$ is the least ordinal
-		$\beta$ such that $\alpha\in\VD_{\beta}$.
+	If $\alpha$ is a very discrete linear order then its
+	$\bm{\mathcal{VD}}$\textbf{-rank} $\vdrank(\alpha)$ is the least ordinal
+	$\beta$ such that $\alpha\in\VD_{\beta}$.
 \end{dfn}
 
 \begin{lem}\label{prp:vdsct}
@@ -321,7 +321,7 @@ that the diagram
 \begin{equation}
 	\begin{tikzcd}
 		\alpha\arrow[dd,"{\pi^\beta}"']\arrow[rdd,"{\pi^\delta}"]&\\
-									 &\\
+		&\\
 		\faktor{\alpha}{\sim_\beta}\arrow[r,"{\iota}"]&\faktor{\alpha}{\sim_\delta}
 	\end{tikzcd}
 \end{equation}
@@ -398,67 +398,67 @@ $\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
 	Suppose $\alpha$ is a countable linear order then the following holds:
 	\begin{enumerate}
 		\item if $\alpha$ is very discrete and $\delta$ is a convex subset of
-			$\alpha$ then $\delta$ is a very discrete linear order.
+		      $\alpha$ then $\delta$ is a very discrete linear order.
 		\item if $\alpha$ is scattered, $\hrank(\alpha)$ is a limit
-			ordinal $\rho>0$ and
-			\begin{equation}
-				\label{eq:limrank}
-				\lim_{i<\omega}\rho_i=\rho
-			\end{equation} then,
-			for every $a<b$ in $\alpha$, there exists an $n<\omega$ such that
-			$\fsplit^{\rho_i}(a)=\fsplit^{\rho_i}(b)$ whenever $i\geq n$.
+		      ordinal $\rho>0$ and
+		      \begin{equation}
+			      \label{eq:limrank}
+			      \lim_{i<\omega}\rho_i=\rho
+		      \end{equation} then,
+		      for every $a<b$ in $\alpha$, there exists an $n<\omega$ such that
+		      $\fsplit^{\rho_i}(a)=\fsplit^{\rho_i}(b)$ whenever $i\geq n$.
 	\end{enumerate}
 \end{lem}
 \begin{proof}\leavevmode
 	\begin{enumerate}[topsep=0pt]
 		\item If $\vdrank(\alpha)=0$ then $\alpha$, and thus $\delta$, must be
-			finite so that the result holds trivially.
+		      finite so that the result holds trivially.
 
-			Suppose now that $\vdrank(\alpha)>0$ and assume the result holds for
-			all very discrete linear orders of $\VD$-rank less than
-			$\vdrank(\alpha)$.  It follows by definition that there exists
-			a family $\family{\alpha_i}{i\in\zeta}$ of very discrete linear
-			orders such that
-			\begin{equation}
-				\alpha=\sum_{i\in\zeta}\alpha_i.
-			\end{equation}
+		      Suppose now that $\vdrank(\alpha)>0$ and assume the result holds for
+		      all very discrete linear orders of $\VD$-rank less than
+		      $\vdrank(\alpha)$.  It follows by definition that there exists
+		      a family $\family{\alpha_i}{i\in\zeta}$ of very discrete linear
+		      orders such that
+		      \begin{equation}
+			      \alpha=\sum_{i\in\zeta}\alpha_i.
+		      \end{equation}
 
-			For each $i\in\zeta$, define $\delta_i=\delta\cap\alpha_i$.  We may
-			then conclude that
-			\begin{equation}
-				\delta=\sum_{i\in\zeta}\delta_i
-			\end{equation}
-			and, for each $i\in\zeta$, it holds that
-			$\delta_i\subseteq\alpha_i$.  From the inductive hypothesis the
-			result then readily follows.
-			\smallskip
+		      For each $i\in\zeta$, define $\delta_i=\delta\cap\alpha_i$.  We may
+		      then conclude that
+		      \begin{equation}
+			      \delta=\sum_{i\in\zeta}\delta_i
+		      \end{equation}
+		      and, for each $i\in\zeta$, it holds that
+		      $\delta_i\subseteq\alpha_i$.  From the inductive hypothesis the
+		      result then readily follows.
+		      \smallskip
 
 		\item Choose $\pi=\fsplit$ and let $\sim$ denote the induced congruence.
-			Define $\family{\rho_i}{i<\omega}$ to be a strictly increasing
-			sequence of ordinals such that (\ref{eq:limrank}) is
-			satisfied.
+		      Define $\family{\rho_i}{i<\omega}$ to be a strictly increasing
+		      sequence of ordinals such that (\ref{eq:limrank}) is
+		      satisfied.
 
-			Choose the least $n<\omega$ such that
-			\begin{equation}
-				\hrank\left([a,b]\right)\leq\rho_n,
-			\end{equation}
-			and fix any $\delta=\rho_m$ such that $m\geq n$.  Note, if
-			$\sim^\prime$ denotes the congruence
-			$\sim_\delta\restriction[a,b]$ then it follows that
-			\begin{equation}
-				\faktor{[a,b]}{\sim^\prime}\cong
-				\left[\faktor{a}{\sim_\delta}
-				\mathpunct{,}\faktor{b}{\sim_\delta}\right].
-			\end{equation}
-			However, since $\alpha$ is scattered, it follows from part 1 that
-			the subinterval $[a,b]$ is also scattered.  Hence, we may conclude
-			that
-			\begin{equation}
-				\left[\faktor{a}{\sim_\delta},\faktor{b}{\sim_\delta}\right]
-				\cong\one.
-			\end{equation}
-			Therefore, it follows that $\pi^\delta(a)=\pi^\delta(b)$, as
-			required.
+		      Choose the least $n<\omega$ such that
+		      \begin{equation}
+			      \hrank\left([a,b]\right)\leq\rho_n,
+		      \end{equation}
+		      and fix any $\delta=\rho_m$ such that $m\geq n$.  Note, if
+		      $\sim^\prime$ denotes the congruence
+		      $\sim_\delta\restriction[a,b]$ then it follows that
+		      \begin{equation}
+			      \faktor{[a,b]}{\sim^\prime}\cong
+			      \left[\faktor{a}{\sim_\delta}
+				      \mathpunct{,}\faktor{b}{\sim_\delta}\right].
+		      \end{equation}
+		      However, since $\alpha$ is scattered, it follows from part 1 that
+		      the subinterval $[a,b]$ is also scattered.  Hence, we may conclude
+		      that
+		      \begin{equation}
+			      \left[\faktor{a}{\sim_\delta},\faktor{b}{\sim_\delta}\right]
+			      \cong\one.
+		      \end{equation}
+		      Therefore, it follows that $\pi^\delta(a)=\pi^\delta(b)$, as
+		      required.
 	\end{enumerate}
 \end{proof}
 
@@ -500,9 +500,9 @@ $\faktor{\alpha}{\sim_\beta}\cong\one$ whenever $\alpha$ is scattered.
 	such that
 	\begin{equation}
 		I_j=\begin{cases}
-			\set{a_0}&\text{if }j=0,\\
-			(a_{j-1},a_j]&\text{if }j>0,\\
-			[a_j,a_{j+1})&\text{if }j<0.
+			\set{a_0}     & \text{if }j=0, \\
+			(a_{j-1},a_j] & \text{if }j>0, \\
+			[a_j,a_{j+1}) & \text{if }j<0.
 		\end{cases}
 	\end{equation}
 	It follows from Lemma \ref{lem:consplit} that each $I_j$, for $i\in\ints$,
@@ -564,7 +564,7 @@ the result that follows.
 	\smallskip\noindent 2$\Rightarrow$3:  Suppose ${\sim}\in\con\alpha$ is not
 	the identity congruence.  By assumption, $\faktor{\alpha}{=}$ cannot be
 	dense.  Hence, there exists $a<a^\prime$ in $\alpha$ such that $a\sim
-	a^\prime$ and $a^\prime$ is an immediate successor of $a$.
+		a^\prime$ and $a^\prime$ is an immediate successor of $a$.
 
 	Now define the congruence $\sim_0$ on $\alpha$ such that $x\sim_0 y$ iff
 	either $x=y$ or $x,y\in\set{a,a^\prime}$.  It follows immediately, by
@@ -647,17 +647,17 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	\begin{enumerate}
 		\item	$\forall x\varphi(x,x,\bar{z})$,\hfill(reflexivity)
 		\item	$\forall x\forall
-			y(\varphi(x,y,\bar{z})\rightarrow\varphi(y,x,\bar{z}))$,\hfill
-			(symmetry)
+			      y(\varphi(x,y,\bar{z})\rightarrow\varphi(y,x,\bar{z}))$,\hfill
+		      (symmetry)
 		\item 	$\forall x\forall y\forall
-			w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})
-			\rightarrow\varphi(x,w,\bar{z}))$.\hfill
-			(transitivity)
+			      w(\varphi(x,y,\bar{z})\wedge\varphi(y,w,\bar{z})
+			      \rightarrow\varphi(x,w,\bar{z}))$.\hfill
+		      (transitivity)
 		\item 	$\forall x_0\forall x_1\forall y_0\forall
-			y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})
-			\wedge\varphi(x_0,y_0,\bar{z})
-			\wedge\varphi(x_1,y_1,\bar{z})\rightarrow
-			y_0<y_1)$\phantom{}\hfill(compatibility).
+			      y_1(x_0<x_1\wedge\neg\varphi(x_0,x_1,\bar{z})
+			      \wedge\varphi(x_0,y_0,\bar{z})
+			      \wedge\varphi(x_1,y_1,\bar{z})\rightarrow
+			      y_0<y_1)$\phantom{}\hfill(compatibility).
 	\end{enumerate}
 	For every finite tuple $\bar{a}$ of $\alpha$ (of the same length as
 	$\bar{z}$), it holds that $\alpha\models\epsilon_\varphi(\bar{a})$ iff
@@ -779,53 +779,53 @@ this fact is a routine application of the Diagram Lemma and Compactness Theorem.
 	then the following holds:
 	\begin{enumerate}
 		\item the theory
-			$\Sigma=\set{\axmlin}
-			\cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})
-			\rightarrow\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$
-			axiomatises $\Th(\scattered)$ i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
+		      $\Sigma=\set{\axmlin}
+			      \cup\setbuild{\forall\bar{z}(\epsilon_\varphi(\bar{z})
+				      \rightarrow\theta_\varphi(\bar{z}))}{\varphi=\varphi(x,y,\bar{z})}$
+		      axiomatises $\Th(\scattered)$ i.e.\ $\dcl{\Sigma}=\Th(\scattered)$,
 
 		\item $\Sigma$ is recursively enumerable.
 	\end{enumerate}
 	\begin{proof}
 		\begin{enumerate}
 			\item	Since $\alpha\models\Sigma$ iff $\alpha$ is definably
-				scattered, it is enough to prove that $\alpha$ is definably
-				scattered iff $\alpha\models\Th(\scattered)$.  By the
-				L\"owenheim-Skolem Theorem, we need only consider the case where
-				$\alpha$ is countable.
+			      scattered, it is enough to prove that $\alpha$ is definably
+			      scattered iff $\alpha\models\Th(\scattered)$.  By the
+			      L\"owenheim-Skolem Theorem, we need only consider the case where
+			      $\alpha$ is countable.
 
-				If $\alpha$ is scattered then it follows from Proposition
-				\ref{prp:cscat} that no nontrivial condensation of $\alpha$ is
-				dense and thus, as this observation includes definable
-				condensations, $\alpha$ is necessarily definably scattered.
+			      If $\alpha$ is scattered then it follows from Proposition
+			      \ref{prp:cscat} that no nontrivial condensation of $\alpha$ is
+			      dense and thus, as this observation includes definable
+			      condensations, $\alpha$ is necessarily definably scattered.
 
-				Suppose now, instead, that $\alpha$ is definably scattered so
-				that we are required to show that
-				$\alpha\models\Th(\scattered)$.  Choose any
-				$\sigma\in\Th(\scattered)$ and suppose it holds that
-				$\qrank(\sigma)=n\in\nats$.  It now follows from Theorem
-				\ref{thm:nscat} that there exists a scattered $\beta$ satisfying
-				$\beta\nequiv{n}\alpha$.  Certainly, we must have
-				$\beta\models\sigma$ and, therefore, the $n$-equivalence
-				guarantees that $\alpha\models\sigma$.
+			      Suppose now, instead, that $\alpha$ is definably scattered so
+			      that we are required to show that
+			      $\alpha\models\Th(\scattered)$.  Choose any
+			      $\sigma\in\Th(\scattered)$ and suppose it holds that
+			      $\qrank(\sigma)=n\in\nats$.  It now follows from Theorem
+			      \ref{thm:nscat} that there exists a scattered $\beta$ satisfying
+			      $\beta\nequiv{n}\alpha$.  Certainly, we must have
+			      $\beta\models\sigma$ and, therefore, the $n$-equivalence
+			      guarantees that $\alpha\models\sigma$.
 
 			\item	Since our signature is finite, it follows that the set of
-				formulas in our language can be enumerated (via a G\"odel
-				numbering $\godel{-}\colon L\to\nats$).  We can then enumerate
-				$\Sigma$ by declaring a map, from $\Sigma$ to $\nats$, such that
-				$\axmlin\mapsto 0$ and, for every tuple $\bar{z}$ of variables,
-				\begin{equation}
-					\forall\bar{z}(\epsilon_\varphi(\bar{z})
-					\rightarrow\theta_\varphi(\bar{z})))\mapsto
-					2^{\godel{\varphi(x,y,\bar{z})}}.\label{eq:regod}
-				\end{equation}
+			      formulas in our language can be enumerated (via a G\"odel
+			      numbering $\godel{-}\colon L\to\nats$).  We can then enumerate
+			      $\Sigma$ by declaring a map, from $\Sigma$ to $\nats$, such that
+			      $\axmlin\mapsto 0$ and, for every tuple $\bar{z}$ of variables,
+			      \begin{equation}
+				      \forall\bar{z}(\epsilon_\varphi(\bar{z})
+				      \rightarrow\theta_\varphi(\bar{z})))\mapsto
+				      2^{\godel{\varphi(x,y,\bar{z})}}.\label{eq:regod}
+			      \end{equation}
 
-				In other words, a listing of the members of $\Sigma$ may be
-				produced by simultaneously generating an auxiliary list of
-				formulas of the form $\varphi=\varphi(x,y,\bar{z})$.  For each
-				entry $\varphi$ in the auxiliary list one creates an entry,
-				having the form of (\ref{eq:regod}), in the principal
-				list.\qedhere
+			      In other words, a listing of the members of $\Sigma$ may be
+			      produced by simultaneously generating an auxiliary list of
+			      formulas of the form $\varphi=\varphi(x,y,\bar{z})$.  For each
+			      entry $\varphi$ in the auxiliary list one creates an entry,
+			      having the form of (\ref{eq:regod}), in the principal
+			      list.\qedhere
 		\end{enumerate}
 	\end{proof}
 \end{prp}
@@ -859,7 +859,7 @@ questions of precisely this nature, for specified classes of linear orders.
 		\item	$\zero,\one\in\Mzero$,
 		\item	if $\alpha,\beta\in\Mzero$ then $\alpha+\beta\in\Mzero$,
 		\item	if $\alpha\in\Mzero$ then
-			$\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\Mzero$,
+		      $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\Mzero$,
 	\end{enumerate}
 \end{dfn}
 
@@ -907,9 +907,9 @@ of scattered linear order.
 	$\alpha_{i_ji_{j+1}}\nequiv{n}\beta_m$, for every $j<\omega$.  Note, from
 	Lemma \ref{lem:fvsum}, it follows that
 	\begin{align}
-		\sum_{i<\omega}\alpha_i&\cong\phantom{^n}\alpha_0+\dotsb+\alpha_{i_0}
-		+\sum_{j<\omega}\alpha_{i_ji_{j+1}}\\
-		&\nequiv{n}\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega.
+		\sum_{i<\omega}\alpha_i & \cong\phantom{^n}\alpha_0+\dotsb+\alpha_{i_0}
+		+\sum_{j<\omega}\alpha_{i_ji_{j+1}}                                                  \\
+		                        & \nequiv{n}\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega.
 	\end{align}
 	Since $\Mzero$ is closed under finite sums, we may conclude that
 	$\beta=\alpha_0+\dotsb+\alpha_{i_0}+\beta_m\cdot\omega$ implies

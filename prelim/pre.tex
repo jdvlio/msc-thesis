@@ -57,9 +57,9 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 	\begin{enumerate}
 		\item	$h$ is a homomorphism $h\colon\mathfrak{A}\to\mathfrak{B}$,
 		\item	for each $n\in\nats$ and every atomic formula $\varphi\in L_n$ it holds that, whenever $\bar{a}\in A^n$,
-			\begin{equation}
-				\mathfrak{A}\models\varphi(\bar{a}) \quad\implies\quad \mathfrak{B}\models\varphi(h[\bar{a}])
-			\end{equation}
+		      \begin{equation}
+			      \mathfrak{A}\models\varphi(\bar{a}) \quad\implies\quad \mathfrak{B}\models\varphi(h[\bar{a}])
+		      \end{equation}
 		\item	it holds that $(\mathfrak{B},h[A])\models\diagp\mathfrak{A}$.
 	\end{enumerate}
 \end{lem}
@@ -69,9 +69,9 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 	\begin{enumerate}
 		\item	$h$ is an embedding $h\colon\mathfrak{A}\hookrightarrow\mathfrak{B}$,
 		\item	for each $n\in\nats$ and every quantifier-free formula $\varphi\in L_n$ it holds that, whenever $\bar{a}\in A^n$,
-			\begin{equation}
-				\mathfrak{A}\models\varphi(\bar{a}) \quad\iff\quad \mathfrak{B}\models\varphi(h[\bar{a}])
-			\end{equation}
+		      \begin{equation}
+			      \mathfrak{A}\models\varphi(\bar{a}) \quad\iff\quad \mathfrak{B}\models\varphi(h[\bar{a}])
+		      \end{equation}
 		\item	it holds that that $(\mathfrak{B},h[A])\models\diag\mathfrak{A}$.
 	\end{enumerate}
 \end{lem}
@@ -153,7 +153,7 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 \begin{prp}\label{prp:bcls}
 	Let $T$ be an $L$-theory and, for any $n\in\nats$, fix some $\varphi\in L_n$.  If $\Delta\subseteq L_n$ then $\varphi$ is $T$-equivalent to a formula from $\widetilde{\Delta}$ iff the following holds for every $\mathfrak{M},\mathfrak{N}\models T$ and each $\bar{a}\in M^n$ and $\bar{b}\in N^n$:
 	\begin{equation}
-		 \mathfrak{M}\models\delta(\bar{a})\text{ iff }\mathfrak{N}\models\delta(\bar{b})\text{, for all $\delta\in\Delta$,} \implies \mathfrak{M}\models\varphi(\bar{a})\text{ iff }\mathfrak{N}\models\varphi(\bar{b}).
+		\mathfrak{M}\models\delta(\bar{a})\text{ iff }\mathfrak{N}\models\delta(\bar{b})\text{, for all $\delta\in\Delta$,} \implies \mathfrak{M}\models\varphi(\bar{a})\text{ iff }\mathfrak{N}\models\varphi(\bar{b}).
 	\end{equation}
 \end{prp}
 \begin{proof}
@@ -180,9 +180,9 @@ In light of the previous proposition, when $L$ is a finitary first-order languag
 		\item	$T$ admits quantifier elimination,
 		\item	$T$ is a substructure-complete theory,
 		\item	if $\mathfrak{A}$ is finitely generated, $f\colon\mathfrak{A}\to\mathfrak{M}$ and $g\colon\mathfrak{A}\to\mathfrak{N}$ are embeddings and $\mathfrak{M},\mathfrak{N}\models T$ then, for every $n\in\nats$ and each simply primitive $\varphi\in L_n(A)$, it holds for every $\bar{a}\in A^n$ that
-		\begin{equation}
-			\mathfrak{M}\models\varphi(f[\bar{a}]) \quad\iff\quad \mathfrak{N}\models\varphi(g[\bar{a}]).\label{eq:qelim}
-		\end{equation}
+		      \begin{equation}
+			      \mathfrak{M}\models\varphi(f[\bar{a}]) \quad\iff\quad \mathfrak{N}\models\varphi(g[\bar{a}]).\label{eq:qelim}
+		      \end{equation}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -352,17 +352,17 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 	Suppose $L$ and $L^\prime$ are first-order languages, fix an enumeration $\family{x_i}{i<\omega}$ of the set of variables $V$ and, for each $i<\omega$, let $\bar{x}_i$ denote the $n$-tuple $\left(x_i,\dotsc,x_{i+(n-1)}\right)$.  If $\Gamma\colon L\to L^\prime$ is a map and $\del_\Gamma\coloneqq\Gamma(\exists x_1(x_0=x_1))$ then $\Gamma$ is called an $\mathbf{n}$\textbf{-dimensional interpretation} of $L$ in $L^\prime$ whenever the following holds:
 	\begin{enumerate}
 		\item	for every $k\in\nats$, if $\varphi=\varphi(x_0,\dotsc,x_{k-1})$ then
-			\begin{equation}
-				\Gamma(\varphi)=\Gamma(\varphi)(\bar{x}_0,\dotsc,\bar{x}_{k-1}),
-			\end{equation}
-			i.e\ the free variables of $\Gamma(\varphi)$ are among the components of $\bar{x}_0,\dotsc,\bar{x}_{k-1}$,
+		      \begin{equation}
+			      \Gamma(\varphi)=\Gamma(\varphi)(\bar{x}_0,\dotsc,\bar{x}_{k-1}),
+		      \end{equation}
+		      i.e\ the free variables of $\Gamma(\varphi)$ are among the components of $\bar{x}_0,\dotsc,\bar{x}_{k-1}$,
 		\item	$\Gamma(\bot)=\bot$,
 		\item	$\Gamma(\varphi\wedge\psi)=\Gamma(\varphi)\wedge\Gamma(\psi)$,
 		\item	$\Gamma(\varphi\rightarrow\psi)=\Gamma(\varphi)\rightarrow\Gamma(\psi)$,
 		\item	if $k\in\nats$ and $\varphi=\varphi(x_0,\dotsc,x_{k+1})$ then it necessarily follows that $\Gamma(\exists x_{k+1}\varphi)$ is the formula
-			\begin{equation}
-				\exists\bar{x}_{k+1}\left(\del_\Gamma(\bar{x}_{k+1}/\bar{x}_0)\wedge\Gamma(\varphi)\right),
-			\end{equation}
+		      \begin{equation}
+			      \exists\bar{x}_{k+1}\left(\del_\Gamma(\bar{x}_{k+1}/\bar{x}_0)\wedge\Gamma(\varphi)\right),
+		      \end{equation}
 		\item	for each $n\in\nats$ and every $\bar{x},\bar{x}^\prime\in V^n$: if $\varphi=\varphi(\bar{x})$, $\bar{x}^\prime$ is substitutable for $\bar{x}$ in $\varphi$ and $\psi=\varphi(\bar{x}^\prime/\bar{x})$ then it follows that $\Gamma(\psi)$ is is obtainable from $\Gamma(\varphi)$ by a change of variables.
 	\end{enumerate}
 \end{dfn}
@@ -470,19 +470,19 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 	\begin{equation}
 		\mathfrak{B}\models(\varphi\rightarrow\psi)(f(\bar{a}_0),\dotsc,f(\bar{a}_k))\quad\iff\quad\mathfrak{A}\models\Gamma(\varphi\rightarrow\psi)(\bar{a}_0,\dotsc,\bar{a}_k).
 	\end{equation}
-	 Suppose now that $\varphi=\varphi(\bar{x},y)$, for some $(k-1)$-tuple of variables $\bar{x}$, and that $\exists y\varphi(\bar{x},y)$ is unnested then it follows that $\varphi$ is unnested.  If $\bar{b}\in B^{k-1}$ and $\mathfrak{B}\models\exists y\varphi(\bar{x},y)$ then there exists a $d\in B$ such that
-	 \begin{equation}
-		 \mathfrak{B}\models\varphi(\bar{b},d).
-	 \end{equation}
-	 Since $f$ is a surjection there exists $\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{c}\in A^n$ such that $f(\bar{c})=d$ and $f(\bar{a}_i)=b_i$, for $i<n$.  From the definition of $\varphi$ it then follows that
-	 \begin{equation}
-		 \mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{c}),
-	 \end{equation}
-	 and thus we may conclude
-	 \begin{equation}
-		 \mathfrak{A}\models\exists\bar{y}\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{y}).\label{eq:exint}
-	 \end{equation}
-	 The converse is even simpler:  start from (\ref{eq:exint}) and take the image under $f$ of the initial tuples in $A^n$ as well as the tuple acting in the role of $\bar{c}$.
+	Suppose now that $\varphi=\varphi(\bar{x},y)$, for some $(k-1)$-tuple of variables $\bar{x}$, and that $\exists y\varphi(\bar{x},y)$ is unnested then it follows that $\varphi$ is unnested.  If $\bar{b}\in B^{k-1}$ and $\mathfrak{B}\models\exists y\varphi(\bar{x},y)$ then there exists a $d\in B$ such that
+	\begin{equation}
+		\mathfrak{B}\models\varphi(\bar{b},d).
+	\end{equation}
+	Since $f$ is a surjection there exists $\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{c}\in A^n$ such that $f(\bar{c})=d$ and $f(\bar{a}_i)=b_i$, for $i<n$.  From the definition of $\varphi$ it then follows that
+	\begin{equation}
+		\mathfrak{A}\models\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{c}),
+	\end{equation}
+	and thus we may conclude
+	\begin{equation}
+		\mathfrak{A}\models\exists\bar{y}\Gamma(\varphi)(\bar{a}_0,\dotsc,\bar{a}_{k-2},\bar{y}).\label{eq:exint}
+	\end{equation}
+	The converse is even simpler:  start from (\ref{eq:exint}) and take the image under $f$ of the initial tuples in $A^n$ as well as the tuple acting in the role of $\bar{c}$.
 \end{proof}
 
 \begin{cor}
@@ -497,17 +497,17 @@ Having introduced a third concept sharing the common name of ``interpration'' we
 	\begin{enumerate}
 		\item	$A=A^\prime$,
 		\item	for each constant symbold $c$ belonging to $L^\prime\setminus L$, there exists an $L$-formula $\varphi\in L_1$ such that, for every $a\in A$,
-			\begin{equation}
-				\mathfrak{A}\models\varphi(a)\quad\iff\quad a=c^{\mathfrak{A}^\prime},
-			\end{equation}
+		      \begin{equation}
+			      \mathfrak{A}\models\varphi(a)\quad\iff\quad a=c^{\mathfrak{A}^\prime},
+		      \end{equation}
 		\item	for each $n\in\nats$ and every $(n+1)$-ary function symbol $f$ belonging to $L^\prime\setminus L$ there exists an $L$-formula $\varphi=\varphi(\bar{x},y)$ such that $\varphi\in L_{n+1}$ and, for every $\bar{a}\in A^n$ and $b\in A$,
-			\begin{equation}
-				\mathfrak{A}\models\varphi(\bar{a},b)\quad\iff\quad f^{\mathfrak{A}^\prime}(\bar{a})=b,
-			\end{equation}
+		      \begin{equation}
+			      \mathfrak{A}\models\varphi(\bar{a},b)\quad\iff\quad f^{\mathfrak{A}^\prime}(\bar{a})=b,
+		      \end{equation}
 		\item	for each $n\in\posnats$ and every $n$-ary relation symbol $r$ belonging to $L^\prime\setminus L$ there exists an $L$-formula $\varphi=\varphi(\bar{x})$ such that $\varphi\in L_n$ and, for each $\bar{a}\in A^n$,
-			\begin{equation}
-				\mathfrak{A}\models r(\bar{a})\quad\iff\quad r^{\mathfrak{A}^\prime}(\bar{a}).
-			\end{equation}
+		      \begin{equation}
+			      \mathfrak{A}\models r(\bar{a})\quad\iff\quad r^{\mathfrak{A}^\prime}(\bar{a}).
+		      \end{equation}
 	\end{enumerate}
 \end{dfn}
 
@@ -556,9 +556,9 @@ Note that, from this section onwards, $L$ will exclusively denote the \textit{la
 	\begin{enumerate}
 		\item	$\alpha\nequiv{n}\beta$,
 		\item	\begin{enumerate}
-				\item	for every $a\in\alpha$ there exists a $b\in\beta$ such that $\alpha^{<a}\nequiv{n-1}\beta^{<b}$ and $\alpha^{>a}\nequiv{n-1}\beta^{>b}$, and also,
-				\item	for every $b\in\beta$ there exists an $a\in\alpha$ such that $\alpha^{<a}\nequiv{n-1}\beta^{<b}$ and $\alpha^{>a}\nequiv{n-1}\beta^{>b}$.
-			\end{enumerate}
+			      \item	for every $a\in\alpha$ there exists a $b\in\beta$ such that $\alpha^{<a}\nequiv{n-1}\beta^{<b}$ and $\alpha^{>a}\nequiv{n-1}\beta^{>b}$, and also,
+			      \item	for every $b\in\beta$ there exists an $a\in\alpha$ such that $\alpha^{<a}\nequiv{n-1}\beta^{<b}$ and $\alpha^{>a}\nequiv{n-1}\beta^{>b}$.
+		      \end{enumerate}
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -634,46 +634,46 @@ Note that, from this section onwards, $L$ will exclusively denote the \textit{la
 
 \section{Decidability}
 
-	\begin{prp}
-		If $\Sigma$ is a set of $L$-sentences then $\Sigma$ is decidable set of sentences iff $\Sigma$ and $L_0\setminus\Sigma$, each, are recursively enumerable.
-	\end{prp}
+\begin{prp}
+	If $\Sigma$ is a set of $L$-sentences then $\Sigma$ is decidable set of sentences iff $\Sigma$ and $L_0\setminus\Sigma$, each, are recursively enumerable.
+\end{prp}
 
-	\begin{prp}\label{prp:sdth}
-		Suppose $\mathcal{A}$ is a class of structures.  If $\Sigma$ is a recursively enumerable set of sentences and its deductive closure $\dcl{\Sigma}$ satisfies
-		\begin{equation}
-			\dcl{\Sigma}=\Th(\mathcal{A}),
-		\end{equation}
-		then $\Th(\mathcal{A})$ is recursively enumerable.
-	\end{prp}
+\begin{prp}\label{prp:sdth}
+	Suppose $\mathcal{A}$ is a class of structures.  If $\Sigma$ is a recursively enumerable set of sentences and its deductive closure $\dcl{\Sigma}$ satisfies
+	\begin{equation}
+		\dcl{\Sigma}=\Th(\mathcal{A}),
+	\end{equation}
+	then $\Th(\mathcal{A})$ is recursively enumerable.
+\end{prp}
 
-	\begin{dfn}[Encoding]
-		An \textbf{encoding} $p$ of a countable set $X$ is an injective recursive partial function $p\colon X\pto\nats$.  If $X$ is a first order language then $p$ is in stead referred to as a \textit{G\"odel numbering}.
-	\end{dfn}
+\begin{dfn}[Encoding]
+	An \textbf{encoding} $p$ of a countable set $X$ is an injective recursive partial function $p\colon X\pto\nats$.  If $X$ is a first order language then $p$ is in stead referred to as a \textit{G\"odel numbering}.
+\end{dfn}
 
-	\begin{dfn}[Frameworks]
-		Suppose for some $A\subseteq X$, where $X$ is of (coloured) linear orders, there exists a family $\family{\Gamma_{alpha,\beta}}{(\alpha,\beta)\in A\times X}$
-		\begin{enumerate}
-			\item	$p\colon X\to\nats$ is an encoding of the (countable) set of coloured linear orders,
-			\item 	the binary relation $\preceq$ is a well-founded preorder defined on $X$,
-			\item	the map $\rho\colon X\to\nats$ is the rank function associated with $(X,\preceq)$.  If, for each $x,y\in X$, it holds that
-		\end{enumerate}
-	\end{dfn}
+\begin{dfn}[Frameworks]
+	Suppose for some $A\subseteq X$, where $X$ is of (coloured) linear orders, there exists a family $\family{\Gamma_{alpha,\beta}}{(\alpha,\beta)\in A\times X}$
+	\begin{enumerate}
+		\item	$p\colon X\to\nats$ is an encoding of the (countable) set of coloured linear orders,
+		\item 	the binary relation $\preceq$ is a well-founded preorder defined on $X$,
+		\item	the map $\rho\colon X\to\nats$ is the rank function associated with $(X,\preceq)$.  If, for each $x,y\in X$, it holds that
+	\end{enumerate}
+\end{dfn}
 
-	\begin{dfn}[Proof sequences]
-		Suppose $X$ is a countable set of countable coloured linear orders and let $p\colon X\pto\nats$ be an encoding of $X$.  A \textbf{proof sequence} is then a finite sequence
-		\begin{equation}
-			(\alpha_0,\sigma_0),\dotsc,(\alpha_{n-1},\sigma_{n-1})\in X\times L_0
-		\end{equation}
-		and finite expansions $\alpha^\prime_0,\dotsc,\alpha^\prime_{n-1}$ of the (respective) linear orders $\alpha_0,\dotsc,\alpha_{n-1}$ so that, for each $i=1,\dotsc,n-1$, there exists an interpretation $\Gamma_i$ of $\alpha_{i-1}$ in $\alpha^\prime_i$.  Additionally, when $0\leq i<n$, we require that one of the following holds:
-		\begin{enumerate}
-			\item	$\sigma_i$ is a logical axiom,
-			\item	$\sigma_i$ follows via an inference rule from $\sigma_0,\dotsc,\sigma_{i-1}$,
-			\item	$\sigma_i\in\admis(\Gamma_i)$ or
-			\item	$\sigma_i=\Gamma_i\Gamma_{i-1}\dotsb\Gamma_j\sigma_j$, for some natural $j<i$.
-		\end{enumerate}
-	\end{dfn}
+\begin{dfn}[Proof sequences]
+	Suppose $X$ is a countable set of countable coloured linear orders and let $p\colon X\pto\nats$ be an encoding of $X$.  A \textbf{proof sequence} is then a finite sequence
+	\begin{equation}
+		(\alpha_0,\sigma_0),\dotsc,(\alpha_{n-1},\sigma_{n-1})\in X\times L_0
+	\end{equation}
+	and finite expansions $\alpha^\prime_0,\dotsc,\alpha^\prime_{n-1}$ of the (respective) linear orders $\alpha_0,\dotsc,\alpha_{n-1}$ so that, for each $i=1,\dotsc,n-1$, there exists an interpretation $\Gamma_i$ of $\alpha_{i-1}$ in $\alpha^\prime_i$.  Additionally, when $0\leq i<n$, we require that one of the following holds:
+	\begin{enumerate}
+		\item	$\sigma_i$ is a logical axiom,
+		\item	$\sigma_i$ follows via an inference rule from $\sigma_0,\dotsc,\sigma_{i-1}$,
+		\item	$\sigma_i\in\admis(\Gamma_i)$ or
+		\item	$\sigma_i=\Gamma_i\Gamma_{i-1}\dotsb\Gamma_j\sigma_j$, for some natural $j<i$.
+	\end{enumerate}
+\end{dfn}
 \vfill
-	\begin{verbatim}
+\begin{verbatim}
 		-------------------------------------------------------------------------
 	\end{verbatim}
 \noindent[\textbf{Alles in hierdie hoofstuk is tentatief.  Byvoegings en (veral) verwyderings sal gemaak word soos ek deur die tesis vorder}]
