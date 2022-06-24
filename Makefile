@@ -14,8 +14,6 @@ cos.pdf: ${BASE}.aux
 	pdflatex ${TEXROOT}
 
 cos.aux: ${TEXROOT} ${TEXINCLUDE} references.bib
-	find . -type f -name '*.tex' ! -path './${TEXROOT}' ! -path './.git/*' \
-		-exec latexindent -w '{}' ';'
 	pdflatex -draftmode ${TEXROOT}
 	makeglossaries ${BASE}
 	for dir in ${SUBDIR} ; do \
