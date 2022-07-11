@@ -298,7 +298,7 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 \end{dfn}
 
 \begin{dfn}[Winning play]
-	A position $(\bar{a},\bar{b})$ of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ is said to be \textbf{a winning play for} $\bm{\mathcal{R}}$ iff there exists some isomorphism $f\colon\gen{\bar{a}}{\mathfrak{A}}\to\gen{\bar{b}}{\mathfrak{B}}$ such that $f[\bar{a}]=f[\bar{b}]$.
+	A position $(\bar{a},\bar{b})$ of the game $\EF_\gamma(\mathfrak{A},\mathfrak{B})$ is said to be \textbf{a winning play for} $\bm{\mathcal{R}}$ iff there exists some isomorphism $f\colon\gen{\bar{a}}{\mathfrak{A}}\to\gen{\bar{b}}{\mathfrak{B}}$ such that $f[\bar{a}]=\bar{b}$.
 \end{dfn}
 
 \begin{dfn}[Back-and-forth equivalence]
@@ -310,7 +310,7 @@ In what follows we will describe, for some arbitrary ordinal $\gamma$, the \text
 \end{dfn}
 
 \begin{prp}\label{prp:bfiso}
-	Suppose $\mathfrak{A}$ and $\mathfrak{B}$ are countable $L$-structures, for some language $L$, and let $(\bar{c},\bar{d})$ be a winning position for $\Right$ in $\EF_\omega(\mathfrak{A},\mathfrak{B})$.  If $\mathfrak{A}\sim_\omega\mathfrak{B}$ then there exists an isomorphism $f\colon\mathfrak{A}\to\mathfrak{B}$ such that $f[\bar{c}]=f[\bar{d}]$ i.e.\ an isomorphism $f\colon(\mathfrak{A},\bar{c})\to(\mathfrak{B},\bar{d})$.
+	Suppose $\mathfrak{A}$ and $\mathfrak{B}$ are countable $L$-structures, for some language $L$, and let $(\bar{c},\bar{d})$ be a winning position for $\Right$ in $\EF_\omega(\mathfrak{A},\mathfrak{B})$.  If $\mathfrak{A}\sim_\omega\mathfrak{B}$ then there exists an isomorphism $f\colon\mathfrak{A}\to\mathfrak{B}$ such that $f[\bar{c}]=\bar{d}$ i.e.\ an isomorphism $f\colon(\mathfrak{A},\bar{c})\to(\mathfrak{B},\bar{d})$.
 \end{prp}
 \begin{proof}
 	Let $\bar{a}=\family{a_i}{i<\omega}$ and $\bar{a}=\family{a_i}{i<\omega}$, respectively, be enumerations of the structures $\mathfrak{A}$ and $\mathfrak{B}$.  In what follows we describe the remainder of the game $\EF_\omega(\mathfrak{A},\mathfrak{B}$.  On every odd round $\Left$ plays the first element occuring in $\bar{a}$ which he has not played at any previous position of the game and does not occur in $\bar{c}$.  Similarly, on every even round $\Left$ plays the first element occuring in $\bar{b}$ which he has not played at a previous position of the game and does not occur in $\bar{d}$.  Naturally, $\Right$ simply responds using his winning strategy on every round.
