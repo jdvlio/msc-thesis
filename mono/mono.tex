@@ -343,7 +343,9 @@ $\inv{f}(b)$.
 \end{proof}
 
 \begin{prp}\label{prp:xcantor}
-	If $\alpha\in\dense$ is countable and, for some $n\in\nats$, we fix any $\bar{a}\in\domain{n}\alpha$ and any $\bar{b}\in\rats^n$ then there exists an isomorphism $f\colon\alpha\to\eta$ such that $f[\bar{a}]=\bar{b}$.
+	If $\alpha\in\dense$ is countable and, for some $n\in\nats$, we fix any
+	$\bar{a}\in\domain{n}\alpha$ and any $\bar{b}\in\rats^n$ then there exists an
+	isomorphism $f\colon\alpha\to\eta$ such that $f[\bar{a}]=\bar{b}$.
 \end{prp}
 \begin{proof}
 	We prooceed by means of induction, nothing that the case $n=0$ is Cantor's
@@ -366,7 +368,17 @@ As a consequence of the previous proposition we get the following:
 	The linear order $\eta$ is saturated.
 \end{prp}
 \begin{proof}
-	Choose any finite $A\subseteq\rats$.  Suppose that $\Phi(x)\subseteq L_1(A)$ is an $1$-type of $\eta$ over $A$.  By definition there exists a $\alpha\succcurlyeq\eta$ such that $\Phi$ is realised by some $b\in\alpha$ i.e.\ $\alpha\models\Phi(b)$.  By the Downwards L\"owhenheim-Skolem Theorem, however, we may assume that $\alpha$ is countable.  We may assume that $A=\set{a_0,\dotsc,a_{k-1}}$ and thus, from Proposition \ref{prp:xcantor}, if $\bar{a}=(a_0,\dotsc,a_{k-1})$ then there must exist an isomorphism $f\colon(\eta,\bar{a})\to(\alpha,\bar{a})$.  Therefore, it must follow that $\eta\models\varphi(f(b))$, for each $\varphi\in\Phi(x)$, and thus $\Phi(x)$ is realised by the element $f(b)\in\rats$.
+	Choose any finite $A\subseteq\rats$.  Suppose that $\Phi(x)\subseteq L_1(A)$
+	is an $1$-type of $\eta$ over $A$.  By definition there exists a
+	$\alpha\succcurlyeq\eta$ such that $\Phi$ is realised by some $b\in\alpha$ i.e.\
+	$\alpha\models\Phi(b)$.  By the Downwards L\"owhenheim-Skolem Theorem, however,
+	we may assume that $\alpha$ is countable.
+
+	Note we may set $A=\set{a_0,\dotsc,a_{k-1}}$ and thus, from Proposition
+	\ref{prp:xcantor}, if $\bar{a}=(a_0,\dotsc,a_{k-1})$ then there must exist an
+	isomorphism $f\colon(\eta,\bar{a})\to(\alpha,\bar{a})$.  Therefore, it must
+	follow that $\eta\models\varphi(f(b))$, for each $\varphi\in\Phi(x)$, and thus
+	$\Phi(x)$ is realised by the element $f(b)\in\rats$.
 \end{proof}
 
 
