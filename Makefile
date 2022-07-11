@@ -27,6 +27,7 @@ clean:
 	find . -type f ! -path './.git/*' ! -name '*\.tex' \
 		! -path './*\.bib' ! -name '*\.sh' ! -name '\.gitignore' \
 		! -name Makefile -delete
+	find -E . -regex '.*/\.auctex-auto(/.*)?' -delete
 
 fmt:
 	find . -type f -name '*.tex' ! -path './${TEXROOT}' ! -path './.git/*' \
