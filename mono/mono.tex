@@ -14,62 +14,49 @@ that the theory of \textit{all} linear orders is decidable.
 
 \section{The shuffle operation}
 
-\begin{prp}\label{prp:ratpart}
-	Suppose $n\geq 2$ is a natural number and let $P\subseteq\nats$ bet the set
-	of the first $n-1$ primes $p_0,\dotsc,p_{n-2}$.  Choose, for each $i<n-1$,
-	the set
-	\begin{equation}
-		Q_i=\bigcup_{\substack{k\in\ints\\ k\neq
-				0}}\setbuild{\faktor{a}{p_i^k}}{a\in\ints\text{ and } p_i\nmid a}.
-	\end{equation}
-	and define $Q_{n-1}=\rats\setminus\bigcup_{i<n-1}Q_i$.  Then
+\begin{prp}\label{prp:ratpart} Suppose $n\geq 2$ is a natural number and let
+	$P\subseteq\nats$ bet the set of the first $n-1$ primes $p_0,\dotsc,p_{n-2}$.
+	Choose, for each $i<n-1$, the set
+	\begin{equation} Q_i=\bigcup_{\substack{k\in\ints\\ k\neq 0}}\setbuild{\faktor{a}{p_i^k}}{a\in\ints\text{
+				and } p_i\nmid a}.
+	\end{equation} and define $Q_{n-1}=\rats\setminus\bigcup_{i<n-1}Q_i$.  Then
 	$\mathcal{Q}=\setbuild{Q_i}{0\leq i<n}$ is a partition of $\rats$ into dense
 	subsets of $\eta$.
 \end{prp}
-\begin{proof}
-	By definition, it clearly follows that $\mathcal{Q}$ is a partition of
-	$\rats$.  Hence, all that remains is to show that its equivalence classes
-	are dense subset of the rationals.
+\begin{proof} By definition, it clearly follows that $\mathcal{Q}$ is a
+	partition of $\rats$.  Hence, all that remains is to show that its equivalence
+	classes are dense subset of the rationals.
 
 	We commence by showing that $Q_{n-1}$ is such a dense subset.  Choose $p$ to
 	be the least prime such that $p>p_{n-1}$ and define
-	\begin{equation}
-		S=\bigcup_{\substack{k\in\ints\\ k\neq
-				0}}\setbuild{\faktor{a}{p^k}}{a\in\ints\text{ and } p\nmid a}.
-	\end{equation}
-	Since $S\subseteq Q_{n-1}$, it is sufficient to prove that $S$ is a dense
-	subset of $\eta$.  If $s_0<s_1$ are elements of $S$ then there exists
-	$a_0,a_1\in\ints$ and $k_0,k_1\in\posnats$ such that, for $i=0,1$, it holds
-	that $p\nmid a$ and
-	\begin{equation}
-		s_i=\frac{a_i}{p^{k_i}}.
+	\begin{equation} S=\bigcup_{\substack{k\in\ints\\ k\neq 0}}\setbuild{\faktor{a}{p^k}}{a\in\ints\text{
+				and } p\nmid a}.
+	\end{equation} Since $S\subseteq Q_{n-1}$, it is sufficient to prove that
+	$S$ is a dense subset of $\eta$.  If $s_0<s_1$ are elements of $S$ then there
+	exists $a_0,a_1\in\ints$ and $k_0,k_1\in\posnats$ such that, for $i=0,1$, it
+	holds that $p\nmid a$ and
+	\begin{equation} s_i=\frac{a_i}{p^{k_i}}.
 	\end{equation}
 
 	Suppose first that $\abs{s_1-s_0}\geq 1$ and choose $m>k_0$ to be the least
 	natural number such that $p^m>\abs{s_1-s_0}$.  Define
-	\begin{equation}
-		t=s_0+\frac{1}{p^m}.\label{eq:qpart}
-	\end{equation}
-	Then it follows that $s_0<t<s_1$ and
-	\begin{equation}
-		t=\frac{p^{m-k_0}a_0+1}{p^m}.
-	\end{equation}
-	Observe that, if $p$ divides the numerator, then we may conclude that $p\mid
-		1$.  This is clearly a contradiction and, thus, $p$ cannot divide the
-	aforementioned numerator.
+	\begin{equation} t=s_0+\frac{1}{p^m}.\label{eq:qpart}
+	\end{equation} Then it follows that $s_0<t<s_1$ and
+	\begin{equation} t=\frac{p^{m-k_0}a_0+1}{p^m}.
+	\end{equation} Observe that, if $p$ divides the numerator, then we may
+	conclude that $p\mid 1$.  This is clearly a contradiction and, thus, $p$ cannot
+	divide the aforementioned numerator.
 
 	Suppose now, instead, that $\abs{s_1-s_0}<1$ and choose $m>k_0$ to be the
-	least natural number such that $p^{-m}<\abs{s_1-s_0}$.  Define $t$ as
-	in (\ref{eq:qpart}) then, similar to previously, it follows that
-	\begin{equation}
-		t=\frac{p^{m-k_0}a_0+1}{p^m}.
-	\end{equation}
-	Again, using a similar argument, we may conclude that $p$ does not divide
-	the numerator above.
+	least natural number such that $p^{-m}<\abs{s_1-s_0}$.  Define $t$ as in
+	(\ref{eq:qpart}) then, similar to previously, it follows that
+	\begin{equation} t=\frac{p^{m-k_0}a_0+1}{p^m}.
+	\end{equation} Again, using a similar argument, we may conclude that $p$
+	does not divide the numerator above.
 
 	An analagous methodology may be employed in order to prove that $Q_i$ is a
-	dense subset of $\eta$ for $i<n$.  One need only substitute each $Q_i$ for
-	$S$, and $p_i$ for $p$, in the above proof.
+	dense subset of $\eta$ for $i<n$.  One need only substitute each $Q_i$ for $S$,
+	and $p_i$ for $p$, in the above proof.
 \end{proof}
 
 As we will be revisiting it, we shall refer to the partition of $\rats$, defined
@@ -77,194 +64,288 @@ in the proposition above, as the \textit{canonical partition} of $\rats$ into
 $n$ dense subsets.  Similarly, the \textit{canonical partition of the reals}
 into $n$ dense subsets is laid out in the following corollary.
 
-\begin{cor}
-	For every natural $n\geq 2$, there exists a canonical partition
+\begin{cor} For every natural $n\geq 2$, there exists a canonical partition
 	$\mathcal{R}=\set{R_0,\dotsc,R_{n-1}}$ of $\reals$ such that:
 	\begin{enumerate}
 		\item $R_{n-1}=\irrats$,
-		\item $R_k$ is a countable dense subset of $\lambda$, for each natural $k<n-1$.
+		\item $R_k$ is a countable dense subset of $\lambda$, for each natural
+		      $k<n-1$.
 	\end{enumerate}
 \end{cor}
-\begin{proof}
-	Choose $R_0,\dotsc,R_{n-2}$ so that they correspond exactly to the
-	equivalence classes of the canonical partition of $\rats$ into dense subsets
-	of $\eta$.  Together with $R_{n-1}=\irrats$, these then form the equivalence
+\begin{proof} Choose $R_0,\dotsc,R_{n-2}$ so that they correspond exactly to the
+	equivalence classes of the canonical partition of $\rats$ into dense subsets of
+	$\eta$.  Together with $R_{n-1}=\irrats$, these then form the equivalence
 	classes of the desired partition $\mathcal{R}$ of $\reals$.
 \end{proof}
 
-\begin{dfn}[The shuffle operation]
-	Let $n\in\nats$ and choose $F$ to be any finite set of linear orders.  Now
-	define the \textbf{shuffle operation} on the class of linear orders as
-	follows:
+\begin{dfn}[The shuffle operation] Let $n\in\nats$ and choose $F$ to be any
+	finite set of linear orders.  Now define the \textbf{shuffle operation} on the
+	class of linear orders as follows:
 	\begin{enumerate}
 		\item if $F=\emptyset$ then $\sigma(F)=\zero$;
 		\item if $F=\set{\alpha}$ then $\sigma(F)=\alpha\cdot\eta$;
 		\item if $n\geq 2$ and $h\colon\rats\to F$ is any colouring of $\eta$
 		      whose induced partition on $\rats$ is the canonical one, define
-		      \begin{equation}
-			      \sigma(F)=\sum_{q\in\eta}h(q).
+		      \begin{equation} \sigma(F)=\sum_{q\in\eta}h(q).
 		      \end{equation}
-	\end{enumerate}
-	Furthermore, the image of $F$ under $\sigma$ is referred to as the
-	\textbf{shuffle} of $F$.
+	\end{enumerate} Furthermore, the image of $F$ under $\sigma$ is referred to
+	as the \textbf{shuffle} of $F$.
 \end{dfn}
 
 
 \section{The L\"auchli and Leonard result for the class of linear orders}
 
-\begin{dfn}[The class $\M$]
-	The class $\M$ is the smallest class of linear orders such that the following holds:
+\begin{dfn}[The class $\M$] The class $\M$ is the smallest class of linear
+	orders such that the following holds:
 	\begin{enumerate}
 		\item	$\zero,\one\in\M$,
 		\item	if $\alpha,\beta\in\M$ then $\alpha+\beta\in\M$,
-		\item	if $\alpha\in\M$ then $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\M$,
-		\item	for every finite $F\subseteq\M\setminus\set{\zero}$, it holds that $\sigma(F)\in\M$.
+		\item	if $\alpha\in\M$ then
+		      $\alpha\cdot\omega,\alpha\cdot\dual{\omega}\in\M$,
+		\item	for every finite $F\subseteq\M\setminus\set{\zero}$, it holds
+		      that $\sigma(F)\in\M$.
 	\end{enumerate}
 \end{dfn}
 
-\begin{prp}\label{prp:Msumint}
-	If $\alpha_i\in\M$ for each $i\in\ints$ then there exists a $\beta\in\M$ such that
-	\begin{equation}
-		\sum_{i\in\zeta}\alpha_i\nequiv{n}\beta.
+\begin{prp}\label{prp:Msumint} If $\alpha_i\in\M$ for each $i\in\ints$ then
+	there exists a $\beta\in\M$ such that
+	\begin{equation} \sum_{i\in\zeta}\alpha_i\nequiv{n}\beta.
 	\end{equation}
 \end{prp}
-\begin{proof}
-	Since $\M$ is closed under finite sums as well as right multiplication by $\omega$ and $\dual{\omega}$, results analagous to propositions \ref{prp:M0sum} and \ref{prp:M0sumop} can be proven in the context of $\M$.  An argument similar to that which appears in the proof of proposition \ref{prp:M0sumint} then yields the desired result.
+\begin{proof} Since $\M$ is closed under finite sums as well as right
+	multiplication by $\omega$ and $\dual{\omega}$, results analagous to
+	propositions \ref{prp:M0sum} and \ref{prp:M0sumop} can be proven in the context
+	of $\M$.  An argument similar to that which appears in the proof of proposition
+	\ref{prp:M0sumint} then yields the desired result.
 \end{proof}
 
-\begin{thm}[L\"auchli and Leonard]\label{thm:LLlin}
-	For every countable linear order $\alpha$, and every $n\in\nats$, there exists some $\beta_n\in\M$ such that $\alpha\nequiv{n}\beta_n$.
+\begin{thm}[L\"auchli and Leonard]\label{thm:LLlin} For every countable linear
+	order $\alpha$, and every $n\in\nats$, there exists some $\beta_n\in\M$ such
+	that $\alpha\nequiv{n}\beta_n$.
 \end{thm}
-\begin{proof}
-	Define a binary relation $R$ on $\alpha$ such that, for every $x,y\in\alpha$, $xRy$ iff $x\leq y$ and there exists a $\beta\in\M$ such that $[x,y]\nequiv{n}\beta$.  Since $R$ is clearly transitive (simply note $\M$ is closed under finite sums), it induces a congruence $\sim$ on $\alpha$.    We now claim the following:
-	\begin{claim}
-		For every $\gamma\in\faktor{\alpha}{\sim}$, there exists a $\beta\in\M$ such that $\gamma\nequiv{n}\beta$.
+\begin{proof} Define a binary relation $R$ on $\alpha$ such that, for every
+	$x,y\in\alpha$, $xRy$ iff $x\leq y$ and there exists a $\beta\in\M$ such that
+	$[x,y]\nequiv{n}\beta$.  Since $R$ is clearly transitive (simply note $\M$ is
+	closed under finite sums), it induces a congruence $\sim$ on $\alpha$.    We now
+	claim the following:
+	\begin{claim} For every $\gamma\in\faktor{\alpha}{\sim}$, there exists a
+		$\beta\in\M$ such that $\gamma\nequiv{n}\beta$.
 	\end{claim}
-	\begin{proof}
-		Fix any $\gamma\in\faktor{\alpha}{\sim}$ and note that $\M$ contains all finite ordinals so we may assume, without loss of generality, that $\gamma$ is infinite.  Consequently, at least one of $\omega$ and $\dual{\omega}$ is embeddable in $\gamma$.  There must then exist a family $\family{\gamma_i}{i\in\zeta}$ of (possibly empty) linear orders such that
-		\begin{equation}
-			\gamma\cong\sum_{i\in\zeta}\gamma_i.
-		\end{equation}
-		By definition of $\sim$ it now follows that there exists a $\gamma_i^\prime\in\M$, for each $i\in\ints$, such that $\gamma_i\nequiv{n}\gamma_i^\prime$.  Proposition \ref{prp:Msumint} then implies that there exists a $\gamma^\prime\in\M$ such that
-		\begin{equation}
-			\gamma^\prime\nequiv{n}\sum_{i\in\zeta}\gamma_i^\prime.
-		\end{equation}
-		From lemma \ref{lem:fvsum} we may conclude that
-		\begin{equation}
-			\gamma\nequiv{n}\sum_{i\in\zeta}\gamma_i^\prime\nequiv{n}\gamma^\prime,
-		\end{equation}
-		establishing the claim.
+	\begin{proof} Fix any $\gamma\in\faktor{\alpha}{\sim}$ and note that $\M$
+		contains all finite ordinals so we may assume, without loss of generality, that
+		$\gamma$ is infinite.  Consequently, at least one of $\omega$ and
+		$\dual{\omega}$ is embeddable in $\gamma$.  There must then exist a family
+		$\family{\gamma_i}{i\in\zeta}$ of (possibly empty) linear orders such that
+		\begin{equation} \gamma\cong\sum_{i\in\zeta}\gamma_i.
+		\end{equation} By definition of $\sim$ it now follows that there exists
+		a $\gamma_i^\prime\in\M$, for each $i\in\ints$, such that
+		$\gamma_i\nequiv{n}\gamma_i^\prime$.  Proposition \ref{prp:Msumint} then implies
+		that there exists a $\gamma^\prime\in\M$ such that
+		\begin{equation} \gamma^\prime\nequiv{n}\sum_{i\in\zeta}\gamma_i^\prime.
+		\end{equation} From lemma \ref{lem:fvsum} we may conclude that
+		\begin{equation} \gamma\nequiv{n}\sum_{i\in\zeta}\gamma_i^\prime\nequiv{n}\gamma^\prime,
+		\end{equation} establishing the claim.
 	\end{proof}
 
-	Note that if $\card{\faktor{\alpha}{\sim}}=1$ then our task is complete so suppose, by way of contradiction, that $\card{\faktor{\alpha}{\sim}}>1$.
-	\begin{claim}
-		$\faktor{\alpha}{\sim}$ is dense.
+	Note that if $\card{\faktor{\alpha}{\sim}}=1$ then our task is complete so
+	suppose, by way of contradiction, that $\card{\faktor{\alpha}{\sim}}>1$.
+	\begin{claim} $\faktor{\alpha}{\sim}$ is dense.
 	\end{claim}
-	\begin{proof}
-		With our goal being a contradiction, suppose that $\faktor{\alpha}{\sim}$ is not dense.  Therefore, there exists $a,b\in\alpha$ such that $a<b$, $a\not\sim b$ and for every $c\in(a,b)$ either $c\sim a$ or $c\sim b$ but not both.  Note that, since $a\not\sim b$, the interval $(a,b)$ cannot be finite.  Therefore, $(a,b)\cong\sum_{i\in\zeta}\gamma_i$ where $\gamma_i$ is $n$-equivalent to some member $\gamma_i^\prime$ of $\M$, for each $i\in\ints$.  Thus, by proposition \ref{prp:Msumint}, $(a,b)\nequiv{n}\gamma$ for some $\gamma\in\M$.  Since $\one+\gamma+\one\nequiv{n}[a,b]$ by lemma \ref{lem:fvsum} and $\one+\gamma+\one$ is a member of $\M$, it follows by definition that $a\sim b$ --- a contradiction.
+	\begin{proof} With our goal being a contradiction, suppose that
+		$\faktor{\alpha}{\sim}$ is not dense.  Therefore, there exists $a,b\in\alpha$
+		such that $a<b$, $a\not\sim b$ and for every $c\in(a,b)$ either $c\sim a$ or
+		$c\sim b$ but not both.  Note that, since $a\not\sim b$, the interval $(a,b)$
+		cannot be finite.  Therefore, $(a,b)\cong\sum_{i\in\zeta}\gamma_i$ where
+		$\gamma_i$ is $n$-equivalent to some member $\gamma_i^\prime$ of $\M$, for each
+		$i\in\ints$.  Thus, by proposition \ref{prp:Msumint}, $(a,b)\nequiv{n}\gamma$
+		for some $\gamma\in\M$.  Since $\one+\gamma+\one\nequiv{n}[a,b]$ by lemma
+		\ref{lem:fvsum} and $\one+\gamma+\one$ is a member of $\M$, it follows by
+		definition that $a\sim b$ --- a contradiction.
 	\end{proof}
 
-	Now choose $K=\set{\chi_0,\dotsc,\chi_{m-1}}$, for some $m\in\posnats$, to be an $n$-spectrum for the class $\setbuild{\chi\in\M}{\chi\nequiv{n}\gamma,\text{ for some }\gamma\in\faktor{\alpha}{\sim}}$.
-	\begin{claim}
-		There exists a maximal $F\subseteq K$ and a nonempty interval $I=(A,B)$ of $\faktor{\alpha}{\sim}$ such that, for every $\chi\in F$, the set $D_\chi(I)=\setbuild{\gamma\in I}{\gamma\nequiv{n}\chi}$ is dense in $I$.
+	Now choose $K=\set{\chi_0,\dotsc,\chi_{m-1}}$, for some $m\in\posnats$, to
+	be an $n$-spectrum for the class
+	$\setbuild{\chi\in\M}{\chi\nequiv{n}\gamma,\text{ for some
+			}\gamma\in\faktor{\alpha}{\sim}}$.
+	\begin{claim} There exists a maximal $F\subseteq K$ and a nonempty interval
+		$I=(A,B)$ of $\faktor{\alpha}{\sim}$ such that, for every $\chi\in F$, the set
+		$D_\chi(I)=\setbuild{\gamma\in I}{\gamma\nequiv{n}\chi}$ is dense in $I$.
 	\end{claim}
-	\begin{proof}
-		Argue by induction on $m$.  If $m=1$ then, since $\faktor{\alpha}{\sim}$ is dense we can choose any $A,B\in\faktor{\alpha}{\sim}$ such that $A<B$ and it will immediately follow that if $I=(A,B)$ then $D_{\chi_0}(I)$ is dense in $I$, since every member of $\faktor{\alpha}{\sim}$ is $n$-equivalent to $\chi_0$.
+	\begin{proof} Argue by induction on $m$.  If $m=1$ then, since
+		$\faktor{\alpha}{\sim}$ is dense we can choose any $A,B\in\faktor{\alpha}{\sim}$
+		such that $A<B$ and it will immediately follow that if $I=(A,B)$ then
+		$D_{\chi_0}(I)$ is dense in $I$, since every member of $\faktor{\alpha}{\sim}$
+		is $n$-equivalent to $\chi_0$.
 
-		Assume now that the claim holds for each $m<m^\prime\in\posnats$.  Let $m=m^\prime$ and suppose to the contrary that for every $F^\prime\subseteq K$ and every (nonempty) open interval $J\subseteq\faktor{\alpha}{\sim}$ there exists some $\chi_k\in F^\prime$ such that $0\leq k<m$ and $D_{\chi_k}(J)$ is not dense in $J$.  Note that, by assumption, there must exist a $\chi\in K$ such that $D_{\chi}(\faktor{\alpha}{\sim})$ is not dense in $\faktor{\alpha}{\sim}$.  Without loss of generality we may assume that $\chi=\chi_{m-1}$ and consequently there exists a (nonempty) open subset $J$ of $\faktor{\alpha}{\sim}$ such that $D_{\chi_{m-1}}(J)$ is not dense in $J$.  Note in particular that we can choose $J$ such that $\chi_{m-1}$ has no $n$-equivalent in $J$.
+		Assume now that the claim holds for each $m<m^\prime\in\posnats$.  Let
+		$m=m^\prime$ and suppose to the contrary that for every $F^\prime\subseteq K$
+		and every (nonempty) open interval $J\subseteq\faktor{\alpha}{\sim}$ there
+		exists some $\chi_k\in F^\prime$ such that $0\leq k<m$ and $D_{\chi_k}(J)$ is
+		not dense in $J$.  Note that, by assumption, there must exist a $\chi\in K$ such
+		that $D_{\chi}(\faktor{\alpha}{\sim})$ is not dense in $\faktor{\alpha}{\sim}$.
+		Without loss of generality we may assume that $\chi=\chi_{m-1}$ and consequently
+		there exists a (nonempty) open subset $J$ of $\faktor{\alpha}{\sim}$ such that
+		$D_{\chi_{m-1}}(J)$ is not dense in $J$.  Note in particular that we can choose
+		$J$ such that $\chi_{m-1}$ has no $n$-equivalent in $J$.
 
-		By definition, there exists an $F^\prime\subseteq\set{\chi_0,\dotsc,\chi_{m-2}}$ which is an $n$-spectrum for the class $\setbuild{\chi^\prime\in\M}{\chi\nequiv{n}\gamma\text{ for some }\gamma\in J}$.  It then follows from the inductive hypothesis that there exists a maximal $F\subseteq F^\prime$ and some open interval $I=(A,B)\subseteq J$, where $A<B$, such that $D_{\chi}(I)$ is dense in $I$, for each $\chi\in F$.  Since $\chi_{m-1}\notin J\supseteq I$, it follows that $\chi_{m-1}$ is not dense in $I$ and, consequently, $F\subseteq K$ is maximal, as required.  This is the sought-after contradiction, thus establishing the claim.
-	\end{proof}
-	Note that $F$ is now an $n$-spectrum for the class
-	\begin{equation}
-		\setbuild{\chi\in\M}{\chi\nequiv{n}\gamma\text{ for some }\gamma\in I}.
-	\end{equation}
-	Consequently, since $D_{\chi}(I)$ is dense in $I$ for each $\chi\in F$, it follows that
-	\begin{equation}
-		\sigma(F)\nequiv{n}\sum I=\sum_{\gamma\in I}\gamma.
-	\end{equation}
-	Therefore, since $\sigma(F)\in\M$, it follows that $I$ has exactly one element.  This then contradicts the fact that $I$ is an open interval.  Hence, we may now conclude that $\faktor{\alpha}{\sim}$ has only one element, yielding the result.
+		By definition, there exists an
+		$F^\prime\subseteq\set{\chi_0,\dotsc,\chi_{m-2}}$ which is an $n$-spectrum for
+		the class $\setbuild{\chi^\prime\in\M}{\chi\nequiv{n}\gamma\text{ for some
+				}\gamma\in J}$.  It then follows from the inductive hypothesis that there exists
+		a maximal $F\subseteq F^\prime$ and some open interval $I=(A,B)\subseteq J$,
+		where $A<B$, such that $D_{\chi}(I)$ is dense in $I$, for each $\chi\in F$.
+		Since $\chi_{m-1}\notin J\supseteq I$, it follows that $\chi_{m-1}$ is not dense
+		in $I$ and, consequently, $F\subseteq K$ is maximal, as required.  This is the
+		sought-after contradiction, thus establishing the claim.
+	\end{proof} Note that $F$ is now an $n$-spectrum for the class
+	\begin{equation} \setbuild{\chi\in\M}{\chi\nequiv{n}\gamma\text{ for some
+			}\gamma\in I}.
+	\end{equation} Consequently, since $D_{\chi}(I)$ is dense in $I$ for each
+	$\chi\in F$, it follows that
+	\begin{equation} \sigma(F)\nequiv{n}\sum I=\sum_{\gamma\in I}\gamma.
+	\end{equation} Therefore, since $\sigma(F)\in\M$, it follows that $I$ has
+	exactly one element.  This then contradicts the fact that $I$ is an open
+	interval.  Hence, we may now conclude that $\faktor{\alpha}{\sim}$ has only one
+	element, yielding the result.
 
 \end{proof}
 
-\begin{lem}\label{lem:relin}
-	The set $\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}$ is recursively enumerable.
+\begin{lem}\label{lem:relin} The set
+	$\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}$ is
+	recursively enumerable.
 \end{lem}
-\begin{proof}
-	The proof is near identical to that of Lemma \label{lem:rescat}.  We shall only highlight the additions necessary to prove the current result.
+\begin{proof} The proof is near identical to that of Lemma \label{lem:rescat}.
+	We shall only highlight the additions necessary to prove the current result.
 
-	It is necessary to add an additional clause, respectively, to the defintions of $L_\alpha$, $S_\alpha$ and $T_\alpha$.  If, for some $n\in\nats$, there exists $\alpha_0,\dotsc,\alpha_{n-1}\in\M\setminus\set{\zero}$ such that $\alpha=\sigma(\alpha_0,\dotsc,\alpha_{n-1})$ then $L_\alpha$ is obtained from $L$ by adding new unary relation symbols $r_0,\dotsc,r_{n-1}$ and a new binary relation symbol $\theta$.
+	It is necessary to add an additional clause, respectively, to the defintions
+	of $L_\alpha$, $S_\alpha$ and $T_\alpha$.  If, for some $n\in\nats$, there
+	exists $\alpha_0,\dotsc,\alpha_{n-1}\in\M\setminus\set{\zero}$ such that
+	$\alpha=\sigma(\alpha_0,\dotsc,\alpha_{n-1})$ then $L_\alpha$ is obtained from
+	$L$ by adding new unary relation symbols $r_0,\dotsc,r_{n-1}$ and a new binary
+	relation symbol $\theta$.
 
-	We choose $S_\alpha$ to consist of sentences expressing that ``$\theta$ is a congruence relation'' as well as, for each $i<n$, the sentences:
+	We choose $S_\alpha$ to consist of sentences expressing that ``$\theta$ is a
+	congruence relation'' as well as, for each $i<n$, the sentences:
 	\begin{itemize}
 		\item	$\exists x r_i(x)$,
 		\item	$\forall x\big(r_0(x)\vee\dotsb\vee r_{n-1}(x)\big)$,
 		\item	for each $j<i$: $\neg\exists x\big(r_i(x)\wedge r_j(x)\big)$,
-		\item	$\forall x\forall y\big(x<y\rightarrow\exists z(r_i(z)\wedge x<z \wedge z<y))\big)$,
-		\item	$\forall x\big(r_i(x)\rightarrow\forall y(\theta(y,x)\rightarrow r_i(y))\big)$.
-		\item	$\forall x\big(\exists y(\neg\theta(x,y)\wedge y<x)\wedge\exists y(\neg\theta(x,y)\wedge x<y)\big)$
+		\item
+		      $\forall x\forall y\big(x<y\rightarrow\exists z(r_i(z)\wedge x<z \wedge z<y))\big)$,
+		\item
+		      $\forall x\big(r_i(x)\rightarrow\forall y(\theta(y,x)\rightarrow r_i(y))\big)$.
+		\item
+		      $\forall x\big(\exists y(\neg\theta(x,y)\wedge y<x)\wedge\exists y(\neg\theta(x,y)\wedge x<y)\big)$
 	\end{itemize}
 
 	Define the $L_\alpha$-theory
-	\begin{equation}
-		T_\alpha=S_\alpha\cup\bigcup_{i<n}\setbuild{\forall x\left(r_i(x)\rightarrow\sigma^{\theta(v,x)}\right)}{\alpha_i\models\sigma}
+	\begin{equation} T_\alpha=S_\alpha\cup\bigcup_{i<n}\setbuild{\forall x\left(r_i(x)\rightarrow\sigma^{\theta(v,x)}\right)}{\alpha_i\models\sigma}
+	\end{equation} and note that, by definition, $T_\alpha$ is recursively
+	enumerable.  Hence, we need only show that $T_\alpha$ is complete.  To this end,
+	consider any $\mathfrak{M},\mathfrak{N}\models T_\alpha$.
+
+	Fix any $k\in\nats$, so that our task is reduced to showing that
+	$\mathfrak{M}\nequiv{k}\mathfrak{N}$.  This is facilitated by the following
+	description of a winning strategy for player $\Right$ in the game
+	$\EF_k(\mathfrak{M},\mathfrak{N})$.
+
+	Should it be the case that $n\leq 1$ then it follows that
+	$\mathfrak{M}\equiv\mathfrak{N}$ so we may suppose that $n>1$.  Let $a_0\in M$
+	be the first move of player $\Left$.  By definition of $T_\alpha$, there exists
+	a natural $i_0<n$ such that $\mathfrak{M}\models r_{i_0}(a_0)$.
+
+	It then follows from the definition of $T_\alpha$ that there exists a
+	countermove $b_0\in N$ for player $\Right$ such that
+	$\mathfrak{N}\models r_{i_0}(b_0)$.  Any such $b_0$ will suffice and a similar
+	tactic is used if $\Left$ instead chooses his first move in $\mathfrak{N}$.
+
+	Suppose now that $\bar{a}\in M^{k-1}$ and $\bar{b}\in N^{k-1}$ and we are in
+	the position $(\bar{a},\bar{b})$ in the game.  Without loss of generality we may
+	assume $a_i<a_{i+1}$, for $i<k$, and need only consider the case where $\Left$
+	never repeats any of his moves.
+
+	Suppose, during the $k$-th round, $\Left$ plays some $c\in M$.  There must
+	then exist, by definition of $T_\alpha$, some $i_k<n$ such that
+	$\mathfrak{M}\models r_{i_{k-1}}(c)$.  If $c>a_{k-1}$ then there must exists
+	some $d\in N$ such that $d>\bar{b}$ and $\mathfrak{N}\models r_{i_{k-1}}(d)$.  A
+	similar scenario is encountered if $c<a_0$: there exists a $d<\bar{b}$ in
+	$\mathfrak{M}$ such that $\mathfrak{N}\models r_{i_{k-1}}(d)$.
+
+	Now, consider the case where $a_j<c<a_{j+1}$, for some $j<k$.  If
+	$b_{j+1}\leq b_j$ then $\Right$ may play any element but otherwise there exists
+	a $d\in N$ such that $b_j<d<b_{j+1}$ and, for $i<n$,
+	\begin{equation} \mathfrak{M}\models r_i(c)\quad\iff\quad\mathfrak{N}\models r_i(d).
 	\end{equation}
-	and note that, by definition, $T_\alpha$ is recursively enumerable.  Hence, we need only show that $T_\alpha$ is complete.  To this end, consider any $\mathfrak{M},\mathfrak{N}\models T_\alpha$.
 
-	Fix any $k\in\nats$, so that our task is reduced to showing that $\mathfrak{M}\nequiv{k}\mathfrak{N}$.  This is facilitated by the following description of a winning strategy for player $\Right$ in the game $\EF_k(\mathfrak{M},\mathfrak{N})$.
-
-	Should it be the case that $n\leq 1$ then it follows that $\mathfrak{M}\equiv\mathfrak{N}$ so we may suppose that $n>1$.  Let $a_0\in M$ be the first move of player $\Left$.  By definition of $T_\alpha$, there exists a natural $i_0<n$ such that $\mathfrak{M}\models r_{i_0}(a_0)$.
-
-	It then follows from the definition of $T_\alpha$ that there exists a countermove $b_0\in N$ for player $\Right$ such that $\mathfrak{N}\models r_{i_0}(b_0)$.  Any such $b_0$ will suffice and a similar tactic is used if $\Left$ instead chooses his first move in $\mathfrak{N}$.
-
-	Suppose now that $\bar{a}\in M^{k-1}$ and $\bar{b}\in N^{k-1}$ and we are in the position $(\bar{a},\bar{b})$ in the game.  Without loss of generality we may assume $a_i<a_{i+1}$, for $i<k$, and need only consider the case where $\Left$ never repeats any of his moves.
-
-	Suppose, during the $k$-th round, $\Left$ plays some $c\in M$.  There must then exist, by definition of $T_\alpha$, some $i_k<n$ such that $\mathfrak{M}\models r_{i_{k-1}}(c)$.  If $c>a_{k-1}$ then there must exists some $d\in N$ such that $d>\bar{b}$ and $\mathfrak{N}\models r_{i_{k-1}}(d)$.  A similar scenario is encountered if $c<a_0$: there exists a $d<\bar{b}$ in $\mathfrak{M}$ such that $\mathfrak{N}\models r_{i_{k-1}}(d)$.
-
-	Now, consider the case where $a_j<c<a_{j+1}$, for some $j<k$.  If $b_{j+1}\leq b_j$ then $\Right$ may play any element but otherwise there exists a $d\in N$ such that $b_j<d<b_{j+1}$ and, for $i<n$,
-	\begin{equation}
-		\mathfrak{M}\models r_i(c)\quad\iff\quad\mathfrak{N}\models r_i(d).
-	\end{equation}
-
-	Should $\Left$ instead play a move $d\in N$ then $\Right$ plays as follows.  If $b_{j+1}\leq b_j$, for some $j<k$ then $\Right$ may play any move in $\mathfrak{M}$ but otherwise $\Right$ plays similarly to the previous case where $\Left$ chose a move in $\mathfrak{M}$.  The roles of the two structures are merely interchanged in this case.
+	Should $\Left$ instead play a move $d\in N$ then $\Right$ plays as follows.
+	If $b_{j+1}\leq b_j$, for some $j<k$ then $\Right$ may play any move in
+	$\mathfrak{M}$ but otherwise $\Right$ plays similarly to the previous case where
+	$\Left$ chose a move in $\mathfrak{M}$.  The roles of the two structures are
+	merely interchanged in this case.
 
 	Define the set
-	\begin{equation}
-		R^\prime=\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and }\alpha\models\sigma}.
-	\end{equation}
-	We now adapt the algorithm given in the proof of Lemma \ref{lem:rescat} with the goal of listing the elements of $R^\prime$.  This is accomplished by also taking shuffles into account.
+	\begin{equation} R^\prime=\setbuild{(\alpha,\sigma)}{\alpha\in\M\text{ and
+			}\alpha\models\sigma}.
+	\end{equation} We now adapt the algorithm given in the proof of Lemma
+	\ref{lem:rescat} with the goal of listing the elements of $R^\prime$.  This is
+	accomplished by also taking shuffles into account.
 
-	Assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for $i\geq n_0$, as follows:
+	Assume the entries $(\alpha_i,\sigma_i)$, for $i=0,\dotsc,n_0-1$, have been
+	listed.  Continue the list sequentially with entries $(\alpha_i,\sigma_i)$, for
+	$i\geq n_0$, as follows:
 	\begin{enumerate}
-		\item 	list all pairs of the form $(\alpha_i,\sigma)$ such that $\sigma\in S_{\alpha_i}$ and $i<n_0$ and let $n_1$ denote the resulting number of entries in the list;
-		\item 	list all pairs of the form $(\alpha_i, \sigma)$, for $i<n_1$, where $\sigma$ is the direct consequence of an inference rule from $\sigma_{i_0},\dotsc,\sigma_{i_{k-1}}$ and, for each $j<k$, $(\alpha_i,\sigma_{i_j})$ has already appeared in the list and let $n_2$ denote the resulting number of entries;
-		\item	list all pairs of the form $(\alpha,\sigma)$ where, for $i,j<n_2$, $\alpha=\alpha_i+\alpha_j$ and $\sigma=\sigma_i^{r_0(v)}\wedge\sigma_j^{r_1(v)}$ and let $n_3$ denote the resulting number of entries in the list;
-		\item	list all pairs of the form $(\alpha_i\cdot\omega,\sigma)$, for $i<n_3$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_4$ denote the resulting number of entries in the list;
-		\item	list all pairs of the form $(\alpha_i\cdot\dual{\omega},\sigma)$, for $i<n_4$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_5$ denote the resulting number of entries in the list;
-		\item	for each $k<n_5$ and nonzero linear orders $\alpha_{i_0},\dotsc,\alpha_{i_k}$, add $(\alpha,\sigma)$ to the list whenever
-		      \begin{equation}
-			      \alpha=\sigma(\alpha_{i_0},\dotsc,\alpha_{i_{k-1}})
-		      \end{equation}
-		      and, for some $j<k$,
-		      \begin{equation}
-			      \sigma=\forall x\left(r_{i_j}(x)\rightarrow\sigma_{i_j}^{\theta(v,x)}\right);
+		\item 	list all pairs of the form $(\alpha_i,\sigma)$ such that
+		      $\sigma\in S_{\alpha_i}$ and $i<n_0$ and let $n_1$ denote the resulting number
+		      of entries in the list;
+		\item 	list all pairs of the form $(\alpha_i, \sigma)$, for $i<n_1$,
+		      where $\sigma$ is the direct consequence of an inference rule from
+		      $\sigma_{i_0},\dotsc,\sigma_{i_{k-1}}$ and, for each $j<k$,
+		      $(\alpha_i,\sigma_{i_j})$ has already appeared in the list and let $n_2$ denote
+		      the resulting number of entries;
+		\item	list all pairs of the form $(\alpha,\sigma)$ where, for
+		      $i,j<n_2$, $\alpha=\alpha_i+\alpha_j$ and
+		      $\sigma=\sigma_i^{r_0(v)}\wedge\sigma_j^{r_1(v)}$ and let $n_3$ denote the
+		      resulting number of entries in the list;
+		\item	list all pairs of the form $(\alpha_i\cdot\omega,\sigma)$, for
+		      $i<n_3$, such that $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_4$ denote
+		      the resulting number of entries in the list;
+		\item	list all pairs of the form
+		      $(\alpha_i\cdot\dual{\omega},\sigma)$, for $i<n_4$, such that
+		      $\sigma=\forall w\sigma_i^{\theta(w,v)}$ and let $n_5$ denote the resulting
+		      number of entries in the list;
+		\item	for each $k<n_5$ and nonzero linear orders
+		      $\alpha_{i_0},\dotsc,\alpha_{i_k}$, add $(\alpha,\sigma)$ to the list whenever
+		      \begin{equation} \alpha=\sigma(\alpha_{i_0},\dotsc,\alpha_{i_{k-1}})
+		      \end{equation} and, for some $j<k$,
+		      \begin{equation} \sigma=\forall x\left(r_{i_j}(x)\rightarrow\sigma_{i_j}^{\theta(v,x)}\right);
 		      \end{equation}
 		\item	redefine $n_0$ to denote the current length of the list;
 		\item	repeat steps 1 to 7.
 	\end{enumerate}
 
-	An argument by means of induction (on $\alpha\in\M$) will now show that the procedure described above will list any desired member of $R^\prime$ after a finite amount of time.  Consequently, the same may be said of $R$.
+	An argument by means of induction (on $\alpha\in\M$) will now show that the
+	procedure described above will list any desired member of $R^\prime$ after a
+	finite amount of time.  Consequently, the same may be said of $R$.
 \end{proof}
 
-\begin{thm}
-	The theory of linear orders is decidable.
+\begin{thm} The theory of linear orders is decidable.
 \end{thm}
-\begin{proof}
-	Since the theory of linear orders is finitely axiomatisable, say by $T=\set{\axmlin}$, there exists a machine $M_0$ that lists all of its consequences.  This is accomplished, using inference rules, by mechanically generating all proofs from the theory $T$.
+\begin{proof} Since the theory of linear orders is finitely axiomatisable, say
+	by $T=\set{\axmlin}$, there exists a machine $M_0$ that lists all of its
+	consequences.  This is accomplished, using inference rules, by mechanically
+	generating all proofs from the theory $T$.
 
-	From Lemma \ref{lem:relin}, there exists a machine $M_1$ that mechanically lists all pairs $(\alpha,\sigma)$ such that $\alpha\in\M$ and $\alpha\models\sigma$.  Now consider a machine $M$ that, given a sentence $\sigma$, alternately lists entries from each of the two lists until either $\sigma$ or a pair of the form $(\alpha,\neg\sigma)$ appears on the list.  In the former case $M$ prints the string ``True'' and in the latter it prints ``False''.
+	From Lemma \ref{lem:relin}, there exists a machine $M_1$ that mechanically
+	lists all pairs $(\alpha,\sigma)$ such that $\alpha\in\M$ and
+	$\alpha\models\sigma$.  Now consider a machine $M$ that, given a sentence
+	$\sigma$, alternately lists entries from each of the two lists until either
+	$\sigma$ or a pair of the form $(\alpha,\neg\sigma)$ appears on the list.  In
+	the former case $M$ prints the string ``True'' and in the latter it prints
+	``False''.
 
-	It follows from Theorem \ref{thm:LLlin} and the definitions of $M_0$ and $M_1$ that $M$ always halts, irrespective of the choice of $\sigma$.  This is as required.
+	It follows from Theorem \ref{thm:LLlin} and the definitions of $M_0$ and
+	$M_1$ that $M$ always halts, irrespective of the choice of $\sigma$.  This is as
+	required.
 \end{proof}
 
 
@@ -290,13 +371,13 @@ the following holds:
 	      \begin{enumerate}
 		      \item the play $(\bar{c},\bar{d})$ is winning for $\Left$ in
 		            $\EF_\omega(\alpha,\beta)$,
-		      \item there exists a member of $\alpha$ not occuring in $\bar{c}$ or
-		            there exists a member of $\beta$ not occuring in $\bar{d}$.
+		      \item there exists a member of $\alpha$ not occuring in $\bar{c}$
+		            or there exists a member of $\beta$ not occuring in $\bar{d}$.
 	      \end{enumerate}
 \end{enumerate}
 
-Note, for $\alpha$ and $\beta$ both countable, it follows by definition
-that $\Right$ has a winning strategy for $G$ iff there exists an isomorphism
+Note, for $\alpha$ and $\beta$ both countable, it follows by definition that
+$\Right$ has a winning strategy for $G$ iff there exists an isomorphism
 $f\colon\alpha\to\beta$.  The forward implication can be shown by considering
 any play of the game in which $\Left$ plays optimally by alternating between
 $\alpha$ and $\beta$.
@@ -306,35 +387,30 @@ $\Right$ in the following manner.  A move $a$ in $\alpha$ by $\Left$ is
 countered by playing $f(a)$ while a move $b$ in $\beta$ is countered by
 $\inv{f}(b)$.
 
-\begin{thm}[Cantor's Theorem]\label{thm:cantor}
-	If $\alpha,\beta\in\dense$ is countable then there exists an isomorphism
-	$f\colon\alpha\to\beta$.
+\begin{thm}[Cantor's Theorem]\label{thm:cantor} If $\alpha,\beta\in\dense$ are
+	countable then there exists an isomorphism $f\colon\alpha\to\beta$.
 \end{thm}
-\begin{proof}
-	Let $G=G(a,b)$ be the game described previously and fix enumerations
-	$\bar{a}$ and $\bar{b}$ of $\alpha$ and $\beta$, respectively.  Note that
-	our task is achieved if we can exhibit a winning strategy $\sigma$ for
+\begin{proof} Let $G=G(a,b)$ be the game described previously and fix
+	enumerations $\bar{a}$ and $\bar{b}$ of $\alpha$ and $\beta$, respectively.
+	Note that our task is achieved if we can exhibit a winning strategy $\sigma$ for
 	$\Right$ in $G$.
 
 	We now describe the necessary $\sigma$ to conclude the proof in a recursive
-	fashion.  Any initial move by $\Left$ can be countered by any choice of
-	element in the opposite structure.
+	fashion.  Any initial move by $\Left$ can be countered by any choice of element
+	in the opposite structure.
 
 	Suppose now that $n-1$ rounds have been played, for some $n\geq 2$.  As the
-	cases are approached similarly, we may assume $\Left$ played his initial
-	move in $\alpha$.  It is also reasonable that $\Left$ plays optimally in the
-	sense that he never plays from the same structure in two of his consecutive
-	turns.
+	cases are approached similarly, we may assume $\Left$ played his initial move in
+	$\alpha$.  It is also reasonable that $\Left$ plays optimally in the sense that
+	he never plays from the same structure in two of his consecutive turns.
 
 	Now, if $n$ is odd then $\Left$'s last move was some $a_{k_{n-1}}\in\alpha$.
-	The proper response for $\Right$ in this scenario would be to choose the
-	first $b_{j_{n-1}}$ occuring in $\bar{b}$ such that
-	\begin{equation}
-		(\alpha,a_{0},\dotsc,a_{k_{n-1}})\nequiv{0}(\beta,b_{0},\dotsc,b_{j_{n-1}}),
-	\end{equation}
-	the existence of which is guaranteed by the density of $\beta$.  In other
-	words, the (simple) expansions above should satisfy the same atomic
-	sentences.
+	The proper response for $\Right$ in this scenario would be to choose the first
+	$b_{j_{n-1}}$ occuring in $\bar{b}$ such that
+	\begin{equation} (\alpha,a_{0},\dotsc,a_{k_{n-1}})\nequiv{0}(\beta,b_{0},\dotsc,b_{j_{n-1}}),
+	\end{equation} the existence of which is guaranteed by the density of
+	$\beta$.  In other words, the (simple) expansions above should satisfy the same
+	atomic sentences.
 
 	If, instead, $n$ is even then $\Left$ has just played some $b_{k_{n-1}}$ so
 	that the appropriate response is similarly determined.  The only difference
@@ -342,15 +418,14 @@ $\inv{f}(b)$.
 	and $\Right$ will respond with an element from $\alpha$.
 \end{proof}
 
-\begin{prp}\label{prp:xcantor}
-	If $\alpha\in\dense$ is countable and, for some $n\in\nats$, we fix any
-	$\bar{a}\in\domain{n}\alpha$ and any $\bar{b}\in\rats^n$ then there exists an
-	isomorphism $f\colon\alpha\to\eta$ such that $f[\bar{a}]=\bar{b}$.
+\begin{prp}\label{prp:xcantor} If $\alpha\in\dense$ is countable and, for some
+	$n\in\nats$, we fix any $\bar{a}\in\domain{n}\alpha$ and any $\bar{b}\in\rats^n$
+	then there exists an isomorphism $f\colon\alpha\to\eta$ such that
+	$f[\bar{a}]=\bar{b}$.
 \end{prp}
-\begin{proof}
-	We prooceed by means of induction, nothing that the case $n=0$ is Cantor's
-	Theorem (Theorem \ref{thm:cantor}).  Suppose now the result holds for each
-	$k\leq n$ for some arbtrary $n\in\nats$ and note that we may assume
+\begin{proof} We prooceed by means of induction, nothing that the case $n=0$ is
+	Cantor's Theorem (Theorem \ref{thm:cantor}).  Suppose now the result holds for
+	each $k\leq n$ for some arbtrary $n\in\nats$ and note that we may assume
 	$\bar{a}=(a_0,\dotsc,a_n)$ and $\bar{b}=(b_0,\dotsc,a_n)$ such that $a_i<a_j$
 	and $b_i<b_j$, whenever $i<j<\omega$.  It now follows from the inductive
 	hypothesis that there exists isomoprhisms $f_0\colon\alpha^{<a_0}\to\eta^{<b_0}$
@@ -364,15 +439,13 @@ $\inv{f}(b)$.
 \end{proof}
 
 As a consequence of the previous proposition we get the following:
-\begin{prp}
-	The linear order $\eta$ is saturated.
+\begin{prp} The linear order $\eta$ is saturated.
 \end{prp}
-\begin{proof}
-	Choose any finite $A\subseteq\rats$.  Suppose that $\Phi(x)\subseteq L_1(A)$
-	is an $1$-type of $\eta$ over $A$.  By definition there exists a
-	$\alpha\succcurlyeq\eta$ such that $\Phi$ is realised by some $b\in\alpha$ i.e.\
-	$\alpha\models\Phi(b)$.  By the Downwards L\"owhenheim-Skolem Theorem, however,
-	we may assume that $\alpha$ is countable.
+\begin{proof} Choose any finite $A\subseteq\rats$.  Suppose that
+	$\Phi(x)\subseteq L_1(A)$ is an $1$-type of $\eta$ over $A$.  By definition
+	there exists a $\alpha\succcurlyeq\eta$ such that $\Phi$ is realised by some
+	$b\in\alpha$ i.e.\ $\alpha\models\Phi(b)$.  By the Downwards L\"owhenheim-Skolem
+	Theorem, however, we may assume that $\alpha$ is countable.
 
 	Note we may set $A=\set{a_0,\dotsc,a_{k-1}}$ and thus, from Proposition
 	\ref{prp:xcantor}, if $\bar{a}=(a_0,\dotsc,a_{k-1})$ then there must exist an
@@ -382,24 +455,30 @@ As a consequence of the previous proposition we get the following:
 \end{proof}
 
 
-\begin{thm}
-	The linear order $\eta$ is a prime model of the theory $\Th(\dense)$.
+\begin{thm} The linear order $\eta$ is a prime model of the theory
+	$\Th(\dense)$.
 \end{thm}
-\begin{proof}
-	Suppose $\alpha\models\Th(\dense)$ then $\alpha$ must be infinite and thus, from the downward L\"owenheim-Skolem Theorem, there exists a countable $\alpha_0\preccurlyeq\alpha$.  From Cantor's theorem it follows that $\alpha_0\cong\eta$ and, therefore, there must exist an elementary embedding of $\eta$ into $\alpha$.
+\begin{proof} Suppose $\alpha\models\Th(\dense)$.  Note $\alpha$ must be
+	infinite and thus, from the downward L\"owenheim-Skolem Theorem, there exists a
+	countable $\alpha_0\preccurlyeq\alpha$. Note, by definition, it follows that
+	$\alpha_{0}\models\Th(\dense)$.  From Cantor's theorem it follows that
+	$\alpha_0\cong\eta$ and, therefore, there must exist an elementary embedding of
+	$\eta$ into $\alpha$.
 \end{proof}
 
-\begin{thm}
-	The theory $T=\Th(\dense)$ has quantifier elimination.
+\begin{thm} The theory $T=\Th(\dense)$ has quantifier elimination.
 \end{thm}
-\begin{proof}
-	By Lemma \ref{lem:qelim}, it is enough to show that $T$ is substructure complete.  Suppose that $\alpha\models T$ and choose any $\alpha_0\subseteq\alpha$.  Define $A=\domain{}\alpha_0$ and suppose that $\mathfrak{M},\mathfrak{N}\models T\cup\diag{\alpha_0}$ are $L(A)$-structures.  Note that we may assume, without loss of generality, that $A\subseteq M,N$ such that $\mathfrak{M}=(\beta,A)$ and $\mathfrak{N}=(\gamma,A)$ for linear orders $\beta,\gamma\models T$.  We are now required to show that
-	\begin{equation}
-		\mathfrak{M}\equiv\mathfrak{N}.
-	\end{equation}
-	However, it is enough to simply prove that
-	\begin{equation}
-		(\beta,B)\equiv(\gamma,B),\quad\text{for every finite }B\subseteq A.
+\begin{proof} By Lemma \ref{lem:qelim}, it is enough to show that $T$ is
+	substructure complete.  Suppose that $\alpha\models T$ and choose any
+	$\alpha_0\subseteq\alpha$.  Define $A=\domain{}\alpha_0$ and suppose that
+	$\mathfrak{M},\mathfrak{N}\models T\cup\diag{\alpha_0}$ are $L(A)$-structures.
+	Note that we may assume, without loss of generality, that $A\subseteq M,N$ such
+	that $\mathfrak{M}=(\beta,A)$ and $\mathfrak{N}=(\gamma,A)$ for linear orders
+	$\beta,\gamma\models T$.  We are now required to show that
+	\begin{equation} \mathfrak{M}\equiv\mathfrak{N}.
+	\end{equation} However, it is enough to simply prove that
+	\begin{equation} (\beta,B)\equiv(\gamma,B),\quad\text{for every finite
+		}B\subseteq A.
 	\end{equation}
 
 	Suppose that $B\subseteq A$ is finite then by the downwards
@@ -423,18 +502,20 @@ As a consequence of the previous proposition we get the following:
 	$\gamma_0\elmsub\gamma$.
 \end{proof}
 
-\begin{cor}
-	The theory $T=\Th(\dense)$ is model-complete.
+\begin{cor} The theory $T=\Th(\dense)$ is model-complete.
 \end{cor}
-\begin{proof}
-	Immediate from the previous theorem and Corollary \ref{cor:qemc}.
+\begin{proof} Immediate from the previous theorem and Corollary \ref{cor:qemc}.
 \end{proof}
 
-We've already seen that $\eta$ is saturated and can thus be thought of from an intuitive standpoint as being very ``thick'' among linear orders.  Contrary to what one might expect, though, the next result shows that $\eta$ is simultaneously also an atomic structure and can therefore be thought of as being very ``thin''!
+We've already seen that $\eta$ is saturated and can thus be thought of from an
+intuitive standpoint as being very ``thick'' among linear orders.  Contrary to
+what one might expect, though, the next result shows that $\eta$ is
+simultaneously also an atomic structure and can therefore be thought of as being
+very ``thin''!
 
-\begin{prp}
-	The linear order $\eta$ is atomic.
+\begin{prp} The linear order $\eta$ is atomic.
 \end{prp}
-\begin{proof}
-	Let $T=\Th(\dense)$ then the result follows from the fact that $T$ admits quantifier elimination and the fact that there are only finitely many inequivalent formulas in finitely many variables in a finitary language.
+\begin{proof} Let $T=\Th(\dense)$ then the result follows from the fact that $T$
+	admits quantifier elimination and the fact that there are only finitely many
+	inequivalent formulas in finitely many variables in a finitary language.
 \end{proof}
