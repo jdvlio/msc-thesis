@@ -362,25 +362,15 @@ elimination, model-completeness and posession of a so-called prime model.
 
 With $\alpha$ and $\beta$ both countable, consider a modification
 $G=G(\alpha,\beta)$ of the game $\EF_{\omega}(\alpha,\beta)$, defined as
-follows.  A play $(\bar{c},\bar{d})$ in the game $G$ is winning for $\Left$ iff
-the following holds:
-\begin{enumerate}[noitemsep]
-	\item The player $\Left$ never plays an element from the same structure on
-	      two consecutive turns.
-	\item At least one of the following is satisfied:
-	      \begin{enumerate}
-		      \item the play $(\bar{c},\bar{d})$ is winning for $\Left$ in
-		            $\EF_\omega(\alpha,\beta)$,
-		      \item there exists a member of $\alpha$ not occuring in $\bar{c}$
-		            or there exists a member of $\beta$ not occuring in $\bar{d}$.
-	      \end{enumerate}
-\end{enumerate}
+follows.  Any play $(\bar{c},\bar{d})$ of the game $G$ must exhaust all the
+combined elements of the linear orders $\alpha$ and $\beta$ i.e.\ $\bar{c}$ and
+$\bar{d}$ must be the (respective) enumerations of $\alpha$ and $\beta$.
 
-Note, for $\alpha$ and $\beta$ both countable, it follows by definition that
-$\Right$ has a winning strategy for $G$ iff there exists an isomorphism
-$f\colon\alpha\to\beta$.  The forward implication can be shown by considering
-any play of the game in which $\Left$ plays optimally by alternating between
-$\alpha$ and $\beta$.
+Note, it follows by definition that $\Right$ has a winning strategy for $G$ iff
+there exists an isomorphism $f\colon\alpha\to\beta$.  The forward implication
+can be shown by considering any play of the game in which $\Left$ plays
+only elements from $\alpha$, using some enumeration $\bar{c}$ of $\alpha$ and
+supposing $\Left$ plays the components thereof in order of occurence.
 
 Conversely, any such isomorphism $f$ will determine a winning strategy for
 $\Right$ in the following manner.  A move $a$ in $\alpha$ by $\Left$ is
