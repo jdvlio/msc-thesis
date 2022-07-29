@@ -408,28 +408,41 @@ $\inv{f}(b)$.
 	and $\Right$ will respond with an element from $\alpha$.
 \end{proof}
 
-\begin{prp}\label{prp:xcantor} If $\alpha\in\dense$ is countable and, for some
-	$n\in\nats$, we fix any $\bar{a}\in\domain{n}\alpha$ and any $\bar{b}\in\rats^n$
-	then there exists an isomorphism $f\colon\alpha\to\eta$ such that
-	$f[\bar{a}]=\bar{b}$.
+\begin{prp}\label{prp:xcantor}
+	Let $\alpha\in\dense$ is countable and, for some $n\in\nats$, fix any
+	component-wise increasing tuples $\bar{a}\in\domain[n]{\alpha}$ and
+	$\bar{b}\in\domain[n]{\beta}$.  Then there exists an isomorphism
+	$f\colon\alpha\to\eta$ such that $f[\bar{a}]=\bar{b}$.
 \end{prp}
-\begin{proof} We prooceed by means of induction, nothing that the case $n=0$ is
+\begin{proof} We prooceed by means of induction, noting that the case $n=0$ is
 	Cantor's Theorem (Theorem \ref{thm:cantor}).  Suppose now the result holds for
-	each $k\leq n$ for some arbtrary $n\in\nats$ and note that we may assume
-	$\bar{a}=(a_0,\dotsc,a_n)$ and $\bar{b}=(b_0,\dotsc,a_n)$ such that $a_i<a_j$
-	and $b_i<b_j$, whenever $i<j<\omega$.  It now follows from the inductive
-	hypothesis that there exists isomoprhisms $f_0\colon\alpha^{<a_0}\to\eta^{<b_0}$
-	and $f_1\colon(\alpha^{>a_0},a_1,\dotsc,a_n)\to(\beta^{>a_0},b_1,\dotsc,b_n)$.
-	By identifying $f_0$ and $f_1$ with their (respective) underlying sets, we may
-	define the new map $f\colon\alpha\to\beta$ such that
-	$f=f_0\cup\set{(a_0,b_0)}\cup f_1$.  By definition, we have thusly obtained an
-	order-preserving map $f\colon(\alpha,\bar{a})\to(\beta,\bar{b})$.  It is not
-	difficult to see, simply from its definition, that $f$ is in fact an isomorphism
-	$f\colon\alpha\to\beta$ satisfying $f[\bar{a}]=\bar{b}$, as required.
+	each $k\leq n$ for some arbtrary $n\in\nats$ It now follows from the
+	inductive hypothesis that there exists isomoprhisms
+	$f_0\colon\alpha^{<a_0}\to\eta^{<b_0}$ and
+	\begin{equation}
+		f_1\colon(\alpha^{>a_0},a_1,\dotsc,a_n)\to(\beta^{>a_0},b_1,\dotsc,b_n).
+	\end{equation}
+
+	Define the new map $f\colon\alpha\to\beta$ such that
+	$f=f_0\cup\set{(a_0,b_0)}\cup f_1$.  By definition, we have thus obtained an
+	order-preserving map $f\colon(\alpha,\bar{a})\to(\beta,\bar{b})$.
+	Consequently, since $\bar{a}$ and $\bar{b}$ are component-wise increasing, the
+	order-preserving map $f$ is in fact an isomorphism.
 \end{proof}
 
-As a consequence of the previous proposition we get the following:
-\begin{prp} The linear order $\eta$ is saturated.
+Note that the proposition above extends to any pair of tuples $\bar{a}$ and
+$\bar{b}$, given that they satisfy the following condition relative to their
+components: for each $i,j<n$ it holds that
+\begin{equation}
+	a_{i}<a_{j}\iff b_{i}<b_{j}.
+\end{equation}
+Stated equivalently, there exists an isomorphism
+\begin{equation}
+	h\colon\gen{\bar{a}}{\alpha}\to\gen{\bar{b}}{\beta}.
+\end{equation}
+
+\begin{prp}
+	The linear order $\eta$ is saturated.
 \end{prp}
 \begin{proof} Choose any finite $A\subseteq\rats$.  Suppose that
 	$\Phi(x)\subseteq L_1(A)$ is an $1$-type of $\eta$ over $A$.  By definition
@@ -437,26 +450,27 @@ As a consequence of the previous proposition we get the following:
 	$b\in\alpha$ i.e.\ $\alpha\models\Phi(b)$.  By the Downwards L\"owhenheim-Skolem
 	Theorem, however, we may assume that $\alpha$ is countable.
 
-	Note we may set $A=\set{a_0,\dotsc,a_{k-1}}$ and thus, from Proposition
-	\ref{prp:xcantor}, if $\bar{a}=(a_0,\dotsc,a_{k-1})$ then there must exist an
-	isomorphism $f\colon(\eta,\bar{a})\to(\alpha,\bar{a})$.  Therefore, it must
-	follow that $\eta\models\varphi(f(b))$, for each $\varphi\in\Phi(x)$, and thus
-	$\Phi(x)$ is realised by the element $f(b)\in\rats$.
+	Suppose $A=\set{a_0,\dotsc,a_{k-1}}$ for a component-wise increasing tuple
+	$\bar{a}$.  It follows from Proposition \ref{prp:xcantor} that there must
+	exist an isomorphism $f\colon(\eta,\bar{a})\to(\alpha,\bar{a})$.  Therefore,
+	for each $\varphi\in\Phi(x)$, it must follow that $\eta\models\varphi(f(b))$.
+	Hence, the type $\Phi(x)$ is realised by the element $f(b)\in\rats$.
 \end{proof}
 
 
-\begin{thm} The linear order $\eta$ is a prime model of the theory
-	$\Th(\dense)$.
+\begin{thm}
+	The linear order $\eta$ is a prime model of the theory $\Th(\dense)$.
 \end{thm}
 \begin{proof} Suppose $\alpha\models\Th(\dense)$.  Note $\alpha$ must be
-	infinite and thus, from the downward L\"owenheim-Skolem Theorem, there exists a
+	infinite and thus, from the Downward L\"owenheim-Skolem Theorem, there exists a
 	countable $\alpha_0\preccurlyeq\alpha$. Note, by definition, it follows that
 	$\alpha_{0}\models\Th(\dense)$.  From Cantor's theorem it follows that
 	$\alpha_0\cong\eta$ and, therefore, there must exist an elementary embedding of
 	$\eta$ into $\alpha$.
 \end{proof}
 
-\begin{thm} The theory $T=\Th(\dense)$ has quantifier elimination.
+\begin{thm}
+	The theory $T=\Th(\dense)$ has quantifier elimination.
 \end{thm}
 \begin{proof} By Lemma \ref{lem:qelim}, it is enough to show that $T$ is
 	substructure complete.  Suppose that $\alpha\models T$ and choose any
@@ -464,37 +478,48 @@ As a consequence of the previous proposition we get the following:
 	$\mathfrak{M},\mathfrak{N}\models T\cup\diag{\alpha_0}$ are $L(A)$-structures.
 	Note that we may assume, without loss of generality, that $A\subseteq M,N$ such
 	that $\mathfrak{M}=(\beta,A)$ and $\mathfrak{N}=(\gamma,A)$ for linear orders
-	$\beta,\gamma\models T$.  We are now required to show that
-	\begin{equation} \mathfrak{M}\equiv\mathfrak{N}.
-	\end{equation} However, it is enough to simply prove that
-	\begin{equation} (\beta,B)\equiv(\gamma,B),\quad\text{for every finite
-		}B\subseteq A.
+	$\beta,\gamma\models T$.
+	We are now required to show that
+	\begin{equation}
+		\mathfrak{M}\equiv\mathfrak{N}.
 	\end{equation}
+	However, it is enough to simply prove that
+	\begin{equation}
+		(\beta,B)\equiv(\gamma,B),
+	\end{equation}
+	for each finite $B\subseteq A$.
 
 	Suppose that $B\subseteq A$ is finite then by the downwards
-	L\"owenheim-Skolem Theorem there exists countable $\beta_0\elmsub\beta$ and
-	$\gamma_0\elmsub\gamma$ such that $B\subseteq\beta_0,\gamma_0$.  We may assume
+	L\"owenheim-Skolem Theorem there exists countable $\beta_0\elmsub(\beta,B)$ and
+	$\gamma_0\elmsub(\gamma,B)$ such that $B\subseteq\beta_0,\gamma_0$.  We may assume
 	that the elements of $B$, for some $n\in\nats$, are precisely
-	$b_0<b_1<\dotsb<b_{n-1}$.  It now follows from Cantor's Theorem that each of the
-	intervals $(b_0,b_1)_{\beta_0},\dotsc,(b_{n-2},b_{n-1})_{\beta_0}$ as well as
-	$\beta_0^{<b_0}$ and $\beta_0^{>b_{n-1}}$ are isomorphic to $\eta$.  The same is
-	true of the corresponding intervals in $\gamma_0$.  This then gives rise to
-	isomorphisms $f_0,\dotsc,f_n$ (whose domains we will choose to be subsets of
-	$\domain{}\beta_0$) between the corresponding open intervals of $\beta_0$ and
-	$\gamma_0$ such that each member of the range of $f_i$ is less (in $\gamma_0$)
-	than every member member of the range of $f_j$ whenever $i<j\leq n$.  One can
-	then define (in an obvious manner) an isomorphism $f\colon\beta_0\to\gamma_0$
-	which is an extension of $f_i$ to all of $\beta_0$, for each $i\leq n$, such
-	that $f(b_j)=b_j$ whenever $j<n$.  Therefore, since no element of $B$ is an
-	endpoint of either $\beta_0$ or $\gamma_0$, it follows that
-	$(\beta_0,B)\cong(\gamma_0,B)$ and thus $(\beta_0,B)\equiv(\gamma_0,B)$.  The
-	proof is then concluded by recalling that $\beta_0\elmsub\beta$ and
-	$\gamma_0\elmsub\gamma$.
+	$b_0<b_1<\dotsb<b_{n-1}$.
+
+	It now follows from Cantor's Theorem that each one of the intervals
+	\begin{equation}
+		(b_0,b_1)_{\beta_0},\,\dotsc\,,(b_{n-2},b_{n-1})_{\beta_0},
+	\end{equation}
+	as well as $\beta_0^{<b_0}$ and $\beta_0^{>b_{n-1}}$, are (respectively)
+	isomorphic to the linear order $\eta$.
+
+	A similar relationship holds for the corresponding intervals in $\gamma_0$.
+	This then gives rise, for each $i<n-1$, to an isomorphism
+	$f_{i}\colon(b_{i},b_{i+1})_{\beta_{0}}\to(b_{i},b_{i+1})_{\gamma_{0}}$.
+	One can then define, in the obvious fashion, an isomorphism
+	$f\colon\beta_0\to\gamma_0$ which is an extension of $f_i$, for each $i<n$, to
+	all of $\beta_0$ such that $f$ fixes each member of $B$.
+
+	Therefore, since no element of $B$ is an endpoint of either $\beta_0$ or
+	$\gamma_0$, it follows that $(\beta_0,B)\cong(\gamma_0,B)$ and thus
+	$(\beta_0,B)\equiv(\gamma_0,B)$.  The proof is then concluded by recalling that
+	$\beta_0\elmsub(\beta,B)$ and $\gamma_0\elmsub(\gamma,B)$.
 \end{proof}
 
-\begin{cor} The theory $T=\Th(\dense)$ is model-complete.
+\begin{cor}
+	The theory $T=\Th(\dense)$ is model-complete.
 \end{cor}
-\begin{proof} Immediate from the previous theorem and Corollary \ref{cor:qemc}.
+\begin{proof}
+	Immediate from the previous theorem and Corollary \ref{cor:qemc}.
 \end{proof}
 
 We've already seen that $\eta$ is saturated and can thus be thought of from an
@@ -503,9 +528,25 @@ what one might expect, though, the next result shows that $\eta$ is
 simultaneously also an atomic structure and can therefore be thought of as being
 very ``thin''!
 
-\begin{prp} The linear order $\eta$ is atomic.
+Recall, in anticipation, for a finitary language $L$ and any $n\in\nats$, there
+are at most finitely many inequivalent $L$-formulas of quantifier rank at most
+$n$. Specifically, there are at most finitely many inequivalent quantifier-free
+$L$-formulas.  Consequently, there are only finitely many quantifier-free
+formulas modulo the theory $T=\Th(\dense)$.
+
+\begin{prp}
+	The linear order $\eta$ is atomic.
 \end{prp}
-\begin{proof} Let $T=\Th(\dense)$ then the result follows from the fact that $T$
-	admits quantifier elimination and the fact that there are only finitely many
-	inequivalent formulas in finitely many variables in a finitary language.
+\begin{proof}
+	In light of the remarks above, it follows that each $1$-type $\Phi=\Phi(x)$, over
+	$\emptyset$, is of the form
+	\begin{equation}
+		\Phi(x) = \dcl{\set{\phi_{0}(x),\dotsc,\phi(x)_{n-1}}},
+	\end{equation}
+	such that each $\varphi\in\Phi$ is quantifier-free.  That is, $\Phi$ is the
+	deductive closure of (finitely many) quantifier free-formulas.
+
+	Consequently, it follows that formula $\bigwedge_{i<n}\varphi_{i}$ is a
+	generator for the $1$-type $\Phi$.  Therefore, every $1$-type of $\eta$ is
+	principal and thus $\eta$, by definition, must be atomic.
 \end{proof}
