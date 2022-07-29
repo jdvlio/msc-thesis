@@ -5,7 +5,7 @@
 \section{Characteristics of complete linear orders}
 
 \begin{dfn}[Separable]
-	A linear order $\alpha$ is \textbf{seperable} whenever there exists a coutable subset of $\domain{}\alpha$ which is dense in $\alpha$.
+	A linear order $\alpha$ is \textbf{separable} whenever there exists a coutable subset of $\domain{}\alpha$ which is dense in $\alpha$.
 \end{dfn}
 
 \begin{dfn}[Completeness]
@@ -16,21 +16,21 @@
 	If $\alpha\in\dense$ then we call $\alpha$ \textbf{continuous} precisely when it is complete.
 \end{dfn}
 
-\begin{prp}[Seperability]\label{prp:sep}
-	A continuous linear order $\alpha$ is seperable iff there exists an embedding $h\colon\alpha\to\lambda$
+\begin{prp}[Separability]\label{prp:sep}
+	A continuous linear order $\alpha$ is separable iff there exists an embedding $h\colon\alpha\to\lambda$
 \end{prp}
 
 \begin{thm}[Characterising the reals]
-	uppose $\alpha$ is a continuous linear order.  If $\alpha$ is also seperable then, ncessarily, we must have $\alpha\cong\lambda$.  Therefore a linear order is continuous and seperable iff it is isomorphic to the reals.
+	uppose $\alpha$ is a continuous linear order.  If $\alpha$ is also separable then, ncessarily, we must have $\alpha\cong\lambda$.  Therefore a linear order is continuous and separable iff it is isomorphic to the reals.
 \end{thm}
 \begin{proof}
-	Suppose $\alpha$ is a seperable continuous linear order.  From proposition (\ref{prp:sep}) there exists an embedding $h\colon\alpha\to\lambda$.  Since $\alpha$ is seperable there exists some $\beta\subseteq\alpha$ which is dense in $\alpha$.  Note that we must have $\beta\cong\eta\cong h[\beta]$, since $\beta$ is countable and dense.  Now define $\alpha^\prime=\comp(h[\beta])$ so that we must have $\alpha\cong\alpha^\prime$, since $\alpha$ is complete and $\beta$ is dense in $\alpha$.
+	Suppose $\alpha$ is a separable continuous linear order.  From proposition (\ref{prp:sep}) there exists an embedding $h\colon\alpha\to\lambda$.  Since $\alpha$ is separable there exists some $\beta\subseteq\alpha$ which is dense in $\alpha$.  Note that we must have $\beta\cong\eta\cong h[\beta]$, since $\beta$ is countable and dense.  Now define $\alpha^\prime=\comp(h[\beta])$ so that we must have $\alpha\cong\alpha^\prime$, since $\alpha$ is complete and $\beta$ is dense in $\alpha$.
 
 	Lastly, we will claim that $\alpha^\prime$ is convex.  Suppose to the contrary there exists $a,b\in\alpha^\prime$, with $a<b$ and a $c\in\reals$ such that $a<c<b$ but $c\notin\alpha^\prime$.  Define $c_0=\sup\setbuild{x\in\alpha^\prime}{x<c}$. Since, by definition, we have $c_0\leq c$.  If $c_0=c$ then the completeness of $\alpha^\prime$ guarantees $c=c_0\in\alpha^\prime$.  Assume now instead that $c_0<c$ then, since $h[\beta]$ must be dense in $\alpha^\prime$, there exists some $d\in\beta$ such that $c_0<d<c$.  However, since $h(d)\in\beta^\prime\subseteq\alpha^\prime$, this contradicts the definition of $c_0$ which requires that $h(d)\leq c_0$.  This then concludes the proof.
 \end{proof}
 
 \begin{thm}\label{thm:rchar}
-	Every seperable continuous linear order is isomorphic to $\lambda$.
+	Every separable continuous linear order is isomorphic to $\lambda$.
 \end{thm}
 
 
@@ -103,7 +103,7 @@ In the following definition we call a linear order \textit{definably complete} w
 
 	Define $C=\setbuild{\cha{\beta}{n}}{\beta\in\faktor{\alpha}{\sim}\text{ and }\beta\text{ is neither cofinal nor coinitial in }\alpha}$, then it immediately follows that $C$ is a finite set of sentences and, since $\card{\faktor{\alpha}{\sim}}>1$, $C$ is nonempty.  Now fix some set $\Sigma_C$ of coloured linear orders such that each of its members is at most countable and models precisely one sentence in $C$.  Note that, from its definition, each $\beta\in\Sigma_C$ either has order type $\one$ or, otherwise, order type $\one+\lambda+\one$.
 
-	We will now argue, by means of a contradiction, that for some suitable $\Sigma\subseteq\Sigma_C$ there will exist an interval $D$ of $\faktor{\alpha}{\sim}$ satisfying properties 1 and 2 in the claim above.  Suppose that no such $D$ and $\Sigma\subseteq\Sigma_C$ exists.  We note that, since $\sim$ is definable and $\alpha$ is definably quasi-seperable, that $\card{C}\geq 1$ and then argue by induction on $\card{C}$.  If $\card{C}=1$ then every $\beta\in\faktor{\alpha}{\sim}$ has order type $\one$, since $\alpha$ is definably quasi-seperable and thus $\faktor{\alpha}{\sim}$ must contain a dense set of singletons.  If we now choose any fixed $\beta_0\in\faktor{\alpha}{\sim}$ as well as $D$ any (proper) open subinterval such that $\beta_0\in D$ then $\Sigma=\set{\beta_0}$ and $D$ satisfy properties 1 and 2 above.
+	We will now argue, by means of a contradiction, that for some suitable $\Sigma\subseteq\Sigma_C$ there will exist an interval $D$ of $\faktor{\alpha}{\sim}$ satisfying properties 1 and 2 in the claim above.  Suppose that no such $D$ and $\Sigma\subseteq\Sigma_C$ exists.  We note that, since $\sim$ is definable and $\alpha$ is definably quasi-separable, that $\card{C}\geq 1$ and then argue by induction on $\card{C}$.  If $\card{C}=1$ then every $\beta\in\faktor{\alpha}{\sim}$ has order type $\one$, since $\alpha$ is definably quasi-separable and thus $\faktor{\alpha}{\sim}$ must contain a dense set of singletons.  If we now choose any fixed $\beta_0\in\faktor{\alpha}{\sim}$ as well as $D$ any (proper) open subinterval such that $\beta_0\in D$ then $\Sigma=\set{\beta_0}$ and $D$ satisfy properties 1 and 2 above.
 
 	Assume now the claim holds whenever $\card{C}<m$, for some fixed $m\in\posnats$.  Suppose the claim fails when $\card{C}=m$ then, by definition, there exists a $\tau_0\in C$ and an open interval $D^\prime\subsetneq\faktor{\alpha}{\sim}$ such that $\beta\not\models\tau_0$ for any $\beta\in D^\prime$.  Since $\card{C\setminus\set{\tau_0}}<m$, it follows from the inductive hypothesis that there exists an open interval $D\subsetneq D^\prime$ and a $\Sigma\subseteq\Sigma_C$ satisfying properties 1 and 2.   Thus claim 2 holds.
 
@@ -115,5 +115,5 @@ In the following definition we call a linear order \textit{definably complete} w
 	\begin{equation}
 		\gamma=\sum_{x\in\eta}h(x)
 	\end{equation}
-	into $\delta$.  However, since each summand of $\gamma$ is seperable and $\eta$ is countable it follows immediately that $\delta$ is also seperable.  Consequently, from theorem \ref{thm:rchar}, we may conclude that $\delta$ has order type $\lambda$.  By definition of $\delta$, one can conclude via an $n$-game that we must have $\delta\nequiv{n}\bigcup D$.  Therefore, since the equivalence classes of $\sim$ must be convex we may conclude that $\card{D}=1$, which is the required contradiction.
+	into $\delta$.  However, since each summand of $\gamma$ is separable and $\eta$ is countable it follows immediately that $\delta$ is also separable.  Consequently, from theorem \ref{thm:rchar}, we may conclude that $\delta$ has order type $\lambda$.  By definition of $\delta$, one can conclude via an $n$-game that we must have $\delta\nequiv{n}\bigcup D$.  Therefore, since the equivalence classes of $\sim$ must be convex we may conclude that $\card{D}=1$, which is the required contradiction.
 \end{proof}
