@@ -2,36 +2,86 @@
 
 \chapter{Complete linear orders and the reals}
 
-\section{Characteristics of complete linear orders}
-
-\begin{dfn}[Separable]
-	A linear order $\alpha$ is \textbf{separable} whenever there exists a coutable subset of $\domain{}\alpha$ which is dense in $\alpha$.
-\end{dfn}
+\section{Continuous linear orders and separability}
 
 \begin{dfn}[Completeness]
-	A linear order $\alpha$ is \textbf{complete} if every (nonempty) subset of $\domain\alpha$ which is bounded above in $\alpha$, has a least upper bound (supremum).
+	A linear order $\alpha$ is said to be \textbf{complete} if every (nonempty)
+	subset of $\domain\alpha$ which is bounded above in $\alpha$, has a least upper
+	bound (supremum).
 \end{dfn}
 
 \begin{dfn}[Continuous linear order]
 	If $\alpha\in\dense$ then we call $\alpha$ \textbf{continuous} precisely when it is complete.
 \end{dfn}
 
+\begin{dfn}[Separable]
+	A linear order $\alpha$ is called \textbf{separable} whenever
+	$\alpha\notin\set{\zero,\one}$ and there exists a countable subset of
+	$\domain{}\alpha$ which is dense in $\alpha$.
+\end{dfn}
+
+A notable property of all separable linear orders is that they are all
+necessarily also dense.  Suppose, for instance, $\alpha$ is such a separable
+linear order and $D$ is a countable dense subset of $\alpha$.  If $a<a^{\prime}$
+are arbitrary elements of $\alpha$ then, by definition, there must exist some
+$d\in D$ such that $a<d<a^{\prime}$.  Hence, the separable linear orders form a
+subclass of the class $\Dense$ of all (nontrivially) dense linear orders.
+
 \begin{prp}[Separability]\label{prp:sep}
-	A continuous linear order $\alpha$ is separable iff there exists an embedding $h\colon\alpha\to\lambda$
+	If $\alpha$ is a separable linear order then there exists an embedding
+	$h\colon\alpha\to\lambda$.
 \end{prp}
-
-\begin{thm}[Characterising the reals]
-	uppose $\alpha$ is a continuous linear order.  If $\alpha$ is also separable then, ncessarily, we must have $\alpha\cong\lambda$.  Therefore a linear order is continuous and separable iff it is isomorphic to the reals.
-\end{thm}
 \begin{proof}
-	Suppose $\alpha$ is a separable continuous linear order.  From proposition (\ref{prp:sep}) there exists an embedding $h\colon\alpha\to\lambda$.  Since $\alpha$ is separable there exists some $\beta\subseteq\alpha$ which is dense in $\alpha$.  Note that we must have $\beta\cong\eta\cong h[\beta]$, since $\beta$ is countable and dense.  Now define $\alpha^\prime=\comp(h[\beta])$ so that we must have $\alpha\cong\alpha^\prime$, since $\alpha$ is complete and $\beta$ is dense in $\alpha$.
+	Suppose $\alpha$ is separable and continuous.  Then there exists a countable
+	$\beta\subseteq\alpha$ which is dense in $\alpha$.  From Cantor's Theorem, there
+	exists an isomorphism $h_{0}\colon\beta\to\eta$.
+	Define a map $h\colon\alpha\to\lambda$ such that, for $a\in\alpha$,
+	\begin{equation}
+		h(a)=\sup\setbuild{h_{0}(b)}{b\in\beta\text{ and }b<a}.
+	\end{equation}
+	It is now sufficient to prove that $h$ is an embedding.
 
-	Lastly, we will claim that $\alpha^\prime$ is convex.  Suppose to the contrary there exists $a,b\in\alpha^\prime$, with $a<b$ and a $c\in\reals$ such that $a<c<b$ but $c\notin\alpha^\prime$.  Define $c_0=\sup\setbuild{x\in\alpha^\prime}{x<c}$. Since, by definition, we have $c_0\leq c$.  If $c_0=c$ then the completeness of $\alpha^\prime$ guarantees $c=c_0\in\alpha^\prime$.  Assume now instead that $c_0<c$ then, since $h[\beta]$ must be dense in $\alpha^\prime$, there exists some $d\in\beta$ such that $c_0<d<c$.  However, since $h(d)\in\beta^\prime\subseteq\alpha^\prime$, this contradicts the definition of $c_0$ which requires that $h(d)\leq c_0$.  This then concludes the proof.
+	We first establish that $h$ is strictly increasing on $\alpha$, that is to
+	say:
+	\begin{equation}
+		a<a^{\prime}\implies h(a)<h(a^{\prime}),
+	\end{equation}
+	for all $a,a^{\prime}\in\alpha$.  Fix any $a<a^{\prime}$ in $\alpha$. Since
+	$\beta$ is dense in $\alpha$, there must exist a $b\in\beta$ such that
+	\begin{equation}
+		a<b<a^{\prime}.
+	\end{equation}
+	Consequently, by definition of $h$, we must have
+	\begin{equation}
+		h(a)<b<h(a^{\prime}).
+	\end{equation}
+	It follows that $h$ is a (strictly) increasing map and, thus, $h$ is
+	an embedding of $\alpha$ into $\lambda$.
 \end{proof}
 
-\begin{thm}\label{thm:rchar}
+\begin{thm}[Characterising the reals]\label{thm:rchar}
 	Every separable continuous linear order is isomorphic to $\lambda$.
 \end{thm}
+\begin{proof}
+	Suppose $\alpha$ is a separable continuous linear order.  From proposition
+	(\ref{prp:sep}) there exists an embedding $h\colon\alpha\to\lambda$.  Since
+	$\alpha$ is separable there exists some $\beta\subseteq\alpha$ which is dense in
+	$\alpha$.  Note that we must have $\beta\cong\eta\cong h[\beta]$, since $\beta$
+	is countable and dense.  Now define $\alpha^\prime=\comp(h[\beta])$ so that we
+	must have $\alpha\cong\alpha^\prime$, since $\alpha$ is complete and $\beta$ is
+	dense in $\alpha$.
+
+	Lastly, we will claim that $\alpha^\prime$ is convex.  Suppose to the
+	contrary there exists $a,b\in\alpha^\prime$, with $a<b$ and a $c\in\reals$ such
+	that $a<c<b$ but $c\notin\alpha^\prime$.  Define
+	$c_0=\sup\setbuild{x\in\alpha^\prime}{x<c}$. Since, by definition, we have
+	$c_0\leq c$.  If $c_0=c$ then the completeness of $\alpha^\prime$ guarantees
+	$c=c_0\in\alpha^\prime$.  Assume now instead that $c_0<c$ then, since $h[\beta]$
+	must be dense in $\alpha^\prime$, there exists some $d\in\beta$ such that
+	$c_0<d<c$.  However, since $h(d)\in\beta^\prime\subseteq\alpha^\prime$, this
+	contradicts the definition of $c_0$ which requires that $h(d)\leq c_0$.  This
+	then concludes the proof.
+\end{proof}
 
 
 \section{The  suslin property and the first order theory of the coloured reals}
