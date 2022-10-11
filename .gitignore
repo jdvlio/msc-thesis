@@ -1,14 +1,26 @@
+# AucTex files
 .auctex-auto
+
+# Log files
+*.log
+
+# Backup files
+*.bak
+
+# TeX render artifacts
 *.aux
-*.bak*
 *.bbl
 *.blg
 *.ist
-*.log
 *.pdf
 *.sh
 *.slg
 *.slo
 *.sls
 *.xdy
-*/references.bib
+
+# Bibliography files
+*.bib
+
+# Locally generated files
+_*_.tex
