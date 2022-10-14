@@ -26,6 +26,7 @@ cos.aux: ${TEXROOT} ${TEXINCLUDE} references.bib
 clean:
 	find . -type f ! -path './.git/*' ! -name '*\.tex' \
 		! -path './*\.bib' ! -name '*\.sh' ! -name '\.gitignore' \
+		! -name LICENSE \
 		! -name Makefile -delete
 	find . -regex '.*/\.auctex-auto(/.*)?' -delete
 
