@@ -6,9 +6,12 @@
 
 \begin{dfn}[Completeness]
 	A linear order $\alpha$ is said to be \textbf{complete} if every (nonempty)
-	subset of $\domain\alpha$ which is bounded above in $\alpha$, has a least upper
-	bound (supremum).
+	subset of $\domain\alpha$, bounded above in $\alpha$, has a least upper
+	bound.
 \end{dfn}
+
+Equivalently, $\alpha$ is complete whenever all of its nonempty subsets, bounded
+below, have a greatest lower bound.
 
 \begin{dfn}[Continuous linear order]
 	If $\alpha\in\dense$ then we call $\alpha$ \textbf{continuous} precisely when it is complete.
@@ -20,9 +23,9 @@
 	$\domain{}\alpha$ which is dense in $\alpha$.
 \end{dfn}
 
-A notable property of all separable linear orders is that they are all
-necessarily also dense.  Suppose, for instance, $\alpha$ is such a separable
-linear order and $D$ is a countable dense subset of $\alpha$.  If $a<a^{\prime}$
+A notable property of all separable linear orders is that they are necessarily
+also dense.  Suppose, for instance, $\alpha$ is a separable linear order then
+choose $D\subseteq\alpha$ to be countable dense in $\alpha$.  If $a<a^{\prime}$
 are arbitrary elements of $\alpha$ then, by definition, there must exist some
 $d\in D$ such that $a<d<a^{\prime}$.  Hence, the separable linear orders form a
 subclass of the class $\Dense$ of all (nontrivially) dense linear orders.
@@ -32,10 +35,10 @@ subclass of the class $\Dense$ of all (nontrivially) dense linear orders.
 	$h\colon\alpha\to\lambda$.
 \end{prp}
 \begin{proof}
-	Suppose $\alpha$ is separable and continuous.  Then there exists a countable
+	Suppose $\alpha$ is separable.  By definition, there exists a countable
 	$\beta\subseteq\alpha$ which is dense in $\alpha$.  From Cantor's Theorem, there
-	exists an isomorphism $h_{0}\colon\beta\to\eta$.
-	Define a map $h\colon\alpha\to\lambda$ such that, for $a\in\alpha$,
+	exists an isomorphism $h_{0}\colon\beta\to\eta$. Define a map
+	$h\colon\alpha\to\lambda$ such that, for $a\in\alpha$,
 	\begin{equation}
 		h(a)=\sup\setbuild{h_{0}(b)}{b\in\beta\text{ and }b<a}.
 	\end{equation}
@@ -53,7 +56,7 @@ subclass of the class $\Dense$ of all (nontrivially) dense linear orders.
 	\end{equation}
 	Consequently, by definition of $h$, we must have
 	\begin{equation}
-		h(a)<b<h(a^{\prime}).
+		h(a)<h(a^{\prime}).
 	\end{equation}
 	It follows that $h$ is a (strictly) increasing map and, thus, $h$ is
 	an embedding of $\alpha$ into $\lambda$.
@@ -63,107 +66,384 @@ subclass of the class $\Dense$ of all (nontrivially) dense linear orders.
 	Every separable continuous linear order is isomorphic to $\lambda$.
 \end{thm}
 \begin{proof}
-	Suppose $\alpha$ is a separable continuous linear order.  From proposition
-	(\ref{prp:sep}) there exists an embedding $h\colon\alpha\to\lambda$.  Since
-	$\alpha$ is separable there exists some $\beta\subseteq\alpha$ which is dense in
-	$\alpha$.  Note that we must have $\beta\cong\eta\cong h[\beta]$, since $\beta$
-	is countable and dense.  Now define $\alpha^\prime=\comp(h[\beta])$ so that we
-	must have $\alpha\cong\alpha^\prime$, since $\alpha$ is complete and $\beta$ is
-	dense in $\alpha$.
+	Suppose $\alpha$ is a separable continuous linear order.  From Proposition
+	\ref{prp:sep}, there exists an embedding $h\colon\alpha\to\lambda$.  Since
+	$\alpha$ is separable there exists some denumerable $\beta\subseteq\alpha$
+	which is dense in $\alpha$.
+
+	Since $h$ is an embedding and $\beta$ denumerable, dense and without
+	endpoints, it follows from Cantor's theorem that we must have
+	\begin{equation}
+		\beta\cong\eta\cong h[\beta].
+	\end{equation}
+	Now define $\alpha^\prime=\comp(h[\beta])$ so that we must have
+	$\alpha\cong\alpha^\prime$, since $\alpha$ is complete and $\beta$ is dense in
+	$\alpha$.
 
 	Lastly, we will claim that $\alpha^\prime$ is convex.  Suppose to the
 	contrary there exists $a,b\in\alpha^\prime$, with $a<b$ and a $c\in\reals$ such
 	that $a<c<b$ but $c\notin\alpha^\prime$.  Define
-	$c_0=\sup\setbuild{x\in\alpha^\prime}{x<c}$. Since, by definition, we have
-	$c_0\leq c$.  If $c_0=c$ then the completeness of $\alpha^\prime$ guarantees
-	$c=c_0\in\alpha^\prime$.  Assume now instead that $c_0<c$ then, since $h[\beta]$
-	must be dense in $\alpha^\prime$, there exists some $d\in\beta$ such that
-	$c_0<d<c$.  However, since $h(d)\in\beta^\prime\subseteq\alpha^\prime$, this
-	contradicts the definition of $c_0$ which requires that $h(d)\leq c_0$.  This
-	then concludes the proof.
+	$c_0=\sup\setbuild{x\in\alpha^\prime}{x<c}$. By definition, we have $c_0\leq c$.
+	If $c_0=c$ then the completeness of $\alpha^\prime$ guarantees
+	$c=c_0\in\alpha^\prime$.
+
+	Assume now, instead, that $c_0<c$ then, since $h[\beta]$ must be dense in
+	$\alpha^\prime$, there exists some $d\in\beta$ such that $c_0<h(d)<c$.  However,
+	since $h(d)\in\beta^\prime\subseteq\alpha^\prime$, this contradicts the
+	definition of $c_0$ which requires that $h(d)\leq c_0$.
 \end{proof}
 
 
-\section{The  suslin property and the first order theory of the coloured reals}
+\section{The Suslin property and the first order theory of the coloured reals}
 
-Note that in this section we will refer to \textit{coloured linear orders} (linear orders with finitely many relations defined on them) merely as linear orders.  Though all of it applies to "ordinary" monochromatic linear orders as well.  This is done to simplify the wording of some of the results.  The reader should, in particular,,take note how this setting differs from the monochromatic case.  For monochromatic linear orders some the results that follow, in fact, become either trivial or otherwise uninteresting.
+Note that in this section we will refer to \textit{coloured linear orders}
+(linear orders with finitely many unary relations defined on them) simply as
+linear orders.  This simplifies the language used but it should be noted that
+all the following results also apply in the monochromatic case i.e.\ in the
+absence of any colours.
 
-\begin{dfn}[Quasi-separable]
-	A continuous linear order $\alpha$ is said to be $\textbf{quasi-separable}$ iff every condensation $\beta\in\dense$ of $\alpha$ contains, as a subset, a dense set of singletons of elements in $\alpha$.
+\begin{dfn}[Quasi-separable]\label{dfn:quasiseparable}
+	A linear order $\alpha$ is said to be $\textbf{quasi-separable}$ iff every
+	densely ordered condensation $\beta\not\cong\one$ of $\alpha$ has a subset which
+	is dense in $\beta$ and consists of only singleton subsets of $\alpha$.
 \end{dfn}
 
 \begin{dfn}[Suslin property]
-	A continuous linear order $\alpha$ is said to posess the \textbf{Suslin property} iff every set of \textit{disjoint open intervals} in $\alpha$ is at most countable.
+	A continuous linear order $\alpha$ is said to posses the \textbf{Suslin
+		property} iff every set of \textit{pairwise disjoint open intervals} in
+	$\alpha$ is at most countable.
 \end{dfn}
 
-Clearly $\lambda$ has the suslin property as any set of open intervals of reals must contain a rational number, due to $\eta$ being dense in $\lambda$.  The more interesting question, posed by Suslin, was whether this property characterises the reals.
+Clearly $\lambda$ has the Suslin property, since any open interval in $\lambda$
+necessarily contains a rational number.  A question that immediately arises is
+whether or not Suslinity could be a stand-in for separability in characterising
+the real number line.  Unfortunately, this problem cannot be decided within
+ordinary ZFC and additional set-theoretic assumptions are required in order to
+give a definite yes or no answer.  The reader may refer to any of the standard
+texts on set theory, should they decide to embark on this quest.
 
-The following lemma illustrates that quasi-separable linear orders are in abundance and among these is order type of the reals.
+The following lemma illustrates that quasi-separable linear orders are in
+abundance and that $\lambda$ is among them:
 
 \begin{prp}
-	If $\alpha$ is a continuous linear order with the suslin property then $\alpha$ must be quasi-separable.
+	If $\alpha$ is a complete linear order with the Suslin property then
+	$\alpha$ must be quasi-separable.
 \end{prp}
+\begin{proof}
+	Let $\alpha$ be any continuous linear order that has the Suslin property and
+	choose $\beta\not\cong\one$ to be any dense condensation of $\alpha$, say
+	$\beta=\faktor{\alpha}{\sim}$.  By way of contradiction, assume there exists no
+	$D\subseteq\beta$ which is dense in $\beta$ and consists of only singleton
+	subsets of $\alpha$.
+
+	Given this setting, there must exist elements $a<b$ in $\alpha$ such that
+	$\faktor{a}{\sim}<\faktor{b}{\sim}$ and no singleton subset of $\alpha$ is a
+	member of the open interval
+	\begin{equation}
+		I_{a,b}=\left(\faktor{a}{\sim},\faktor{b}{\sim}\right).
+	\end{equation}
+
+	Since $I_{a,b}$ has no singleton members, each of its elements necessarily
+	contains an open interval as a subset.  Therefore, by Suslinity, it follows
+	that $I_{a,b}$ must be countable.  Since $\beta$ (and thus $I_{a,b}$) is dense,
+	it follows by Cantor's Theorem that $I_{a,b}$ has order type $\eta$.
+
+	Since $\eta$ is not complete, we may choose $G\subseteq I_{a,b}$ to be
+	bounded above in $I_{{a,b}}$ but without a supremum in $I_{a,b}$.  We
+	now argue that $\bigcup G$ has no supremum, thereby contradicting the
+	completeness of $\alpha$.
+
+	Suppose to the contrary that $\bigcup G$ has a supremum
+	$u\in \bigcup I_{a,b}$.  By definition, it follows that $\faktor{u}{\sim}$ is an
+	upper bound of $G$ in $I_{a,b}$.  Now choose any $u^{\prime}\in\bigcup I_{a,b}$
+	such that $\faktor{u^{\prime}}{\sim}$ is an upper bound of $G$.  Consequently,
+	by definition, $u^{\prime}$ is an upper bound of $\bigcup G$ and thus
+	$u^{\prime}\geq u$.  By definition, we may conclude that
+	\begin{equation}
+		\faktor{u^{\prime}}{\sim}\geq\faktor{u^{\prime}}{\sim}
+	\end{equation}
+	so it follows that $\faktor{u}{\sim}$ is the supremum of $G$.  This
+	contradicts the definition of $G$ and the result now follows.
+\end{proof}
 
 \begin{dfn}[Definably quasi-separable]
-	A linear oder $\alpha\in\dense$ is called \textbf{definably quasi-separable} iff each condensation induced by a definable congruence onf $\alpha$ has a dense set of singletons (of elements in $\alpha$).
+	A linear order $\alpha$ is called \textbf{definably quasi-separable} iff
+	each densely ordered condensation $\beta\not\cong\one$ induced by a definable
+	congruence of $\alpha$ has a dense set of singleton subsets of $\alpha$.
 \end{dfn}
-In the following definition we call a linear order \textit{definably complete} whenever each of its definable subsets bounded above have a supremum.  Clearly, all complete linear orders are definably complete.
+
+\begin{dfn}[Definable complete]
+	A linear order $\alpha$ is \textbf{definably complete} whenever each of its
+	definable subsets, bounded above, has a supremum.
+\end{dfn}
+
+Similar to before, $\alpha$ is definably complete in the sense just defined iff
+each of its definable subsets, bounded below, has an infimum.  To this end,
+suppose $\bar{a}$ is a finite tuple in $\alpha$ and $\varphi(x,\bar{a})$ defines
+a subset $B_{\varphi}$ of $\alpha$, bounded below.
+
+Define the formula
+\begin{equation}
+	\psi(x,\bar{a})\define\neg\exists y(\varphi(y,\bar{a})\wedge y<x).
+\end{equation}
+It follows immediately that $\psi=\psi(x,\bar{a})$ defines a subset $A_{\psi}$
+of $\alpha$, bounded above by every element of $B_{\varphi}$.  Furthermore, we
+have
+\begin{equation}
+	\sup A_{\psi}=\inf B_{\varphi}.
+\end{equation}
+
+The reverse direction of this implication follows similarly.  Hence, as
+anticipated, the two alternate formulations of definable completeness are
+equivalent.
 
 \begin{prp}\label{prp:qdense}
-	For every $n\in\posnats$, there exists a partition $Q_0,\dotsc,Q_{n-1}$ of $\rats$ such that, for each $i=0,\dotsc,n-1$, $Q_i$ is dense in $\eta$.
+	For each natural $n\geq 2$, a partition $Q_0,\dotsc,Q_{n-1}$ of $\rats$
+	exists such that, for each $i=0,\dotsc,n-2$, $Q_i$ is dense in $\eta$.
 \end{prp}
+\begin{proof}
+	Let $p_{0},\dotsc,p_{n-1}$ denote the first $n-1$ prime numbers.  Now, for each
+	$i<n-1$, define the set
+	\begin{equation}
+		Q_{i}=\setbuild{\frac{m}{p_{i}^{k}}}{k,m\in\ints\setminus\set{0}\text{
+				and  }\gcd(m,p_{i})=1},
+	\end{equation}
+	and let $Q_{n-1}=\rats\setminus\bigcup_{i<n-1}Q_{i}$.
+
+	We now claim that each such $Q_{i}$, for $i<n$, is dense in $\eta$.  Fix any
+	distinct $q,q^{\prime}\in\eta$ and first consider the case $i<n-1$.  Note
+	that there must exist a least $k\in\posnats$ such that
+	\begin{equation}
+		\frac{1}{p_{i}^{k}}<\abs{q^{\prime} - q}.
+	\end{equation}
+
+	Since the distance between two elements of $\eta$ is preserved under the map
+	$x\mapsto -x$, we may assume without loss of generality that
+	$0\leq q<q^{\prime}$.  There now exists a least $m\in\nats$ such that
+	\begin{equation}
+		q<\frac{m}{p_{i}^{k}}.
+	\end{equation}
+	By definition of $m$, it follows that
+	\begin{equation}
+		\frac{m-1}{p_{i}^{k}}<q.
+	\end{equation}
+	Therefore, by definition of $k$, we may conclude that
+	\begin{equation}
+		q<\frac{m}{p_{i}^{k}}<q^{\prime}.
+	\end{equation}
+	Reducing the fraction above to its simplest form then yields the desired
+	result.
+
+	Let $p$ be the least prime number such that $p>p_{n-1}$.  Repeating the
+	argument above, and substituting $p$ for $p_{i}$, will show that $Q_{n-1}$
+	is also dense in $\eta$.
+\end{proof}
 
 \begin{prp}\label{prp:csums}
-	If $\delta$ is a complete linear order and $\family{\alpha_i}{i\in\delta}$ is a family of complete linear orders then the sum
+	If $\delta$ is a complete linear order and $\family{\alpha_i}{i\in\delta}$
+	is a family of complete linear orders with endpoints then the sum
 	\begin{equation}
-		\sum_{i\in\delta}\alpha_i,
+		\alpha=\sum_{i\in\delta}\alpha_i,
 	\end{equation}
 	is also a complete linear order.
 \end{prp}
+\begin{proof}
+	Suppose $B\subseteq\alpha$ is bounded above in $\alpha$ and identify each
+	$\alpha_{i}$ with its corresponding image under the canonical embedding of
+	$\alpha_{i}$ into $\alpha$. Choose $d\in\delta$ to be the supremum of
+	all $i\in\delta$ such that $B\cap\alpha_{i}\neq\emptyset$.
+
+	If $B\cap\alpha_{d}=\emptyset$ then let $u$ be the least element of
+	$\alpha_{d}$, otherwise, choose $u$ to be the supremum of $B\cap\alpha_{d}$.
+	Since $\alpha_{d}$ has a greatest element, it follows that $u\in\alpha_{d}$
+	in either case.  Consequently, by definition, $u$ is an upper bound of $B$.
+
+	All that remains is to demonstrate the minimality of $u$.  Suppose then that
+	$u^{\prime}$ is any other upper bound of $B$.  If $u^{\prime}\in\alpha_{e}$,
+	for some $e>d$, then we immediately have $u^{\prime}\geq u$ so assume the
+	contrary.  By definition of $d$, we cannot have $u^{\prime}\in\alpha_{c}$
+	for any $c<d$ so we may conclude that $u^{\prime}\in\alpha_{d}$.  It then
+	follows immediately, by definition of $u$, that $u^{\prime}\geq u$, as required.
+\end{proof}
+
+\begin{prp}\label{prp:countdensumsep}
+	Suppose $\gamma$ is a countable dense linear order and
+	$\family{\alpha_{i}}{i\in\gamma}$ is a family of separable linear orders.
+	The sum
+	\begin{equation}
+		\alpha=\sum_{i\in\gamma}\alpha_{i}
+	\end{equation}
+	must then also be a separable linear order.
+\end{prp}
+\begin{proof}
+	Identify each $\alpha_{i}$, for $i\in\gamma$, with its image under the
+	canonical embedding into $\alpha$.  By definition, for any $i\in\gamma$,
+	there exists a countable $S_{i}\subseteq\alpha_{i}$ which is dense in
+	$\alpha_{i}$.
+
+	Define $S=\bigcup_{i\in\gamma}S_{i}$, then it follows by definition that
+	\begin{equation}
+		\card{S}= \aleph_0\cdot\aleph_0=\aleph_0.
+	\end{equation}
+	We are now required to show that $S$ is dense in $\alpha$ so fix any $a<b$
+	in $\alpha$.  If there exists a $j\in\gamma$ such that $a,b\in\alpha_{j}$
+	then there must exist a $c\in S_{j}\subseteq S$ such that $a<c<b$.
+
+	Otherwise, there exists $j<k$ in $\gamma$ such that $a\in\alpha_{j}$ and
+	$b\in\alpha_{k}$.  Since $\gamma$ is dense, there must exist an $m\in\gamma$
+	such that $j<m<k$.  If we now choose any $c\in S_{m}\subseteq S$ then it
+	follows that $a<c<b$, as required.
+\end{proof}
 
 \begin{thm}
-	Suppose $\alpha\in\dense$ is definably complete and definably quasi-separable. If $\card{\alpha}=\aleph_0$ then, for each $n\in\nats$, $\alpha$ has an $n$-equivalent of order type $\lambda$.
+	Suppose $\alpha\in\dense$ is countable, definably complete and definably
+	quasi-separable.  For each $n\in\nats$, $\alpha$ has an $n$-equivalent of order
+	type $\lambda$.
 \end{thm}
 \begin{proof}
-
-	As in the statement, let $\alpha$ be countable, definably complete and definably quasi-separable.  Suppose also that there are $k$ colours defined on $\alpha$, for some fixed $k\in\nats$.  Now choose some $n\in\nats$ and define a (binary) relation $R$ on $\alpha$ such that, for every $a,b\in\alpha$:  $aRb$ iff $a\leq b$ and $(a,b)\nequiv{n}\lambda$ whenever $a\neq b$.  Since sums preserve $n$-equivalence, we may conclude that $R$ is transitive and therefore induces a congruence $\sim$ on $\alpha$.  Note that it follows from definition of $\sim$ that each $\beta\in\faktor{\alpha}{\sim}$ satisfies exactly one of: $\beta\nequiv{n}\one$, $\beta\nequiv{n}\one+\lambda$, $\beta\nequiv{n}\lambda+\one$, $\beta\nequiv{n}1+\lambda+1$ or $\beta\nequiv{n}\lambda$.
+	As in the statement, let $\alpha$ be countable, definably complete and
+	definably quasi-separable.  Suppose also that there are $k$ colours defined on
+	$\alpha$, for some fixed $k\in\nats$.  Now choose some $n\in\nats$ and define a
+	(binary) relation $R$ on $\alpha$ such that, for every $a,b\in\alpha$:  $aRb$
+	iff $a\leq b$ and $(a,b)\nequiv{n}\lambda$ whenever $a\neq b$.  Since sums
+	preserve $n$-equivalence, we may conclude that $R$ is transitive and therefore
+	induces a congruence $\sim$ on $\alpha$.  Note that it follows from the
+	definition of $\sim$ that each $\beta\in\faktor{\alpha}{\sim}$ satisfies exactly
+	one of: $\beta\nequiv{n}\one$, $\beta\nequiv{n}\one+\lambda$,
+	$\beta\nequiv{n}\lambda+\one$, $\beta\nequiv{n}1+\lambda+1$ or
+	$\beta\nequiv{n}\lambda$.
 
 	\begin{claim}
-		The congruence $\sim$ is a definable (binary) relation and the condensation $\faktor{\alpha}{\sim}$ is dense.
+		The congruence $\sim$ is a definable (binary) relation and the
+		condensation $\faktor{\alpha}{\sim}$ is dense.
 	\end{claim}
-	If $\tau$ is the (finite) disjunction of characteristic sentences of $k$-colourings of $\lambda$, let $\varphi(x,y)$ be the formula given by
+	Let $\tau$ be the (finite) disjunction of all characteristic sentences, of
+	quantifier-rank at most $n$, of $k$-colourings of $\lambda$.  Define
+	$\varphi(x,y)$ to be the formula given by
 	\begin{equation}\label{eq:condef}
 		x=y\vee(x<y\wedge\tau^{(x,y)})\vee(y<x\wedge\tau^{(y,x)}).
 	\end{equation}
-	Note, by definition of $\varphi$ as well as that of characteristic sentences, that $\varphi$ is a defining formula for the binary relation $\sim$.  It remains to be shown that $\faktor{\alpha}{\sim}$ is dense.  We suppose to the contrary that there exists $I,J\in\faktor{\alpha}{\sim}$ such that the interval $(I,J)$ is empty.  Therefore, there cannot exists an $c\in\alpha$ such that $I<c<J$ and thus there must exist some $a\in I$ and some $b\in J$ such that $(a,b)=\emptyset$, contradicting the density of $\alpha$.  We have thus established the aforementioned claim.
+	By definition of $\varphi$, as well as that of aforementioned characteristic
+	sentences, it follows that $\varphi$ is a defining formula for the
+	congruence relation $\sim$.
 
-	Note that if $\card{\faktor{\alpha}{\sim}}=1$ then, since $\alpha$ is countable, it follows from lemma \ref{lem:fvsum} that $\alpha$ is $n$-equivalent to a $k$-colouring the order type
+	It now remains to be shown that $\faktor{\alpha}{\sim}$ is dense.  We
+	suppose, to the contrary, that there exists $I,J\in\faktor{\alpha}{\sim}$ such
+	that the interval $(I,J)$ is empty.  Therefore, there cannot exists a
+	$c\in\alpha$ such that $I<c<J$.
+
+	If we now let $a=\sup I$ and $b=\inf J$ then it must hold that
+	$a,b\in I\cup J$ and $a\leq b$.  Since $\alpha$ is dense we cannot
+	simultaneously have $a\in I$ and $b\in J$.  Therefore, either $a,b\in I$ or
+	$a,b\in J$.
+
+	As the cases are similar, we may suppose that $a,b\in I$.  Note that, since
+	$a$ is the supremum of $I$, the interval $(a,b)$ must be empty and thus
+	$a=b$.  Also, since $b\notin J$, it follows that $J$ cannot have order type
+	$\one$.  From the countability of $\alpha$, it now follows that there exists
+	a strictly decreasing sequence $(b_{i})_{i<\omega}\subseteq J$ such that
 	\begin{equation}
-		\sum_{k\in\dual{\omega}}(\one+\lambda)+\one+\sum_{k\in\omega}(\lambda+\one)\cong\lambda,
+		\inf_{i<\omega}b_{i}=b.
 	\end{equation}
-	as required.  Suppose then, by way of contradiction, that $\card{\faktor{\alpha}{\sim}}>1$.
-	\begin{claim}
-		There exists a (proper) open interval $D$ of $\faktor{\alpha}{\sim}$ and a finite set $\Sigma$ of coloured linear orders, each of which either has order type $\one$ or $\one+\lambda+\one$, such that the following holds:
-		\begin{enumerate}[nosep]
-			\item for each $\beta\in D$ there exists a $\sigma_\beta\in\Sigma$  such that $\beta\nequiv{n}\sigma_\beta$,
 
-			\item if $\sigma\in\Sigma$ then the set $\setbuild{\beta\in D}{\beta\nequiv{n}\sigma}$ is dense in $D$.
+	For each $i<j<\omega$, by definition of $\sim$ the order type of the
+	interval $[b_{j},b_{i})$ is $n$-equivalent to $\one+\lambda$.  From Lemma
+	\ref{lem:fvsum}, it now follows that the order type of $(b,b_{0})$ is
+	$n$-equivalent to $(\one+\lambda)\cdot\dual{\omega}\cong\lambda$.  Thus, by
+	definition, it holds that $b\sim b_{0}$.  Since this contradicts that
+	$b\notin J$, we have successfully established the above claim.  Furthermore,
+	a similar argument may be used to show that each $I\in\faktor{\alpha}{\sim}$
+	must contain their respective suprema and infima whenever they exist.
+
+	Note that if $\card{\faktor{\alpha}{\sim}}=1$ then, since $\alpha$ is
+	countable, it follows from Lemma \ref{lem:fvsum} that $\alpha$ is $n$-equivalent
+	to a $k$-colouring of order type
+	\begin{equation}
+		(\one+\lambda)\cdot\dual{\omega}+\one+(\lambda+\one)\cdot\omega\cong\lambda,
+	\end{equation}
+	as required.  Suppose then, by way of contradiction, that
+	$\card{\faktor{\alpha}{\sim}}>1$.
+	\begin{claim}
+		There exists a (proper) open interval $I$ of $\faktor{\alpha}{\sim}$ and
+		a finite set $\Sigma$ of coloured linear orders, each of which either has order
+		type $\one$ or $\one+\lambda+\one$, such that the following holds:
+		\begin{enumerate}[nosep]
+			\item for each $\beta\in I$ there exists a $\sigma_\beta\in\Sigma$
+			      such that $\beta\nequiv{n}\sigma_\beta$,
+
+			\item if $\sigma\in\Sigma$ then the set $\setbuild{\beta\in I}{\beta\nequiv{n}\sigma}$ is dense in $I$.
 		\end{enumerate}
 	\end{claim}
 
-	Define $C=\setbuild{\cha{\beta}{n}}{\beta\in\faktor{\alpha}{\sim}\text{ and }\beta\text{ is neither cofinal nor coinitial in }\alpha}$, then it immediately follows that $C$ is a finite set of sentences and, since $\card{\faktor{\alpha}{\sim}}>1$, $C$ is nonempty.  Now fix some set $\Sigma_C$ of coloured linear orders such that each of its members is at most countable and models precisely one sentence in $C$.  Note that, from its definition, each $\beta\in\Sigma_C$ either has order type $\one$ or, otherwise, order type $\one+\lambda+\one$.
+	Define $C$ to be the set of $n$-characteristic sentences $\cha{\beta}{n}$
+	for $\beta\in\faktor{\alpha}{\sim}$. It follows that $C$ is a nonempty
+	finite set of sentences. Fix some $n$-spectrum $\Sigma_{C}$ for the class
+	$\faktor{\alpha}{\sim}$.  As noted previously, since equivalence classes
+	under $\sigma$ must contain any existing suprema and infima, each
+	$\beta\in\Sigma_C$ is of order type either $\one$ or $\one+\lambda+\one$.
 
-	We will now argue, by means of a contradiction, that for some suitable $\Sigma\subseteq\Sigma_C$ there will exist an interval $D$ of $\faktor{\alpha}{\sim}$ satisfying properties 1 and 2 in the claim above.  Suppose that no such $D$ and $\Sigma\subseteq\Sigma_C$ exists.  We note that, since $\sim$ is definable and $\alpha$ is definably quasi-separable, that $\card{C}\geq 1$ and then argue by induction on $\card{C}$.  If $\card{C}=1$ then every $\beta\in\faktor{\alpha}{\sim}$ has order type $\one$, since $\alpha$ is definably quasi-separable and thus $\faktor{\alpha}{\sim}$ must contain a dense set of singletons.  If we now choose any fixed $\beta_0\in\faktor{\alpha}{\sim}$ as well as $D$ any (proper) open subinterval such that $\beta_0\in D$ then $\Sigma=\set{\beta_0}$ and $D$ satisfy properties 1 and 2 above.
+	Note, since $\sim$ is definable and $\alpha$ is definably quasi-separable,
+	that $\card{C}\geq 1$.  We then proceed by means of induction on $\card{C}$.
+	If $\card{C}=1$ then every $\beta\in\faktor{\alpha}{\sim}$ has order type
+	$\one$, since $\alpha$ is definably quasi-separable and thus
+	$\faktor{\alpha}{\sim}$ must contain a dense set of singletons.  If we now
+	choose any fixed $\beta_0\in\faktor{\alpha}{\sim}$, as well as any (proper)
+	open subinterval $I$ of $\faktor{\alpha}{\sim}$ such that $\beta_0\in I$,
+	then $\Sigma=\set{\beta_0}$ and $I$ satisfy properties 1 and 2 above.
 
-	Assume now the claim holds whenever $\card{C}<m$, for some fixed $m\in\posnats$.  Suppose the claim fails when $\card{C}=m$ then, by definition, there exists a $\tau_0\in C$ and an open interval $D^\prime\subsetneq\faktor{\alpha}{\sim}$ such that $\beta\not\models\tau_0$ for any $\beta\in D^\prime$.  Since $\card{C\setminus\set{\tau_0}}<m$, it follows from the inductive hypothesis that there exists an open interval $D\subsetneq D^\prime$ and a $\Sigma\subseteq\Sigma_C$ satisfying properties 1 and 2.   Thus claim 2 holds.
+	Assume that the claim holds whenever $\card{C}<m$, for some fixed
+	$m\in\posnats$.  Suppose the claim fails when $\card{C}=m$ then, by definition,
+	there exists a $\tau_0\in C$ and an open interval
+	$I^\prime\subsetneq\faktor{\alpha}{\sim}$ such that
+	$\beta\not\models\tau_0$, for any $\beta\in I^\prime$.  Since
+	$\card{C\setminus\set{\tau_0}}<m$, it follows from the inductive hypothesis that
+	there exists an open interval $I\subsetneq I^\prime$ and a
+	$\Sigma\subseteq\Sigma_C$ satisfying properties 1 and 2.  This then
+	establishes the desired claim.
 
-	\smallskip	In order to attain the desired contradiction we will show that $\card{D}=1$, contradicting that $D$ is an open interval.  Since $\alpha$ is definably quasi-separable, there must exist a $\beta_1\in\faktor{\alpha}{\sim}$ which has order type $\one$ and such that $\setbuild{\beta\in\faktor{\alpha}{\sim}}{\beta\nequiv{n}\beta_1}$ is dense in the condensation $\faktor{\alpha}{\sim}$ and thus also dense in $D$.  We will now proceed to construct a coloured linear order $\delta$ of order type $\lambda$ which is $n$-equivalent to $\bigcup D$.  Suppose that $\Sigma=\set{\sigma_0,\dotsc,\sigma_{\ell-1}}$ then we may assume $\sigma_0\nequiv{n}\beta_1$, without loss of generality (as we are free to relabel the elements of $\Sigma$).  Define the map $h\colon\reals\to\Sigma$ such that $h(x)=\sigma_0\nequiv{n}\beta_1$, for each $x\in\irrats$, and $h^{-1}[\sigma]$ is dense in $\lambda$ for each $\sigma\in\Sigma\setminus\set{\beta_1}$.  The latter is possible due to proposition \ref{prp:qdense}.  We now define the (coloured) linear order
+	\smallskip	The goal is now to show that $\card{I}=1$, contradicting that
+	$I$ is an open interval.  Once established, this contradiction will imply
+	that the assumption $\card{\faktor{\alpha}{\sim}}>1$ was erroneous and,
+	therefore, that $\faktor{\alpha}{\sim}$ is a singleton partition of
+	$\alpha$.
+
+	Since $\alpha$ is definably quasi-separable, there exists a
+	$\beta_1\in\faktor{\alpha}{\sim}$, of order type $\one$, such that
+	$S=\setbuild{\beta\in\faktor{\alpha}{\sim}}{\beta\nequiv{n}\beta_1}$ is dense in
+	the condensation $\faktor{\alpha}{\sim}$.  Therefore, $S\cap I$ is dense in $I$.
+
+	We now proceed to construct a coloured linear order $\delta$ of order type
+	$\lambda$ which is $n$-equivalent to $\bigcup I$.  Let
+	$\Sigma=\set{\sigma_0,\dotsc,\sigma_{\ell-1}}$ be an $n$-spectrum for
+	$\faktor{\alpha}{\sim}$.  Since the labelling is irrelevant, we may assume
+	without loss of generality that $\sigma_{0}\nequiv{n}\beta_{1}$.
+
+	From Proposition \ref{prp:ratpart}, we may choose a surjection
+	$h\colon\reals\to\Sigma$ such that $h(x)=\sigma_0\nequiv{n}\beta_1$, for each
+	$x\in\irrats$, and $h^{-1}[\sigma]$ is dense in $\lambda$ for any
+	$\sigma\in\Sigma\setminus\set{\beta_1}$. We now define the (coloured) linear
+	order
 	\begin{equation}
-		\delta=\sum_{x\in\lambda}h(x),
+		\delta=\sum_{x\in\lambda}h(x).
 	\end{equation}
-	where the elements of $\delta$ are coloured precisely as in the summands.  Note that, since $\sigma\in\set{\one,\one+\lambda+\one}$ for each $\sigma\in\Sigma$, it follows from proposition \ref{prp:csums} that $\delta$ is a complete linear order.  Additionally, since $h(x)$ has order type $\one$ whenever $x\in\irrats$ it follows that there exists a dense embedding of
+	Since each $\sigma\in\Sigma$ has order type $\one$ or $\one+\lambda+\one$,
+	it follows from Proposition \ref{prp:csums} that $\delta$ is a complete
+	linear order.  Whenever $x\in\irrats$, it follows (by definition) that
+	$h(x)$ has order type $\one$.  Hence, the sum
 	\begin{equation}
 		\gamma=\sum_{x\in\eta}h(x)
 	\end{equation}
-	into $\delta$.  However, since each summand of $\gamma$ is separable and $\eta$ is countable it follows immediately that $\delta$ is also separable.  Consequently, from theorem \ref{thm:rchar}, we may conclude that $\delta$ has order type $\lambda$.  By definition of $\delta$, one can conclude via an $n$-game that we must have $\delta\nequiv{n}\bigcup D$.  Therefore, since the equivalence classes of $\sim$ must be convex we may conclude that $\card{D}=1$, which is the required contradiction.
+	embeds densely into $\delta$.
+
+	Since each summand of $\gamma$ is separable, and $\eta$ is countable and
+	dense, it follows form Proposition \ref{prp:countdensumsep} that $\delta$ is
+	also separable.  Consequently, from theorem \ref{thm:rchar}, we may conclude
+	that $\delta$ has order type $\lambda$.
+
+	A winning strategy for $\Right$ in the $n$-round game
+	$\EF_{n}(\delta,\bigcup I)$ may now be devised by leveraging the fact that each
+	respective member of the $n$-spectrum $\Sigma$ is dense in $I$.  Hence, it
+	may be concluded that $\delta\nequiv{n}\bigcup I$. Therefore, since the
+	equivalence classes of $\sim$ must be convex, we may conclude that
+	$\card{I}=1$.  This is the desired contradiction.
 \end{proof}
