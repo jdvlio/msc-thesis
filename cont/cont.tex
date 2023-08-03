@@ -79,7 +79,7 @@
 	\begin{proof}
 		Note that, by the Downwards L\"owenheim-Skolem Theorem, we may assume $I$ is at most countable.  Consider first the case where $I$ is bounded below but not above in $\alpha$ and choose a cofinal sequence $a=\family{a_i}{i<\omega}$ in $\alpha$ such that $a_0=\inf I$.  If $h$ denotes some colouring of $I$ such that, for $x,y\in I$, $h(x,y)\in\C_k$ and $(x,y)\nequiv{n}h(x,y)$ then it follows from Ramsey's Theorem that there exists a homogeneous subsequence $a^\prime=\family{a^\prime_i}{i<\omega}$ of $a$ for $h$.  It then follows by definition of $a^\prime$ that
 		\begin{equation}
-			\sum_{i<\omega}(a^\prime_i,a^\prime_{i+1}]\nequiv{n}\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega.
+			\sum_{i<\omega}\phantom{[}(a^\prime_i,a^\prime_{i+1}]\nequiv{n}\left(h(a^\prime_0,a^\prime_1)+\one\right)\cdot\omega.
 		\end{equation}
 		We now choose $\beta\in\C_k$ such that
 		\begin{equation}
@@ -175,7 +175,7 @@ It is inconvenient, however, that the class $\C$ as it stands, due to the final 
 	A coloured linear order $\alpha$ is said to be \textbf{definably complete} whenever every nonempty definable subset of $\alpha$, which is bounded above, has a supremum.
 \end{dfn}
 
-Note that, for any subset $A$ of a definably complete $\alpha$, if there exists a tuple $\bar{a}$ of $\alpha$ such that $A$ is defined by the formula $\varphi(x,\bar{a})$ and $A$ is bounded bounded \textit{below} then the set of lower bounds of $A$ is defined by the formula
+Note that, for any subset $A$ of a definably complete $\alpha$, if there exists a tuple $\bar{a}$ of $\alpha$ such that $A$ is defined by the formula $\varphi(x,\bar{a})$ and $A$ is bounded \textit{below} then the set of lower bounds of $A$ is defined by the formula
 \begin{equation}
 	\psi(x,\bar{a})=\forall y\big(\varphi(y,\bar{a})\rightarrow x<y\big).
 \end{equation}
@@ -191,7 +191,9 @@ Additionally, the set defined by $\psi$ will necessarily be bounded above and th
 \end{lem}
 \begin{proof}
 	\begin{enumerate}[nosep]
-		\item	Suppose $B$ is a nonempty subset of $\sum_{i\in\beta}\alpha_i$ which is bounded above.  By definition, there must then exist some $u\in\beta$ such that, for each $i\geq u$, $B$ is disjoint from the set $A_i=\setbuild{(a,i)}{a\in\alpha_i}$.  Since $\beta$ is complete we may choose $u$ to be the least element of $\beta$ with this property.  If $B\cap A_u$ is unbounded in $A_u$ then the supremum of $B$ is the greatest element of $A_u$.  Otherwise, the supremum of $B$ is $\sup A_u$.
+		\item	Suppose $B$ is a nonempty subset of $\sum_{i\in\beta}\alpha_i$
+		      which is bounded above.  Define $U\subseteq\beta$ such that, for each $u\in U$,
+		      the set $\domain{}{\alpha_{u}}$ contains at least one upper bound of $B$.
 		\item	Similar to 1 except one leverages the well-ordering property of $\beta$ to obtain the necessary $u\in\beta$.\qedhere
 	\end{enumerate}
 \end{proof}
