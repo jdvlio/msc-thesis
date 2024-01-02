@@ -246,10 +246,12 @@ relation $>$ as well as the non-strict counterparts of these relations.
 	If there exists a Suslin tree then there exists a normal Suslin tree.
 \end{lem}
 \begin{proof}
-	Suppose there exists a Suslin tree $\mathfrak{T}$.  We now construct a
-	normal Suslin tree from $\mathfrak{T}$.  It already follows by definition that
-	$\height(\mathfrak{T})=\omega_1$ and the levels of $\mathfrak{T}$ are at most
-	countable, since each level is also an antichain.
+	Suppose there exists a Suslin tree $\mathfrak{T}$.  We now construct, in
+    stages, a normal Suslin tree from $\mathfrak{T}$.  It already follows by
+    definition that $\height(\mathfrak{T})=\omega_1$ and the levels of
+    $\mathfrak{T}$ are at most countable, since each level is also an antichain.
+    Hence, $\mathfrak{T}$ satisfies both \ref{dfn:n1} and \ref{dfn:n2} in the
+    definition of normality.
 
 	We now choose $\mathfrak{T}_0$ to be the tree such that
 	$T_0=\setbuild{x\in T}{\card{\up{x}}\geq\aleph_1}$.  That is to say,
@@ -262,37 +264,24 @@ relation $>$ as well as the non-strict counterparts of these relations.
 	\begin{equation}
 		\height(\mathfrak{T}_{0})\leq\height(\mathfrak{T})=\omega_{1}.
 	\end{equation}
-	Note that $\ell(\beta)$ is unbounded, in $\omega_{1}$, as $\beta$ ranges
-	over the set of branches in $\mathfrak{T}_{0}$.  If we assume the contrary
-	then there exists a countable ordinal $\gamma<\omega_{1}$ such that
-	$\ell(\beta)\leq\gamma$ for all branches $\beta$ in $\mathfrak{T}$.  Therefore, $\mathfrak{T}$ only has countable branches.  Since
-	branches in $\mathfrak{T}_{0}$ are countable, and $\mathfrak{T}$ has at most
-	countably levels, it follows that there must exist an ordinal
-	$\alpha<\omega_{1}$ so that $\mathfrak{T}_{0}$ has $\aleph_{1}$ branches of
-	length $\alpha$.
-
-	Let $(\beta_{\gamma})_{\gamma<\omega_{1}}$ denote a well-ordering of the
-	branches, of length $\alpha$, in $\mathfrak{T}_{0}$.  For each
-	$\delta<\omega_{1}$ choose
-	$b_{\delta}\in \beta_{\delta}\setminus\bigcup_{\gamma<\delta}\beta_{\gamma}$.
-	The latter family defines an uncountable antichain in $\mathfrak{T}_{0}$, a
-	contradiction.  We may thus conclude that
-	$\height(\mathfrak{T}_{0})=\height(\mathfrak{T})$.
+     In order to conclude that $\height(\mathfrak{T}_0)=\omega_1$, it is
+     sufficient to note that $\mathfrak{T}_0$ has property \ref{dfn:n4}, in the
+     definition of normality, 
+    
 
 	Since each branch in $\mathfrak{T}_{0}$ is simply a truncation of a branch
 	in $\mathfrak{T}$, the branches in $\mathfrak{T}_{0}$ are certainly at most
-	countable.  It now follows immediately from the definition of $\mathfrak{T}_0$
-	that $\mathfrak{T}_0$ satisfies property \ref{dfn:n4} in the definition of
-	normality and $\mathfrak{T}_{0}$ is a Suslin tree.
+    countable.  Hence, $\mathfrak{T}_0$ is a Suslin tree and satifies properties
+    \ref{dfn:n1}, \ref{dfn:n2} and \ref{dfn:n4}.
 
-	We now set out to find a Suslin tree $\mathfrak{T}_1$, from
-	$\mathfrak{T}_0$, such that it is the minimal extension of
-	$\mathfrak{T}_{1}$ satisfying both of the following:
+    We now set out to build a Suslin tree $\mathfrak{T}_1$, from
+    $\mathfrak{T}_0$, such that it is the minimal extension of
+    $\mathfrak{T}_{1}$ satisfying both of the following:
 	\begin{enumerate}
-		\item If $x\in\mathfrak{T}_{0}$ either of limit height or is the root of
-		      $\mathfrak{T}_{0}$, and $X=\mathfrak{T}^{<x}$, then add an
-		      $a_{x}\in\mathfrak{T}_{1}$, distinct from $x$, such that $a_{x}>X$ and
-		      $a_{x}<\mathfrak{T}_{0}^{>X}$.
+        \item If $x\in\mathfrak{T}_{0}$ is either of limit height or is the root
+            of $\mathfrak{T}_{0}$, and $X=\mathfrak{T}^{<x}$, then add an
+            $a_{x}\in\mathfrak{T}_{1}$, distinct from $x$, such that $a_{x}>X$
+            and $a_{x}<\mathfrak{T}_{0}^{>X}$.
 		\item Whenever $x$ and $x^{\prime}$ are siblings in $\mathfrak{T}_{0}$,
 		      each of limit height, then it follows that $a_{x}=a_{x^{\prime}}$.
 	\end{enumerate}
@@ -310,99 +299,111 @@ relation $>$ as well as the non-strict counterparts of these relations.
 	We now discard all nodes that aren't branching points by letting
 	$\mathfrak{T}_2$ be the subtree of $\mathfrak{T}_{1}$ with domain
 	$T_2=\setbuild{x\in T_1}{x\text{ is a branching point of }\mathfrak{T}_1}$.
-	Note that $\mathfrak{T}_{2}$ must have property 4 since, otherwise, one can
-	show there exists an uncountable branch in $\mathfrak{T}_{1}$, and thus in
-	$\mathfrak{T}_{0}$, a contradiction. Therefore, for each ordinal
-	$\alpha<\omega_{1}$, there exists an $x\in T_1$ such that $\height(x)=\alpha$ .
-	We may thus conclude that there exists a branching point, in $\mathfrak{T}_{1}$,
-	at each level below $\omega_1$ in $\mathfrak{T}_1$ and, therefore,
-	$\height(\mathfrak{T}_2)=\omega_1$.
+    Note, for every $x\in T_1$, that $\mathfrak{T}_1$ has uncountably many
+    branches $\beta$ such that $x\in\beta$.  If, by way of contradiction, we
+    suppose that $\mathfrak{T}_2$ does not have property \ref{dfn:n4} then there
+    exists an $a\in T_2$ such that $\mathfrak{T}_2^{\geq a}$ is at most
+    countable.  Therefore, there is at most countably many branches in
+    $\mathfrak{T}_1$ containing $a$ as a member, a contradiction.
 
-	Choose $\mathfrak{T}_3$ to be the tree such that
-	$T_3=\setbuild{x\in T_2}{h(x)\text{ is a limit ordinal}}$. As $\mathfrak{T}_2$
-	had no uncountable branches or antichains it immediately follows that neither
-	will $\mathfrak{T}_3$.  Note also that, for each $\alpha<\omega_{1}$,
-	$\mathfrak{T}_{3}$ must have a branch of length at least $\alpha\cdot\omega$ and,
-	therefore, we must have $h(\mathfrak{T}_{3})=\omega_{1}$, thereby making
-	$\mathfrak{T}_3$ a Suslin tree.
+    We now argue that $\mathfrak{T}_2$ also has property 5.  Fix $a,b\in T_2$ of
+    limit height in $\mathfrak{T}_2$ such that
+    $\mathfrak{T}_2^{<a}=\mathfrak{T}_2^{<b}$.  Let $A=T_2^{<a}$ and
+    $B=T_2^{<b}$ then it follows that their respective suprema in
+    $\mathfrak{T}_1$ are $a$ and $b$.  Therefore, neither $a$ nor $b$ can have
+    an immediate predecessor in $\mathfrak{T}_1$ and thus must have limit height
+    in $\mathfrak{T}_1$ as well.  Since every nonbranching point in
+    $\mathfrak{T}_1^{<a}$ sits below some $a^\prime\in A$ and, similarly, every
+    nonbranching point in $\mathfrak{T}_1^{<b}$ sits below some $b^\prime\in B$
+    we may conclude that $\mathfrak{T}_1^{<a}=\mathfrak{T}_1^{<b}$ and thus
+    $a=b$, as required.
+
+    Choose $\mathfrak{T}_3$ to be the tree such that $T_3=\setbuild{x\in
+    T_2}{h(x)\text{ is a limit ordinal}}$. As $\mathfrak{T}_2$ had no
+    uncountable branches or antichains it immediately follows that neither will
+    $\mathfrak{T}_3$.  Note also that, for each $\alpha<\omega_{1}$,
+    $\mathfrak{T}_{3}$ must have a branch of length at least $\alpha\cdot\omega$
+    and, therefore, we must have $h(\mathfrak{T}_{3})=\omega_{1}$, thereby
+    making $\mathfrak{T}_3$ a Suslin tree.
 
 	By construction, it follows that each node in $\mathfrak{T}_3$ has
 	infinitely many immediate successors, thus satisfying property \ref{dfn:n3}.
 	It satisfies properties \ref{dfn:n1} (for $\alpha=\omega_1$) and \ref{dfn:n2},
 	by virtue of being a Suslin tree, and inherits properties \ref{dfn:n4} and
-	\ref{dfn:n5}, via the construction, from $\mathfrak{T}_2$.  This concludes the proof as $\mathfrak{T}_3$ is therefore the desired normal Suslin tree.
+    \ref{dfn:n5}, via the construction, from $\mathfrak{T}_2$.  This concludes
+    the proof as $\mathfrak{T}_3$ is therefore the desired normal Suslin tree.
 \end{proof}
 
 \begin{lem}\label{lem:ltree}
 	If there exists a Suslin line then there exists a Suslin tree.
 \end{lem}
 \begin{proof}
-	Suppose $\sigma=(S,<)$ is a Suslin line.  We now construct, by transfinite
-	recursion, a tree from closed intervals in $\sigma$, each consisting of at least
-	two elements.  First, we choose $I_0=S$ and fix any $I_1=[a_1,b_1]$ such that
-	$a_1,b_1\in S$ and $a_1<b_1$ have been defined.
+    Suppose $\sigma=(S,<)$ is a Suslin line.  We now construct, by transfinite
+    recursion, a tree from closed intervals in $\sigma$, each consisting of at
+    least two elements.  First, we choose $I_0=S$ and fix any $I_1=[a_1,b_1]$
+    such that $a_1,b_1\in S$ and $a_1<b_1$ have been defined.
 
-	Suppose now that $\alpha$ is an ordinal satisfying $0<\alpha<\omega_1$ and
-	assume, for each ordinal $\beta$ satisfying $0<\beta<\alpha$, that
-	$I_\beta=[a_\beta,b_\beta]$ and $a_\beta<b_\beta$ for some
-	$a_\beta,b_\beta\in S$.  Define
-	$E=\setbuild{a_\beta}{\beta<\alpha}\cup\setbuild{b_\beta}{\beta<\alpha}$ and
-	note that $E$, by definition, must be countable.  Therefore, since $\sigma$ is
-	not separable there exist $a_\alpha,b_\alpha\in S$ such that
-	$a_\alpha<b_\alpha$ and $I_\alpha=[a_\alpha,b_\alpha]$ is disjoint from $E$.
+    Suppose now that $\alpha$ is an ordinal satisfying $0<\alpha<\omega_1$ and
+    assume, for each ordinal $\beta$ satisfying $0<\beta<\alpha$, that
+    $I_\beta=[a_\beta,b_\beta]$ and $a_\beta<b_\beta$ for some
+    $a_\beta,b_\beta\in S$.  Define
+    $E=\setbuild{a_\beta}{\beta<\alpha}\cup\setbuild{b_\beta}{\beta<\alpha}$ and
+    note that $E$, by definition, must be countable.  Therefore, since $\sigma$
+    is not separable there exist $a_\alpha,b_\alpha\in S$ such that
+    $a_\alpha<b_\alpha$ and $I_\alpha=[a_\alpha,b_\alpha]$ is disjoint from $E$.
 
-	Now, defining $T=\setbuild{I_\gamma}{\gamma<\omega_1}$, it follows that $T$ is
-	uncountable and partially ordered by $\supsetneq$.  We now argue, for every
-	$\alpha<\omega_1$, that the set $\down{I_\alpha}$ is well-ordered.  This
-	will then allow us to conclude that $\mathfrak{T}=(T,\supsetneq)$ is a tree.
+    Now, defining $T=\setbuild{I_\gamma}{\gamma<\omega_1}$, it follows that $T$
+    is uncountable and partially ordered by $\supsetneq$.  We now argue, for
+    every $\alpha<\omega_1$, that the set $\down{I_\alpha}$ is well-ordered.
+    This will then allow us to conclude that $\mathfrak{T}=(T,\supsetneq)$ is a
+    tree.
 
-	It follows from the construction of $\mathfrak{T}$ that if
-	$\alpha,\beta<\omega_1$ and $\alpha<\beta$ then either
-	$I_\alpha\supsetneq I_\beta$ or $I_\alpha\cap I_\beta=\emptyset$.  Choose
-	any $J\subseteq \down{I_{\alpha}}$ then there exists a set $\Gamma$ of
-	ordinals smaller than $\omega_{1}$ such that
-	\begin{equation}
-		J=\setbuild{I_{\gamma}}{\gamma\in\Gamma}.
-	\end{equation}
-	Since $I_{\alpha}$ is contained in the intersection of any pair in
-	$\down{I_{\alpha}}$, it follows that $\down{I_{\alpha}}$, and thus $J$, is
-	linearly ordered.  Hence, if $\gamma_{0}$ is the least member of $\Gamma$ then
-	it necessarily follows that $I_{\gamma_{0}}$ is the least element of
-	$\down{I_{\gamma_{0}}}$.  Therefore, since $J$ was arbitrary, it follows by
-	definition that $\down{I_{\alpha}}$ is well-ordered.
+    It follows from the construction of $\mathfrak{T}$ that if
+    $\alpha,\beta<\omega_1$ and $\alpha<\beta$ then either $I_\alpha\supsetneq
+    I_\beta$ or $I_\alpha\cap I_\beta=\emptyset$.  Choose any $J\subseteq
+    \down{I_{\alpha}}$ then there exists a set $\Gamma$ of ordinals smaller than
+    $\omega_{1}$ such that \begin{equation}
+    J=\setbuild{I_{\gamma}}{\gamma\in\Gamma}. \end{equation} Since $I_{\alpha}$
+    is contained in the intersection of any pair in $\down{I_{\alpha}}$, it
+    follows that $\down{I_{\alpha}}$, and thus $J$, is linearly ordered.  Hence,
+    if $\gamma_{0}$ is the least member of $\Gamma$ then it necessarily follows
+    that $I_{\gamma_{0}}$ is the least element of $\down{I_{\alpha}}$.
+    Therefore, since $J$ was arbitrary, it follows by definition that
+    $\down{I_{\alpha}}$ is well-ordered.
 
-	We are now required to show that $\mathfrak{T}$ is in fact a Suslin tree.
-	That is, we are required to prove that $\height(\mathfrak{T})=\omega_1$ and
-	$\mathfrak{T}$ has neither an uncountable antichain nor an uncountable branch.
+    We are now required to show that $\mathfrak{T}$ is in fact a Suslin tree.
+    That is, we are required to prove that $\height(\mathfrak{T})=\omega_1$ and
+    $\mathfrak{T}$ has neither an uncountable antichain nor an uncountable
+    branch.
 
-	Recall from earlier, if $\alpha,\beta<\omega_1$ and $\alpha<\beta$ then
-	either $I_\alpha\supsetneq I_\beta$ or $I_\alpha$ and $ I_\beta$ are
-	disjoint.  From this observation, it follows that if $X\subseteq T$ is an
-	antichain then $X$ is a pairwise disjoint set of closed intervals in $X$.
-	Choose $X^\prime$ to now be the corresponding set of open intervals i.e.\
-	$X^\prime=\setbuild{(a,b)}{[a,b]\in X}$.
+    Recall from earlier, if $\alpha,\beta<\omega_1$ and $\alpha<\beta$ then
+    either $I_\alpha\supsetneq I_\beta$ or $I_\alpha$ and $ I_\beta$ are
+    disjoint.  From this observation, it follows that if $X\subseteq T$ is an
+    antichain then $X$ is a pairwise disjoint set of closed intervals in $S$.
+    Choose $X^\prime$ to now be the corresponding set of open intervals i.e.\
+    $X^\prime=\setbuild{(a,b)}{[a,b]\in X}$.
 
-	Since $\sigma$ is a Suslin line it now follows that $X^\prime$, and thus
-	also $X$, is at most countable.  In order to show that $\mathfrak{T}$ has no
-	uncountable branch suppose the contrary: there exists a branch
-	$\beta=(B,\supsetneq)$ in $\mathfrak{T}$ such that
-	$\length(\beta)=\delta\geq\omega_1$.  We may now assume
-	$B=\setbuild{I_{\gamma_{i}}}{i<\delta}$ and
-	$I_{\gamma_i}\supsetneq I_{\gamma_j}$ whenever $i<j$.
+    Since $\sigma$ is a Suslin line it now follows that $X^\prime$, and thus
+    also $X$, is at most countable.  In order to show that $\mathfrak{T}$ has no
+    uncountable branch suppose the contrary: there exists a branch
+    $\beta=(B,\supsetneq)$ in $\mathfrak{T}$ such that
+    $\length(\beta)=\delta\geq\omega_1$.  We may now assume
+    $B=\setbuild{I_{\gamma_{i}}}{i<\delta}$ and $I_{\gamma_i}\supsetneq
+    I_{\gamma_j}$ whenever $i<j$.
 
-	If, for each $\gamma<\delta$, we choose $x_\gamma$ to be the left endpoint
-	of the interval $I_\gamma$ then it follows that
-	$\setbuild{(x_\gamma,x_{\gamma+1})}{\gamma<\delta}$ is an uncountable set of
-	pairwise disjoint open intervals in $\sigma$ --- contradicting the fact that
-	$\sigma$ is a Suslin line.
+    If, for each $\gamma<\delta$, we choose $x_\gamma$ to be the left endpoint
+    of the interval $I_\gamma$ then it follows that
+    $\setbuild{(x_\gamma,x_{\gamma+1})}{\gamma<\delta}$ is an uncountable set of
+    pairwise disjoint open intervals in $\sigma$ --- contradicting the fact that
+    $\sigma$ is a Suslin line.
 
-	All that remains is to show that $\height(\mathfrak{T})=\omega_1$.  Since
-	$\beta$ has no uncountable branch, however, it follows that
-	$\height(\mathfrak{T})\leq\omega_1$.  Note also, since levels are antichains.
-	each level of $\mathfrak{T}$ must be countable.  Consequently, as
-	$\card{\mathfrak{T}}=\aleph_1$, we cannot have
-	$\height(\mathfrak{T})<\omega_1$ and thus we may conclude that
-	$\height(\mathfrak{T})=\omega_1$, as required.
+    All that remains is to show that $\height(\mathfrak{T})=\omega_1$.  Since
+    $\mathfrak{T}$ has no uncountable branch, however, it follows that
+    $\height(\mathfrak{T})\leq\omega_1$.  Note also, since levels are
+    antichains, each level of $\mathfrak{T}$ must be countable.  Consequently,
+    as $\card{\mathfrak{T}}=\aleph_1$, we cannot have
+    $\height(\mathfrak{T})<\omega_1$ and thus we may conclude that
+    $\height(\mathfrak{T})=\omega_1$, as required.
 \end{proof}
 
 \begin{lem}\label{lem:tline}
@@ -432,11 +433,11 @@ relation $>$ as well as the non-strict counterparts of these relations.
 	density of $\eta$ that there exists a $\tau\in S$ such that
 	$\sigma_0\prec\tau\prec\sigma_1$.
 
-	From here onwards, we identify each $\sigma\in S$ with its corresponding
-	branch in $T$ and treat them as such.  Lastly, we are required to show that
-	$\sigma$ has the Suslin property:  suppose $\mathcal{I}$ is a pairwise disjoint
-	collection of open intervals $(A,B)$ in $S$.  For each $x\in T$, define
-	$I_x\subseteq S$ to be the convex set:
+    From here onwards, we identify each $\sigma\in S$ with its corresponding
+    branch in $T$ and treat them as such.  We are required to show that $\sigma$
+    has the Suslin property:  suppose $\mathcal{I}$ is a pairwise disjoint
+    collection of open intervals $(A,B)$ in $S$.  For each $x\in T$, define
+    $I_x\subseteq S$ to be the convex set:
 	\begin{equation}
 		I_x=\setbuild{\sigma\in S}{x\in \sigma}.
 	\end{equation}
@@ -460,11 +461,12 @@ relation $>$ as well as the non-strict counterparts of these relations.
 	of $\mathfrak{T}$, i.e.\ $X$ is an antichain of $\mathfrak{T}$, and is therefore
 	at most countable.  This implies that $\mathcal{I}$ is also at most countable.
 
-	All that remains is to show that $(S,\prec)$ is not separable.  By way of
-	contradiction, assume $D\subseteq S$ is dense in $S$.  It immediately
-	follows that $D$ is cofinal in $S$.  Since there are arbitrarily long
-	branches in $\mathfrak{T}$, it now follows by definition of $\prec$ that $D$
-	is uncountable.
+    All that remains is to show that $(S,\prec)$ is not separable.  By way of
+    contradiction, assume $D\subseteq S$ is dense in $S$.  It immediately
+    follows that $D$ is cofinal in $S$.  From property \ref{dfn:n4} in the
+    definition of normality, it follows that there are arbitrarily long branches
+    of length less than $\omega_1$ in $\mathfrak{T}$.  Hence, by definition of
+    $\prec$, we may conclude that $D$ is uncountable.
 \end{proof}
 
 \begin{thm}

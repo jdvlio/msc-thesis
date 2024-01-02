@@ -6,37 +6,72 @@
 \section{Continuous linear orders}
 
 \begin{dfn}[Continuous linear order]
-	A \textbf{continuous linear order} is a complete linear order $\alpha$ such that $\alpha\in\dense$.  A \textit{coloured linear order} is said to be \textbf{continuous} whenever its monochromatic reduct is a continuous linear order.
+    A \textbf{continuous linear order} is a complete linear order $\alpha$ such
+    that $\alpha\in\dense$.  A \textit{coloured linear order} is said to be
+    \textbf{continuous} whenever its monochromatic reduct is a continuous linear
+    order.
 \end{dfn}
 
 \begin{dfn}[The class $\C$]\label{dfn:C}
-	Let $\C$ be the smallest class of linear orders such that:
-	\begin{enumerate}
-		\item	$\lambda\in\C$\label{dfn:C1}
-		\item	if $\alpha,\beta\in\C$ then $\alpha+\one+\beta\in\C$\label{dfn:C2}
-		\item	if $\alpha\in\C$ then $(\alpha+\one)\cdot\omega,(\one+\alpha)\cdot\dual{\omega}\in\C$\label{dfn:C3}
-		\item	if $\mathcal{F}\subseteq\C$ is finite and $h\colon\reals\to\mathcal{F}$ is a surjection such that, for each $\alpha\in\mathcal{F}$, the set $\inv{h}[\alpha]$ is dense in $\lambda$ then it follows that
-		      \begin{equation}
-			      \sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
-		      \end{equation}\label{dfn:C4}
-	\end{enumerate}
+    Let $\C$ be the smallest class of linear orders such that: \begin{enumerate}
+        \item	$\lambda\in\C$\label{dfn:C1} \item	if $\alpha,\beta\in\C$ then
+        $\alpha+\one+\beta\in\C$\label{dfn:C2} \item	if $\alpha\in\C$ then
+            $(\alpha+\one)\cdot\omega,(\one+\alpha)\cdot\dual{\omega}\in\C$\label{dfn:C3}
+        \item	if $\mathcal{F}\subseteq\C$ is finite and
+            $h\colon\reals\to\mathcal{F}$ is a surjection such that, for each
+            $\alpha\in\mathcal{F}$, the set $\inv{h}[\alpha]$ is dense in
+            $\lambda$ then it follows that \begin{equation}
+            \sum_{x\in\lambda}(\one+h(x)+\one)\in\C.
+            \end{equation}\label{dfn:C4} \end{enumerate}
 \end{dfn}
 
 \begin{dfn}[The class $\C_k$]
-	For each $k\in\nats$, let $\C_k$ denote the class of all $k$-coloured expansions of linear orders belonging to $\C$.
+    For each $k\in\nats$, let $\C_k$ denote the class of all $k$-coloured
+    expansions of linear orders belonging to $\C$.
 \end{dfn}
 
 \begin{prp}\label{prp:cont}
-	If $\alpha$ is a continuous linear order then there exists an embedding $h\colon\lambda\hookrightarrow\alpha$.  Furthermore, $h$ can be chosen such that $h[\reals]$ is an open interval in $\alpha$.
+    If $\alpha$ is a continuous linear order then there exists an embedding
+    $h\colon\lambda\hookrightarrow\alpha$.  Furthermore, $h$ can be chosen such
+    that $h[\reals]$ is an open interval in $\alpha$.
 \end{prp}
 \begin{proof}
-	Since $\alpha$ is dense there exists an embedding $h_0\colon\eta\hookrightarrow\alpha$.  We now set out to extend $h_0$ to an embedding of $\lambda$ into $\alpha$.  Define the map $h\colon\reals\to\domain{}\alpha$ such that, for each $r\in\reals$,
-	\begin{equation}
-		h(r)=\sup\setbuild{h_0(q)}{q\in\rats\text{ and }q<r}.
-	\end{equation}
-	It clearly follows by definition that $h\restriction\rats=h_0$.  Note that, since $\eta$ is dense in $\lambda$ there exists a $q_0\in\rats$ such that $x<q_0<y$.  Again invoking the density of the rationals in the reals, there exists a $q_1\in(q_0,y)\cap\rats$.  Since $h_0$ is an embedding, it follows from the definition of $h$ that $h(x)\leq h(q_0)<h(q_1)\leq h(y)$ so that, in particular, it holds that $h(x)<h(y)$ and thus $h$ is an order-preserving map and, therefore, also an embedding $h\colon\lambda\hookrightarrow\alpha$.
+    Since $\alpha$ is dense there exists an embedding
+    $h_0\colon\eta\hookrightarrow\alpha$.  We now set out to extend $h_0$ to an
+    embedding of $\lambda$ into $\alpha$.  Define the map
+    $h\colon\reals\to\domain{}\alpha$ such that, for each $r\in\reals$,
+    \begin{equation} h(r)=\sup\setbuild{h_0(q)}{q\in\rats\text{ and }q<r}.
+    \end{equation} It clearly follows by definition that
+    $h\restriction\rats=h_0$.  Note that, since $\eta$ is dense in $\lambda$
+    there exists a $q_0\in\rats$ such that $x<q_0<y$.  Again invoking the
+    density of the rationals in the reals, there exists a
+    $q_1\in(q_0,y)\cap\rats$.  Since $h_0$ is an embedding, it follows from the
+    definition of $h$ that $h(x)\leq h(q_0)<h(q_1)\leq h(y)$ so that, in
+    particular, it holds that $h(x)<h(y)$ and thus $h$ is an order-preserving
+    map and, therefore, also an embedding $h\colon\lambda\hookrightarrow\alpha$.
 
-	All that remains is to show that there now exists an embedding $h^\prime\colon\lambda\hookrightarrow\alpha$ such that $h^\prime[\reals]$ is a convex set in $\alpha$.  Consider now the open interval $I=(0,1)\subseteq\reals$ and its image $J=h[I]$ under $h$.  We now proceed to show that $J$ is convex.  Note that $h(0)<J<h(1)$ so we may therefore conclude that $J$ is bounded in $\alpha$.  Thus, since $\alpha$ is complete, we may define $a=\inf J$ and $b=\sup J$.  Now fix any $d\in(a,b)_\alpha$ and choose $\ell=\sup\setbuild{r\in\reals}{h(r)<d}$ and $u=\inf\setbuild{r\in\reals}{h(r)>d}$.  By definition, it must hold that $\ell\leq u$.  Suppose that $u<\ell$ then there exists some $r_0\in(\ell,u)$.  Since $h$ is an embedding, it follows that $h(\ell)<h(r_0)<h(u)$.  Now, if $h(r_0)<d$ then it follows by definition of $\ell$ that $r_0\leq\ell$, which is a contradiction.  Similarly, if $h(r_0)>d$ then it follows that $r_0\geq u$, also a contradiction.  Therefore, it follows that $h(r_0)=d$ from which we may conclude that, since $r_0\in(\ell,u)\subseteq I$ it follows that $d\in J$.  Note that if $J$ had a greatest element then its preimage under $h$ would be forced to be $1\in\reals$, contradicting the fact that $1\notin I=(0,1)$.  Similarly, since $0\notin I$, $J$ cannot have a least element either.  Therefore, since it holds that $(0,1)\cong\lambda$, $h$ is an embedding and $h\restriction(0,1)$ maps onto a convex subset of $\alpha$, the result follows.
+    All that remains is to show that there now exists an embedding
+    $h^\prime\colon\lambda\hookrightarrow\alpha$ such that $h^\prime[\reals]$ is
+    a convex set in $\alpha$.  Consider now the open interval
+    $I=(0,1)\subseteq\reals$ and its image $J=h[I]$ under $h$.  We now proceed
+    to show that $J$ is convex.  Note that $h(0)<J<h(1)$ so we may therefore
+    conclude that $J$ is bounded in $\alpha$.  Thus, since $\alpha$ is complete,
+    we may define $a=\inf J$ and $b=\sup J$.  Now fix any $d\in(a,b)_\alpha$ and
+    choose $\ell=\sup\setbuild{r\in\reals}{h(r)<d}$ and
+    $u=\inf\setbuild{r\in\reals}{h(r)>d}$.  By definition, it must hold that
+    $\ell\leq u$.  Suppose that $u<\ell$ then there exists some
+    $r_0\in(\ell,u)$.  Since $h$ is an embedding, it follows that
+    $h(\ell)<h(r_0)<h(u)$.  Now, if $h(r_0)<d$ then it follows by definition of
+    $\ell$ that $r_0\leq\ell$, which is a contradiction.  Similarly, if
+    $h(r_0)>d$ then it follows that $r_0\geq u$, also a contradiction.
+    Therefore, it follows that $h(r_0)=d$ from which we may conclude that, since
+    $r_0\in(\ell,u)\subseteq I$ it follows that $d\in J$.  Note that if $J$ had
+    a greatest element then its preimage under $h$ would be forced to be
+    $1\in\reals$, contradicting the fact that $1\notin I=(0,1)$.  Similarly,
+    since $0\notin I$, $J$ cannot have a least element either.  Therefore, since
+    it holds that $(0,1)\cong\lambda$, $h$ is an embedding and
+    $h\restriction(0,1)$ maps onto a convex subset of $\alpha$, the result
+    follows.
 \end{proof}
 
 \begin{thm}\label{thm:Cll}
